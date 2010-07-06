@@ -1,0 +1,15 @@
+
+radikker 
+
+radiko + twitter for iPhone
+
+
+* Required Libraries
+
+- RegexKitLite http://http://regexkit.sourceforge.net/
+- json-framework http://code.google.com/p/json-framework/
+- gdata-objectivec-client http://code.google.com/p/gdata-objectivec-client/
+- ImageStore http://github.com/psychs/imagestore
+- librtmp http://rtmpdump.mplayerhq.hu/
+- OAuthConsumer http://code.google.com/p/oauthconsumer/
+- openssl http://www.openssl.org/

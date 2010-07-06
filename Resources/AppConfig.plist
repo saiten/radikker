@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>StationUrl</key>
+	<string>http://radiko.jp/station/</string>
+	<key>ProgramUrl</key>
+	<string>http://radiko.jp/epg/epgapi.php</string>
+	<key>RadikoPlayer</key>
+	<dict>
+		<key>Protocol</key>
+		<string>rtmpe</string>
+		<key>HostName</key>
+		<string>radiko.smartstream.ne.jp</string>
+		<key>Port</key>
+		<integer>1935</integer>
+		<key>AppFormat</key>
+		<string>%@/_defInst_</string>
+		<key>PlayPath</key>
+		<string>simul-stream</string>
+		<key>SwfUrl</key>
+		<string>hoge</string>
+		<key>FlashVersion</key>
+		<string>WIN 10,1,53,64</string>
+	</dict>
+	<key>SettingValues</key>
+	<dict>
+		<key>SettingInitialLoad</key>
+		<dict>
+			<key>Title</key>
+			<string>Initial Load</string>
+			<key>DefaultValue</key>
+			<integer>20</integer>
+			<key>Values</key>
+			<array>
+				<integer>20</integer>
+				<integer>50</integer>
+				<integer>100</integer>
+				<integer>200</integer>
+			</array>
+			<key>Names</key>
+			<array>
+				<string>20 posts</string>
+				<string>50 posts</string>
+				<string>100 posts</string>
+				<string>200 posts</string>
+			</array>
+		</dict>
+		<key>SettingAutoRefresh</key>
+		<dict>
+			<key>Title</key>
+			<string>Auto Refresh</string>
+			<key>DefaultValue</key>
+			<integer>0</integer>
+			<key>Values</key>
+			<array>
+				<integer>0</integer>
+				<integer>30</integer>
+				<integer>60</integer>
+				<integer>180</integer>
+				<integer>300</integer>
+				<integer>600</integer>
+			</array>
+			<key>Names</key>
+			<array>
+				<string>disabled</string>
+				<string>30 seconds</string>
+				<string>1 minute</string>
+				<string>3 minutes</string>
+				<string>5 minutes</string>
+				<string>10 minutes</string>
+			</array>
+		</dict>
+		<key>SettingBufferSize</key>
+		<dict>
+			<key>Title</key>
+			<string>Buffer Size</string>
+			<key>DefaultValue</key>
+			<integer>96000</integer>
+			<key>Values</key>
+			<array>
+				<integer>48000</integer>
+				<integer>64000</integer>
+				<integer>96000</integer>
+				<integer>160000</integer>
+				<integer>256000</integer>
+			</array>
+			<key>Names</key>
+			<array>
+				<string>48KB</string>
+				<string>64KB</string>
+				<string>96KB</string>
+				<string>160KB</string>
+				<string>256KB</string>
+			</array>
+		</dict>
+	</dict>
+	<key>HashTags</key>
+	<dict>
+		<key>TBS</key>
+		<string>#tbsradio</string>
+		<key>QRR</key>
+		<string>#joqr</string>
+		<key>LFR</key>
+		<string>#jolf</string>
+		<key>NSB</key>
+		<string>#radionikkei</string>
+		<key>INT</key>
+		<string>#interfm</string>
+		<key>FMT</key>
+		<string>#tokyofm</string>
+		<key>FMJ</key>
+		<string>#jwave</string>
+	</dict>
+</dict>
+</plist>
