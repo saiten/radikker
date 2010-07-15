@@ -21,7 +21,6 @@
 	if(station.tuning) {
 		mainView.tunerView.tunedIndex = selectedStationIndex;
 		tunedStationIndex = selectedStationIndex;
-		[self playRadiko];
 	}
 	
 	[self playRadiko];
