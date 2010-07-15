@@ -37,13 +37,9 @@
 		E1681A0A116441530078D8C2 /* RDIPSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1681A09116441530078D8C2 /* RDIPSubView.m */; };
 		E1719849116B09FD009526B6 /* RDIPTwitterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1719848116B09FD009526B6 /* RDIPTwitterViewController.m */; };
 		E1719880116B1367009526B6 /* bird.png in Resources */ = {isa = PBXBuildFile; fileRef = E1719872116B1367009526B6 /* bird.png */; };
-		E1719881116B1367009526B6 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = E1719873116B1367009526B6 /* calendar.png */; };
-		E1719882116B1367009526B6 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = E1719874116B1367009526B6 /* camera.png */; };
-		E1719883116B1367009526B6 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = E1719875116B1367009526B6 /* clock.png */; };
 		E1719884116B1367009526B6 /* envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = E1719876116B1367009526B6 /* envelope.png */; };
 		E1719886116B1367009526B6 /* headphones.png in Resources */ = {isa = PBXBuildFile; fileRef = E1719878116B1367009526B6 /* headphones.png */; };
 		E1719887116B1367009526B6 /* house.png in Resources */ = {isa = PBXBuildFile; fileRef = E1719879116B1367009526B6 /* house.png */; };
-		E1719888116B1367009526B6 /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = E171987A116B1367009526B6 /* location.png */; };
 		E1719889116B1367009526B6 /* magnifying-glass.png in Resources */ = {isa = PBXBuildFile; fileRef = E171987B116B1367009526B6 /* magnifying-glass.png */; };
 		E171988B116B1367009526B6 /* chat.png in Resources */ = {isa = PBXBuildFile; fileRef = E171987E116B1367009526B6 /* chat.png */; };
 		E171988C116B1367009526B6 /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = E171987F116B1367009526B6 /* gear.png */; };
@@ -208,13 +204,9 @@
 		E1719847116B09FD009526B6 /* RDIPTwitterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDIPTwitterViewController.h; sourceTree = "<group>"; };
 		E1719848116B09FD009526B6 /* RDIPTwitterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDIPTwitterViewController.m; sourceTree = "<group>"; };
 		E1719872116B1367009526B6 /* bird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bird.png; sourceTree = "<group>"; };
-		E1719873116B1367009526B6 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
-		E1719874116B1367009526B6 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
-		E1719875116B1367009526B6 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
 		E1719876116B1367009526B6 /* envelope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = envelope.png; sourceTree = "<group>"; };
 		E1719878116B1367009526B6 /* headphones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headphones.png; sourceTree = "<group>"; };
 		E1719879116B1367009526B6 /* house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = house.png; sourceTree = "<group>"; };
-		E171987A116B1367009526B6 /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
 		E171987B116B1367009526B6 /* magnifying-glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "magnifying-glass.png"; sourceTree = "<group>"; };
 		E171987E116B1367009526B6 /* chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat.png; sourceTree = "<group>"; };
 		E171987F116B1367009526B6 /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
@@ -724,13 +716,9 @@
 				E1A3CE77118D957C008964C7 /* list.png */,
 				E1A3CE59118D78AA008964C7 /* atmark.png */,
 				E1719872116B1367009526B6 /* bird.png */,
-				E1719873116B1367009526B6 /* calendar.png */,
-				E1719874116B1367009526B6 /* camera.png */,
-				E1719875116B1367009526B6 /* clock.png */,
 				E1719876116B1367009526B6 /* envelope.png */,
 				E1719878116B1367009526B6 /* headphones.png */,
 				E1719879116B1367009526B6 /* house.png */,
-				E171987A116B1367009526B6 /* location.png */,
 				E171987B116B1367009526B6 /* magnifying-glass.png */,
 			);
 			path = Button;
@@ -1184,13 +1172,9 @@
 				E15DDA3E11640463007A7A63 /* twitter.png in Resources */,
 				E1F003241169C25B0063B091 /* icon.png in Resources */,
 				E1719880116B1367009526B6 /* bird.png in Resources */,
-				E1719881116B1367009526B6 /* calendar.png in Resources */,
-				E1719882116B1367009526B6 /* camera.png in Resources */,
-				E1719883116B1367009526B6 /* clock.png in Resources */,
 				E1719884116B1367009526B6 /* envelope.png in Resources */,
 				E1719886116B1367009526B6 /* headphones.png in Resources */,
 				E1719887116B1367009526B6 /* house.png in Resources */,
-				E1719888116B1367009526B6 /* location.png in Resources */,
 				E1719889116B1367009526B6 /* magnifying-glass.png in Resources */,
 				E171988B116B1367009526B6 /* chat.png in Resources */,
 				E171988C116B1367009526B6 /* gear.png in Resources */,
