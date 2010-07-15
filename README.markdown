@@ -12,7 +12,7 @@ radiko + twitter for iPhone
 * OAuthConsumer http://code.google.com/p/oauthconsumer/
 * openssl http://www.openssl.org/
 
-## Copylight
+## copyright
 
 ### radikker
 
