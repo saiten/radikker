@@ -90,7 +90,7 @@
 	[needleLayer setNeedsDisplay];
 
 	needleLayer.zPosition = 2.0f;
-	needleLayer.hidden = YES;
+	needleLayer.opacity = 0.0f;
 	[contentView.layer addSublayer:needleLayer];
 
 	scrollView = [[UIScrollView alloc] initWithFrame:CGRectZero];
@@ -216,13 +216,13 @@
 
 	tunedIndex = i;
 
-	// animation
 	if(tunedIndex < 0) {
 		needleLayer.opacity = 0.0;
 	} else {
 		needleLayer.opacity = 1.0;
 	}
 
+	// animation
 	CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"position"];
 	anim.fillMode = kCAFillModeForwards;
 	anim.duration = 0.5f;
