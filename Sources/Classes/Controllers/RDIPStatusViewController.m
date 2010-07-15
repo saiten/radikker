@@ -183,6 +183,10 @@
 	NSString *scheme = [[NSURL URLWithString:url] scheme];
 	
 	if([scheme isEqual:@"mailto"]){
+		if(![MFMailComposeViewController canSendMail]) {
+			SimpleAlertShow(@"Error", NSLocalizedString(@"This device can not send mail.", @"sendmail_error"));
+			return;
+		}			
 		MFMailComposeViewController *mcvc = [[[MFMailComposeViewController alloc] init] autorelease];
 		mcvc.mailComposeDelegate = self;
 		[mcvc setToRecipients:[NSArray arrayWithObject:[url substringFromIndex:7]]];

@@ -38,7 +38,7 @@
 	[title release];
 	title = [s retain];
 	titleSize = [title sizeWithFont:DRAW_FONT 
-						   forWidth:self.frame.size.width 
+						   forWidth:320 
 					  lineBreakMode:UILineBreakModeTailTruncation];
 
 	[self setNeedsDisplay];

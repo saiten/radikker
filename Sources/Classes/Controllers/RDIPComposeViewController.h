@@ -14,6 +14,7 @@
 @interface RDIPComposeViewController : UIViewController {
 	RDIPTwitterStatus *postStatus;
 	
+	NSRange selectRange;
 	NSString *text;
 	RDIPComposeView *composeView;
 	
@@ -26,6 +27,7 @@
 
 @property (nonatomic, readonly) RDIPTwitterStatus *postStatus;
 @property (nonatomic, retain) NSString *text;
+@property (nonatomic, readwrite) NSRange selectRange;
 
 - (id)initWithText:(NSString *)text;
 

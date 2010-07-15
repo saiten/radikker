@@ -13,6 +13,10 @@
 
 @interface RDIPProgramListViewController : UITableViewController {
 	RDIPStation *station;
+
+	RDIPProgram *nowOnAir;
+	NSArray *programs;
+
 	NSTimer *updateTimer;
 
 	UIActivityIndicatorView *indicatorView;

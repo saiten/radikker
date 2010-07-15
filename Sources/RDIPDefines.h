@@ -10,8 +10,8 @@
 //
 // limit setting
 //
-#define RDIP_CHECK_LOCATION_VIA_3G 1
-#define RDIP_CHECK_JAILBREAK 0
+#define RDIP_CHECK_LOCATION_VIA_3G YES
+#define RDIP_CHECK_JAILBREAK       YES
 
 //
 // Config keys
@@ -36,6 +36,7 @@
 #define RDIPSETTING_AUTOREFRESH @"SettingAutoRefresh"
 #define RDIPSETTING_INITIALLOAD @"SettingInitialLoad"
 #define RDIPSETTING_BUFFERSIZE  @"SettingBufferSize"
+#define RDIPSETTING_INITIALPLAY  @"SettingInitialPlay"
 
 #define RDIPSETTING_FIRSTLAUNCH       @"SettingFirstLaunch"
 #define RDIPSETTING_FIRSTCONNECTVIA3G @"SettingFirstConnectVia3G"

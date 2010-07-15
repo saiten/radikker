@@ -17,7 +17,7 @@
 
 @implementation RDIPComposeViewController
 
-@synthesize postStatus;
+@synthesize postStatus, selectRange;
 
 - (id)initWithText:(NSString *)aText
 {
@@ -119,6 +119,8 @@
 	text = [s retain];
 	if(composeView)
 		composeView.text = text;
+
+	selectRange = NSMakeRange(0, 0);
 }
 
 #pragma mark -
@@ -130,6 +132,7 @@
 	[postStatus release];
 	postStatus = nil;
 	[composeView showKeyboard];
+	composeView.selectRange = selectRange;
 }
 
 - (void)viewDidAppear:(BOOL)animated 
@@ -140,6 +143,7 @@
 - (void)viewWillDisappear:(BOOL)animated 
 {
     [super viewWillDisappear:animated];
+	selectRange = composeView.selectRange;
 }
 
 - (void)viewDidDisappear:(BOOL)animated 

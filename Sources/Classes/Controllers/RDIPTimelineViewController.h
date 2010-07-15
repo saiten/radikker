@@ -17,6 +17,8 @@
 
 	UIView *loadingView;
 	UIActivityIndicatorView *moreLoadingIndicatorView;
+	
+	NSTimer *updateTimer;
 }
 
 - (void)cancel;

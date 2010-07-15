@@ -7,10 +7,18 @@
 //
 
 #import "RDIPProgramListViewController.h"
+#import "RDIPWebBrowserController.h"
+#import "RDIPAppDelegate.h"
+#import "RDIPEPG.h"
+#import "RDIPProgramViewCell.h"
 
+@interface RDIPProgramListViewController(private)
+- (void)startTimer;
+- (void)stopTimer;
+- (void)loadProgram;
+@end
 
 @implementation RDIPProgramListViewController
-
 
 #pragma mark -
 #pragma mark Initialization
@@ -26,153 +34,219 @@
 #pragma mark -
 #pragma mark View lifecycle
 
-/*
-- (void)viewDidLoad {
+- (void)viewDidLoad 
+{
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	self.view.backgroundColor = [UIColor whiteColor];
+	self.tableView.scrollEnabled = YES;
+	
+	indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+	CGRect rect = CGRectMake((self.view.frame.size.width - 24)/2, 40, 24, 24);
+	indicatorView.frame = rect;
+	indicatorView.hidesWhenStopped = YES;	
 }
-*/
 
-/*
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated 
+{
     [super viewWillAppear:animated];
+	[self startTimer];
+	[self loadProgram];
 }
-*/
-/*
-- (void)viewDidAppear:(BOOL)animated {
+
+- (void)viewDidAppear:(BOOL)animated 
+{
     [super viewDidAppear:animated];
 }
-*/
-/*
-- (void)viewWillDisappear:(BOOL)animated {
+
+- (void)viewWillDisappear:(BOOL)animated 
+{
     [super viewWillDisappear:animated];
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+	[self stopTimer];
 }
-*/
-/*
-- (void)viewDidDisappear:(BOOL)animated {
+
+- (void)viewDidDisappear:(BOOL)animated 
+{
     [super viewDidDisappear:animated];
 }
-*/
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
+{
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-*/
 
 
 #pragma mark -
 #pragma mark Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 1;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	NSInteger index = [indexPath row];
+	if(programs && index < programs.count)
+		return [RDIPProgramViewCell cellHeightForProgram:[programs objectAtIndex:index]];
+
+	return 44.0;
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView 
+{
+	return 1;
+}
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return 1;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
+{
+	if(programs)
+		return programs.count;
+    else
+		return 0;
 }
 
 
 // Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
+{    
     static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
-    
-    // Configure the cell...
-    
+	RDIPProgramViewCell *cell = (RDIPProgramViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	if (cell == nil) {
+		cell = [[[RDIPProgramViewCell alloc] initWithStyle:UITableViewCellStyleDefault 
+										   reuseIdentifier:CellIdentifier] autorelease];
+		UIView *bgView = [[[UILabel alloc] initWithFrame:CGRectZero] autorelease];
+		cell.backgroundView = bgView;
+		cell.contentView.backgroundColor = [UIColor clearColor];
+	}
+	
+	NSInteger index = [indexPath row];
+	if(programs && index < programs.count) {
+		RDIPProgram *program = [programs objectAtIndex:index];
+		[cell setProgram:program];
+
+		if(program.url && program.url.length > 0) {
+			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+			cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+		} else {
+			cell.accessoryType = UITableViewCellAccessoryNone;
+			cell.selectionStyle = UITableViewCellSelectionStyleNone;
+		}
+		
+		if(program == nowOnAir)
+			cell.backgroundView.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:0.86 alpha:1.0];
+		else if(index % 2 == 1)
+			cell.backgroundView.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
+		else
+			cell.backgroundView.backgroundColor = [UIColor whiteColor];
+	}
+	    
     return cell;
 }
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 
 #pragma mark -
 #pragma mark Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-	/*
-	 <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-	 [self.navigationController pushViewController:detailViewController animated:YES];
-	 [detailViewController release];
-	 */
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
+{
+	NSInteger index = [indexPath row];
+	if(programs && index < programs.count) {
+		RDIPProgram *program = [programs objectAtIndex:index];
+		if(program.url && program.url.length > 0) {
+			RDIPWebBrowserController *wbc = [[[RDIPWebBrowserController alloc] init] autorelease];
+			[[self mainNavigationController] pushViewController:wbc animated:YES];
+			[wbc openURL:program.url];
+		}
+	}
 }
 
 
 #pragma mark -
 #pragma mark Memory management
 
-- (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
+- (void)didReceiveMemoryWarning 
+{
     [super didReceiveMemoryWarning];
-    
-    // Relinquish ownership any cached data, images, etc that aren't in use.
 }
 
-- (void)viewDidUnload {
-    // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
-    // For example: self.myOutlet = nil;
+- (void)viewDidUnload 
+{
+	[indicatorView release];
+	indicatorView = nil;
+
+	[super viewDidUnload];
 }
 
 
 - (void)dealloc {
-    [super dealloc];
+	[indicatorView release];
+	[programs release];
+	[station release];
+	
+	[super dealloc];
 }
 
+#pragma mark -
+#pragma mark original methods
+
+- (void)startTimer
+{
+    if(updateTimer == nil) {
+		updateTimer = [NSTimer scheduledTimerWithTimeInterval:(NSTimeInterval)10.0
+													   target:self 
+													 selector:@selector(loadProgram)
+													 userInfo:nil 
+													  repeats:TRUE];
+    }
+}
+
+- (void)stopTimer
+{
+    if(updateTimer) {
+		[updateTimer invalidate];
+		updateTimer = nil;
+    }
+}
+
+- (void)loadProgram
+{
+	NSArray *ps = [[RDIPEPG sharedInstance] programsForStation:station.stationId];
+	if(ps) {
+		[indicatorView removeFromSuperview];
+		[indicatorView stopAnimating];
+		
+		if(programs != ps) {
+			[programs release];
+			programs = [ps retain];
+		
+			[self.tableView reloadData];
+		}
+		
+		RDIPProgram *p = [[RDIPEPG sharedInstance] programForStationAtNow:station.stationId];
+		if(p && nowOnAir != p) {
+			[nowOnAir release];
+			nowOnAir = [p retain];		
+		}
+		
+		return;
+	}
+	
+	[self.view addSubview:indicatorView];
+	[indicatorView startAnimating];
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self 
+											 selector:@selector(RDIPEpgGetProgramNotification:) 
+												 name:RDIPEPG_GETPROGRAM_NOTIFICATION
+											   object:nil];
+}
+
+- (void)RDIPEpgGetProgramNotification:(NSNotification*)notification
+{
+	NSError *err = [[notification userInfo] objectForKey:RDIPEPG_KEY_ERROR];
+	if(err) {
+		// TODO
+	} else {
+		[self loadProgram];
+	}	
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 @end
 

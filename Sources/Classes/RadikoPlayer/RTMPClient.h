@@ -57,6 +57,8 @@ typedef enum {
 	uint32_t length;
 	
 	double duration;
+	
+	uint32_t bufferSize;
 }
 
 @property(nonatomic, assign) id delegate;
@@ -64,7 +66,7 @@ typedef enum {
 @property(nonatomic, readwrite) int protocol, port;
 @property(nonatomic, readwrite) long int timeout;
 @property(nonatomic, retain) NSString *url, *host, *playPath, *app, *swfUrl, *tcUrl, *flashVersion;
-@property(nonatomic, readwrite) uint32_t swfSize, bufferTime, seek, length;
+@property(nonatomic, readwrite) uint32_t swfSize, bufferTime, seek, length, bufferSize;
 @property(nonatomic, readonly) NSError *error;
 
 - (id)initWithDelegate:(id)delegate;

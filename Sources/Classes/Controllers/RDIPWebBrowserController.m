@@ -177,7 +177,7 @@
 													 cancelButtonTitle:NSLocalizedString(@"Cancel", @"cancel")
 												destructiveButtonTitle:nil
 													 otherButtonTitles:NSLocalizedString(@"Open with Safari", @"open_with_safari"),
-								   NSLocalizedString(@"Email this link", @"email_this_link"), nil] autorelease];
+								                                       NSLocalizedString(@"Email this link", @"email_this_link"), nil] autorelease];
 	[actionSheet showInView:self.view.window];
 }
 
@@ -230,6 +230,11 @@
 		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:currentUrl]];
 	} else if(buttonIndex == 1) { 
 		// email this link
+		if(![MFMailComposeViewController canSendMail]) {
+			SimpleAlertShow(@"Error", NSLocalizedString(@"This device can not send mail.", @"sendmail_error"));
+			return;
+		}
+
 		MFMailComposeViewController *mcvc = [[[MFMailComposeViewController alloc] init] autorelease];
 		mcvc.mailComposeDelegate = self;
 		

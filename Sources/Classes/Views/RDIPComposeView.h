@@ -22,6 +22,7 @@
 
 @property(nonatomic, assign) id delegate;
 @property(nonatomic, retain) NSString *text;
+@property(nonatomic, readwrite) NSRange selectRange;
 
 - (void)showKeyboard;
 - (void)showOverlay;

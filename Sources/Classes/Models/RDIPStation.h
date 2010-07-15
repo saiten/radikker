@@ -30,3 +30,11 @@
 @interface RDIPTwitterStation : RDIPStation {
 }
 @end
+
+@interface RDIPNoServiceStation : RDIPStation {
+}
+@end
+
+@interface RDIPUpdateStateStation : RDIPStation {
+}
+@end

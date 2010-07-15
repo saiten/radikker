@@ -62,6 +62,7 @@
 	rtmpClient.url = url;
 	rtmpClient.swfUrl = swfUrl;
 	rtmpClient.flashVersion = flashVersion;
+	rtmpClient.timeout = 15;
 	
 	[rtmpClient connect];
 }
@@ -83,12 +84,9 @@
 
 - (void)_createAudioFileStream
 {
-	UInt32 bufferSize = 0;
 	NSNumber *numBufferSize = [[AppSetting sharedInstance] objectForKey:RDIPSETTING_BUFFERSIZE];
-	if(numBufferSize)
-		bufferSize = [numBufferSize unsignedIntValue] / AUDIOBUFFER_COUNT;
-
-	audioStreamPlayer = [[AudioStreamPlayer alloc] initWithDelegate:self bufferSize:bufferSize];
+	
+	audioStreamPlayer = [[AudioStreamPlayer alloc] initWithDelegate:self bufferSize:[numBufferSize intValue]];
 	audioStreamPlayer.inputHandle = [convertToQueuePipe fileHandleForReading];
 	
 	[audioStreamPlayer play];
@@ -97,12 +95,16 @@
 - (void)play
 {
 	@synchronized(self) {
-		if(status == RADIKOPLAYER_STATUS_PLAY 
-		   || status == RADIKOPLAYER_STATUS_CONNECT 
-		   || status == RADIKOPLAYER_STATUS_DISCONNECT)
+		if(status == RADIKOPLAYER_STATUS_PLAY || 
+		   status == RADIKOPLAYER_STATUS_CONNECT ||
+		   status == RADIKOPLAYER_STATUS_DISCONNECT)
 			return;	
+
 		status = RADIKOPLAYER_STATUS_CONNECT;
 
+		if(delegate && [delegate respondsToSelector:@selector(radikoPlayerWillPlay:)])
+			[delegate radikoPlayerWillPlay:self];
+		
 		rtmpToConvertPipe = [[NSPipe pipe] retain];
 		convertToQueuePipe = [[NSPipe pipe] retain];
 	
@@ -113,11 +115,16 @@
 - (void)stop
 {
 	@synchronized(self) {
-		if(! (status == RADIKOPLAYER_STATUS_PLAY || status == RADIKOPLAYER_STATUS_CONNECT))
+		if(!(status == RADIKOPLAYER_STATUS_PLAY ||
+			 status == RADIKOPLAYER_STATUS_CONNECT ||
+			 status == RADIKOPLAYER_STATUS_DISCONNECT))
 			return;
 
 		status = RADIKOPLAYER_STATUS_DISCONNECT;
 
+		if(delegate && [delegate respondsToSelector:@selector(radikoPlayerWillStop:)])
+			[delegate radikoPlayerWillStop:self];
+		
 		[rtmpClient disconnect];
 		[audioStreamPlayer stop];
 	}
@@ -217,6 +224,12 @@
 	if(delegate && [delegate respondsToSelector:@selector(radikoPlayerDidPlay:)]) {
 		[delegate radikoPlayerDidPlay:self];
 	}
+}
+
+- (void)audioStreamPlayerDidBufferEmpty:(AudioStreamPlayer *)player
+{
+	if(delegate && [delegate respondsToSelector:@selector(radikoPlayerDidEmptyBuffer:)])
+		[delegate radikoPlayerDidEmptyBuffer:self];
 }
 
 - (void)audioStreamPlayerDidStop:(AudioStreamPlayer *)player

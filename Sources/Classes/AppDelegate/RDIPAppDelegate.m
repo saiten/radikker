@@ -6,13 +6,11 @@
 //  Copyright Apple Inc 2010. All rights reserved.
 //
 
-#include <AVFoundation/AVFoundation.h>
+#import <AVFoundation/AVFoundation.h>
 
 #import "RDIPAppDelegate.h"
 #import "StatusBarAlert.h"
 #import "SimpleAlert.h"
-
-#import "Reachability.h"
 
 #import "AppConfig.h"
 #import "AppSetting.h"
@@ -21,15 +19,9 @@
 #import "RDIPMainViewController.h"
 #import "RDIPComposeViewController.h"
 
-
-@interface RDIPAppDelegate(private)
-- (void)checkLocation;
-- (void)noCheckLocation;
-@end
-
 @implementation RDIPAppDelegate
 
-@synthesize navigationController, composeViewController;
+@synthesize navigationController, composeViewController, mainController;
 
 #pragma mark -
 #pragma mark private methods
@@ -73,7 +65,10 @@
 - (void)_initSetting
 {
 	AppSetting *setting = [AppSetting sharedInstance];
-	NSArray *settingKeys = [NSArray arrayWithObjects:RDIPSETTING_AUTOREFRESH, RDIPSETTING_INITIALLOAD, RDIPSETTING_BUFFERSIZE, nil];
+	NSArray *settingKeys = [NSArray arrayWithObjects:RDIPSETTING_AUTOREFRESH, 
+													 RDIPSETTING_INITIALLOAD, 
+							                         RDIPSETTING_BUFFERSIZE, 
+													 RDIPSETTING_INITIALPLAY, nil];
 	for(NSString *key in settingKeys) {
 		if(![setting objectForKey:key])
 			[setting setObject:[self _defaultValueForKey:key] forKey:key];
@@ -90,35 +85,9 @@
 	
 	[self _initSetting];
 	
-	if(RDIP_CHECK_JAILBREAK && 
-	   [[NSFileManager defaultManager] fileExistsAtPath:@"/Applications/Cydia.app"]) {
-		mainController.radikoStatus = RDIP_RADIKOSTATUS_NOTSUPPORTDEVICE;
-	}
-	
-	if(RDIP_CHECK_LOCATION_VIA_3G && mainController.radikoStatus == RDIP_RADIKOSTATUS_CANPLAY) {
-		Reachability *reachability = [Reachability sharedReachability];
-		[reachability setHostName:@"radiko.jp"];
-
-		NetworkStatus st = [reachability internetConnectionStatus];
-		if(YES || st == ReachableViaCarrierDataNetwork) {
-			mainController.radikoStatus = RDIP_RADIKOSTATUS_CHECKLOCATION;
-			NSNumber *first = [[AppSetting sharedInstance] objectForKey:RDIPSETTING_FIRSTCONNECTVIA3G];
-			if(![first boolValue]) {
-				[[SimpleAlert sharedInstance] confirmTitle:NSLocalizedString(@"Confirm", @"confirm")
-												   message:NSLocalizedString(@"It is necessary to confirm your location to use radikker via 3G.", 
-																			 @"first_connect_via_3g_message")
-													target:self 
-											   allowAction:@selector(checkLocation)
-												denyAction:@selector(noCheckLocation)];
-			} else {
-				[self checkLocation];
-			}
-		}
-	}
-
-	
 	[window addSubview:navigationController.view];
     [window makeKeyAndVisible];
+
 	return YES;
 }
  
@@ -127,7 +96,7 @@
 	[self _endAudioSession];
 }
 
-- (void)dealloc 
+- (void)dealloc
 {
 	[mainController release];
 	[navigationController release];
@@ -141,36 +110,20 @@
 
 - (void)beginInterruption
 {
-	if([mainController isPlayRadiko]) {
-		[mainController stopRadiko];
-		audioInterrupted = YES;
-	} else {
-		audioInterrupted = NO;
-	}
+	RADIKOPLAYER_STATUS st = mainController.radikoPlayer.status;
+	audioInterrupted == (st ==RADIKOPLAYER_STATUS_PLAY || 
+						 st == RADIKOPLAYER_STATUS_CONNECT ||
+						 st == RADIKOPLAYER_STATUS_DISCONNECT);
+
+	[mainController.radikoPlayer stop];
 }
 
 - (void)endInterruption
 {
 	if(audioInterrupted)
-		[mainController playRadiko];
-}
+		[mainController.radikoPlayer play];
 
-#pragma mark -
-#pragma mark Check Location
-
-- (void)checkLocation
-{
-	[[AppSetting sharedInstance] setObject:[NSNumber numberWithBool:YES] 												
-									forKey:RDIPSETTING_FIRSTCONNECTVIA3G];
-	
-	mainController.radikoStatus = RDIP_RADIKOSTATUS_CANPLAY;
-	[mainController loadStations];
-}
-
-- (void)noCheckLocation
-{
-	mainController.radikoStatus = RDIP_RADIKOSTATUS_NOTSERVICESAREA;
-	[mainController loadStations];
+	audioInterrupted = NO;
 }
 
 @end

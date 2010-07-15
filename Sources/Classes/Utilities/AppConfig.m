@@ -17,6 +17,7 @@ static AppConfig *_instance = nil;
 {
 	if(self = [super init]) {
 		NSString *path = [[NSBundle mainBundle] pathForResource:@"AppConfig" ofType:@"plist"];
+		
 		[self loadConfigPlist:path];
 	}
 	return self;

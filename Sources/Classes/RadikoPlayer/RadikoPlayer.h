@@ -49,11 +49,14 @@ typedef enum {
 @end
 
 @interface NSObject(RadikoPlayerDelegate)
+- (void)radikoPlayerWillPlay:(RadikoPlayer*)radikoPlayer;
+- (void)radikoPlayerWillStop:(RadikoPlayer*)radikoPlayer;
 - (void)radikoPlayerDidPlay:(RadikoPlayer*)radikoPlayer;
 - (void)radikoPlayerDidStop:(RadikoPlayer*)radikoPlayer;
 - (void)radikoPlayerDidConnectRTMPStream:(RadikoPlayer*)radikoPlayer;
 - (void)radikoPlayerDidDisconnectRTMPStream:(RadikoPlayer*)radikoPlayer;
 - (void)radikoPlayerDidOpenAudioStream:(RadikoPlayer*)radikoPlayer;
+- (void)radikoPlayerDidEmptyBuffer:(RadikoPlayer*)radikoPlayer;
 - (void)radikoPlayerDidCloseAudioStream:(RadikoPlayer*)radikoPlayer;
 - (void)radikoPlayerDidFailed:(RadikoPlayer*)radikoPlayer withError:(NSError*)error;
 @end

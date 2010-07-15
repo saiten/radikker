@@ -76,3 +76,38 @@
 
 @end
 
+@implementation RDIPNoServiceStation
+
+- (id)init
+{
+	if((self = [super init])) {
+		stationId = @"NOSV";
+		stationName = @"noservice";
+		NSString *logoPath = [[[NSBundle mainBundle] pathForResource:@"warning" ofType:@"png"] retain];
+		logoUrl = [[[NSURL fileURLWithPath:logoPath] absoluteString] retain];
+		feedUrl = nil;
+		bannerUrl = nil;
+		tuning = NO;
+	}
+	return self;
+}
+
+@end
+
+@implementation RDIPUpdateStateStation
+
+- (id)init
+{
+	if((self = [super init])) {
+		stationId = @"UPST";
+		stationName = @"updatestate";
+		logoUrl = nil;
+		feedUrl = nil;
+		bannerUrl = nil;
+		tuning = NO;
+	}
+	return self;
+}
+
+@end
+

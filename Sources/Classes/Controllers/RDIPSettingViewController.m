@@ -13,6 +13,7 @@
 
 #import "RDIPSettingViewController.h"
 #import "RDIPOAuthViewController.h"
+#import "RDIPAboutViewController.h"
 #import "RDIPSettingValueSelectViewController.h"
 
 enum {
@@ -24,7 +25,7 @@ enum {
 
 enum {
 	SETTINGVIEW_NUMS_TWITTER = 3,
-	SETTINGVIEW_NUMS_RADIKO  = 2,
+	SETTINGVIEW_NUMS_RADIKO  = 1,
 	SETTINGVIEW_NUMS_ABOUT   = 1
 };
 
@@ -128,7 +129,12 @@ enum {
 		cell.textLabel.text = NSLocalizedString(@"Account", @"");
 		NSString *screen_name = [[AppSetting sharedInstance] stringForKey:RDIPSETTING_SCREENNAME];
 		cell.detailTextLabel.text = screen_name;
-		cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+		
+		if(screen_name)
+			cell.accessoryType = UITableViewCellAccessoryNone;
+		else
+			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+		
 	} else if(row == 1) {
 		cell.textLabel.text = NSLocalizedString(@"Auto Refresh", @"");
 		cell.detailTextLabel.text = [self nameOfValueForKey:RDIPSETTING_AUTOREFRESH];
@@ -155,8 +161,8 @@ enum {
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	} else if(row == 1) {
 		cell.textLabel.text = NSLocalizedString(@"Initial play", @"");
-		cell.detailTextLabel.text = nil;
-		cell.accessoryType = UITableViewCellAccessoryNone;
+		cell.detailTextLabel.text = [self nameOfValueForKey:RDIPSETTING_INITIALPLAY];
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	} else {
 		cell.textLabel.text = NSLocalizedString(@"Sort tuner", @"");
 		cell.detailTextLabel.text = nil;
@@ -219,10 +225,17 @@ enum {
 			if([indexPath row] == 0) {
 				UIViewController *vc = [self settingValueSelectViewControllerForName:RDIPSETTING_BUFFERSIZE];
 				[self.navigationController pushViewController:vc animated:YES];
+			} else if([indexPath row] == 1) {
+				UIViewController *vc = [self settingValueSelectViewControllerForName:RDIPSETTING_INITIALPLAY];
+				[self.navigationController pushViewController:vc animated:YES];
 			}
 			break;
 		}
 		case SETTINGVIEW_SECTION_ABOUT: {
+			if([indexPath row] == 0) {
+				RDIPAboutViewController *vc = [[[RDIPAboutViewController alloc] init] autorelease];
+				[self.navigationController pushViewController:vc animated:YES];
+			}
 			break;
 		}
 	}

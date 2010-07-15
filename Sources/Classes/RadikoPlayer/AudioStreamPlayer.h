@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <AudioToolbox/AudioToolbox.h>
 
-#define AUDIOBUFFER_COUNT 3
-#define AUDIOBUFFER_SIZE  32000
+#define AUDIOBUFFER_MAXCOUNT 256
+#define AUDIOBUFFER_SIZE  4096
 #define PACKET_DESC_COUNT 160
 
 @interface AudioStreamPlayer : NSObject {
@@ -21,12 +21,14 @@
 	AudioFileStreamID audioStreamId;
 	AudioStreamBasicDescription audioBasicDesc;
 	AudioQueueRef audioQueue;
-
+	
+	UInt32 bufferCount;
 	UInt32 bufferSize;
-	AudioQueueBufferRef audioBuffers[AUDIOBUFFER_COUNT];
-	BOOL useBuffer[AUDIOBUFFER_COUNT];
+	AudioQueueBufferRef audioBuffers[AUDIOBUFFER_MAXCOUNT];
+	BOOL useBuffer[AUDIOBUFFER_MAXCOUNT];
 	int targetBufferIndex;
 	UInt32 fillBufferSize;
+	UInt32 fillQueueBufferCount;
 	
 	AudioStreamPacketDescription packetDescs[PACKET_DESC_COUNT];
 	UInt32 fillPacketDescIndex;

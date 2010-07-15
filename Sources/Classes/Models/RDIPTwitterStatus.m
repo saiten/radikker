@@ -69,9 +69,9 @@
 
 - (NSString*)textByAppendLinks
 {
-	return [[[text stringByReplacingOccurrencesOfRegex:@"@([A-Za-z0-9_]+)" withString:@"<a href=\"rdip://user/$1\">$0</a>"] 
-			       stringByReplacingOccurrencesOfRegex:@"#([A-Za-z0-9_]+)" withString:@"<a href=\"rdip://search/%23$1\">$0</a>"]
-			       stringByReplacingOccurrencesOfRegex:@"https?://[-_.!~*'()a-zA-Z0-9;/?:@&=+$,%#]+" withString:@"<a href=\"$0\">$0</a>"];
+	return [[[text stringByReplacingOccurrencesOfRegex:@"https?://[-_.!~*'()a-zA-Z0-9;/?:@&=+$,%#]+" withString:@"<a href=\"$0\">$0</a>"]
+				   stringByReplacingOccurrencesOfRegex:@"@([A-Za-z0-9_]+)" withString:@"<a href=\"rdip://user/$1\">$0</a>"]
+			       stringByReplacingOccurrencesOfRegex:@"#([A-Za-z0-9_]+)" withString:@"<a href=\"rdip://search/%23$1\">$0</a>"];
 }
 
 - (NSString*)stringCreatedSinceNow

@@ -20,7 +20,6 @@
 
 @interface RDIPTimelineViewController (private)
 - (NSArray*)_uniqueArray:(NSArray*)arr;
-
 @end
 
 @implementation RDIPTimelineViewController
@@ -167,10 +166,8 @@
 		if([indexPath row] == 0) {
 			if(activeClient != nil) {
 				[self cancel];
-				[(RDIPLoadingViewCell*)[tableView cellForRowAtIndexPath:indexPath] setLoading:NO];
 			} else {
 				[self loadLatestTimelineForce:YES];
-				[(RDIPLoadingViewCell*)[tableView cellForRowAtIndexPath:indexPath] setLoading:YES];
 			}
 			[tableView deselectRowAtIndexPath:indexPath animated:NO];
 		}
@@ -233,13 +230,39 @@
 #pragma mark -
 #pragma mark original methods
 
+- (void)startTimer
+{
+    if(updateTimer == nil) {
+		int autoRefreshSec = [[[AppSetting sharedInstance] objectForKey:RDIPSETTING_AUTOREFRESH] intValue];
+		if(autoRefreshSec == 0)
+			return;
+
+		updateTimer = [NSTimer scheduledTimerWithTimeInterval:(NSTimeInterval)autoRefreshSec
+													   target:self 
+													 selector:@selector(autoLoadLatestTimeline)
+													 userInfo:nil 
+													  repeats:YES];
+    }
+}
+
+- (void)stopTimer
+{
+    if(updateTimer) {
+		[updateTimer invalidate];
+		updateTimer = nil;
+    }
+}
+
 - (void)cancel
 {
 	if(activeClient)
 		[activeClient cancel];
-	
+
 	[activeClient autorelease];
 	activeClient = nil;
+
+	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+	[(RDIPLoadingViewCell*)[self.tableView cellForRowAtIndexPath:indexPath] setLoading:NO];
 }
 
 - (void)clearStatuses
@@ -278,13 +301,18 @@
 	[activeClient getHomeTimelineWithParams:params];
 }
 
+- (void)autoLoadLatestTimeline
+{
+	[self loadLatestTimelineForce:NO];
+}
+
 - (void)loadLatestTimelineForce:(BOOL)force
 {
 	if(!force && (statuses && statuses.count > 0)) {
 		int autoRefreshSec = [[[AppSetting sharedInstance] objectForKey:RDIPSETTING_AUTOREFRESH] intValue];
 		if(autoRefreshSec > 0 && lastUpdate) {
 			NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:lastUpdate];
-			if(interval > autoRefreshSec * 1000)
+			if(interval > autoRefreshSec)
 				[self loadLatestTimelineImpl];
 		}
 	} else {
@@ -308,6 +336,10 @@
 	}
 	
 	[self loadTimelineWithParams:params];
+
+	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+	[(RDIPLoadingViewCell*)[self.tableView cellForRowAtIndexPath:indexPath] setLoading:YES];
+	[self stopTimer];
 }
 
 - (void)loadTimelineBeforeStatusID:(UInt64)statusId count:(UInt32)count
@@ -366,6 +398,8 @@
 
 	[self hideLoadingView];
 	[self.tableView reloadData];
+
+	[self startTimer];
 }
 
 - (void)timelineClient:(RDIPTwitterClient*)timelineClient didFailWithError:(NSError*)error

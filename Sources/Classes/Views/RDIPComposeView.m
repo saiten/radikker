@@ -97,6 +97,7 @@
 - (void)setText:(NSString *)s
 {
 	textView.text = s;
+	[self textViewDidChange:textView];
 }
 
 #pragma mark -
@@ -127,6 +128,16 @@
 - (void)showKeyboard
 {
 	[textView becomeFirstResponder];
+}
+
+- (NSRange)selectRange 
+{ 
+	return textView.selectedRange; 
+}
+
+- (void)setSelectRange:(NSRange)range
+{
+	[textView setSelectedRange:range];
 }
 
 - (void)updateCount

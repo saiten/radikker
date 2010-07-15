@@ -6,6 +6,17 @@
 	<string>http://radiko.jp/station/</string>
 	<key>ProgramUrl</key>
 	<string>http://radiko.jp/epg/epgapi.php</string>
+	<key>AllowPrefecture</key>
+	<array>
+		<string>東京都</string>
+		<string>千葉県</string>
+		<string>神奈川県</string>
+		<string>埼玉県</string>
+		<string>大阪府</string>
+		<string>兵庫県</string>
+		<string>京都府</string>
+		<string>奈良県</string>
+	</array>
 	<key>RadikoPlayer</key>
 	<dict>
 		<key>Protocol</key>
@@ -25,27 +36,6 @@
 	</dict>
 	<key>SettingValues</key>
 	<dict>
-		<key>SettingInitialLoad</key>
-		<dict>
-			<key>Title</key>
-			<string>Initial Load</string>
-			<key>DefaultValue</key>
-			<integer>20</integer>
-			<key>Values</key>
-			<array>
-				<integer>20</integer>
-				<integer>50</integer>
-				<integer>100</integer>
-				<integer>200</integer>
-			</array>
-			<key>Names</key>
-			<array>
-				<string>20 posts</string>
-				<string>50 posts</string>
-				<string>100 posts</string>
-				<string>200 posts</string>
-			</array>
-		</dict>
 		<key>SettingAutoRefresh</key>
 		<dict>
 			<key>Title</key>
@@ -71,27 +61,65 @@
 				<string>10 minutes</string>
 			</array>
 		</dict>
+		<key>SettingInitialLoad</key>
+		<dict>
+			<key>Title</key>
+			<string>Initial Load</string>
+			<key>DefaultValue</key>
+			<integer>20</integer>
+			<key>Values</key>
+			<array>
+				<integer>20</integer>
+				<integer>50</integer>
+				<integer>100</integer>
+				<integer>200</integer>
+			</array>
+			<key>Names</key>
+			<array>
+				<string>20 posts</string>
+				<string>50 posts</string>
+				<string>100 posts</string>
+				<string>200 posts</string>
+			</array>
+		</dict>
 		<key>SettingBufferSize</key>
 		<dict>
 			<key>Title</key>
 			<string>Buffer Size</string>
 			<key>DefaultValue</key>
-			<integer>96000</integer>
+			<integer>32000</integer>
 			<key>Values</key>
 			<array>
-				<integer>48000</integer>
+				<integer>16000</integer>
+				<integer>32000</integer>
 				<integer>64000</integer>
 				<integer>96000</integer>
-				<integer>160000</integer>
-				<integer>256000</integer>
+				<integer>128000</integer>
 			</array>
 			<key>Names</key>
 			<array>
-				<string>48KB</string>
+				<string>16KB</string>
+				<string>32KB</string>
 				<string>64KB</string>
 				<string>96KB</string>
-				<string>160KB</string>
-				<string>256KB</string>
+				<string>128KB</string>
+			</array>
+		</dict>
+		<key>SettingInitialPlay</key>
+		<dict>
+			<key>Title</key>
+			<string>Initial Play</string>
+			<key>DefaultValue</key>
+			<false/>
+			<key>Values</key>
+			<array>
+				<false/>
+				<true/>
+			</array>
+			<key>Names</key>
+			<array>
+				<string>Off</string>
+				<string>On</string>
 			</array>
 		</dict>
 	</dict>

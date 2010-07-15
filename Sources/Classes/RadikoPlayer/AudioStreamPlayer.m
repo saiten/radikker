@@ -53,7 +53,7 @@ static void _packets_proc(void *inClientData, UInt32 inNumberBytes, UInt32 inNum
 				 audioStreamPacketDescription:inPacketDescription];
 }
 
-static BOOL active = NO, first;
+static BOOL active = NO, buffering;
 
 @implementation AudioStreamPlayer
 
@@ -64,10 +64,11 @@ static BOOL active = NO, first;
 	if((self = [super init])) {
 		delegate = aDelegate;
 
-		if(size <= 1024)
-			bufferSize = AUDIOBUFFER_SIZE;
-		else
-			bufferSize = size;
+		bufferSize = AUDIOBUFFER_SIZE;
+		bufferCount = size / bufferSize;
+
+		if(bufferCount < 3)
+			bufferCount = 3;
 	}
 	return self;
 }
@@ -113,14 +114,15 @@ static BOOL active = NO, first;
 		oStatus = AudioQueueNewOutput(&audioBasicDesc, _audio_queue_output_callback, self, 
 									  NULL, NULL, 0, &audioQueue);
 		if(oStatus)
-			NSLog(@"failed AudioQueueNewOutput");
+			NSLog(@"failed AudioQueueNewOutput : %d", oStatus);
 		
 		//bufferSize = AUDIOBUFFER_SIZE;
-		targetBufferIndex = 1;
+		targetBufferIndex = 0;
 		fillBufferSize = 0;
 		fillPacketDescIndex = 0;
+		fillQueueBufferCount = 0;
 		
-		for(int i = 0; i < AUDIOBUFFER_COUNT; i++) {
+		for(int i = 0; i < bufferCount; i++) {
 			oStatus = AudioQueueAllocateBuffer(audioQueue, bufferSize, &audioBuffers[i]);
 			useBuffer[i] = NO;
 		}
@@ -133,7 +135,7 @@ static BOOL active = NO, first;
 	for(int i = 0; i < inNumberPackets; i++) {
 		SInt64 packetOffset = inPacketDescription[i].mStartOffset;
 		SInt64 packetSize   = inPacketDescription[i].mDataByteSize;
-		
+
 		size_t remainCount = bufferSize - fillBufferSize;
 		if(remainCount < packetSize)
 			[self _enqueueBuffer];
@@ -162,18 +164,20 @@ static BOOL active = NO, first;
 	NSLog(@"enqeueBuffer : %d", targetBufferIndex);
 #endif
 	useBuffer[targetBufferIndex] = YES;
+	fillQueueBufferCount++;
+
 	AudioQueueBufferRef buffer = audioBuffers[targetBufferIndex];
 	buffer->mAudioDataByteSize = fillBufferSize;
 	
 	oStatus = AudioQueueEnqueueBuffer(audioQueue, buffer, fillPacketDescIndex, packetDescs);
 	if(oStatus)
-		NSLog(@"failed AudioQueueEnqueueBuffer");
+		NSLog(@"failed AudioQueueEnqueueBuffer : %d", oStatus);
 	
-	if(first) {
+	if(buffering && fillQueueBufferCount == bufferCount) {
 		oStatus = AudioQueueStart(audioQueue, NULL);
 		if(oStatus)
-			NSLog(@"failed AudioQueueStart");
-		first = NO;
+			NSLog(@"failed AudioQueueStart : %d", oStatus);
+		buffering = NO;
 		NSLog(@"AudioStreamPlayer play start.");
 
 		if(delegate && [delegate respondsToSelector:@selector(audioStreamPlayerDidPlay:)]) {
@@ -184,25 +188,22 @@ static BOOL active = NO, first;
 		}
 	}
 	
-	if(++targetBufferIndex >= AUDIOBUFFER_COUNT)
+	if(++targetBufferIndex >= bufferCount)
 		targetBufferIndex = 0;
 	fillBufferSize = 0;
 	fillPacketDescIndex = 0;
-
+	
 #ifdef DEBUG
 	NSLog(@"next fill buffer : %d", targetBufferIndex);
 #endif
-	while(useBuffer[targetBufferIndex]) {
-#ifdef DEBUG
-		NSLog(@"wait. : %d", targetBufferIndex);
-#endif
+
+	while(useBuffer[targetBufferIndex] && active)
 		[NSThread sleepForTimeInterval:0.1];
-	}
 }
 
 - (int)findAudioQueueBuffer:(AudioQueueBufferRef)inAudioBuffer
 {
-	for(int i = 0; i < AUDIOBUFFER_COUNT; i++) {
+	for(int i = 0; i < bufferCount; i++) {
 		if(inAudioBuffer == audioBuffers[i])
 			return i;
 	}
@@ -215,17 +216,26 @@ static BOOL active = NO, first;
 #ifdef DEBUG
 	NSLog(@"unUse. : %d", index);
 #endif
+	
+	useBuffer[index] = NO;
+	fillQueueBufferCount--;
+#ifdef DEBUG
+	NSLog(@"fillQueueBufferCount : %d", fillQueueBufferCount);
+#endif
+	
+	if(fillQueueBufferCount < 1) {
+		NSLog(@"empty buffer.");
+		//AudioQueuePause(audioQueue);
+		//buffering = YES;
 
-	// check buffer
-	BOOL nobuf = YES;
-	for(int i=0; i<AUDIOBUFFER_COUNT; i++) {
-		if(useBuffer[i])
-			nobuf = NO;
+		if(delegate && [delegate respondsToSelector:@selector(audioStreamPlayerDidEmptyBuffer:)]) {
+			[delegate performSelector:@selector(audioStreamPlayerDidEmptyBuffer:) 
+							 onThread:[NSThread mainThread]
+						   withObject:self 
+						waitUntilDone:NO];
+		}
 	}
-	if(nobuf)
-		NSLog(@"buffer empty.");
-			
-	useBuffer[index] = NO;		
+	
 }
 
 - (void)_openAudioFileStream
@@ -236,7 +246,7 @@ static BOOL active = NO, first;
 	
 	oStatus = AudioFileStreamOpen(self, listenerProc, packetsProc, kAudioFileAAC_ADTSType, &audioStreamId);
 	if(oStatus)
-		NSLog(@"failed AudioFileStreamOpen");
+		NSLog(@"failed AudioFileStreamOpen : %d", oStatus);
 }
 
 - (void)_interruptionListener:(UInt32)inInterruption
@@ -273,9 +283,8 @@ static BOOL active = NO, first;
 		return;
 	
 	active = YES;
-	first = YES;
+	buffering = YES;
 	
-	//[self _startAudioSession];
 	[self _openAudioFileStream];
 	
 	[NSThread detachNewThreadSelector:@selector(run:) toTarget:self withObject:self];	
@@ -286,9 +295,8 @@ static BOOL active = NO, first;
 	if(!active)
 		return;
 	
-	//active = NO;
+	active = NO;	
 	AudioQueueStop(audioQueue, true);
-	//[self _endAudioSession];
 }
 
 static void _read_stream(int fh, AudioFileStreamID audioStreamId)
@@ -302,11 +310,11 @@ static void _read_stream(int fh, AudioFileStreamID audioStreamId)
 	UInt32 count = 0;
 	NSAutoreleasePool *subPool = [[NSAutoreleasePool alloc] init];
 	
-	while((sz = read(fh, buf, 1024)) > 0 && active) {
+	while((sz = read(fh, buf, 1024)) > 0) {
 		
 		oStatus = AudioFileStreamParseBytes(audioStreamId, sz, (const void*)buf, 0);
 		if(oStatus) {
-			NSLog(@"failed AudioFileStreamParseBytes");
+			NSLog(@"failed AudioFileStreamParseBytes : %d", oStatus);
 			break;
 		}
 		
@@ -326,19 +334,23 @@ static void _read_stream(int fh, AudioFileStreamID audioStreamId)
 
 - (void)run:(id)param
 {
+#ifdef DEBUG
 	NSLog(@"AudioStreamPlayer start");
+#endif
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 
  	int fh = [inputHandle fileDescriptor];
 	
 	_read_stream(fh, audioStreamId);
 
-	active = NO;
-
+#ifdef DEBUG
+	NSLog(@"AudioStreamPlayer end");
+#endif
+	
 	AudioFileStreamClose(audioStreamId);
-	for(int i=0; i<AUDIOBUFFER_COUNT; i++)
+	for(int i=0; i<bufferCount; i++)
 		AudioQueueFreeBuffer(audioQueue, audioBuffers[i]);
-	AudioQueueDispose(audioQueue, YES);
+	AudioQueueDispose(audioQueue, true);
 	
 	if(delegate && [delegate respondsToSelector:@selector(audioStreamPlayerDidStop:)]) {
 		[delegate performSelector:@selector(audioStreamPlayerDidStop:) 

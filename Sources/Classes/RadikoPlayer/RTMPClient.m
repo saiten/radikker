@@ -15,6 +15,7 @@
 @synthesize protocol, url, host, port;
 @synthesize playPath, app, swfUrl, tcUrl, flashVersion;
 @synthesize timeout, swfSize, bufferTime, seek, length;
+@synthesize bufferSize;
 
 - (id)initWithDelegate:(id)aDelegate
 {
@@ -29,8 +30,10 @@
 		
 		liveStream = YES;
 		
-		bufferTime = 60 * 1000;
 		flashVersion = @"WIN 10,0,45,2";
+
+		bufferTime = 10 * 60 * 60 * 1000;
+		bufferSize = 16 * 1024;
 	}	
 	return self;
 }
@@ -46,7 +49,7 @@
 
 - (void)disconnect
 {
-	RTMP_ctrlC = TRUE;
+	RTMP_ctrlC = true;
 }
 
 - (void)_setErrorWithErrorCode:(NSInteger)code message:(NSString*)message
@@ -63,7 +66,6 @@
 {
 	int32_t now, lastUpdate;
 
-	int bufferSize = 16 * 1024;
 	char *buffer = (char *) malloc(bufferSize);
 	if(buffer == NULL) {
 		[self _setErrorWithErrorCode:RTMPCLIENT_ERROR_UNKNOWN_CODE

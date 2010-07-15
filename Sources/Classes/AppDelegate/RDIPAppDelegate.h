@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import <CoreLocation/CoreLocation.h>
+#import "RDIPReverseGeocoder.h"
 
 @class RDIPMainViewController, RDIPComposeViewController;
 
-@interface RDIPAppDelegate : NSObject <UIApplicationDelegate, AVAudioSessionDelegate> {
+@interface RDIPAppDelegate : NSObject <UIApplicationDelegate, AVAudioSessionDelegate> 
+{
 	UINavigationController *navigationController;
 	RDIPMainViewController *mainController;
 	RDIPComposeViewController *composeViewController;
@@ -23,6 +26,7 @@
 }
 
 @property(nonatomic, readonly) UINavigationController *navigationController;
+@property(nonatomic, readonly) RDIPMainViewController *mainController;
 @property(nonatomic, readonly) RDIPComposeViewController *composeViewController;
 
 @end

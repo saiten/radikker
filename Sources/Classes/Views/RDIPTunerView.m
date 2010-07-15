@@ -211,13 +211,16 @@
 - (void)setTunedIndex:(NSInteger)i
 {
 	NSInteger oldIndex = tunedIndex;
+	if(oldIndex >= stationViews.count)
+		oldIndex = stationViews.count - 1;
+
 	tunedIndex = i;
 
 	// animation
 	if(tunedIndex < 0) {
-		needleLayer.hidden = YES;
+		needleLayer.opacity = 0.0;
 	} else {
-		needleLayer.hidden = NO;
+		needleLayer.opacity = 1.0;
 	}
 
 	CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"position"];

@@ -24,6 +24,7 @@
 	titleLabel.numberOfLines = 0;
 	titleLabel.textAlignment = UITextAlignmentLeft;
 	titleLabel.textColor = [UIColor darkTextColor];
+	titleLabel.backgroundColor = [UIColor clearColor];
 	titleLabel.highlightedTextColor = [UIColor whiteColor];
 	
 	performerLabel = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -31,12 +32,14 @@
 	performerLabel.numberOfLines = 0;
 	performerLabel.textAlignment = UITextAlignmentLeft;
 	performerLabel.textColor = [UIColor darkTextColor];
+	performerLabel.backgroundColor = [UIColor clearColor];
 	performerLabel.highlightedTextColor = [UIColor whiteColor];
 	performerLabel.lineBreakMode = UILineBreakModeTailTruncation;
 
 	timeLabel = [[UILabel alloc] initWithFrame:CGRectZero];
 	timeLabel.font = TIME_FONT;
 	timeLabel.textColor = [UIColor darkGrayColor];
+	timeLabel.backgroundColor = [UIColor clearColor];
 	timeLabel.highlightedTextColor = [UIColor whiteColor];
 	timeLabel.numberOfLines = 1;
 	timeLabel.textAlignment = UITextAlignmentLeft;

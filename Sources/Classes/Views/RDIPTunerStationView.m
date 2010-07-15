@@ -29,13 +29,10 @@
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
 		[self createViews];
-		
 		[[NSNotificationCenter defaultCenter] addObserver:self 
 												 selector:@selector(SharedImageStoreGetNewImageNotification:) 
 													 name:SHAREDIMAGESTORE_GETNEWIMAGE_NOTIFICATION 
-												   object:nil];
-		
-		
+												   object:nil];		
     }
     return self;
 }
@@ -44,12 +41,19 @@
 {
 	[station release];
 	station = [aStation retain];
-	UIImage *logoImage = [[SharedImageStore sharedInstance] getImage:station.logoUrl];
-	if(logoImage)
-		logoImageView.image = logoImage;
-	else
-		[indicatorView startAnimating];
 
+	UIImage *logoImage = nil;
+	if(station.logoUrl)
+		logoImage = [[SharedImageStore sharedInstance] getImage:station.logoUrl];
+
+	if(logoImage) {
+		[indicatorView stopAnimating];
+		logoImageView.image = logoImage;
+	} else {
+		[indicatorView startAnimating];
+		logoImageView.image = nil;
+	}
+	
 	[self layoutSubviews];
 }
 
@@ -71,9 +75,6 @@
 	NSString *requestUrl = [[notifiation userInfo] objectForKey:SHAREDIMAGESTORE_KEY_REQUESTURL];
 	if([requestUrl isEqualToString:station.logoUrl]) {
 		logoImageView.image = [[SharedImageStore sharedInstance] getImage:requestUrl];
-		[[NSNotificationCenter defaultCenter] removeObserver:self 
-														name:SHAREDIMAGESTORE_GETNEWIMAGE_NOTIFICATION 
-													  object:nil];
 		[indicatorView stopAnimating];
 		[self layoutSubviews];
 	}
@@ -81,7 +82,7 @@
 
 - (void) touchesEnded:(NSSet*)touches withEvent:(UIEvent*)event
 {
-    UITouch       *touch = [touches anyObject];
+    UITouch *touch = [touches anyObject];
 	
     if([touch tapCount] == 2) {
 		if(delegate && [delegate respondsToSelector:@selector(tunerStationViewDoubleTapped:)])
@@ -90,6 +91,10 @@
 }
 
 - (void)dealloc {
+	[[NSNotificationCenter defaultCenter] removeObserver:self 
+													name:SHAREDIMAGESTORE_GETNEWIMAGE_NOTIFICATION 
+												  object:nil];
+
 	[station release];
 	[logoImageView release];
 	[indicatorView release];
