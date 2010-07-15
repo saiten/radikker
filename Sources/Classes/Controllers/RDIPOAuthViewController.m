@@ -66,11 +66,6 @@
     [super viewDidUnload];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
-{
-    return YES;
-}
-
 - (void)dealloc 
 {
 	[self cancel];
