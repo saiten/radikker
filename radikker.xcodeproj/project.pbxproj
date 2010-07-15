@@ -47,7 +47,6 @@
 		E1719889116B1367009526B6 /* magnifying-glass.png in Resources */ = {isa = PBXBuildFile; fileRef = E171987B116B1367009526B6 /* magnifying-glass.png */; };
 		E171988B116B1367009526B6 /* chat.png in Resources */ = {isa = PBXBuildFile; fileRef = E171987E116B1367009526B6 /* chat.png */; };
 		E171988C116B1367009526B6 /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = E171987F116B1367009526B6 /* gear.png */; };
-		E17D5D0D1189B25C0069A41D /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = E17D5D0C1189B25C0069A41D /* Entitlements.plist */; };
 		E17D5E27118C18D00069A41D /* RDIPStatusProfileViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E17D5E26118C18D00069A41D /* RDIPStatusProfileViewCell.m */; };
 		E17D5E4C118C22780069A41D /* RDIPProfileImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E17D5E4B118C22780069A41D /* RDIPProfileImageView.m */; };
 		E17D5E7C118C27BF0069A41D /* RDIPStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17D5E7B118C27BF0069A41D /* RDIPStatusViewController.m */; };
@@ -219,7 +218,6 @@
 		E171987B116B1367009526B6 /* magnifying-glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "magnifying-glass.png"; sourceTree = "<group>"; };
 		E171987E116B1367009526B6 /* chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat.png; sourceTree = "<group>"; };
 		E171987F116B1367009526B6 /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
-		E17D5D0C1189B25C0069A41D /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		E17D5E25118C18D00069A41D /* RDIPStatusProfileViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDIPStatusProfileViewCell.h; sourceTree = "<group>"; };
 		E17D5E26118C18D00069A41D /* RDIPStatusProfileViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDIPStatusProfileViewCell.m; sourceTree = "<group>"; };
 		E17D5E4A118C22780069A41D /* RDIPProfileImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDIPProfileImageView.h; sourceTree = "<group>"; };
@@ -384,6 +382,7 @@
 		E1EF0C5611EEC1D8003C4043 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Japanese; path = Japanese.lproj/AppConfig.plist; sourceTree = "<group>"; };
 		E1EF0CB311EEC79F003C4043 /* warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warning.png; sourceTree = "<group>"; };
 		E1EF0D0511EEDD72003C4043 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		E1EF0D3E11EEE6D0003C4043 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		E1F003001169C0BB0063B091 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSON.h; path = ../Libraries/JSON/JSON.h; sourceTree = SOURCE_ROOT; };
 		E1F003011169C0BB0063B091 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SBJSON.h"; path = "../Libraries/JSON/NSObject+SBJSON.h"; sourceTree = SOURCE_ROOT; };
 		E1F003021169C0BB0063B091 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SBJSON.m"; path = "../Libraries/JSON/NSObject+SBJSON.m"; sourceTree = SOURCE_ROOT; };
@@ -460,8 +459,8 @@
 				8D1107310486CEB800E47090 /* Info.plist */,
 				E1EF0C5411EEC1D3003C4043 /* AppConfig.plist */,
 				E1EF0C3411EEBDD2003C4043 /* Localizable.strings */,
-				E17D5D0C1189B25C0069A41D /* Entitlements.plist */,
 				E1AA8F2111EC5B050086F169 /* about.html */,
+				E1EF0D3E11EEE6D0003C4043 /* Entitlements.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1199,7 +1198,6 @@
 				E1F04439116B9988002B5FC1 /* speaker-white.png in Resources */,
 				E1DE539F11771DB80010A1D1 /* cancel.png in Resources */,
 				E1DE53A011771DB80010A1D1 /* refresh.png in Resources */,
-				E17D5D0D1189B25C0069A41D /* Entitlements.plist in Resources */,
 				E1A3CE3C118D7320008964C7 /* Default.png in Resources */,
 				E1A3CE5A118D78AA008964C7 /* atmark.png in Resources */,
 				E1A3CE66118D7B4D008964C7 /* left.png in Resources */,
@@ -1351,6 +1349,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = "~/Dropbox/Works/private/iPhone/radikker/Resources/Entitlements.plist";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1370,6 +1369,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = "~/Dropbox/Works/private/iPhone/radikker/Resources/Entitlements.plist";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radikker_Prefix.pch;
@@ -1469,6 +1469,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = "~/Dropbox/Works/private/iPhone/radikker/Resources/Entitlements.plist";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radikker_Prefix.pch;
@@ -1515,6 +1516,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = "~/Dropbox/Works/private/iPhone/radikker/Resources/Entitlements.plist";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radikker_Prefix.pch;
