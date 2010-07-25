@@ -12,10 +12,6 @@
 		<string>千葉県</string>
 		<string>神奈川県</string>
 		<string>埼玉県</string>
-		<string>大阪府</string>
-		<string>兵庫県</string>
-		<string>京都府</string>
-		<string>奈良県</string>
 	</array>
 	<key>RadikoPlayer</key>
 	<dict>
@@ -139,6 +135,18 @@
 		<string>#tokyofm</string>
 		<key>FMJ</key>
 		<string>#jwave</string>
+		<key>MBS</key>
+		<string>#mbsradio</string>
+		<key>OBC</key>
+		<string>#obc</string>
+		<key>802</key>
+		<string>#fm802</string>
+		<key>FMO</key>
+		<string>#fmosaka</string>
+		<key>CCL</key>
+		<string>#fmcocolo</string>
+		<key>ABC</key>
+		<string>#abcradio</string>
 	</dict>
 </dict>
 </plist>

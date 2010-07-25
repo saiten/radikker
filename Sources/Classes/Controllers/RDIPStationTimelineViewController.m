@@ -16,7 +16,8 @@
 {
 	if(self = [super init]) {
 		hashTag = [aHashTag retain];
-		[currentKeyword setString:hashTag];
+		if(hashTag)
+			[currentKeyword setString:hashTag];
 	}
 	return self;
 }
