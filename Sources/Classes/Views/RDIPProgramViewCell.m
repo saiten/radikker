@@ -60,7 +60,9 @@
 + (NSString*)stringTime:(RDIPProgram*)program
 {
 	NSDateFormatter *fmt = [[[NSDateFormatter alloc] init] autorelease];
+	[fmt setLocale:[[[NSLocale alloc] initWithLocaleIdentifier:@"US"] autorelease]];
 	[fmt setDateFormat:@"HH:mm"];
+
 	return [NSString stringWithFormat:@"%@ - %@", 
 			[fmt stringFromDate:program.fromTime], 
 			[fmt stringFromDate:program.toTime]];
