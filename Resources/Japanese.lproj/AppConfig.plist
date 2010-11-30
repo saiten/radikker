@@ -5,7 +5,7 @@
 	<key>StationUrl</key>
 	<string>http://radiko.jp/station/</string>
 	<key>ProgramUrl</key>
-	<string>http://radiko.jp/epg/epgapi.php</string>
+	<string>http://radiko.jp/epg/newepg/epgapi.php</string>
 	<key>AllowPrefecture</key>
 	<array>
 		<string>東京都</string>
