@@ -1388,17 +1388,17 @@
 					"${SDK_ROOT}/usr/include/libxml2",
 					../Libraries/openssl/include,
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
 				OTHER_LDFLAGS = (
 					"-licucore",
 					"-lz",
 				);
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B4C4CC50-B477-4732-AB1A-7CB704D6F100";
-				SDKROOT = iphoneos4.1;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2A52EF9A-5ADF-483B-9DC4-D8B856F9E2FD";
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = armv6;
+				VALID_ARCHS = "armv6 i386";
 			};
 			name = Debug;
 		};
@@ -1414,18 +1414,18 @@
 					"${SDK_ROOT}/usr/include/libxml2",
 					../Libraries/openssl/include,
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (
 					"-licucore",
 					"-lz",
 				);
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DC2FF1BF-4B2A-4632-93F2-34108E3B8006";
-				SDKROOT = iphoneos4.1;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2A52EF9A-5ADF-483B-9DC4-D8B856F9E2FD";
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = armv6;
+				VALID_ARCHS = "armv6 i386";
 			};
 			name = Release;
 		};
@@ -1441,18 +1441,18 @@
 					"${SDK_ROOT}/usr/include/libxml2",
 					../Libraries/openssl/include,
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (
 					"-licucore",
 					"-lz",
 				);
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DD857B19-2980-4B4F-AD55-07F88A2C0E22";
-				SDKROOT = iphoneos4.1;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "03FBE52C-0E10-49F8-A67B-AEC39A46F333";
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = armv6;
+				VALID_ARCHS = "armv6 i386";
 			};
 			name = AdHoc;
 		};
@@ -1488,7 +1488,7 @@
 					"${SDK_ROOT}/usr/include/libxml2",
 					../Libraries/openssl/include,
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (
 					"-licucore",
@@ -1496,10 +1496,10 @@
 				);
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "82EE1821-C26D-41CC-917F-3730C172F68C";
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = armv6;
+				VALID_ARCHS = "armv6 i386";
 			};
 			name = AppStore;
 		};
