@@ -27,10 +27,12 @@
 	if(activeClient)
 		return;
 	
-	NSString *url = [[AppConfig sharedInstance] objectForKey:@"ProgramUrl"];
+	NSString *base_url = [[AppConfig sharedInstance] objectForKey:@"ProgramUrl"];
+
+    NSString *url = [NSString stringWithFormat:@"%@/%@", base_url, mode];
 	
-	NSDictionary *params = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:mode, areaId, nil]
-													   forKeys:[NSArray arrayWithObjects:@"mode", @"area_id", nil]];
+	NSDictionary *params = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:areaId, nil]
+													   forKeys:[NSArray arrayWithObjects:@"area_id", nil]];
 	
 	activeClient = [[HttpClient alloc] initWithDelegate:self];
 	[activeClient get:url parameters:params];
@@ -89,7 +91,7 @@
 		for(GDataXMLNode *childNode in progArr) {
 			RDIPProgram *program = [RDIPProgram programWithGdataXMLNode:childNode];
 			if(program)
-				[arr addObject:program];				
+				[arr addObject:program];
 		}
 
 		[arr sortUsingSelector:@selector(compareDate:)];

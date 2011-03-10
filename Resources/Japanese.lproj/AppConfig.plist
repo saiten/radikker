@@ -2,51 +2,70 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>StationUrl</key>
-	<string>http://radiko.jp/station/</string>
-	<key>ProgramUrl</key>
-	<string>http://radiko.jp/epg/newepg/epgapi.php</string>
+	<key>HashTags</key>
+	<dict>
+		<key>802</key>
+		<string>#fm802</string>
+		<key>ABC</key>
+		<string>#abcradio</string>
+		<key>CCL</key>
+		<string>#fmcocolo</string>
+		<key>FMJ</key>
+		<string>#jwave</string>
+		<key>FMO</key>
+		<string>#fmosaka</string>
+		<key>FMT</key>
+		<string>#tokyofm</string>
+		<key>INT</key>
+		<string>#interfm</string>
+		<key>LFR</key>
+		<string>#jolf</string>
+		<key>MBS</key>
+		<string>#mbsradio</string>
+		<key>NSB</key>
+		<string>#radionikkei</string>
+		<key>OBC</key>
+		<string>#obc</string>
+		<key>QRR</key>
+		<string>#joqr</string>
+		<key>TBS</key>
+		<string>#tbsradio</string>
+	</dict>
 	<key>AllowPrefecture</key>
 	<array>
 		<string>東京都</string>
 		<string>千葉県</string>
 		<string>神奈川県</string>
 		<string>埼玉県</string>
+		<string>茨城県</string>
+		<string>群馬県</string>
+		<string>栃木県</string>
 	</array>
+	<key>ProgramUrl</key>
+	<string>http://radiko.jp/v2/api/program</string>
 	<key>RadikoPlayer</key>
 	<dict>
-		<key>Protocol</key>
-		<string>rtmpe</string>
-		<key>HostName</key>
-		<string>radiko.smartstream.ne.jp</string>
-		<key>Port</key>
-		<integer>1935</integer>
 		<key>AppFormat</key>
 		<string>%@/_defInst_</string>
-		<key>PlayPath</key>
-		<string>simul-stream</string>
-		<key>SwfUrl</key>
-		<string>hoge</string>
 		<key>FlashVersion</key>
 		<string>WIN 10,1,53,64</string>
+		<key>HostName</key>
+		<string>radiko.smartstream.ne.jp</string>
+		<key>PlayPath</key>
+		<string>simul-stream</string>
+		<key>Port</key>
+		<integer>1935</integer>
+		<key>Protocol</key>
+		<string>rtmpe</string>
+		<key>SwfUrl</key>
+		<string>hoge</string>
 	</dict>
 	<key>SettingValues</key>
 	<dict>
 		<key>SettingAutoRefresh</key>
 		<dict>
-			<key>Title</key>
-			<string>自動更新</string>
 			<key>DefaultValue</key>
 			<integer>0</integer>
-			<key>Values</key>
-			<array>
-				<integer>0</integer>
-				<integer>30</integer>
-				<integer>60</integer>
-				<integer>180</integer>
-				<integer>300</integer>
-				<integer>600</integer>
-			</array>
 			<key>Names</key>
 			<array>
 				<string>停止</string>
@@ -56,42 +75,22 @@
 				<string>5分</string>
 				<string>10分</string>
 			</array>
-		</dict>
-		<key>SettingInitialLoad</key>
-		<dict>
 			<key>Title</key>
-			<string>初回読み込み数</string>
-			<key>DefaultValue</key>
-			<integer>20</integer>
+			<string>自動更新</string>
 			<key>Values</key>
 			<array>
-				<integer>20</integer>
-				<integer>50</integer>
-				<integer>100</integer>
-				<integer>200</integer>
-			</array>
-			<key>Names</key>
-			<array>
-				<string>20 posts</string>
-				<string>50 posts</string>
-				<string>100 posts</string>
-				<string>200 posts</string>
+				<integer>0</integer>
+				<integer>30</integer>
+				<integer>60</integer>
+				<integer>180</integer>
+				<integer>300</integer>
+				<integer>600</integer>
 			</array>
 		</dict>
 		<key>SettingBufferSize</key>
 		<dict>
-			<key>Title</key>
-			<string>バッファサイズ</string>
 			<key>DefaultValue</key>
 			<integer>32000</integer>
-			<key>Values</key>
-			<array>
-				<integer>16000</integer>
-				<integer>32000</integer>
-				<integer>64000</integer>
-				<integer>96000</integer>
-				<integer>128000</integer>
-			</array>
 			<key>Names</key>
 			<array>
 				<string>16KB</string>
@@ -100,53 +99,57 @@
 				<string>96KB</string>
 				<string>128KB</string>
 			</array>
+			<key>Title</key>
+			<string>バッファサイズ</string>
+			<key>Values</key>
+			<array>
+				<integer>16000</integer>
+				<integer>32000</integer>
+				<integer>64000</integer>
+				<integer>96000</integer>
+				<integer>128000</integer>
+			</array>
+		</dict>
+		<key>SettingInitialLoad</key>
+		<dict>
+			<key>DefaultValue</key>
+			<integer>20</integer>
+			<key>Names</key>
+			<array>
+				<string>20 posts</string>
+				<string>50 posts</string>
+				<string>100 posts</string>
+				<string>200 posts</string>
+			</array>
+			<key>Title</key>
+			<string>初回読み込み数</string>
+			<key>Values</key>
+			<array>
+				<integer>20</integer>
+				<integer>50</integer>
+				<integer>100</integer>
+				<integer>200</integer>
+			</array>
 		</dict>
 		<key>SettingInitialPlay</key>
 		<dict>
-			<key>Title</key>
-			<string>自動再生</string>
 			<key>DefaultValue</key>
 			<false/>
-			<key>Values</key>
-			<array>
-				<false/>
-				<true/>
-			</array>
 			<key>Names</key>
 			<array>
 				<string>オフ</string>
 				<string>オン</string>
 			</array>
+			<key>Title</key>
+			<string>自動再生</string>
+			<key>Values</key>
+			<array>
+				<false/>
+				<true/>
+			</array>
 		</dict>
 	</dict>
-	<key>HashTags</key>
-	<dict>
-		<key>TBS</key>
-		<string>#tbsradio</string>
-		<key>QRR</key>
-		<string>#joqr</string>
-		<key>LFR</key>
-		<string>#jolf</string>
-		<key>NSB</key>
-		<string>#radionikkei</string>
-		<key>INT</key>
-		<string>#interfm</string>
-		<key>FMT</key>
-		<string>#tokyofm</string>
-		<key>FMJ</key>
-		<string>#jwave</string>
-		<key>MBS</key>
-		<string>#mbsradio</string>
-		<key>OBC</key>
-		<string>#obc</string>
-		<key>802</key>
-		<string>#fm802</string>
-		<key>FMO</key>
-		<string>#fmosaka</string>
-		<key>CCL</key>
-		<string>#fmcocolo</string>
-		<key>ABC</key>
-		<string>#abcradio</string>
-	</dict>
+	<key>StationUrl</key>
+	<string>http://radiko.jp/station/</string>
 </dict>
 </plist>
