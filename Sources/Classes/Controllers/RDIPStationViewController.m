@@ -28,8 +28,12 @@
 - (NSArray*)loadButtons
 {
 	infoButton  = [[RDIPSquareButton alloc] initWithImage:[UIImage imageNamed:@"headphones.png"]];
-	listButton  = [[RDIPSquareButton alloc] initWithImage:[UIImage imageNamed:@"list.png"]];	
+    infoButton.accessibilityLabel = NSLocalizedString(@"Program", @"Program Information");
+	listButton  = [[RDIPSquareButton alloc] initWithImage:[UIImage imageNamed:@"list.png"]];
+    listButton.accessibilityLabel = NSLocalizedString(@"Program List", @"Program List");
 	tweetButton = [[RDIPSquareButton alloc] initWithImage:[UIImage imageNamed:@"bird.png"]];
+    tweetButton.accessibilityLabel = NSLocalizedString(@"Tweet List", @"Tweet List");
+    
 	return [NSArray arrayWithObjects:infoButton, listButton, tweetButton, nil];
 }
 

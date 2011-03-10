@@ -19,9 +19,10 @@
 {
 	if((self = [super initWithFrame:CGRectZero])) {
 		self.title = s;
+        self.accessibilityLabel = s;
 		self.selected = NO;
 	}
-	return self;		
+	return self;
 }
 
 - (id)initWithImage:(UIImage *)i
@@ -174,6 +175,19 @@
 	[image release];
 	[title release];
     [super dealloc];
+}
+
+#pragma mark -
+#pragma mark accessibility methods
+
+- (BOOL)isAccessibilityElement
+{
+    return YES;
+}
+
+- (UIAccessibilityTraits)accessibilityTraits
+{
+    return UIAccessibilityTraitButton;
 }
 
 

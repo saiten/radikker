@@ -38,24 +38,29 @@
 													 style:UIBarButtonItemStylePlain 
 													target:self 
 													action:@selector(pressSettingButton:)];
-	
+    settingButton.accessibilityLabel = 	NSLocalizedString(@"Setting", @"Setting Button");
+    
 	volumeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"speaker.png"] 
 													style:UIBarButtonItemStylePlain 
 												   target:self 
 												   action:@selector(pressVolumeButton:)];
+    volumeButton.accessibilityLabel = NSLocalizedString(@"Volume", @"Volume Button");
 	
 	playButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay
 															   target:self 
 															   action:@selector(pressPlayButton:)];
+    playButton.accessibilityLabel = NSLocalizedString(@"Play", @"Play Button");
 	
 	pauseButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause
 																target:self 
 																action:@selector(pressPauseButton:)];
+    pauseButton.accessibilityLabel = NSLocalizedString(@"Pause", @"Pause Button");
 	
 	tweetButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"chat.png"] 
 												   style:UIBarButtonItemStylePlain 
 												  target:self 
 												  action:@selector(pressTweetButton:)];
+    tweetButton.accessibilityLabel = NSLocalizedString(@"Tweet", @"Tweet Button");
 }
 
 #pragma mark -
