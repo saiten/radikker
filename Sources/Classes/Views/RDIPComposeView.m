@@ -30,6 +30,7 @@
 	countLabel.backgroundColor = [UIColor clearColor];
 	countLabel.textAlignment = UITextAlignmentRight;
 	countLabel.text = @"140";
+    countLabel.accessibilityLabel = NSLocalizedString(@"Count", @"Count");
 
 	UIBarButtonItem *flexibleItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
 																				   target:nil
@@ -145,6 +146,8 @@
 	NSInteger count = 140 - textView.text.length;
 	
 	countLabel.text = [NSString stringWithFormat:@"%d", count];
+    countLabel.accessibilityLabel = [NSString stringWithFormat:@"%@ %d", NSLocalizedString(@"Count", @"Count")];
+
 	if(count >= 0)
 		countLabel.textColor = [UIColor whiteColor];
 	else

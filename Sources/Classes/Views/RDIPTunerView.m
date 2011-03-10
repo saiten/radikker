@@ -197,10 +197,17 @@
 	return selectedIndex;
 }
 
-- (void)setSelectedIndex:(NSInteger)i
+- (void)setSelectedIndex:(NSInteger)i animated:(BOOL)animated
 {
 	selectedIndex = i;
-	[self changeStationAnimated:NO];
+	[self changeStationAnimated:animated];
+	if(delegate && [delegate respondsToSelector:@selector(tunerView:didSelectStationForItemAtIndex:)])
+		[delegate tunerView:self didSelectStationForItemAtIndex:selectedIndex];
+}
+
+- (void)setSelectedIndex:(NSInteger)i
+{
+    [self setSelectedIndex:i animated:NO];
 }
 
 - (NSInteger)tunedIndex
@@ -380,5 +387,65 @@
 		[delegate tunerView:self didTuneStationForItemAtIndex:index];					
 }
 
+/*
+- (BOOL)accessibilityScroll:(UIAccessibilityScrollDirection)direction
+{
+    if(direction == UIAccessibilityScrollDirectionLeft && self.tunedIndex > 0)
+        return YES;
+    if(direction == UIAccessibilityScrollDirectionRight && self.tunedIndex < stationViews.count)
+        return YES;
+    
+    return NO;
+}
+*/
+
+#pragma mark -
+#pragma mark accessibility methods
+
+- (BOOL)isAccessibilityElement
+{
+    return YES;
+}
+
+- (UIAccessibilityTraits)accessibilityTraits
+{
+    return UIAccessibilityTraitAdjustable;
+}
+
+- (void)accessibilityIncrement
+{
+    int	stationCount = [delegate numberOfStationsInTunerView:self];
+    if(selectedIndex < stationCount-1)
+        [self setSelectedIndex:selectedIndex+1 animated:NO];
+}
+
+- (void)accessibilityDecrement
+{
+    if(selectedIndex > 0)
+        [self setSelectedIndex:selectedIndex-1 animated:NO];    
+}
+
+- (NSString *)accessibilityLabel
+{
+    return NSLocalizedString(@"Broadcasting station tuner", @"");
+}
+
+- (NSString *)accessibilityValue
+{
+    int	stationCount = [delegate numberOfStationsInTunerView:self];
+    NSString *selectedStation = @"";
+    
+    if(stationCount == 0)
+        return NSLocalizedString(@"Loading", @"");
+    else {
+        RDIPStation *station = [delegate tunerView:self stationForItemAtIndex:selectedIndex];
+        return station.stationName;
+    }
+}
+
+- (NSString *)accessibilityHint
+{
+    return NSLocalizedString(@"tunerhint", @"");
+}
 
 @end

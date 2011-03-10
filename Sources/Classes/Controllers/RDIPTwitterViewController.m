@@ -25,9 +25,14 @@
 - (NSArray*)loadButtons
 {
 	RDIPSquareButton *homeButton     = [[[RDIPSquareButton alloc] initWithImage:[UIImage imageNamed:@"house.png"]] autorelease];
+    homeButton.accessibilityLabel = NSLocalizedString(@"Home", @"Home");
 	RDIPSquareButton *mentionsButton = [[[RDIPSquareButton alloc] initWithImage:[UIImage imageNamed:@"atmark.png"]] autorelease];
+    mentionsButton.accessibilityLabel = NSLocalizedString(@"Mentions", @"Mentions");
 	RDIPSquareButton *dmButton       = [[[RDIPSquareButton alloc] initWithImage:[UIImage imageNamed:@"envelope.png"]] autorelease];
+    dmButton.accessibilityLabel = NSLocalizedString(@"Direct Messages", @"Direct Messages");
 	RDIPSquareButton *searchButton   = [[[RDIPSquareButton alloc] initWithImage:[UIImage imageNamed:@"magnifying-glass.png"]] autorelease];
+    searchButton.accessibilityLabel = NSLocalizedString(@"Search", @"Search");
+    
 	return [NSArray arrayWithObjects:homeButton, mentionsButton, dmButton, searchButton, nil];
 }
 

@@ -36,7 +36,7 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
-	if(self = [super initWithFrame:frame]) {
+	if((self = [super initWithFrame:frame])) {
 		self.backgroundColor = [UIColor clearColor];
 		selected = NO;
 
@@ -109,6 +109,17 @@
 			   withFont:TIME_FONT 
 		  lineBreakMode:UILineBreakModeTailTruncation
 			  alignment:UITextAlignmentRight];
+}
+
+- (BOOL)isAccessibilityElement
+{
+    return true;
+}
+
+- (NSString *)accessibilityLabel
+{
+	NSString *unescapedText = [status.text stringByReplacingUnescapeHTML];
+    return [NSString stringWithFormat:@"%@, %@, %@", unescapedText, status.user.screenName, [status stringCreatedSinceNow]];
 }
 
 - (void)setStatus:(RDIPTwitterStatus*)aStatus

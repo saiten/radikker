@@ -84,6 +84,24 @@
 	[text drawInRect:textRect withFont:font];
 }
 
+- (BOOL)isAccessibilityElement
+{
+    return YES;
+}
+
+- (NSString *)accessibilityLabel
+{
+    if(isLoading)
+        return NSLocalizedString(@"Cancel", @"Cancel");
+    else
+        return NSLocalizedString(@"Refresh", @"Refresh");
+}
+
+- (UIAccessibilityTraits)accessibilityTraits
+{
+    return UIAccessibilityTraitButton;
+}
+
 - (void)dealloc
 {
 	[refreshImage release];
