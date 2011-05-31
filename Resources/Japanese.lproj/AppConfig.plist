@@ -40,6 +40,24 @@
 		<string>#joqr</string>
 		<key>TBS</key>
 		<string>#tbsradio</string>
+		<key>BAYFM78</key>
+		<string>#bayfm</string>
+		<key>NACK5</key>
+		<string>#nack5</string>
+		<key>YFM</key>
+		<string>#fmyokohama</string>
+		<key>JORF</key>
+		<string>#jorf</string>
+		<key>TOKAIRADIO</key>
+		<string>#tokairadio</string>
+		<key>CBC</key>
+		<string>#cbc1053</string>
+		<key>GBS</key>
+		<string>#gifuchan</string>
+		<key>ZIP-FM</key>
+		<string>#zipfm</string>
+		<key>FMAICHI</key>
+		<string>#fmaichi</string>
 	</dict>
 	<key>ProgramUrl</key>
 	<string>http://radiko.jp/v2/api/program</string>
@@ -47,6 +65,10 @@
 	<dict>
 		<key>AppFormat</key>
 		<string>%@/_defInst_</string>
+		<key>Auth1Url</key>
+		<string>https://radiko.jp/v2/api/auth1_fms</string>
+		<key>Auth2Url</key>
+		<string>https://radiko.jp/v2/api/auth2_fms</string>
 		<key>FlashVersion</key>
 		<string>WIN 10,1,53,64</string>
 		<key>HostName</key>
@@ -59,10 +81,6 @@
 		<string>rtmpe</string>
 		<key>SwfUrl</key>
 		<string>http://radiko.jp/player/swf/player_2.0.1.00.swf</string>
-		<key>Auth1Url</key>
-		<string>https://radiko.jp/v2/api/auth1_fms</string>
-		<key>Auth2Url</key>
-		<string>https://radiko.jp/v2/api/auth2_fms</string>
 	</dict>
 	<key>SettingValues</key>
 	<dict>
