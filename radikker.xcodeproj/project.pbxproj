@@ -24,6 +24,8 @@
 		E12E44831393B038008725A4 /* log.c in Sources */ = {isa = PBXBuildFile; fileRef = E12E44731393ADF1008725A4 /* log.c */; };
 		E12E44841393B038008725A4 /* hashswf.c in Sources */ = {isa = PBXBuildFile; fileRef = E12E44751393ADF1008725A4 /* hashswf.c */; };
 		E12E44851393B038008725A4 /* amf.c in Sources */ = {isa = PBXBuildFile; fileRef = E12E447B1393ADF1008725A4 /* amf.c */; };
+		E12E449713947F3A008725A4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E12E449613947F3A008725A4 /* Default@2x.png */; };
+		E12E449813947F3A008725A4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E12E449613947F3A008725A4 /* Default@2x.png */; };
 		E1346FF713937BE000AF58CB /* AuthClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E1346FF513937BE000AF58CB /* AuthClient.m */; };
 		E134700D13937C5100AF58CB /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = E1346FFA13937C5100AF58CB /* ASIAuthenticationDialog.m */; };
 		E134700E13937C5100AF58CB /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = E1346FFD13937C5100AF58CB /* ASIDataCompressor.m */; };
@@ -339,6 +341,7 @@
 		E12E44791393ADF1008725A4 /* bytes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bytes.h; sourceTree = "<group>"; };
 		E12E447A1393ADF1008725A4 /* amf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = amf.h; sourceTree = "<group>"; };
 		E12E447B1393ADF1008725A4 /* amf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = amf.c; sourceTree = "<group>"; };
+		E12E449613947F3A008725A4 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Images/Default@2x.png"; sourceTree = SOURCE_ROOT; };
 		E1346FF513937BE000AF58CB /* AuthClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthClient.m; sourceTree = "<group>"; };
 		E1346FF613937BE000AF58CB /* AuthClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthClient.h; sourceTree = "<group>"; };
 		E1346FF913937C5100AF58CB /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
@@ -864,6 +867,7 @@
 				E1AA8F1F11EC5AEF0086F169 /* icon-alpha.png */,
 				E1EF0CB311EEC79F003C4043 /* warning.png */,
 				E1A3CE3B118D7320008964C7 /* Default.png */,
+				E12E449613947F3A008725A4 /* Default@2x.png */,
 				E15DDA3D11640463007A7A63 /* twitter.png */,
 			);
 			path = Images;
@@ -1484,6 +1488,7 @@
 				E1EF0C3511EEBDD2003C4043 /* Localizable.strings in Resources */,
 				E1EF0CB411EEC79F003C4043 /* warning.png in Resources */,
 				E1EF0D0611EEDD72003C4043 /* icon@2x.png in Resources */,
+				E12E449713947F3A008725A4 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1515,6 +1520,7 @@
 				E134703C13937DFF00AF58CB /* Localizable.strings in Resources */,
 				E134703D13937DFF00AF58CB /* warning.png in Resources */,
 				E134703E13937DFF00AF58CB /* icon@2x.png in Resources */,
+				E12E449813947F3A008725A4 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
