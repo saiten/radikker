@@ -9,12 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <AudioToolbox/AudioToolbox.h>
 
+#import "AuthClient.h"
 #import "RTMPClient.h"
 #import "FLVConverter.h"
 #import "FileSave.h"
 #import "AudioStreamPlayer.h"
 
 typedef enum {
+	RADIKOPLAYER_STATUS_AUTH,
 	RADIKOPLAYER_STATUS_CONNECT,
 	RADIKOPLAYER_STATUS_PLAY,
 	RADIKOPLAYER_STATUS_DISCONNECT,
@@ -24,7 +26,8 @@ typedef enum {
 
 @interface RadikoPlayer : NSObject {
 	RADIKOPLAYER_STATUS status;
-	
+
+	AuthClient *authClient;
 	RTMPClient *rtmpClient;
 	FLVConverter *flvConverter;
 	FileSave *fileSave;
@@ -53,6 +56,8 @@ typedef enum {
 - (void)radikoPlayerWillStop:(RadikoPlayer*)radikoPlayer;
 - (void)radikoPlayerDidPlay:(RadikoPlayer*)radikoPlayer;
 - (void)radikoPlayerDidStop:(RadikoPlayer*)radikoPlayer;
+- (void)radikoPlayerDidStartAuthentication:(RadikoPlayer*)radikoPlayer;
+- (void)radikoPlayerDidFinishedAuthentication:(RadikoPlayer*)radikoPlayer;
 - (void)radikoPlayerDidConnectRTMPStream:(RadikoPlayer*)radikoPlayer;
 - (void)radikoPlayerDidDisconnectRTMPStream:(RadikoPlayer*)radikoPlayer;
 - (void)radikoPlayerDidOpenAudioStream:(RadikoPlayer*)radikoPlayer;

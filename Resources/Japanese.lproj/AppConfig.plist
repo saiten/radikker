@@ -2,6 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AllowPrefecture</key>
+	<array>
+		<string>東京都</string>
+		<string>千葉県</string>
+		<string>神奈川県</string>
+		<string>埼玉県</string>
+		<string>茨城県</string>
+		<string>群馬県</string>
+		<string>栃木県</string>
+	</array>
 	<key>HashTags</key>
 	<dict>
 		<key>802</key>
@@ -31,16 +41,6 @@
 		<key>TBS</key>
 		<string>#tbsradio</string>
 	</dict>
-	<key>AllowPrefecture</key>
-	<array>
-		<string>東京都</string>
-		<string>千葉県</string>
-		<string>神奈川県</string>
-		<string>埼玉県</string>
-		<string>茨城県</string>
-		<string>群馬県</string>
-		<string>栃木県</string>
-	</array>
 	<key>ProgramUrl</key>
 	<string>http://radiko.jp/v2/api/program</string>
 	<key>RadikoPlayer</key>
@@ -58,7 +58,11 @@
 		<key>Protocol</key>
 		<string>rtmpe</string>
 		<key>SwfUrl</key>
-		<string>hoge</string>
+		<string>http://radiko.jp/player/swf/player_2.0.1.00.swf</string>
+		<key>Auth1Url</key>
+		<string>https://radiko.jp/v2/api/auth1_fms</string>
+		<key>Auth2Url</key>
+		<string>https://radiko.jp/v2/api/auth2_fms</string>
 	</dict>
 	<key>SettingValues</key>
 	<dict>

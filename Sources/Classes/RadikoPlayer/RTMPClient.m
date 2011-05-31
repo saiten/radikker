@@ -6,8 +6,33 @@
 //
 
 #import "RTMPClient.h"
+#import "ASIHTTPRequest.h"
+#import "ASIDownloadCache.h"
+
+#import <zlib.h>
 
 #define STR2AVAL(av, str)  av.av_val = (char*)str; av.av_len = strlen(av.av_val)
+
+#include <openssl/ssl.h>
+#include <openssl/sha.h>
+#include <openssl/hmac.h>
+#include <openssl/rc4.h>
+
+#define HMAC_setup(ctx, key, len)       HMAC_CTX_init(&ctx); HMAC_Init_ex(&ctx, (unsigned char *)key, len, EVP_sha256(), 0)
+#define HMAC_crunch(ctx, buf, len)      HMAC_Update(&ctx, (unsigned char *)buf, len)
+#define HMAC_finish(ctx, dig, dlen)     HMAC_Final(&ctx, (unsigned char *)dig, &(dlen));
+#define HMAC_close(ctx) HMAC_CTX_cleanup(&ctx)
+
+void swfcrunch(void *ptr, size_t size, size_t nmemb, void *stream);
+
+struct info
+{
+  z_stream *zs;
+  HMAC_CTX ctx;
+  int first;
+  int zlib;
+  int size;
+};
 
 @implementation RTMPClient
 
@@ -16,6 +41,7 @@
 @synthesize playPath, app, swfUrl, tcUrl, flashVersion;
 @synthesize timeout, swfSize, bufferTime, seek, length;
 @synthesize bufferSize;
+@synthesize radikoAuthToken, radikoSwfUrl;
 
 - (id)initWithDelegate:(id)aDelegate
 {
@@ -123,15 +149,26 @@
 	return RTMPCLIENT_STATUS_SUCCESS;
 }
 
+static const AVal av_conn = AVC("conn");
+
 - (void)_connectStream
 {
+  AVal aHostName = { 0, 0 };
 	AVal aPlayPath = { 0, 0 };
 	AVal aTcUrl = { 0, 0 };
 	AVal aPageUrl = { 0, 0 };
 	AVal aApp = { 0, 0 };
 	AVal aSwfUrl = { 0, 0 };
 	AVal aFlashVer = { 0, 0 };
-	
+  AVal swfHash = { 0, 0 };
+  AVal sockshost = { 0, 0 }; 
+  
+  unsigned char hash[RTMP_SWF_HASHLEN];
+  int hlen = 0;
+
+  if(host) {
+    STR2AVAL(aHostName, [host cStringUsingEncoding:NSASCIIStringEncoding]);
+  }  
 	if(swfUrl) {
 		STR2AVAL(aSwfUrl,   [swfUrl cStringUsingEncoding:NSASCIIStringEncoding]);
 	}
@@ -150,12 +187,56 @@
 	if(flashVersion) {
 		STR2AVAL(aFlashVer, [flashVersion cStringUsingEncoding:NSASCIIStringEncoding]);
 	}
-	
+  
 	duration = 0.0;
 	
 	RTMP_Init(&rtmp);
-	RTMP_SetupStream(&rtmp, protocol, [host cStringUsingEncoding:NSASCIIStringEncoding], port, NULL, &aPlayPath,
-					 &aTcUrl, &aSwfUrl, &aPageUrl, &aApp, NULL, NULL, 0,
+
+  if(radikoAuthToken) {
+    AVal av1 = { 0, 0 };
+    STR2AVAL(av1, [@"S:" cStringUsingEncoding:NSASCIIStringEncoding]);
+    RTMP_SetOpt(&rtmp, &av_conn, &av1);
+    AVal av2 = { 0, 0 };
+    STR2AVAL(av2, [@"S:" cStringUsingEncoding:NSASCIIStringEncoding]);
+    RTMP_SetOpt(&rtmp, &av_conn, &av2);
+    AVal av3 = { 0, 0 };
+    STR2AVAL(av3, [@"S:" cStringUsingEncoding:NSASCIIStringEncoding]);
+    RTMP_SetOpt(&rtmp, &av_conn, &av3);
+    AVal av4 = { 0, 0 };
+    NSString *token = [NSString stringWithFormat:@"S:%@", radikoAuthToken];
+    STR2AVAL(av4, [token cStringUsingEncoding:NSASCIIStringEncoding]);
+    RTMP_SetOpt(&rtmp, &av_conn, &av4);    
+  }
+  
+  if(radikoSwfUrl) {
+    NSURL *url = [NSURL URLWithString:radikoSwfUrl];
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    [request setDownloadCache:[ASIDownloadCache sharedCache]];
+    [request setCachePolicy:ASIUseDefaultCachePolicy];
+    [request startSynchronous];
+
+    NSData *data = [request responseData];
+    
+    z_stream zs = { 0 };
+    struct info in = { 0 };
+    in.first = 1;
+    HMAC_setup(in.ctx, "Genuine Adobe Flash Player 001", 30);    
+    inflateInit(&zs);
+    in.zs = &zs;
+    
+    swfcrunch([data bytes], 1, [data length], &in);
+    
+    inflateEnd(&zs);
+    if(!in.first) {
+      HMAC_finish(in.ctx, hash, hlen);
+      swfHash.av_val = hash;
+      swfHash.av_len = hlen;
+    }
+    HMAC_close(in.ctx);
+  }
+  
+	RTMP_SetupStream(&rtmp, protocol, &aHostName, port, &sockshost, &aPlayPath,
+					 &aTcUrl, &aSwfUrl, &aPageUrl, &aApp, NULL, &swfHash, 0,
 					 &aFlashVer, NULL, seek, length, liveStream, timeout);
 	
 	BOOL first = YES;
@@ -184,7 +265,7 @@
 							waitUntilDone:NO];
 			}
 			
-			if (!RTMP_ConnectStream(&rtmp, seek, length)) {
+			if (!RTMP_ConnectStream(&rtmp, seek)) {
 				NSLog(@"Failed to connect the stream");
 				status = RTMPCLIENT_STATUS_FAILED;
 				[self _setErrorWithErrorCode:RTMPCLIENT_ERROR_FAILED_CONNECTSTREAM_CODE
@@ -203,7 +284,7 @@
 			NSLog(@"Connection timed out, trying to resume.");
 			if (rtmp.m_pausing == 3) {
 				retries = YES;
-				if (!RTMP_ReconnectStream(&rtmp, bufferTime, seek, length))
+				if (!RTMP_ReconnectStream(&rtmp, seek))
                 {
 					NSLog(@"Failed to resume the stream");
 					status = RTMPCLIENT_STATUS_FAILED;

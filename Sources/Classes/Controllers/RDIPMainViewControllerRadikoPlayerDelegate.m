@@ -49,6 +49,12 @@
 	[self setToolbar:NO];	
 }
 
+- (void)radikoPlayerDidStartAuthentication:(RadikoPlayer *)radikoPlayer
+{
+	[[StatusBarAlert sharedInstance] showStatus:@"Authenticating.." 
+                                     animated:YES];  
+}
+
 - (void)radikoPlayerWillPlay:(RadikoPlayer *)aRadikoPlayer
 {
 	[[StatusBarAlert sharedInstance] showStatus:[NSString stringWithFormat:@"Connecting.. %@", radikoPlayer.channel] 

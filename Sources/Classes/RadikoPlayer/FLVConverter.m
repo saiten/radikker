@@ -284,6 +284,7 @@ static void _convert(int fh, int ofh)
 					waitUntilDone:NO];
 	}
 	
+  active = NO;
 #ifdef DEBUG
 	NSLog(@"FLVConverter end.");
 #endif

@@ -51,16 +51,17 @@
 			NSNumber *first = [[AppSetting sharedInstance] objectForKey:RDIPSETTING_FIRSTCONNECTVIA3G];
 			if(![first boolValue]) {
 				[[SimpleAlert sharedInstance] confirmTitle:NSLocalizedString(@"Confirm", @"confirm")
-												   message:NSLocalizedString(@"It is necessary to confirm your location to use radikker via 3G.", 
-																			 @"first_connect_via_3g_message")
-													target:self 
-											   allowAction:@selector(checkLocation)
-												denyAction:@selector(noCheckLocation)];
+                                           message:NSLocalizedString(@"It is necessary to confirm your location to use radikker via 3G.", 
+                                                                     @"first_connect_via_3g_message")
+                                            target:self 
+                                       allowAction:@selector(checkLocation)
+                                        denyAction:@selector(noCheckLocation)];
 			} else {
 				[self checkLocation];
 			}
 		}
-	}	
+	}
+  
 	[self loadStations];
 }
 

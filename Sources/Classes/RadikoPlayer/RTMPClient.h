@@ -47,7 +47,7 @@ typedef enum {
 
 	NSString *swfUrl;
 	uint32_t swfSize;
-
+  
 	BOOL liveStream;
 	long int timeout;
 
@@ -59,6 +59,9 @@ typedef enum {
 	double duration;
 	
 	uint32_t bufferSize;
+  
+  NSString *radikoAuthToken;
+  NSString *radikoSwfUrl;
 }
 
 @property(nonatomic, assign) id delegate;
@@ -68,6 +71,7 @@ typedef enum {
 @property(nonatomic, retain) NSString *url, *host, *playPath, *app, *swfUrl, *tcUrl, *flashVersion;
 @property(nonatomic, readwrite) uint32_t swfSize, bufferTime, seek, length, bufferSize;
 @property(nonatomic, readonly) NSError *error;
+@property(nonatomic, retain) NSString *radikoAuthToken, *radikoSwfUrl;
 
 - (id)initWithDelegate:(id)delegate;
 - (void)connect;

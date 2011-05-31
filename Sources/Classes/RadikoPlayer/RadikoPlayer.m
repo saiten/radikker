@@ -10,6 +10,7 @@
 #import "AppConfig.h"
 #import "RDIPDefines.h"
 #import "RadikoPlayer.h"
+#import "AuthClient.h"
 
 @implementation RadikoPlayer
 
@@ -21,6 +22,12 @@
 		status = RADIKOPLAYER_STATUS_STOP;
 	}
 	return self;
+}
+
+- (void)_authentication
+{
+  authClient = [[AuthClient alloc] initWithDelegate:self];
+  [authClient startAuthentication];
 }
 
 - (void)_connectRadiko
@@ -63,6 +70,8 @@
 	rtmpClient.swfUrl = swfUrl;
 	rtmpClient.flashVersion = flashVersion;
 	rtmpClient.timeout = 15;
+  rtmpClient.radikoAuthToken = authClient.authToken;
+  rtmpClient.radikoSwfUrl = swfUrl;
 	
 	[rtmpClient connect];
 }
@@ -95,20 +104,24 @@
 - (void)play
 {
 	@synchronized(self) {
-		if(status == RADIKOPLAYER_STATUS_PLAY || 
+		if(status == RADIKOPLAYER_STATUS_AUTH ||
+       status == RADIKOPLAYER_STATUS_PLAY || 
 		   status == RADIKOPLAYER_STATUS_CONNECT ||
 		   status == RADIKOPLAYER_STATUS_DISCONNECT)
 			return;	
 
-		status = RADIKOPLAYER_STATUS_CONNECT;
+		status = RADIKOPLAYER_STATUS_AUTH;
 
 		if(delegate && [delegate respondsToSelector:@selector(radikoPlayerWillPlay:)])
 			[delegate radikoPlayerWillPlay:self];
 		
 		rtmpToConvertPipe = [[NSPipe pipe] retain];
 		convertToQueuePipe = [[NSPipe pipe] retain];
-	
-		[self _connectRadiko];
+
+    if(authClient.state != AuthClientStateSuccess)
+      [self _authentication];
+    else
+      [self _connectRadiko];
 	}
 }
 
@@ -141,6 +154,21 @@
 - (BOOL)isStop
 {
 	return (rtmpClient == nil) && (flvConverter == nil) && (audioStreamPlayer == nil);
+}
+
+#pragma mark -
+#pragma mark AuthClient delegate methods
+
+- (void)authClient:(AuthClient *)client didChangeState:(AuthClientState)state
+{
+  if(state == AuthClientStateGetPlayer) {
+    if (delegate && [delegate respondsToSelector:@selector(radikoPlayerDidStartAuthentication:)])
+      [delegate radikoPlayerDidStartAuthentication:self];
+  } else if(state == AuthClientStateSuccess) {
+    if (delegate && [delegate respondsToSelector:@selector(radikoPlayerDidFinishedAuthentication:)])
+      [delegate radikoPlayerDidFinishedAuthentication:self];
+    [self _connectRadiko];
+  }
 }
 
 #pragma mark -

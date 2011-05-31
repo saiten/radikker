@@ -45,6 +45,8 @@
 	<string>http://radiko.jp/v2/api/program</string>
 	<key>RadikoPlayer</key>
 	<dict>
+		<key>Auth1Url</key>
+		<string>https://radiko.jp/v2/api/auth1_fms</string>
 		<key>AppFormat</key>
 		<string>%@/_defInst_</string>
 		<key>FlashVersion</key>
@@ -57,8 +59,10 @@
 		<integer>1935</integer>
 		<key>Protocol</key>
 		<string>rtmpe</string>
+		<key>Auth2Url</key>
+		<string>https://radiko.jp/v2/api/auth2_fms</string>
 		<key>SwfUrl</key>
-		<string>hoge</string>
+		<string>http://radiko.jp/player/swf/player_2.0.1.00.swf</string>
 	</dict>
 	<key>SettingValues</key>
 	<dict>

@@ -86,7 +86,7 @@
 	[self _initSetting];
 	
 	[window addSubview:navigationController.view];
-    [window makeKeyAndVisible];
+  [window makeKeyAndVisible];
 
 	return YES;
 }
@@ -111,7 +111,7 @@
 - (void)beginInterruption
 {
 	RADIKOPLAYER_STATUS st = mainController.radikoPlayer.status;
-	audioInterrupted == (st ==RADIKOPLAYER_STATUS_PLAY || 
+	audioInterrupted == (st == RADIKOPLAYER_STATUS_PLAY || 
 						 st == RADIKOPLAYER_STATUS_CONNECT ||
 						 st == RADIKOPLAYER_STATUS_DISCONNECT);
 

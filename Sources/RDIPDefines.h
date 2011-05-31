@@ -11,7 +11,7 @@
 // limit setting
 //
 #define RDIP_CHECK_LOCATION_VIA_3G YES
-#define RDIP_CHECK_JAILBREAK       YES
+#define RDIP_CHECK_JAILBREAK       NO
 
 //
 // Config keys

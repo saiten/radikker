@@ -52,7 +52,7 @@
 
 - (void)viewDidLoad 
 {
-    [super viewDidLoad];	
+  [super viewDidLoad];
 	[self loadToolbarButtons];
 	[self setToolbar:NO];
 
@@ -82,16 +82,16 @@
 	}
 	currentViewController = nil;
 
-    [super didReceiveMemoryWarning];
+  [super didReceiveMemoryWarning];
 }
 
 - (void)viewDidUnload 
 {
-    [super viewDidUnload];
+  [super viewDidUnload];
 
-	[[NSNotificationCenter defaultCenter] removeObserver:self 
-													name:kReachabilityChangedNotification
-												  object:nil];
+  [[NSNotificationCenter defaultCenter] removeObserver:self 
+                                                  name:kReachabilityChangedNotification
+                                                object:nil];
 	[reachability stopNotifier];
 	[reachability release];
 	reachability = nil;

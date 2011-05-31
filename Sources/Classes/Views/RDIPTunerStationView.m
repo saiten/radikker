@@ -60,8 +60,13 @@
 - (void)layoutSubviews
 {
 	CGRect rect = CGRectInset(self.frame, 0, 0);
-	
-	CGSize imageSize = logoImageView.image.size;
+
+  CGSize imageSize;
+	if (logoImageView.image)
+    imageSize = logoImageView.image.size;
+  else
+    imageSize = CGSizeMake(0, 0);
+  
 	logoImageView.frame = CGRectMake((rect.size.width - imageSize.width)/2, 
 									 (rect.size.height - imageSize.height)/2, 
 									 imageSize.width, imageSize.height);
