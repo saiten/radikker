@@ -1973,8 +1973,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Tomoaki Shibata (MEAG2JJH9D)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Tomoaki Shibata";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tomoaki Shibata";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_PREPROCESSOR_DEFINITIONS = CRYPTO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1991,7 +1991,8 @@
 					"-lz",
 				);
 				PREBINDING = NO;
-				PROVISIONING_PROFILE = "3C6ACAFD-A0F8-475A-96A3-AFEB3312905F";
+				PROVISIONING_PROFILE = "707FB16A-89A8-49F5-B767-C29DA8C000B3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "707FB16A-89A8-49F5-B767-C29DA8C000B3";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -2024,8 +2025,8 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Tomoaki Shibata (MEAG2JJH9D)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Tomoaki Shibata";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tomoaki Shibata";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_PREPROCESSOR_DEFINITIONS = CRYPTO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -2042,7 +2043,8 @@
 					"-lz",
 				);
 				PREBINDING = NO;
-				PROVISIONING_PROFILE = "3C6ACAFD-A0F8-475A-96A3-AFEB3312905F";
+				PROVISIONING_PROFILE = "31700C07-D603-4783-9645-90E6A477131E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "31700C07-D603-4783-9645-90E6A477131E";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
