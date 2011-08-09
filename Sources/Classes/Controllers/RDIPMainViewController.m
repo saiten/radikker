@@ -168,6 +168,11 @@
 
 - (void)loadStations
 {
+  if(!radikoPlayer.areaCode) {
+    [radikoPlayer authenticate];
+    return;
+  }
+  
 	@synchronized(stationClient) {
 		if(stationClient != nil)
 			return;
@@ -178,7 +183,7 @@
 		}
 		
 		if(![self stationsWithTuningItem]) {
-			stationClient = [[RDIPStationClient alloc] initWithDelegate:self];
+			stationClient = [[RDIPStationClient alloc] initWithDelegate:self areaCode:radikoPlayer.areaCode];
 			[stationClient getStations];
 			
 			[lastStationUpdate release];

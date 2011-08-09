@@ -224,7 +224,9 @@ static BOOL active = NO, buffering;
 #endif
 	
 	if(fillQueueBufferCount < 1) {
+#ifdef DEBUG
 		NSLog(@"empty buffer.");
+#endif
 		//AudioQueuePause(audioQueue);
 		//buffering = YES;
 

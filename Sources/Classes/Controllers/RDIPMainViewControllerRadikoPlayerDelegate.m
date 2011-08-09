@@ -39,20 +39,27 @@
 		} if(radikoPlayer.status == RADIKOPLAYER_STATUS_STOP) {
 			[radikoPlayer play];
 		}
-		[self setToolbar:YES];
 	}
 }
 
 - (void)stopRadiko
 {
 	[radikoPlayer stop];
-	[self setToolbar:NO];	
 }
 
 - (void)radikoPlayerDidStartAuthentication:(RadikoPlayer *)radikoPlayer
 {
-	[[StatusBarAlert sharedInstance] showStatus:@"Authenticating.." 
-                                     animated:YES];  
+  if(!radikoPlayer.authOnly) {
+    [[StatusBarAlert sharedInstance] showStatus:@"Authenticating.." 
+                                       animated:YES];  
+  }
+}
+
+- (void)radikoPlayerDidFinishedAuthentication:(RadikoPlayer *)radikoPlayer
+{
+  if(radikoPlayer.authOnly) {
+    [self loadStations];
+  }
 }
 
 - (void)radikoPlayerWillPlay:(RadikoPlayer *)aRadikoPlayer
@@ -68,6 +75,7 @@
 	
 	if([currentViewController isKindOfClass:[RDIPStationViewController class]])
 		[(RDIPStationViewController*)currentViewController nowOnAir];
+  [self setToolbar:YES];
 }
 
 - (void)radikoPlayerWillStop:(RadikoPlayer *)aRadikoPlayer
@@ -82,6 +90,7 @@
 		[radikoPlayer play];
 	else
 		[[StatusBarAlert sharedInstance] hideStatusAnimated:YES];
+  [self setToolbar:NO];
 }
 
 - (void)radikoPlayerDidEmptyBuffer:(RadikoPlayer *)aRadikoPlayer

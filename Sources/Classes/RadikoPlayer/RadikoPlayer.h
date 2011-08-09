@@ -25,6 +25,7 @@ typedef enum {
 } RADIKOPLAYER_STATUS;
 
 @interface RadikoPlayer : NSObject {
+  BOOL authOnly;
 	RADIKOPLAYER_STATUS status;
 
 	AuthClient *authClient;
@@ -44,7 +45,10 @@ typedef enum {
 @property (nonatomic, readonly) RADIKOPLAYER_STATUS status;
 @property (nonatomic, assign) id delegate;
 @property (nonatomic, retain) NSString *channel;
+@property (nonatomic, readonly) BOOL authOnly;
+@property (nonatomic, readonly) NSString *areaCode;
 
+- (void)authenticate;
 - (void)play;
 - (void)stop;
 - (BOOL)isStop;

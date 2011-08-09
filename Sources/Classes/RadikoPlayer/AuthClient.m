@@ -11,6 +11,7 @@
 #import "ASIHTTPRequest.h"
 #import "ASIDownloadCache.h"
 #import "rfxswf.h"
+#import "RegexKitLite.h"
 
 // extract binary from swf
 void extract_id(const void *data, int len, int extract_id, void **extract_data, int *extract_len)
@@ -56,7 +57,7 @@ void extract_id(const void *data, int len, int extract_id, void **extract_data, 
 
 @implementation AuthClient
 
-@synthesize authToken, partialKey, state;
+@synthesize authToken, partialKey, areaCode, state;
 
 - (id)initWithDelegate:(id)aDelegate
 {
@@ -201,6 +202,10 @@ void extract_id(const void *data, int len, int extract_id, void **extract_data, 
   [request appendPostData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
   [request setCompletionBlock:^{
     state = AuthClientStateSuccess;
+
+    NSString *body = [request responseString];
+    areaCode = [[body stringByMatching:@"\\n(JP\\d+)," capture:1L] retain];
+    
     if(delegate && [delegate respondsToSelector:@selector(authClient:didChangeState:)])
       [delegate authClient:self didChangeState:state];    
   }];

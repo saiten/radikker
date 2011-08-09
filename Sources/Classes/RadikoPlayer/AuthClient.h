@@ -21,6 +21,7 @@ typedef enum {
 
 @interface AuthClient : NSObject {
   NSString *authToken;
+  NSString *areaCode;
   
   int offset;
   int length;
@@ -32,6 +33,7 @@ typedef enum {
   NSError *error;
 }
 
+@property(nonatomic,readonly) NSString *areaCode;
 @property(nonatomic,readonly) NSString *authToken;
 @property(nonatomic,readonly) NSString *partialKey;
 @property(nonatomic,readonly) AuthClientState state;

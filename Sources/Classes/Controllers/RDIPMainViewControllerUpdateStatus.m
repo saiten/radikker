@@ -140,7 +140,7 @@
 	}
 	
 	radikoStatus = status;
-	[self loadStations];
+  [self loadStations];
 	[geocoder autorelease];
 }
 

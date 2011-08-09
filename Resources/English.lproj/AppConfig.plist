@@ -35,53 +35,6 @@
 		<key>SwfUrl</key>
 		<string>http://radiko.jp/player/swf/player_2.0.1.00.swf</string>
 	</dict>
-	<key>HashTags</key>
-	<dict>
-		<key>802</key>
-		<string>#fm802</string>
-		<key>ABC</key>
-		<string>#abcradio</string>
-		<key>CCL</key>
-		<string>#fmcocolo</string>
-		<key>FMJ</key>
-		<string>#jwave</string>
-		<key>FMO</key>
-		<string>#fmosaka</string>
-		<key>FMT</key>
-		<string>#tokyofm</string>
-		<key>INT</key>
-		<string>#interfm</string>
-		<key>LFR</key>
-		<string>#jolf</string>
-		<key>MBS</key>
-		<string>#mbsradio</string>
-		<key>NSB</key>
-		<string>#radionikkei</string>
-		<key>OBC</key>
-		<string>#obc</string>
-		<key>QRR</key>
-		<string>#joqr</string>
-		<key>TBS</key>
-		<string>#tbsradio</string>
-		<key>BAYFM78</key>
-		<string>#bayfm</string>
-		<key>NACK5</key>
-		<string>#nack5</string>
-		<key>YFM</key>
-		<string>#fmyokohama</string>
-		<key>JORF</key>
-		<string>#jorf</string>
-		<key>TOKAIRADIO</key>
-		<string>#tokairadio</string>
-		<key>CBC</key>
-		<string>#cbc1053</string>
-		<key>GBS</key>
-		<string>#gifuchan</string>
-		<key>ZIP-FM</key>
-		<string>#zipfm</string>
-		<key>FMAICHI</key>
-		<string>#fmaichi</string>
-	</dict>
 	<key>SettingValues</key>
 	<dict>
 		<key>SettingAutoRefresh</key>
@@ -171,7 +124,92 @@
 			</array>
 		</dict>
 	</dict>
+	<key>HashTags</key>
+	<dict>
+		<key>802</key>
+		<string>#fm802</string>
+		<key>ABC</key>
+		<string>#abcradio</string>
+		<key>CCL</key>
+		<string>#fmcocolo</string>
+		<key>FMJ</key>
+		<string>#jwave</string>
+		<key>FMO</key>
+		<string>#fmosaka</string>
+		<key>FMT</key>
+		<string>#tokyofm</string>
+		<key>INT</key>
+		<string>#interfm</string>
+		<key>LFR</key>
+		<string>#jolf</string>
+		<key>MBS</key>
+		<string>#mbsradio</string>
+		<key>NSB</key>
+		<string>#radionikkei</string>
+		<key>OBC</key>
+		<string>#obc</string>
+		<key>QRR</key>
+		<string>#joqr</string>
+		<key>TBS</key>
+		<string>#tbsradio</string>
+		<key>BAYFM78</key>
+		<string>#bayfm</string>
+		<key>NACK5</key>
+		<string>#nack5</string>
+		<key>YFM</key>
+		<string>#fmyokohama</string>
+		<key>JORF</key>
+		<string>#jorf</string>
+		<key>TOKAIRADIO</key>
+		<string>#tokairadio</string>
+		<key>CBC</key>
+		<string>#cbc1053</string>
+		<key>GBS</key>
+		<string>#gifuchan</string>
+		<key>ZIP-FM</key>
+		<string>#zipfm</string>
+		<key>FMAICHI</key>
+		<string>#fmaichi</string>
+		<key>HBC</key>
+		<string>#HBCradio</string>
+		<key>STV</key>
+		<string>#stvradio</string>
+		<key>AIR-G</key>
+		<string>#air_g</string>
+		<key>IBS</key>
+		<string>#ibs_radio</string>
+		<key>RADIOBERRY</key>
+		<string>#rberry</string>
+		<key>FMGUNMA</key>
+		<string>#fmgunma</string>
+		<key>E_RADIO</key>
+		<string>#fmsiga</string>
+		<key>KBS</key>
+		<string>#kbs</string>
+		<key>ALPHA-STATION</key>
+		<string>#fmkyoto</string>
+		<key>CRK</key>
+		<string>#crk</string>
+		<key>WBS</key>
+		<string>#dwbs</string>
+		<key>KISSFMKOBE</key>
+		<string>#KissFMKOBE</string>
+		<key>FMMIE</key>
+		<string>#fmmie</string>
+		<key>RCC</key>
+		<string>#rcc</string>
+		<key>HFM</key>
+		<string>#hfm</string>
+		<key>RKB</key>
+		<string>#rkb</string>
+		<key>KBC</key>
+		<string>#kbc</string>
+		<key>LOVEFM</key>
+		<string>#lovefm</string>
+		<key>FMFUKUOKA</key>
+		<string>#fmfukuoka</string>
+	</dict>
 	<key>StationUrl</key>
-	<string>http://radiko.jp/station/</string>
+	<string>http://radiko.jp/v2/station/list/%@.xml</string>
 </dict>
 </plist>

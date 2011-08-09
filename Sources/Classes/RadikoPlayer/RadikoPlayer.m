@@ -14,7 +14,7 @@
 
 @implementation RadikoPlayer
 
-@synthesize status, channel, delegate;
+@synthesize status, channel, delegate, authOnly;
 
 - (id)init
 {
@@ -101,6 +101,23 @@
 	[audioStreamPlayer play];
 }
 
+- (void)authenticate
+{
+  @synchronized(self) {
+		if(status == RADIKOPLAYER_STATUS_AUTH ||
+       status == RADIKOPLAYER_STATUS_PLAY || 
+		   status == RADIKOPLAYER_STATUS_CONNECT ||
+		   status == RADIKOPLAYER_STATUS_DISCONNECT)
+			return;	
+    
+		status = RADIKOPLAYER_STATUS_AUTH;
+    authOnly = YES;
+    
+    if(authClient.state != AuthClientStateSuccess)
+      [self _authentication];
+  }
+}
+
 - (void)play
 {
 	@synchronized(self) {
@@ -111,6 +128,7 @@
 			return;	
 
 		status = RADIKOPLAYER_STATUS_AUTH;
+    authOnly = NO;
 
 		if(delegate && [delegate respondsToSelector:@selector(radikoPlayerWillPlay:)])
 			[delegate radikoPlayerWillPlay:self];
@@ -156,6 +174,11 @@
 	return (rtmpClient == nil) && (flvConverter == nil) && (audioStreamPlayer == nil);
 }
 
+- (NSString*)areaCode
+{
+  return authClient.areaCode;
+}
+
 #pragma mark -
 #pragma mark AuthClient delegate methods
 
@@ -167,7 +190,11 @@
   } else if(state == AuthClientStateSuccess) {
     if (delegate && [delegate respondsToSelector:@selector(radikoPlayerDidFinishedAuthentication:)])
       [delegate radikoPlayerDidFinishedAuthentication:self];
-    [self _connectRadiko];
+    
+    if(!authOnly)
+      [self _connectRadiko];
+    else
+      status = RADIKOPLAYER_STATUS_STOP;      
   }
 }
 

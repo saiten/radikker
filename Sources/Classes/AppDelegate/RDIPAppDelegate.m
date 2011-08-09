@@ -101,8 +101,8 @@
 	[mainController release];
 	[navigationController release];
 	[composeViewController release];
-    [window release];
-    [super dealloc];
+  [window release];
+  [super dealloc];
 }
 
 #pragma mark -
@@ -112,8 +112,8 @@
 {
 	RADIKOPLAYER_STATUS st = mainController.radikoPlayer.status;
 	audioInterrupted == (st == RADIKOPLAYER_STATUS_PLAY || 
-						 st == RADIKOPLAYER_STATUS_CONNECT ||
-						 st == RADIKOPLAYER_STATUS_DISCONNECT);
+                       st == RADIKOPLAYER_STATUS_CONNECT ||
+                       st == RADIKOPLAYER_STATUS_DISCONNECT);
 
 	[mainController.radikoPlayer stop];
 }

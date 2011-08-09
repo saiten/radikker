@@ -14,10 +14,11 @@
 
 @synthesize delegate, stations, areaCode, areaName;
 
-- (id)initWithDelegate:(id)aDelegate
+- (id)initWithDelegate:(id)aDelegate areaCode:(NSString *)aAreaCode
 {
 	if((self = [super init])) {
 		delegate = aDelegate;
+    areaCode = [aAreaCode retain];
 	}
 	return self;
 }
@@ -27,7 +28,8 @@
 	if(activeClient)
 		return;
 	
-	NSString *url = [[AppConfig sharedInstance] objectForKey:@"StationUrl"];
+	NSString *baseUrl = [[AppConfig sharedInstance] objectForKey:@"StationUrl"];
+  NSString *url = [NSString stringWithFormat:baseUrl, areaCode];
 	
 	activeClient = [[HttpClient alloc] initWithDelegate:self];
 	[activeClient get:url parameters:nil];

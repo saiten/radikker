@@ -24,7 +24,7 @@
 @property(nonatomic, readonly) NSString *areaCode, *areaName;
 @property(nonatomic, readonly) NSArray *stations;
 
-- (id)initWithDelegate:(id)delegate;
+- (id)initWithDelegate:(id)delegate areaCode:(NSString*)areaCode;
 - (void)getStations;
 - (void)cancel;
 
