@@ -30,6 +30,11 @@
 {
 	RDIPStation *station = [stations objectAtIndex:tunedStationIndex];
 	if(station) {
+    if([station isKindOfClass:[RDIPRadiruStation class]])
+      [radikoPlayer setService:RADIKOPLAYER_SERVICE_RADIRU];
+    else
+      [radikoPlayer setService:RADIKOPLAYER_SERVICE_RADIKO];
+    
 		[radikoPlayer setChannel:station.stationId];
 		
 		if(radikoPlayer.status == RADIKOPLAYER_STATUS_PLAY || 

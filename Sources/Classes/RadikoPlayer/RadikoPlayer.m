@@ -14,11 +14,12 @@
 
 @implementation RadikoPlayer
 
-@synthesize status, channel, delegate, authOnly;
+@synthesize status, channel, delegate, authOnly, service;
 
 - (id)init
 {
 	if((self = [super init])) {
+    service = RADIKOPLAYER_SERVICE_RADIKO;
 		status = RADIKOPLAYER_STATUS_STOP;
 	}
 	return self;
@@ -30,9 +31,9 @@
   [authClient startAuthentication];
 }
 
-- (void)_connectRadiko
+- (void)_connectStream:(NSString*)settingName
 {
-	NSDictionary *dic = [[AppConfig sharedInstance] objectForKey:@"RadikoPlayer"];
+ 	NSDictionary *dic = [[AppConfig sharedInstance] objectForKey:settingName];
 	
 	rtmpClient = [[RTMPClient alloc] initWithDelegate:self];
 	
@@ -43,11 +44,14 @@
 	NSString *swfUrl       = [dic objectForKey:@"SwfUrl"];
 	NSString *flashVersion = [dic objectForKey:@"FlashVersion"];
 	
-	NSString *appFormat    = [dic objectForKey:@"AppFormat"];
-	NSString *app = [NSString stringWithFormat:appFormat, channel];
+  NSString *app = [dic objectForKey:@"App"];
+  if(!app || [app isKindOfClass:[NSNull class]]) {
+    NSString *appFormat = [dic objectForKey:@"AppFormat"];
+    app = [NSString stringWithFormat:appFormat, channel];
+  }
 	
 	NSString *url = [NSString stringWithFormat:@"%@://%@:%d/%@/%@", protocol, hostName, port, app, playPath];
-
+  
 	if([protocol isEqual:@"rtmp"])
 		rtmpClient.protocol = RTMP_PROTOCOL_RTMP;
 	else if([protocol isEqual:@"rtmpe"])
@@ -60,7 +64,7 @@
 		rtmpClient.protocol = RTMP_PROTOCOL_RTMPTE;
 	else
 		rtmpClient.protocol = RTMP_PROTOCOL_UNDEFINED;
-
+  
 	rtmpClient.host = hostName;
 	rtmpClient.port = port;
 	rtmpClient.playPath = playPath;
@@ -73,7 +77,17 @@
   rtmpClient.radikoAuthToken = authClient.authToken;
   rtmpClient.radikoSwfUrl = swfUrl;
 	
-	[rtmpClient connect];
+	[rtmpClient connect]; 
+}
+
+- (void)_connectRadiru
+{
+  [self _connectStream:[NSString stringWithFormat:@"RadiruPlayer_%@", channel]];
+}
+
+- (void)_connectRadiko
+{
+  [self _connectStream:@"RadikoPlayer"];
 }
 
 - (void)_relayConverter
@@ -135,11 +149,16 @@
 		
 		rtmpToConvertPipe = [[NSPipe pipe] retain];
 		convertToQueuePipe = [[NSPipe pipe] retain];
-
-    if(authClient.state != AuthClientStateSuccess)
-      [self _authentication];
-    else
-      [self _connectRadiko];
+  
+    if(service == RADIKOPLAYER_SERVICE_RADIKO) {
+      if(authClient.state != AuthClientStateSuccess)
+        [self _authentication];
+      else
+        [self _connectRadiko];      
+    } else if(service == RADIKOPLAYER_SERVICE_RADIRU) {
+      [self _connectRadiru];
+    }
+    
 	}
 }
 

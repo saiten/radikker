@@ -13,27 +13,6 @@
 
 #define STR2AVAL(av, str)  av.av_val = (char*)str; av.av_len = strlen(av.av_val)
 
-#include <openssl/ssl.h>
-#include <openssl/sha.h>
-#include <openssl/hmac.h>
-#include <openssl/rc4.h>
-
-#define HMAC_setup(ctx, key, len)       HMAC_CTX_init(&ctx); HMAC_Init_ex(&ctx, (unsigned char *)key, len, EVP_sha256(), 0)
-#define HMAC_crunch(ctx, buf, len)      HMAC_Update(&ctx, (unsigned char *)buf, len)
-#define HMAC_finish(ctx, dig, dlen)     HMAC_Final(&ctx, (unsigned char *)dig, &(dlen));
-#define HMAC_close(ctx) HMAC_CTX_cleanup(&ctx)
-
-void swfcrunch(void *ptr, size_t size, size_t nmemb, void *stream);
-
-struct info
-{
-  z_stream *zs;
-  HMAC_CTX ctx;
-  int first;
-  int zlib;
-  int size;
-};
-
 @implementation RTMPClient
 
 @synthesize error, delegate, status;
@@ -164,7 +143,7 @@ static const AVal av_conn = AVC("conn");
   AVal sockshost = { 0, 0 }; 
   
   unsigned char hash[RTMP_SWF_HASHLEN];
-  int hlen = 0;
+  uint32_t swfSize = 0;
 
   if(host) {
     STR2AVAL(aHostName, [host cStringUsingEncoding:NSASCIIStringEncoding]);
@@ -209,35 +188,15 @@ static const AVal av_conn = AVC("conn");
   }
   
   if(radikoSwfUrl) {
-    NSURL *url = [NSURL URLWithString:radikoSwfUrl];
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-    [request setDownloadCache:[ASIDownloadCache sharedCache]];
-    [request setCachePolicy:ASIUseDefaultCachePolicy];
-    [request startSynchronous];
-
-    NSData *data = [request responseData];
-    
-    z_stream zs = { 0 };
-    struct info in = { 0 };
-    in.first = 1;
-    HMAC_setup(in.ctx, "Genuine Adobe Flash Player 001", 30);    
-    inflateInit(&zs);
-    in.zs = &zs;
-    
-    swfcrunch([data bytes], 1, [data length], &in);
-    
-    inflateEnd(&zs);
-    if(!in.first) {
-      HMAC_finish(in.ctx, hash, hlen);
-      swfHash.av_val = hash;
-      swfHash.av_len = hlen;
+    if(RTMP_HashSWF([radikoSwfUrl cStringUsingEncoding:NSASCIIStringEncoding], &swfSize, hash, 30) == 0) {
+      swfHash.av_val = (char*)hash;
+      swfHash.av_len = RTMP_SWF_HASHLEN;
     }
-    HMAC_close(in.ctx);
   }
   
 	RTMP_SetupStream(&rtmp, protocol, &aHostName, port, &sockshost, &aPlayPath,
-					 &aTcUrl, &aSwfUrl, &aPageUrl, &aApp, NULL, &swfHash, 0,
-					 &aFlashVer, NULL, seek, length, liveStream, timeout);
+					 &aTcUrl, &aSwfUrl, &aPageUrl, &aApp, NULL, &swfHash, swfSize,
+					 &aFlashVer, NULL, NULL, seek, length, liveStream, timeout);
 	
 	BOOL first = YES;
 	BOOL retries = NO;

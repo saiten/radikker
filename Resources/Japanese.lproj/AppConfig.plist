@@ -96,6 +96,12 @@
 		<string>#lovefm</string>
 		<key>FMFUKUOKA</key>
 		<string>#fmfukuoka</string>
+		<key>R1</key>
+		<string>#nhkr1</string>
+		<key>R2</key>
+		<string>#nhkr2</string>
+		<key>FM</key>
+		<string>#nhkfm</string>
 	</dict>
 	<key>ProgramUrl</key>
 	<string>http://radiko.jp/v2/api/program</string>
@@ -119,6 +125,57 @@
 		<string>rtmpe</string>
 		<key>SwfUrl</key>
 		<string>http://radiko.jp/player/swf/player_2.0.1.00.swf</string>
+	</dict>
+	<key>RadiruPlayer_R1</key>
+	<dict>
+		<key>App</key>
+		<string>live</string>
+		<key>FlashVersion</key>
+		<string>WIN 10,1,53,64</string>
+		<key>HostName</key>
+		<string>netradio-r1-flash.nhk.jp</string>
+		<key>PlayPath</key>
+		<string>NetRadio_R1_flash@63346</string>
+		<key>Port</key>
+		<integer>1935</integer>
+		<key>Protocol</key>
+		<string>rtmpe</string>
+		<key>SwfUrl</key>
+		<string>http://www3.nhk.or.jp/netradio/files/swf/rtmpe.swf</string>
+	</dict>
+	<key>RadiruPlayer_R2</key>
+	<dict>
+		<key>App</key>
+		<string>live</string>
+		<key>FlashVersion</key>
+		<string>WIN 10,1,53,64</string>
+		<key>HostName</key>
+		<string>netradio-r2-flash.nhk.jp</string>
+		<key>PlayPath</key>
+		<string>NetRadio_R2_flash@63342</string>
+		<key>Port</key>
+		<integer>1935</integer>
+		<key>Protocol</key>
+		<string>rtmpe</string>
+		<key>SwfUrl</key>
+		<string>http://www3.nhk.or.jp/netradio/files/swf/rtmpe.swf</string>
+	</dict>
+	<key>RadiruPlayer_FM</key>
+	<dict>
+		<key>App</key>
+		<string>live</string>
+		<key>FlashVersion</key>
+		<string>WIN 10,1,53,64</string>
+		<key>HostName</key>
+		<string>netradio-fm-flash.nhk.jp</string>
+		<key>PlayPath</key>
+		<string>NetRadio_FM_flash@63343</string>
+		<key>Port</key>
+		<integer>1935</integer>
+		<key>Protocol</key>
+		<string>rtmpe</string>
+		<key>SwfUrl</key>
+		<string>http://www3.nhk.or.jp/netradio/files/swf/rtmpe.swf</string>
 	</dict>
 	<key>SettingValues</key>
 	<dict>

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "RDIPProgram.h"
+#import "RDIPStation.h"
 
 @interface RDIPProgramViewCell : UITableViewCell {
 	UILabel *titleLabel;
@@ -18,7 +19,9 @@
 @property(nonatomic, readonly) UILabel *titleLabel, *performerLabel, *timeLabel;
 
 - (void)setProgram:(RDIPProgram*)program;
+- (void)setStation:(RDIPStation*)station;
 + (CGFloat)cellHeightForProgram:(RDIPProgram*)program;
++ (CGFloat)cellHeightForStation:(RDIPStation *)station;
 
 @end
 

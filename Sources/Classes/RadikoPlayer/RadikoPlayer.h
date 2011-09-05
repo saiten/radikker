@@ -24,9 +24,15 @@ typedef enum {
 	RADIKOPLAYER_STATUS_FAILED,	
 } RADIKOPLAYER_STATUS;
 
+typedef enum {
+	RADIKOPLAYER_SERVICE_RADIKO,
+	RADIKOPLAYER_SERVICE_RADIRU
+} RADIKOPLAYER_SERVICE;
+
 @interface RadikoPlayer : NSObject {
   BOOL authOnly;
 	RADIKOPLAYER_STATUS status;
+  RADIKOPLAYER_SERVICE service;
 
 	AuthClient *authClient;
 	RTMPClient *rtmpClient;
@@ -45,6 +51,7 @@ typedef enum {
 @property (nonatomic, readonly) RADIKOPLAYER_STATUS status;
 @property (nonatomic, assign) id delegate;
 @property (nonatomic, retain) NSString *channel;
+@property (nonatomic, readwrite) RADIKOPLAYER_SERVICE service;
 @property (nonatomic, readonly) BOOL authOnly;
 @property (nonatomic, readonly) NSString *areaCode;
 

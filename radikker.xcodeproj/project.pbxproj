@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,16 +14,6 @@
 		E11CFEB8117AF6480042D65B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11CFEB7117AF6480042D65B /* AVFoundation.framework */; };
 		E11CFEF9117AFDCC0042D65B /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E184C08A1161B7E200176B88 /* libssl.a */; };
 		E11CFEFA117AFDCC0042D65B /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E184C08B1161B7E200176B88 /* libcrypto.a */; };
-		E12E447C1393ADF1008725A4 /* rtmp.c in Sources */ = {isa = PBXBuildFile; fileRef = E12E446F1393ADF1008725A4 /* rtmp.c */; };
-		E12E447D1393ADF1008725A4 /* parseurl.c in Sources */ = {isa = PBXBuildFile; fileRef = E12E44711393ADF1008725A4 /* parseurl.c */; };
-		E12E447E1393ADF1008725A4 /* log.c in Sources */ = {isa = PBXBuildFile; fileRef = E12E44731393ADF1008725A4 /* log.c */; };
-		E12E447F1393ADF1008725A4 /* hashswf.c in Sources */ = {isa = PBXBuildFile; fileRef = E12E44751393ADF1008725A4 /* hashswf.c */; };
-		E12E44801393ADF1008725A4 /* amf.c in Sources */ = {isa = PBXBuildFile; fileRef = E12E447B1393ADF1008725A4 /* amf.c */; };
-		E12E44811393B037008725A4 /* rtmp.c in Sources */ = {isa = PBXBuildFile; fileRef = E12E446F1393ADF1008725A4 /* rtmp.c */; };
-		E12E44821393B038008725A4 /* parseurl.c in Sources */ = {isa = PBXBuildFile; fileRef = E12E44711393ADF1008725A4 /* parseurl.c */; };
-		E12E44831393B038008725A4 /* log.c in Sources */ = {isa = PBXBuildFile; fileRef = E12E44731393ADF1008725A4 /* log.c */; };
-		E12E44841393B038008725A4 /* hashswf.c in Sources */ = {isa = PBXBuildFile; fileRef = E12E44751393ADF1008725A4 /* hashswf.c */; };
-		E12E44851393B038008725A4 /* amf.c in Sources */ = {isa = PBXBuildFile; fileRef = E12E447B1393ADF1008725A4 /* amf.c */; };
 		E12E449713947F3A008725A4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E12E449613947F3A008725A4 /* Default@2x.png */; };
 		E12E449813947F3A008725A4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E12E449613947F3A008725A4 /* Default@2x.png */; };
 		E1346FF713937BE000AF58CB /* AuthClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E1346FF513937BE000AF58CB /* AuthClient.m */; };
@@ -209,6 +199,14 @@
 		E16819E3116431130078D8C2 /* RDIPStationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E16819E2116431130078D8C2 /* RDIPStationViewController.m */; };
 		E16819F1116439CE0078D8C2 /* RDIPSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E16819F0116439CE0078D8C2 /* RDIPSubViewController.m */; };
 		E1681A0A116441530078D8C2 /* RDIPSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1681A09116441530078D8C2 /* RDIPSubView.m */; };
+		E1703D9D1410D50A001AC28C /* librtmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1703D941410D50A001AC28C /* librtmp.a */; settings = {ATTRIBUTES = (Required, ); }; };
+		E1703DAB1410F515001AC28C /* librtmp-sim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1703DAA1410F515001AC28C /* librtmp-sim.a */; };
+		E1703DB314111A1A001AC28C /* radiru_FM.png in Resources */ = {isa = PBXBuildFile; fileRef = E1703DAD14111A1A001AC28C /* radiru_FM.png */; };
+		E1703DB414111A1A001AC28C /* radiru_FM.png in Resources */ = {isa = PBXBuildFile; fileRef = E1703DAD14111A1A001AC28C /* radiru_FM.png */; };
+		E1703DB714111A1A001AC28C /* radiru_R2.png in Resources */ = {isa = PBXBuildFile; fileRef = E1703DAF14111A1A001AC28C /* radiru_R2.png */; };
+		E1703DB814111A1A001AC28C /* radiru_R2.png in Resources */ = {isa = PBXBuildFile; fileRef = E1703DAF14111A1A001AC28C /* radiru_R2.png */; };
+		E1703DBD14111A1A001AC28C /* radiru_R1.png in Resources */ = {isa = PBXBuildFile; fileRef = E1703DB214111A1A001AC28C /* radiru_R1.png */; };
+		E1703DBE14111A1A001AC28C /* radiru_R1.png in Resources */ = {isa = PBXBuildFile; fileRef = E1703DB214111A1A001AC28C /* radiru_R1.png */; };
 		E1719849116B09FD009526B6 /* RDIPTwitterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1719848116B09FD009526B6 /* RDIPTwitterViewController.m */; };
 		E1719880116B1367009526B6 /* bird.png in Resources */ = {isa = PBXBuildFile; fileRef = E1719872116B1367009526B6 /* bird.png */; };
 		E1719884116B1367009526B6 /* envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = E1719876116B1367009526B6 /* envelope.png */; };
@@ -327,20 +325,6 @@
 		E11475AD1185696500B83E2E /* RDIPWebBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDIPWebBrowserController.h; sourceTree = "<group>"; };
 		E11475AE1185696500B83E2E /* RDIPWebBrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDIPWebBrowserController.m; sourceTree = "<group>"; };
 		E11CFEB7117AF6480042D65B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		E12E446E1393ADF1008725A4 /* rtmp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rtmp.h; sourceTree = "<group>"; };
-		E12E446F1393ADF1008725A4 /* rtmp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rtmp.c; sourceTree = "<group>"; };
-		E12E44701393ADF1008725A4 /* rtmp_sys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rtmp_sys.h; sourceTree = "<group>"; };
-		E12E44711393ADF1008725A4 /* parseurl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = parseurl.c; sourceTree = "<group>"; };
-		E12E44721393ADF1008725A4 /* log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = log.h; sourceTree = "<group>"; };
-		E12E44731393ADF1008725A4 /* log.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = log.c; sourceTree = "<group>"; };
-		E12E44741393ADF1008725A4 /* http.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = http.h; sourceTree = "<group>"; };
-		E12E44751393ADF1008725A4 /* hashswf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hashswf.c; sourceTree = "<group>"; };
-		E12E44761393ADF1008725A4 /* handshake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = handshake.h; sourceTree = "<group>"; };
-		E12E44771393ADF1008725A4 /* dhgroups.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dhgroups.h; sourceTree = "<group>"; };
-		E12E44781393ADF1008725A4 /* dh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dh.h; sourceTree = "<group>"; };
-		E12E44791393ADF1008725A4 /* bytes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bytes.h; sourceTree = "<group>"; };
-		E12E447A1393ADF1008725A4 /* amf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = amf.h; sourceTree = "<group>"; };
-		E12E447B1393ADF1008725A4 /* amf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = amf.c; sourceTree = "<group>"; };
 		E12E449613947F3A008725A4 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Images/Default@2x.png"; sourceTree = SOURCE_ROOT; };
 		E1346FF513937BE000AF58CB /* AuthClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthClient.m; sourceTree = "<group>"; };
 		E1346FF613937BE000AF58CB /* AuthClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthClient.h; sourceTree = "<group>"; };
@@ -415,6 +399,11 @@
 		E1681A08116441530078D8C2 /* RDIPSubView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDIPSubView.h; sourceTree = "<group>"; };
 		E1681A09116441530078D8C2 /* RDIPSubView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDIPSubView.m; sourceTree = "<group>"; };
 		E1681AB81164735F0078D8C2 /* graphics_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = graphics_util.h; sourceTree = "<group>"; };
+		E1703D941410D50A001AC28C /* librtmp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = librtmp.a; path = ../Libraries/librtmp/lib/librtmp.a; sourceTree = "<group>"; };
+		E1703DAA1410F515001AC28C /* librtmp-sim.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "librtmp-sim.a"; path = "../Libraries/librtmp/lib/librtmp-sim.a"; sourceTree = "<group>"; };
+		E1703DAD14111A1A001AC28C /* radiru_FM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radiru_FM.png; sourceTree = "<group>"; };
+		E1703DAF14111A1A001AC28C /* radiru_R2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radiru_R2.png; sourceTree = "<group>"; };
+		E1703DB214111A1A001AC28C /* radiru_R1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radiru_R1.png; sourceTree = "<group>"; };
 		E1719847116B09FD009526B6 /* RDIPTwitterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDIPTwitterViewController.h; sourceTree = "<group>"; };
 		E1719848116B09FD009526B6 /* RDIPTwitterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDIPTwitterViewController.m; sourceTree = "<group>"; };
 		E1719872116B1367009526B6 /* bird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bird.png; sourceTree = "<group>"; };
@@ -627,6 +616,7 @@
 				E13470D6139380CF00AF58CB /* libbase.a in Frameworks */,
 				E134701E13937CB600AF58CB /* librfxswf.a in Frameworks */,
 				E184C10B1161C84300176B88 /* libxml2.2.dylib in Frameworks */,
+				E1703D9D1410D50A001AC28C /* librtmp.a in Frameworks */,
 				E168191C116345250078D8C2 /* QuartzCore.framework in Frameworks */,
 				E1F04393116B8C27002B5FC1 /* MediaPlayer.framework in Frameworks */,
 				E11CFEB8117AF6480042D65B /* AVFoundation.framework in Frameworks */,
@@ -654,6 +644,7 @@
 				E13470BC13937DFF00AF58CB /* libxml2.2.dylib in Frameworks */,
 				E13470D11393808E00AF58CB /* libbase.a in Frameworks */,
 				E13470AF13937DFF00AF58CB /* librfxswf.a in Frameworks */,
+				E1703DAB1410F515001AC28C /* librtmp-sim.a in Frameworks */,
 				E13470BD13937DFF00AF58CB /* QuartzCore.framework in Frameworks */,
 				E13470BE13937DFF00AF58CB /* MediaPlayer.framework in Frameworks */,
 				E13470BF13937DFF00AF58CB /* AVFoundation.framework in Frameworks */,
@@ -717,11 +708,10 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E1703DAC1410F523001AC28C /* librtmp */,
+				E15DD605115BFE36007A7A63 /* openssl */,
+				E1703DA51410D6A5001AC28C /* swftools */,
 				E13470CA13937FE100AF58CB /* libz.1.2.3.dylib */,
-				E13470D5139380CF00AF58CB /* libbase.a */,
-				E134701D13937CB600AF58CB /* librfxswf.a */,
-				E13470CD1393808E00AF58CB /* libbase.a */,
-				E134701B13937CA200AF58CB /* librfxswf.a */,
 				E134701513937C7100AF58CB /* CFNetwork.framework */,
 				E134701613937C7100AF58CB /* MobileCoreServices.framework */,
 				E134701713937C7100AF58CB /* Security.framework */,
@@ -838,8 +828,6 @@
 				E1F002FF1169C0BB0063B091 /* JSON */,
 				E184C0F81161C77700176B88 /* GData */,
 				E184C1241161CA8900176B88 /* ImageStore */,
-				E184C09E1161B88F00176B88 /* librtmp */,
-				E15DD605115BFE36007A7A63 /* openssl */,
 				E1E8C29111648D5B00FA591C /* OAuthConsumer */,
 			);
 			name = Libraries;
@@ -855,7 +843,7 @@
 				E184C08B1161B7E200176B88 /* libcrypto.a */,
 			);
 			name = openssl;
-			path = openssl/lib;
+			path = ../Libraries/openssl/lib;
 			sourceTree = "<group>";
 		};
 		E15DDA3C11640463007A7A63 /* Images */ = {
@@ -868,6 +856,7 @@
 				E1EF0CB311EEC79F003C4043 /* warning.png */,
 				E1A3CE3B118D7320008964C7 /* Default.png */,
 				E12E449613947F3A008725A4 /* Default@2x.png */,
+				E1703DBF14111A2E001AC28C /* radiru */,
 				E15DDA3D11640463007A7A63 /* twitter.png */,
 			);
 			path = Images;
@@ -969,6 +958,36 @@
 			name = SubView;
 			sourceTree = "<group>";
 		};
+		E1703DA51410D6A5001AC28C /* swftools */ = {
+			isa = PBXGroup;
+			children = (
+				E13470D5139380CF00AF58CB /* libbase.a */,
+				E134701D13937CB600AF58CB /* librfxswf.a */,
+				E13470CD1393808E00AF58CB /* libbase.a */,
+				E134701B13937CA200AF58CB /* librfxswf.a */,
+			);
+			name = swftools;
+			sourceTree = "<group>";
+		};
+		E1703DAC1410F523001AC28C /* librtmp */ = {
+			isa = PBXGroup;
+			children = (
+				E1703D941410D50A001AC28C /* librtmp.a */,
+				E1703DAA1410F515001AC28C /* librtmp-sim.a */,
+			);
+			name = librtmp;
+			sourceTree = "<group>";
+		};
+		E1703DBF14111A2E001AC28C /* radiru */ = {
+			isa = PBXGroup;
+			children = (
+				E1703DAD14111A1A001AC28C /* radiru_FM.png */,
+				E1703DAF14111A1A001AC28C /* radiru_R2.png */,
+				E1703DB214111A1A001AC28C /* radiru_R1.png */,
+			);
+			name = radiru;
+			sourceTree = "<group>";
+		};
 		E1719870116B1367009526B6 /* icons */ = {
 			isa = PBXGroup;
 			children = (
@@ -1023,28 +1042,6 @@
 			);
 			path = Reachability;
 			sourceTree = "<group>";
-		};
-		E184C09E1161B88F00176B88 /* librtmp */ = {
-			isa = PBXGroup;
-			children = (
-				E12E446E1393ADF1008725A4 /* rtmp.h */,
-				E12E446F1393ADF1008725A4 /* rtmp.c */,
-				E12E44701393ADF1008725A4 /* rtmp_sys.h */,
-				E12E44711393ADF1008725A4 /* parseurl.c */,
-				E12E44721393ADF1008725A4 /* log.h */,
-				E12E44731393ADF1008725A4 /* log.c */,
-				E12E44741393ADF1008725A4 /* http.h */,
-				E12E44751393ADF1008725A4 /* hashswf.c */,
-				E12E44761393ADF1008725A4 /* handshake.h */,
-				E12E44771393ADF1008725A4 /* dhgroups.h */,
-				E12E44781393ADF1008725A4 /* dh.h */,
-				E12E44791393ADF1008725A4 /* bytes.h */,
-				E12E447A1393ADF1008725A4 /* amf.h */,
-				E12E447B1393ADF1008725A4 /* amf.c */,
-			);
-			name = librtmp;
-			path = ../Libraries/librtmp;
-			sourceTree = SOURCE_ROOT;
 		};
 		E184C0BD1161BA4E00176B88 /* Utilities */ = {
 			isa = PBXGroup;
@@ -1439,8 +1436,11 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0410;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "radikker" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -1489,6 +1489,9 @@
 				E1EF0CB411EEC79F003C4043 /* warning.png in Resources */,
 				E1EF0D0611EEDD72003C4043 /* icon@2x.png in Resources */,
 				E12E449713947F3A008725A4 /* Default@2x.png in Resources */,
+				E1703DB314111A1A001AC28C /* radiru_FM.png in Resources */,
+				E1703DB714111A1A001AC28C /* radiru_R2.png in Resources */,
+				E1703DBD14111A1A001AC28C /* radiru_R1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1521,6 +1524,9 @@
 				E134703D13937DFF00AF58CB /* warning.png in Resources */,
 				E134703E13937DFF00AF58CB /* icon@2x.png in Resources */,
 				E12E449813947F3A008725A4 /* Default@2x.png in Resources */,
+				E1703DB414111A1A001AC28C /* radiru_FM.png in Resources */,
+				E1703DB814111A1A001AC28C /* radiru_R2.png in Resources */,
+				E1703DBE14111A1A001AC28C /* radiru_R1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1635,11 +1641,6 @@
 				E134701213937C5100AF58CB /* ASIHTTPRequest.m in Sources */,
 				E134701313937C5100AF58CB /* ASIInputStream.m in Sources */,
 				E134701413937C5100AF58CB /* ASINetworkQueue.m in Sources */,
-				E12E447C1393ADF1008725A4 /* rtmp.c in Sources */,
-				E12E447D1393ADF1008725A4 /* parseurl.c in Sources */,
-				E12E447E1393ADF1008725A4 /* log.c in Sources */,
-				E12E447F1393ADF1008725A4 /* hashswf.c in Sources */,
-				E12E44801393ADF1008725A4 /* amf.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1751,11 +1752,6 @@
 				E13470AA13937DFF00AF58CB /* ASIHTTPRequest.m in Sources */,
 				E13470AB13937DFF00AF58CB /* ASIInputStream.m in Sources */,
 				E13470AC13937DFF00AF58CB /* ASINetworkQueue.m in Sources */,
-				E12E44811393B037008725A4 /* rtmp.c in Sources */,
-				E12E44821393B038008725A4 /* parseurl.c in Sources */,
-				E12E44831393B038008725A4 /* log.c in Sources */,
-				E12E44841393B038008725A4 /* hashswf.c in Sources */,
-				E12E44851393B038008725A4 /* amf.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1794,8 +1790,10 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radikker_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = Info.plist;
 				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/../Libraries/librtmp/lib",
 					"$(inherited)",
 					"$(SRCROOT)/../Libraries/openssl/lib",
 					"$(SRCROOT)/../Libraries/swftools-0.9.1/device/lib",
@@ -1813,8 +1811,10 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radikker_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = Info.plist;
 				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/../Libraries/librtmp/lib",
 					"$(inherited)",
 					"$(SRCROOT)/../Libraries/openssl/lib",
 					"$(SRCROOT)/../Libraries/swftools-0.9.1/device/lib",
@@ -1838,6 +1838,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
+					../Libraries/librtmp/include/librtmp,
 					"${SDK_ROOT}/usr/include/libxml2",
 					../Libraries/openssl/include,
 					"../Libraries/swftools-0.9.1/device/lib",
@@ -1847,7 +1848,6 @@
 					"-licucore",
 					"-lz",
 				);
-				PREBINDING = NO;
 				PROVISIONING_PROFILE = "4470ACE7-00F6-41E6-8C8E-EA686C93C956";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4470ACE7-00F6-41E6-8C8E-EA686C93C956";
 				SDKROOT = iphoneos;
@@ -1868,6 +1868,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
+					../Libraries/librtmp/include/librtmp,
 					"${SDK_ROOT}/usr/include/libxml2",
 					../Libraries/openssl/include,
 					"../Libraries/swftools-0.9.1/device/lib",
@@ -1878,7 +1879,6 @@
 					"-licucore",
 					"-lz",
 				);
-				PREBINDING = NO;
 				PROVISIONING_PROFILE = "4470ACE7-00F6-41E6-8C8E-EA686C93C956";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4470ACE7-00F6-41E6-8C8E-EA686C93C956";
 				SDKROOT = iphoneos;
@@ -1899,8 +1899,10 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radikker_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = Info.plist;
 				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/../Libraries/librtmp/lib",
 					"$(inherited)",
 					"$(SRCROOT)/../Libraries/openssl/lib",
 					"$(SRCROOT)/../Libraries/swftools-0.9.1/simulator/lib",
@@ -1918,8 +1920,10 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radikker_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = Info.plist;
 				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/../Libraries/librtmp/lib",
 					"$(inherited)",
 					"$(SRCROOT)/../Libraries/openssl/lib",
 					"$(SRCROOT)/../Libraries/swftools-0.9.1/simulator/lib",
@@ -1938,8 +1942,10 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radikker_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = Info.plist;
 				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/../Libraries/librtmp/lib",
 					"$(inherited)",
 					"$(SRCROOT)/../Libraries/openssl/lib",
 					"$(SRCROOT)/../Libraries/swftools-0.9.1/simulator/lib",
@@ -1958,8 +1964,10 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radikker_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = Info.plist;
 				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/../Libraries/librtmp/lib",
 					"$(inherited)",
 					"$(SRCROOT)/../Libraries/openssl/lib",
 					"$(SRCROOT)/../Libraries/swftools-0.9.1/simulator/lib",
@@ -1980,6 +1988,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
+					../Libraries/librtmp/include/librtmp,
 					"${SDK_ROOT}/usr/include/libxml2",
 					../Libraries/openssl/include,
 					"../Libraries/swftools-0.9.1/device/lib",
@@ -1990,7 +1999,6 @@
 					"-licucore",
 					"-lz",
 				);
-				PREBINDING = NO;
 				PROVISIONING_PROFILE = "707FB16A-89A8-49F5-B767-C29DA8C000B3";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "707FB16A-89A8-49F5-B767-C29DA8C000B3";
 				SDKROOT = iphoneos;
@@ -2009,8 +2017,10 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radikker_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = Info.plist;
 				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/../Libraries/librtmp/lib",
 					"$(inherited)",
 					"$(SRCROOT)/../Libraries/openssl/lib",
 					"$(SRCROOT)/../Libraries/swftools-0.9.1/device/lib",
@@ -2032,6 +2042,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
+					../Libraries/librtmp/include/librtmp,
 					"${SDK_ROOT}/usr/include/libxml2",
 					../Libraries/openssl/include,
 					"../Libraries/swftools-0.9.1/device/lib",
@@ -2042,7 +2053,6 @@
 					"-licucore",
 					"-lz",
 				);
-				PREBINDING = NO;
 				PROVISIONING_PROFILE = "31700C07-D603-4783-9645-90E6A477131E";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "31700C07-D603-4783-9645-90E6A477131E";
 				SDKROOT = iphoneos;
@@ -2061,8 +2071,10 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radikker_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = Info.plist;
 				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/../Libraries/librtmp/lib",
 					"$(inherited)",
 					"$(SRCROOT)/../Libraries/openssl/lib",
 					"$(SRCROOT)/../Libraries/swftools-0.9.1/device/lib",

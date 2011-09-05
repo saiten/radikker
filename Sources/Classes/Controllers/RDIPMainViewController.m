@@ -182,7 +182,9 @@
 			return;
 		}
 		
-		if(![self stationsWithTuningItem]) {
+    NSArray *tuneStations = [self stationsWithTuningItem];
+    
+		if(!tuneStations) {
 			stationClient = [[RDIPStationClient alloc] initWithDelegate:self areaCode:radikoPlayer.areaCode];
 			[stationClient getStations];
 			
@@ -217,6 +219,7 @@
 	stationClient = nil;
 
 	selectedStationIndex = tunedStationIndex = 0;
+  [self setRadiruStation];
 	[self reloadTuner];
 }
 
@@ -231,6 +234,18 @@
 	
 	[stationClient autorelease];
 	stationClient = nil;
+}
+
+- (void)setRadiruStation
+{
+	NSArray *arr = [self stationsWithKindOfClass:[RDIPTwitterStation class]];
+  if(!arr) {
+    NSArray *channels = [NSArray arrayWithObjects:@"R1", @"R2", @"FM", nil];
+    for(NSString *channel in channels) {
+      RDIPRadiruStation *radiruStation = [[[RDIPRadiruStation alloc] initWithChannel:channel] autorelease];
+      [stations addObject:radiruStation];
+    }
+  }
 }
 
 #pragma mark -

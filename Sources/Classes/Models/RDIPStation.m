@@ -111,3 +111,22 @@
 
 @end
 
+@implementation RDIPRadiruStation
+
+- (id)initWithChannel:(NSString*)channel
+{
+	if((self = [super init])) {
+		stationId = channel;
+    NSString *locKey = [NSString stringWithFormat:@"radiru_%@", channel];
+		stationName =  [NSLocalizedString(locKey, locKey) retain];
+		NSString *logoPath = [[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"radiru_%@", channel] ofType:@"png"] retain];
+		logoUrl = [[[NSURL fileURLWithPath:logoPath] absoluteString] retain];
+		feedUrl = nil;
+		bannerUrl = nil;
+		tuning = YES;
+	}
+	return self;
+}
+
+@end
+

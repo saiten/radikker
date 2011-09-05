@@ -63,9 +63,27 @@
 	[fmt setLocale:[[[NSLocale alloc] initWithLocaleIdentifier:@"US"] autorelease]];
 	[fmt setDateFormat:@"HH:mm"];
 
-	return [NSString stringWithFormat:@"%@ - %@", 
-			[fmt stringFromDate:program.fromTime], 
-			[fmt stringFromDate:program.toTime]];
+  if(program.fromTime && program.toTime) {
+    return [NSString stringWithFormat:@"%@ - %@", 
+            [fmt stringFromDate:program.fromTime], 
+            [fmt stringFromDate:program.toTime]];
+  } else {
+    return @"";
+  }
+}
+
++ (CGFloat)calculateFrameWithStation:(RDIPStation*)station cell:(RDIPProgramViewCell*)cell
+{
+	CGFloat height = 16.0f;
+  
+	CGSize titleSize = [station.stationName sizeWithFont:TITLE_FONT 
+                                     constrainedToSize:CGSizeMake(280, 200)];
+  
+	if(cell)
+		cell.titleLabel.frame = CGRectMake(10, height, titleSize.width, titleSize.height);
+	height += titleSize.height + 16.0f;
+
+	return height;
 }
 
 + (CGFloat)calculateFrame:(RDIPProgram*)program cell:(RDIPProgramViewCell*)cell
@@ -97,6 +115,11 @@
 	return [RDIPProgramViewCell calculateFrame:program cell:nil];
 }
 
++ (CGFloat)cellHeightForStation:(RDIPStation *)station
+{
+	return [RDIPProgramViewCell calculateFrameWithStation:station cell:nil];
+}
+
 - (void)setProgram:(RDIPProgram *)program
 {
 	titleLabel.text = program.title;
@@ -105,6 +128,13 @@
 	
 	[RDIPProgramViewCell calculateFrame:program cell:self];
 }
+
+- (void)setStation:(RDIPStation *)station
+{
+	titleLabel.text = station.stationName;
+	[RDIPProgramViewCell calculateFrameWithStation:station cell:self];
+}
+
 
 - (void)dealloc {
 	[titleLabel release];

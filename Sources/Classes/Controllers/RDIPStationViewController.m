@@ -28,25 +28,38 @@
 - (NSArray*)loadButtons
 {
 	infoButton  = [[RDIPSquareButton alloc] initWithImage:[UIImage imageNamed:@"headphones.png"]];
-    infoButton.accessibilityLabel = NSLocalizedString(@"Program", @"Program Information");
-	listButton  = [[RDIPSquareButton alloc] initWithImage:[UIImage imageNamed:@"list.png"]];
+  infoButton.accessibilityLabel = NSLocalizedString(@"Program", @"Program Information");
+  
+  if(![station isKindOfClass:[RDIPRadiruStation class]]) {
+    listButton  = [[RDIPSquareButton alloc] initWithImage:[UIImage imageNamed:@"list.png"]];
     listButton.accessibilityLabel = NSLocalizedString(@"Program List", @"Program List");
+  }
+  
 	tweetButton = [[RDIPSquareButton alloc] initWithImage:[UIImage imageNamed:@"bird.png"]];
-    tweetButton.accessibilityLabel = NSLocalizedString(@"Tweet List", @"Tweet List");
-    
-	return [NSArray arrayWithObjects:infoButton, listButton, tweetButton, nil];
+  tweetButton.accessibilityLabel = NSLocalizedString(@"Tweet List", @"Tweet List");
+  
+  
+  if(![station isKindOfClass:[RDIPRadiruStation class]])
+    return [NSArray arrayWithObjects:infoButton, listButton, tweetButton, nil];
+  else
+    return [NSArray arrayWithObjects:infoButton,  tweetButton, nil];
 }
 
 - (NSArray*)loadViewControllers
 {
 	RDIPStationInfoViewController *infoViewController = [[[RDIPStationInfoViewController alloc] initWithStation:station] autorelease];
 
-	RDIPProgramListViewController *programListViewController = [[[RDIPProgramListViewController alloc] initWithStation:station] autorelease];																
+  RDIPProgramListViewController *programListViewController = nil;
+  if(![station isKindOfClass:[RDIPRadiruStation class]])
+    programListViewController = [[[RDIPProgramListViewController alloc] initWithStation:station] autorelease];									
 	
 	NSString *hashTag = [(NSDictionary*)[[AppConfig sharedInstance] objectForKey:RDIPCONFIG_HASHTAGS] objectForKey:station.stationId];
 	RDIPStationTimelineViewController *timelineViewController = [[[RDIPStationTimelineViewController alloc] initWithHashTag:hashTag] autorelease];
 	
-	return [NSArray arrayWithObjects:infoViewController, programListViewController, timelineViewController, nil];
+  if(![station isKindOfClass:[RDIPRadiruStation class]])
+    return [NSArray arrayWithObjects:infoViewController, programListViewController, timelineViewController, nil];
+  else
+    return [NSArray arrayWithObjects:infoViewController, timelineViewController, nil];
 }
 
 - (void)viewDidLoad 

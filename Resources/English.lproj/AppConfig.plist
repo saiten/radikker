@@ -12,6 +12,97 @@
 		<string>群馬県</string>
 		<string>栃木県</string>
 	</array>
+	<key>HashTags</key>
+	<dict>
+		<key>802</key>
+		<string>#fm802</string>
+		<key>ABC</key>
+		<string>#abcradio</string>
+		<key>CCL</key>
+		<string>#fmcocolo</string>
+		<key>FMJ</key>
+		<string>#jwave</string>
+		<key>FMO</key>
+		<string>#fmosaka</string>
+		<key>FMT</key>
+		<string>#tokyofm</string>
+		<key>INT</key>
+		<string>#interfm</string>
+		<key>LFR</key>
+		<string>#jolf</string>
+		<key>MBS</key>
+		<string>#mbsradio</string>
+		<key>NSB</key>
+		<string>#radionikkei</string>
+		<key>OBC</key>
+		<string>#obc</string>
+		<key>QRR</key>
+		<string>#joqr</string>
+		<key>TBS</key>
+		<string>#tbsradio</string>
+		<key>BAYFM78</key>
+		<string>#bayfm</string>
+		<key>NACK5</key>
+		<string>#nack5</string>
+		<key>YFM</key>
+		<string>#fmyokohama</string>
+		<key>JORF</key>
+		<string>#jorf</string>
+		<key>TOKAIRADIO</key>
+		<string>#tokairadio</string>
+		<key>CBC</key>
+		<string>#cbc1053</string>
+		<key>GBS</key>
+		<string>#gifuchan</string>
+		<key>ZIP-FM</key>
+		<string>#zipfm</string>
+		<key>FMAICHI</key>
+		<string>#fmaichi</string>
+		<key>HBC</key>
+		<string>#HBCradio</string>
+		<key>STV</key>
+		<string>#stvradio</string>
+		<key>AIR-G</key>
+		<string>#air_g</string>
+		<key>IBS</key>
+		<string>#ibs_radio</string>
+		<key>RADIOBERRY</key>
+		<string>#rberry</string>
+		<key>FMGUNMA</key>
+		<string>#fmgunma</string>
+		<key>E_RADIO</key>
+		<string>#fmsiga</string>
+		<key>KBS</key>
+		<string>#kbs</string>
+		<key>ALPHA-STATION</key>
+		<string>#fmkyoto</string>
+		<key>CRK</key>
+		<string>#crk</string>
+		<key>WBS</key>
+		<string>#dwbs</string>
+		<key>KISSFMKOBE</key>
+		<string>#KissFMKOBE</string>
+		<key>FMMIE</key>
+		<string>#fmmie</string>
+		<key>RCC</key>
+		<string>#rcc</string>
+		<key>HFM</key>
+		<string>#hfm</string>
+		<key>RKB</key>
+		<string>#rkb</string>
+		<key>KBC</key>
+		<string>#kbc</string>
+		<key>LOVEFM</key>
+		<string>#lovefm</string>
+		<key>FMFUKUOKA</key>
+		<string>#fmfukuoka</string>
+		<key>R1</key>
+		<string>#nhkr1</string>
+		<key>R2</key>
+		<string>#nhkr2</string>
+		<key>FM</key>
+		<string>#nhkfm</string>
+	</dict>
 	<key>ProgramUrl</key>
 	<string>http://radiko.jp/v2/api/program</string>
 	<key>RadikoPlayer</key>
@@ -34,6 +125,57 @@
 		<string>rtmpe</string>
 		<key>SwfUrl</key>
 		<string>http://radiko.jp/player/swf/player_2.0.1.00.swf</string>
+	</dict>
+	<key>RadiruPlayer_R1</key>
+	<dict>
+		<key>App</key>
+		<string>live</string>
+		<key>FlashVersion</key>
+		<string>WIN 10,1,53,64</string>
+		<key>HostName</key>
+		<string>netradio-r1-flash.nhk.jp</string>
+		<key>PlayPath</key>
+		<string>NetRadio_R1_flash@63346</string>
+		<key>Port</key>
+		<integer>1935</integer>
+		<key>Protocol</key>
+		<string>rtmpe</string>
+		<key>SwfUrl</key>
+		<string>http://www3.nhk.or.jp/netradio/files/swf/rtmpe.swf</string>
+	</dict>
+	<key>RadiruPlayer_R2</key>
+	<dict>
+		<key>App</key>
+		<string>live</string>
+		<key>FlashVersion</key>
+		<string>WIN 10,1,53,64</string>
+		<key>HostName</key>
+		<string>netradio-r2-flash.nhk.jp</string>
+		<key>PlayPath</key>
+		<string>NetRadio_R2_flash@63342</string>
+		<key>Port</key>
+		<integer>1935</integer>
+		<key>Protocol</key>
+		<string>rtmpe</string>
+		<key>SwfUrl</key>
+		<string>http://www3.nhk.or.jp/netradio/files/swf/rtmpe.swf</string>
+	</dict>
+	<key>RadiruPlayer_FM</key>
+	<dict>
+		<key>App</key>
+		<string>live</string>
+		<key>FlashVersion</key>
+		<string>WIN 10,1,53,64</string>
+		<key>HostName</key>
+		<string>netradio-fm-flash.nhk.jp</string>
+		<key>PlayPath</key>
+		<string>NetRadio_FM_flash@63343</string>
+		<key>Port</key>
+		<integer>1935</integer>
+		<key>Protocol</key>
+		<string>rtmpe</string>
+		<key>SwfUrl</key>
+		<string>http://www3.nhk.or.jp/netradio/files/swf/rtmpe.swf</string>
 	</dict>
 	<key>SettingValues</key>
 	<dict>
@@ -123,91 +265,6 @@
 				<true/>
 			</array>
 		</dict>
-	</dict>
-	<key>HashTags</key>
-	<dict>
-		<key>802</key>
-		<string>#fm802</string>
-		<key>ABC</key>
-		<string>#abcradio</string>
-		<key>CCL</key>
-		<string>#fmcocolo</string>
-		<key>FMJ</key>
-		<string>#jwave</string>
-		<key>FMO</key>
-		<string>#fmosaka</string>
-		<key>FMT</key>
-		<string>#tokyofm</string>
-		<key>INT</key>
-		<string>#interfm</string>
-		<key>LFR</key>
-		<string>#jolf</string>
-		<key>MBS</key>
-		<string>#mbsradio</string>
-		<key>NSB</key>
-		<string>#radionikkei</string>
-		<key>OBC</key>
-		<string>#obc</string>
-		<key>QRR</key>
-		<string>#joqr</string>
-		<key>TBS</key>
-		<string>#tbsradio</string>
-		<key>BAYFM78</key>
-		<string>#bayfm</string>
-		<key>NACK5</key>
-		<string>#nack5</string>
-		<key>YFM</key>
-		<string>#fmyokohama</string>
-		<key>JORF</key>
-		<string>#jorf</string>
-		<key>TOKAIRADIO</key>
-		<string>#tokairadio</string>
-		<key>CBC</key>
-		<string>#cbc1053</string>
-		<key>GBS</key>
-		<string>#gifuchan</string>
-		<key>ZIP-FM</key>
-		<string>#zipfm</string>
-		<key>FMAICHI</key>
-		<string>#fmaichi</string>
-		<key>HBC</key>
-		<string>#HBCradio</string>
-		<key>STV</key>
-		<string>#stvradio</string>
-		<key>AIR-G</key>
-		<string>#air_g</string>
-		<key>IBS</key>
-		<string>#ibs_radio</string>
-		<key>RADIOBERRY</key>
-		<string>#rberry</string>
-		<key>FMGUNMA</key>
-		<string>#fmgunma</string>
-		<key>E_RADIO</key>
-		<string>#fmsiga</string>
-		<key>KBS</key>
-		<string>#kbs</string>
-		<key>ALPHA-STATION</key>
-		<string>#fmkyoto</string>
-		<key>CRK</key>
-		<string>#crk</string>
-		<key>WBS</key>
-		<string>#dwbs</string>
-		<key>KISSFMKOBE</key>
-		<string>#KissFMKOBE</string>
-		<key>FMMIE</key>
-		<string>#fmmie</string>
-		<key>RCC</key>
-		<string>#rcc</string>
-		<key>HFM</key>
-		<string>#hfm</string>
-		<key>RKB</key>
-		<string>#rkb</string>
-		<key>KBC</key>
-		<string>#kbc</string>
-		<key>LOVEFM</key>
-		<string>#lovefm</string>
-		<key>FMFUKUOKA</key>
-		<string>#fmfukuoka</string>
 	</dict>
 	<key>StationUrl</key>
 	<string>http://radiko.jp/v2/station/list/%@.xml</string>

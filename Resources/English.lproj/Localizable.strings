@@ -52,6 +52,7 @@
 /* No comment provided by engineer. */
 "Settings" = "Settings";
 
+
 /* No comment provided by engineer. */
 "Sort tuner" = "Sort tuner";
 
@@ -123,3 +124,8 @@
 
 /* No comment provided by engineer. */
 "Search" = "Search";
+
+"radiru_R1" = "NHK Radio #1";
+"radiru_R2" = "NHK Radio #2";
+"radiru_FM" = "NHK Radio FM";
+

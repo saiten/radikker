@@ -82,7 +82,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	CGFloat programCellHeight = [RDIPProgramViewCell cellHeightForProgram:program];
+	CGFloat programCellHeight;
+  if(program.title)
+    programCellHeight = [RDIPProgramViewCell cellHeightForProgram:program];
+  else
+    programCellHeight = [RDIPProgramViewCell cellHeightForStation:station];
+  
 	if([indexPath section] == 0) {
 		switch([indexPath row]) {
 			case 0:
@@ -124,16 +129,20 @@
 				cell = [[[RDIPProgramViewCell alloc] initWithStyle:UITableViewCellStyleDefault 
 												   reuseIdentifier:ProgramCellIdentifier] autorelease];
 			}
-			if(program)
-				[cell setProgram:program];			
+			if(program.title) {
+				[cell setProgram:program];
+        
+        if(program.url && program.url.length > 0) {
+          cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+          cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+        } else {
+          cell.accessoryType = UITableViewCellAccessoryNone;
+          cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+      } else {
+        [cell setStation:station];        
+      }
 
-			if(program.url && program.url.length > 0) {
-				cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-				cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-			} else {
-				cell.accessoryType = UITableViewCellAccessoryNone;
-				cell.selectionStyle = UITableViewCellSelectionStyleNone;
-			}
 
 			return cell;
 		} else if([indexPath row] == 1) {

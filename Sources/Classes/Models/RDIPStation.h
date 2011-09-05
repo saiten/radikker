@@ -38,3 +38,9 @@
 @interface RDIPUpdateStateStation : RDIPStation {
 }
 @end
+
+@interface RDIPRadiruStation : RDIPStation {
+}
+- (id)initWithChannel:(NSString*)channel;
+@end
+
