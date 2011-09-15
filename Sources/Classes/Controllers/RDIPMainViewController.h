@@ -80,7 +80,7 @@ typedef enum {
 @end
 
 @interface RDIPMainViewController(Toolbar)
-- (void)setToolbar:(BOOL)playing;
+- (void)setToolbarPlaying:(BOOL)playing;
 - (void)loadToolbarButtons;
 @end
 

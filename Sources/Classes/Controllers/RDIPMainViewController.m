@@ -54,7 +54,7 @@
 {
   [super viewDidLoad];
 	[self loadToolbarButtons];
-	[self setToolbar:NO];
+	[self setToolbarPlaying:NO];
 
 	// enable remote control
 	UIApplication *app = [UIApplication sharedApplication];

@@ -18,7 +18,7 @@
 
 @implementation RDIPMainViewController(Toolbar)
 
-- (void)setToolbar:(BOOL)playing
+- (void)setToolbarPlaying:(BOOL)playing
 {
 	UIBarButtonItem *playOrPause = playing ? pauseButton : playButton;
 	

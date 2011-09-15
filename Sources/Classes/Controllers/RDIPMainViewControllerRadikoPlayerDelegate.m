@@ -80,7 +80,7 @@
 	
 	if([currentViewController isKindOfClass:[RDIPStationViewController class]])
 		[(RDIPStationViewController*)currentViewController nowOnAir];
-  [self setToolbar:YES];
+  [self setToolbarPlaying:YES];
 }
 
 - (void)radikoPlayerWillStop:(RadikoPlayer *)aRadikoPlayer
@@ -95,7 +95,7 @@
 		[radikoPlayer play];
 	else
 		[[StatusBarAlert sharedInstance] hideStatusAnimated:YES];
-  [self setToolbar:NO];
+  [self setToolbarPlaying:NO];
 }
 
 - (void)radikoPlayerDidEmptyBuffer:(RadikoPlayer *)aRadikoPlayer
