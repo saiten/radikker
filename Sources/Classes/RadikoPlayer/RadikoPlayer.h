@@ -46,6 +46,7 @@ typedef enum {
 	NSString *channel;
 	
 	id delegate;
+  UIBackgroundTaskIdentifier bgTask;
 }
 
 @property (nonatomic, readonly) RADIKOPLAYER_STATUS status;

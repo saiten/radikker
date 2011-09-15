@@ -6,10 +6,6 @@
 //
 
 #import "RTMPClient.h"
-#import "ASIHTTPRequest.h"
-#import "ASIDownloadCache.h"
-
-#import <zlib.h>
 
 #define STR2AVAL(av, str)  av.av_val = (char*)str; av.av_len = strlen(av.av_val)
 
@@ -118,7 +114,7 @@
                 }
             }
         }		
-    } while (!RTMP_ctrlC && readSize > -1 && RTMP_IsConnected(&rtmp));
+    } while (!RTMP_ctrlC && readSize > -1 && RTMP_IsConnected(&rtmp) && !RTMP_IsTimedout(&rtmp));
 	
 	free(buffer);
 	

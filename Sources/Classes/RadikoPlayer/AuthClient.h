@@ -29,6 +29,7 @@ typedef enum {
   NSData *keyData;
   
   id delegate;
+  NSDate *lastAuthDate;
   AuthClientState state;
   NSError *error;
 }
@@ -37,6 +38,8 @@ typedef enum {
 @property(nonatomic,readonly) NSString *authToken;
 @property(nonatomic,readonly) NSString *partialKey;
 @property(nonatomic,readonly) AuthClientState state;
+@property(nonatomic,readonly) NSDate *lastAuthDate;
+@property(nonatomic, readonly) NSError *error;
 
 - (id)initWithDelegate:(id)delegate;
 - (void)startAuthentication;

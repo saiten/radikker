@@ -21,8 +21,27 @@
 	if((self = [super init])) {
     service = RADIKOPLAYER_SERVICE_RADIKO;
 		status = RADIKOPLAYER_STATUS_STOP;
+    bgTask = UIBackgroundTaskInvalid;
 	}
 	return self;
+}
+
+- (void)_beginBackgroundTask
+{ 
+  UIApplication *app = [UIApplication sharedApplication];
+  bgTask = [app beginBackgroundTaskWithExpirationHandler:^{
+    [app endBackgroundTask:bgTask];
+    bgTask = UIBackgroundTaskInvalid;
+  }];  
+}
+
+- (void)_endBackgroundTask
+{
+  if(bgTask != UIBackgroundTaskInvalid) {
+    UIApplication *app = [UIApplication sharedApplication];
+    [app endBackgroundTask:bgTask];
+    bgTask = UIBackgroundTaskInvalid;
+  }
 }
 
 - (void)_authentication
@@ -111,6 +130,11 @@
 	
 	audioStreamPlayer = [[AudioStreamPlayer alloc] initWithDelegate:self bufferSize:[numBufferSize intValue]];
 	audioStreamPlayer.inputHandle = [convertToQueuePipe fileHandleForReading];
+  
+  if(service == RADIKOPLAYER_SERVICE_RADIKO)
+    audioStreamPlayer.volume = 0.5;
+  else
+    audioStreamPlayer.volume = 0.5;
 	
 	[audioStreamPlayer play];
 }
@@ -141,6 +165,8 @@
 		   status == RADIKOPLAYER_STATUS_DISCONNECT)
 			return;	
 
+    [self _beginBackgroundTask];
+    
 		status = RADIKOPLAYER_STATUS_AUTH;
     authOnly = NO;
 
@@ -151,10 +177,14 @@
 		convertToQueuePipe = [[NSPipe pipe] retain];
   
     if(service == RADIKOPLAYER_SERVICE_RADIKO) {
-      if(authClient.state != AuthClientStateSuccess)
-        [self _authentication];
-      else
+      
+      NSTimeInterval interval = fabs([authClient.lastAuthDate timeIntervalSinceNow]);
+      NSLog(@"last auth date = %.1f", interval);
+      
+      if(authClient.state == AuthClientStateSuccess && interval < 600.0)
         [self _connectRadiko];      
+      else
+        [self _authentication];
     } else if(service == RADIKOPLAYER_SERVICE_RADIRU) {
       [self _connectRadiru];
     }
@@ -214,6 +244,10 @@
       [self _connectRadiko];
     else
       status = RADIKOPLAYER_STATUS_STOP;      
+  } else if(client.error) {
+    if(delegate && [delegate respondsToSelector:@selector(radikoPlayerDidFailed:withError:)])
+      [delegate radikoPlayerDidFailed:self withError:client.error];
+      [self _endBackgroundTask];
   }
 }
 
@@ -255,6 +289,7 @@
 	if(delegate && [delegate respondsToSelector:@selector(radikoPlayerDidFailed:withError:)])
 		[delegate radikoPlayerDidFailed:self withError:client.error];
 
+  [self _endBackgroundTask];
 	[self rtmpClientDidCloseConnection:client];
 }
 
@@ -295,9 +330,12 @@
 		[delegate radikoPlayerDidOpenAudioStream:self];
 
 	status = RADIKOPLAYER_STATUS_PLAY;
+  
 	if(delegate && [delegate respondsToSelector:@selector(radikoPlayerDidPlay:)]) {
 		[delegate radikoPlayerDidPlay:self];
 	}
+
+  [self _endBackgroundTask];
 }
 
 - (void)audioStreamPlayerDidBufferEmpty:(AudioStreamPlayer *)player

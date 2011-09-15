@@ -57,7 +57,7 @@ static BOOL active = NO, buffering;
 
 @implementation AudioStreamPlayer
 
-@synthesize delegate, inputHandle;
+@synthesize delegate, inputHandle, volume;
 
 - (id)initWithDelegate:(id)aDelegate bufferSize:(UInt32)size
 {
@@ -66,6 +66,7 @@ static BOOL active = NO, buffering;
 
 		bufferSize = AUDIOBUFFER_SIZE;
 		bufferCount = size / bufferSize;
+    volume = 1.0f;
 
 		if(bufferCount < 3)
 			bufferCount = 3;
@@ -76,6 +77,14 @@ static BOOL active = NO, buffering;
 - (void)dealloc
 {
 	[super dealloc];
+}
+
+- (void)setVolume:(Float32)_volume
+{
+  volume = _volume;
+  if(audioQueue) {
+    AudioQueueSetParameter(audioQueue, kAudioQueueParam_Volume, volume);
+  }
 }
 
 - (UInt32)calculateBufferSizePerTime:(NSTimeInterval)interval
@@ -174,6 +183,9 @@ static BOOL active = NO, buffering;
 		NSLog(@"failed AudioQueueEnqueueBuffer : %d", oStatus);
 	
 	if(buffering && fillQueueBufferCount == bufferCount) {
+    // set volume
+    AudioQueueSetParameter(audioQueue, kAudioQueueParam_Volume, volume);
+    
 		oStatus = AudioQueueStart(audioQueue, NULL);
 		if(oStatus)
 			NSLog(@"failed AudioQueueStart : %d", oStatus);
@@ -258,25 +270,6 @@ static BOOL active = NO, buffering;
 	} else if(inInterruption == kAudioSessionBeginInterruption) {
 		
 	}
-}
-
-- (void)_startAudioSession
-{
-	AudioSessionInitialize(NULL, NULL, _interruptionListener, self);
-	
-	UInt32 sessionCategory = kAudioSessionCategory_MediaPlayback;
-	AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof(sessionCategory), &sessionCategory);
-	AudioSessionSetActive(true);
-}
-
-- (void)_endAudioSession
-{
-	AudioSessionSetActive(false);
-}
-
-- (void)_closeAudioFileStream
-{
-	AudioFileStreamClose(audioStreamId);
 }
 
 - (void)play

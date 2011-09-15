@@ -57,7 +57,7 @@ void extract_id(const void *data, int len, int extract_id, void **extract_data, 
 
 @implementation AuthClient
 
-@synthesize authToken, partialKey, areaCode, state;
+@synthesize authToken, partialKey, areaCode, state, lastAuthDate, error;
 
 - (id)initWithDelegate:(id)aDelegate
 {
@@ -73,6 +73,7 @@ void extract_id(const void *data, int len, int extract_id, void **extract_data, 
   [keyData release];
   [authToken release];
   [partialKey release];
+  [lastAuthDate release];
   [super dealloc];
 }
 
@@ -83,6 +84,8 @@ void extract_id(const void *data, int len, int extract_id, void **extract_data, 
 {
   if(!(state == AuthClientStateInit || state == AuthClientStateFailed))
     return;
+  
+  lastAuthDate = [[NSDate date] retain];
   
   [self _getPlayer];  
 }

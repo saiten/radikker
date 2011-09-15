@@ -22,6 +22,8 @@
 	AudioStreamBasicDescription audioBasicDesc;
 	AudioQueueRef audioQueue;
 	
+  Float32 volume;
+  
 	UInt32 bufferCount;
 	UInt32 bufferSize;
 	AudioQueueBufferRef audioBuffers[AUDIOBUFFER_MAXCOUNT];
@@ -36,6 +38,7 @@
 
 @property (nonatomic, assign) id delegate;
 @property (nonatomic, assign) NSFileHandle *inputHandle;
+@property (nonatomic, readwrite) Float32 volume;
 
 - (id)initWithDelegate:(id)aDelegate bufferSize:(UInt32)size;
 - (void)play;
