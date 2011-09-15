@@ -117,4 +117,16 @@
 									   animated:YES];
 }
 
+- (void)radikoPlayerDidFailed:(RadikoPlayer *)radikoPlayer withError:(NSError *)error
+{
+  [[StatusBarAlert sharedInstance] hideStatusAnimated:YES];
+  [self setToolbarPlaying:NO];
+  UIAlertView *alertView = [[[UIAlertView alloc] initWithTitle:@"Error"
+                                                       message:[error localizedDescription]
+                                                      delegate:nil
+                                             cancelButtonTitle:@"OK"
+                                             otherButtonTitles:nil] autorelease];
+  [alertView show];
+}
+
 @end
