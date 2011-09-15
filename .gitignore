@@ -1,14 +1,15 @@
-build
-*.xcodeproj/*.pbxuser
-*.xcodeproj/*.mode*
-*.xcodeproj/*.perspective*
-*.xcodeproj/xcuserdata
-*.xcodeproj/project.xcworkspace/xcuserdata
-*.xcworkspace/xcuserdata
-
-#old skool
-.svn
-
 # osx noise
 .DS_Store
 profile
+
+#xcode specific
+build/*
+*.pbxuser
+*.mode2v3
+*.mode1v3
+*.perspective
+*.perspectivev3
+*~.nib
+#ignore private workspace stuff added by Xcode4
+xcuserdata
+project.xcworkspace

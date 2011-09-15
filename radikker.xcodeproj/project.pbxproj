@@ -1077,10 +1077,10 @@
 				E184C0C41161BA4E00176B88 /* FileSave.m */,
 				E184C0C51161BA4E00176B88 /* FLVConverter.h */,
 				E184C0C61161BA4E00176B88 /* FLVConverter.m */,
-				E184C0C71161BA4E00176B88 /* RadikoPlayer.h */,
-				E184C0C81161BA4E00176B88 /* RadikoPlayer.m */,
 				E184C0C91161BA4E00176B88 /* RTMPClient.h */,
 				E184C0CA1161BA4E00176B88 /* RTMPClient.m */,
+				E184C0C71161BA4E00176B88 /* RadikoPlayer.h */,
+				E184C0C81161BA4E00176B88 /* RadikoPlayer.m */,
 			);
 			path = RadikoPlayer;
 			sourceTree = "<group>";
