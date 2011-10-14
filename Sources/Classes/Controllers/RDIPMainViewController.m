@@ -166,7 +166,7 @@
 #pragma mark -
 #pragma mark RDIPStationClient methods
 
-- (void)loadStations
+- (void)loadStations:(BOOL)forceRefresh
 {
   if(!radikoPlayer.areaCode) {
     [radikoPlayer authenticate];
@@ -184,7 +184,7 @@
 		
     NSArray *tuneStations = [self stationsWithTuningItem];
     
-		if(!tuneStations) {
+		if(!tuneStations || forceRefresh) {
 			stationClient = [[RDIPStationClient alloc] initWithDelegate:self areaCode:radikoPlayer.areaCode];
 			[stationClient getStations];
 			
@@ -227,7 +227,7 @@
 {
 	NSLog(@"stationClient failed : %@", [error description]);
 
-	//mainView.tunerView.loading = NO;
+	mainView.tunerView.loading = NO;
 
 	radikoStatus = RDIP_RADIKOSTATUS_NOTSERVICESAREA;
 	[self reloadTuner];

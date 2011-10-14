@@ -196,6 +196,7 @@
 {
 	@synchronized(self) {
 		if(!(status == RADIKOPLAYER_STATUS_PLAY ||
+       status == RADIKOPLAYER_STATUS_AUTH ||
 			 status == RADIKOPLAYER_STATUS_CONNECT ||
 			 status == RADIKOPLAYER_STATUS_DISCONNECT))
 			return;

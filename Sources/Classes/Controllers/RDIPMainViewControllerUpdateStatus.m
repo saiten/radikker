@@ -62,7 +62,7 @@
 		}
 	}
   
-	[self loadStations];
+	[self loadStations:NO];
 }
 
 - (void)checkLocation
@@ -82,7 +82,7 @@
 - (void)noCheckLocation
 {
 	radikoStatus = RDIP_RADIKOSTATUS_NOTSERVICESAREA;
-	[self loadStations];
+	[self loadStations:NO];
 }
 
 #pragma mark -
@@ -103,7 +103,7 @@
 	SimpleAlertShow(@"Location Error", [error localizedDescription]);
 	
 	radikoStatus = RDIP_RADIKOSTATUS_NOTSERVICESAREA;	
-	[self loadStations];
+	[self loadStations:NO];
 	
 	[manager autorelease];
 }
@@ -140,7 +140,7 @@
 	}
 	
 	radikoStatus = status;
-  [self loadStations];
+  [self loadStations:NO];
 	[geocoder autorelease];
 }
 
@@ -149,7 +149,7 @@
 	SimpleAlertShow(@"Reverse Geocoding Error", [error localizedDescription]);
 	
 	radikoStatus = RDIP_RADIKOSTATUS_NOTSERVICESAREA;	
-	[self loadStations];
+	[self loadStations:NO];
 	
 	[geocoder autorelease];
 }

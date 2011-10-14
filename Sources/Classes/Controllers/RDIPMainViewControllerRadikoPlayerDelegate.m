@@ -52,18 +52,19 @@
 	[radikoPlayer stop];
 }
 
-- (void)radikoPlayerDidStartAuthentication:(RadikoPlayer *)radikoPlayer
+- (void)radikoPlayerDidStartAuthentication:(RadikoPlayer *)aRadikoPlayer
 {
   if(!radikoPlayer.authOnly) {
     [[StatusBarAlert sharedInstance] showStatus:@"Authenticating.." 
                                        animated:YES];  
+    [self setToolbarPlaying:YES];    
   }
 }
 
-- (void)radikoPlayerDidFinishedAuthentication:(RadikoPlayer *)radikoPlayer
+- (void)radikoPlayerDidFinishedAuthentication:(RadikoPlayer *)aRadikoPlayer
 {
   if(radikoPlayer.authOnly) {
-    [self loadStations];
+    [self loadStations:NO];
   }
 }
 
@@ -71,6 +72,7 @@
 {
 	[[StatusBarAlert sharedInstance] showStatus:[NSString stringWithFormat:@"Connecting.. %@", radikoPlayer.channel] 
 									   animated:YES];
+  [self setToolbarPlaying:YES];
 }
 
 - (void)radikoPlayerDidPlay:(RadikoPlayer *)aRadikoPlayer
@@ -80,7 +82,6 @@
 	
 	if([currentViewController isKindOfClass:[RDIPStationViewController class]])
 		[(RDIPStationViewController*)currentViewController nowOnAir];
-  [self setToolbarPlaying:YES];
 }
 
 - (void)radikoPlayerWillStop:(RadikoPlayer *)aRadikoPlayer

@@ -36,6 +36,7 @@ typedef enum {
 	UIBarButtonItem *playButton;
 	UIBarButtonItem *pauseButton;
 	UIBarButtonItem *tweetButton;	
+	UIBarButtonItem *refreshButton;
 	
 	UIViewController *currentViewController;
 	NSMutableDictionary *stationViewControllers;
@@ -60,7 +61,7 @@ typedef enum {
 @property(nonatomic, readwrite) RDIP_RADIKOSTATUS radikoStatus;
 @property(nonatomic, readonly) RadikoPlayer *radikoPlayer;
 
-- (void)loadStations;
+- (void)loadStations:(BOOL)forceRefresh;
 @end
 
 @interface RDIPMainViewController(RadikoPlayerDelegate)
