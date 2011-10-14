@@ -290,7 +290,7 @@ static BOOL active = NO, buffering;
 	if(!active)
 		return;
 	
-	active = NO;	
+	active = NO;
 	AudioQueueStop(audioQueue, true);
 }
 
@@ -341,12 +341,15 @@ static void _read_stream(int fh, AudioFileStreamID audioStreamId)
 #ifdef DEBUG
 	NSLog(@"AudioStreamPlayer end");
 #endif
-	
+  
+  if(active)
+    [self stop];
+
 	AudioFileStreamClose(audioStreamId);
 	for(int i=0; i<bufferCount; i++)
 		AudioQueueFreeBuffer(audioQueue, audioBuffers[i]);
 	AudioQueueDispose(audioQueue, true);
-	
+  
 	if(delegate && [delegate respondsToSelector:@selector(audioStreamPlayerDidStop:)]) {
 		[delegate performSelector:@selector(audioStreamPlayerDidStop:) 
 						 onThread:[NSThread mainThread]
