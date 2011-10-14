@@ -12,10 +12,7 @@
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		E11475AF1185696500B83E2E /* RDIPWebBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = E11475AE1185696500B83E2E /* RDIPWebBrowserController.m */; };
 		E11CFEB8117AF6480042D65B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11CFEB7117AF6480042D65B /* AVFoundation.framework */; };
-		E11CFEF9117AFDCC0042D65B /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E184C08A1161B7E200176B88 /* libssl.a */; };
-		E11CFEFA117AFDCC0042D65B /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E184C08B1161B7E200176B88 /* libcrypto.a */; };
 		E12E449713947F3A008725A4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E12E449613947F3A008725A4 /* Default@2x.png */; };
-		E12E449813947F3A008725A4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E12E449613947F3A008725A4 /* Default@2x.png */; };
 		E1346FF713937BE000AF58CB /* AuthClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E1346FF513937BE000AF58CB /* AuthClient.m */; };
 		E134700D13937C5100AF58CB /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = E1346FFA13937C5100AF58CB /* ASIAuthenticationDialog.m */; };
 		E134700E13937C5100AF58CB /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = E1346FFD13937C5100AF58CB /* ASIDataCompressor.m */; };
@@ -27,160 +24,11 @@
 		E134701413937C5100AF58CB /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E134700B13937C5100AF58CB /* ASINetworkQueue.m */; };
 		E134701913937C7100AF58CB /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E134701513937C7100AF58CB /* CFNetwork.framework */; };
 		E134701A13937C7100AF58CB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E134701613937C7100AF58CB /* MobileCoreServices.framework */; };
-		E134701E13937CB600AF58CB /* librfxswf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E134701D13937CB600AF58CB /* librfxswf.a */; };
-		E134702713937DFF00AF58CB /* AppConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1EF0C5411EEC1D3003C4043 /* AppConfig.plist */; };
-		E134702813937DFF00AF58CB /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = E15DDA3D11640463007A7A63 /* twitter.png */; };
-		E134702913937DFF00AF58CB /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F003231169C25B0063B091 /* icon.png */; };
-		E134702A13937DFF00AF58CB /* bird.png in Resources */ = {isa = PBXBuildFile; fileRef = E1719872116B1367009526B6 /* bird.png */; };
-		E134702B13937DFF00AF58CB /* envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = E1719876116B1367009526B6 /* envelope.png */; };
-		E134702C13937DFF00AF58CB /* headphones.png in Resources */ = {isa = PBXBuildFile; fileRef = E1719878116B1367009526B6 /* headphones.png */; };
-		E134702D13937DFF00AF58CB /* house.png in Resources */ = {isa = PBXBuildFile; fileRef = E1719879116B1367009526B6 /* house.png */; };
-		E134702E13937DFF00AF58CB /* magnifying-glass.png in Resources */ = {isa = PBXBuildFile; fileRef = E171987B116B1367009526B6 /* magnifying-glass.png */; };
-		E134702F13937DFF00AF58CB /* chat.png in Resources */ = {isa = PBXBuildFile; fileRef = E171987E116B1367009526B6 /* chat.png */; };
-		E134703013937DFF00AF58CB /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = E171987F116B1367009526B6 /* gear.png */; };
-		E134703113937DFF00AF58CB /* speaker.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F041B5116B6214002B5FC1 /* speaker.png */; };
-		E134703213937DFF00AF58CB /* speaker-white.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F04438116B9988002B5FC1 /* speaker-white.png */; };
-		E134703313937DFF00AF58CB /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = E1DE539D11771DB80010A1D1 /* cancel.png */; };
-		E134703413937DFF00AF58CB /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = E1DE539E11771DB80010A1D1 /* refresh.png */; };
-		E134703513937DFF00AF58CB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A3CE3B118D7320008964C7 /* Default.png */; };
-		E134703613937DFF00AF58CB /* atmark.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A3CE59118D78AA008964C7 /* atmark.png */; };
-		E134703713937DFF00AF58CB /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A3CE64118D7B4D008964C7 /* left.png */; };
-		E134703813937DFF00AF58CB /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A3CE65118D7B4D008964C7 /* right.png */; };
-		E134703913937DFF00AF58CB /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A3CE77118D957C008964C7 /* list.png */; };
-		E134703A13937DFF00AF58CB /* icon-alpha.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AA8F1F11EC5AEF0086F169 /* icon-alpha.png */; };
-		E134703B13937DFF00AF58CB /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = E1AA8F2111EC5B050086F169 /* about.html */; };
-		E134703C13937DFF00AF58CB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E1EF0C3411EEBDD2003C4043 /* Localizable.strings */; };
-		E134703D13937DFF00AF58CB /* warning.png in Resources */ = {isa = PBXBuildFile; fileRef = E1EF0CB311EEC79F003C4043 /* warning.png */; };
-		E134703E13937DFF00AF58CB /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1EF0D0511EEDD72003C4043 /* icon@2x.png */; };
-		E134704013937DFF00AF58CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E1935B881160B357003E6BF0 /* main.m */; };
-		E134704613937DFF00AF58CB /* AppConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E184C0BF1161BA4E00176B88 /* AppConfig.m */; };
-		E134704713937DFF00AF58CB /* AudioStreamPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E184C0C21161BA4E00176B88 /* AudioStreamPlayer.m */; };
-		E134704813937DFF00AF58CB /* FileSave.m in Sources */ = {isa = PBXBuildFile; fileRef = E184C0C41161BA4E00176B88 /* FileSave.m */; };
-		E134704913937DFF00AF58CB /* FLVConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = E184C0C61161BA4E00176B88 /* FLVConverter.m */; };
-		E134704A13937DFF00AF58CB /* RadikoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E184C0C81161BA4E00176B88 /* RadikoPlayer.m */; };
-		E134704B13937DFF00AF58CB /* RTMPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E184C0CA1161BA4E00176B88 /* RTMPClient.m */; };
-		E134704C13937DFF00AF58CB /* RDIPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E184C0CD1161BA4E00176B88 /* RDIPAppDelegate.m */; };
-		E134704D13937DFF00AF58CB /* RDIPTunerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E184C0D01161BA4E00176B88 /* RDIPTunerView.m */; };
-		E134704E13937DFF00AF58CB /* RDIPStation.m in Sources */ = {isa = PBXBuildFile; fileRef = E184C0D31161BA4E00176B88 /* RDIPStation.m */; };
-		E134704F13937DFF00AF58CB /* RDIPMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E184C0E81161BC8A00176B88 /* RDIPMainViewController.m */; };
-		E134705013937DFF00AF58CB /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = E184C0FD1161C77700176B88 /* GDataXMLNode.m */; };
-		E134705113937DFF00AF58CB /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E184C1261161CA8900176B88 /* HttpClient.m */; };
-		E134705213937DFF00AF58CB /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = E184C1281161CA8900176B88 /* ImageDownloader.m */; };
-		E134705313937DFF00AF58CB /* ImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E184C12A1161CA8900176B88 /* ImageStore.m */; };
-		E134705413937DFF00AF58CB /* StringHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E184C12C1161CA8900176B88 /* StringHelper.m */; };
-		E134705513937DFF00AF58CB /* SharedImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E184C1341161CB8C00176B88 /* SharedImageStore.m */; };
-		E134705613937DFF00AF58CB /* RDIPStationClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C36CEF1162117A00A363A5 /* RDIPStationClient.m */; };
-		E134705713937DFF00AF58CB /* GDataXMLNodeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E15DD7CA11627465007A7A63 /* GDataXMLNodeUtil.m */; };
-		E134705813937DFF00AF58CB /* RDIPTunerStationView.m in Sources */ = {isa = PBXBuildFile; fileRef = E16815301162F0720078D8C2 /* RDIPTunerStationView.m */; };
-		E134705913937DFF00AF58CB /* RDIPFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E16815771162FFFF0078D8C2 /* RDIPFooterView.m */; };
-		E134705A13937DFF00AF58CB /* RDIPMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = E16817D8116333850078D8C2 /* RDIPMainView.m */; };
-		E134705B13937DFF00AF58CB /* RDIPSquareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E15DDA4311640517007A7A63 /* RDIPSquareButton.m */; };
-		E134705C13937DFF00AF58CB /* RDIPStationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E16819E2116431130078D8C2 /* RDIPStationViewController.m */; };
-		E134705D13937DFF00AF58CB /* RDIPSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E16819F0116439CE0078D8C2 /* RDIPSubViewController.m */; };
-		E134705E13937DFF00AF58CB /* RDIPSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1681A09116441530078D8C2 /* RDIPSubView.m */; };
-		E134705F13937DFF00AF58CB /* NSMutableURLRequest+Parameters.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E8C29411648D5B00FA591C /* NSMutableURLRequest+Parameters.m */; };
-		E134706013937DFF00AF58CB /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E8C29611648D5B00FA591C /* NSString+URLEncoding.m */; };
-		E134706113937DFF00AF58CB /* NSURL+Base.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E8C29811648D5B00FA591C /* NSURL+Base.m */; };
-		E134706213937DFF00AF58CB /* Base64Transcoder.c in Sources */ = {isa = PBXBuildFile; fileRef = E1E8C29A11648D5B00FA591C /* Base64Transcoder.c */; };
-		E134706313937DFF00AF58CB /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = E1E8C29C11648D5B00FA591C /* hmac.c */; };
-		E134706413937DFF00AF58CB /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = E1E8C29E11648D5B00FA591C /* sha1.c */; };
-		E134706513937DFF00AF58CB /* OACall.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E8C2A111648D5B00FA591C /* OACall.m */; };
-		E134706613937DFF00AF58CB /* OAConsumer.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E8C2A311648D5B00FA591C /* OAConsumer.m */; };
-		E134706713937DFF00AF58CB /* OADataFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E8C2A511648D5B00FA591C /* OADataFetcher.m */; };
-		E134706813937DFF00AF58CB /* OAHMAC_SHA1SignatureProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E8C2A711648D5B00FA591C /* OAHMAC_SHA1SignatureProvider.m */; };
-		E134706913937DFF00AF58CB /* OAMutableURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E8C2A911648D5B00FA591C /* OAMutableURLRequest.m */; };
-		E134706A13937DFF00AF58CB /* OAPlaintextSignatureProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E8C2AB11648D5B00FA591C /* OAPlaintextSignatureProvider.m */; };
-		E134706B13937DFF00AF58CB /* OAProblem.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E8C2AD11648D5B00FA591C /* OAProblem.m */; };
-		E134706C13937DFF00AF58CB /* OARequestParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E8C2AF11648D5B00FA591C /* OARequestParameter.m */; };
-		E134706D13937DFF00AF58CB /* OAServiceTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E8C2B111648D5B00FA591C /* OAServiceTicket.m */; };
-		E134706E13937DFF00AF58CB /* OAToken.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E8C2B511648D5B00FA591C /* OAToken.m */; };
-		E134706F13937DFF00AF58CB /* OATokenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E8C2B911648D5B00FA591C /* OATokenManager.m */; };
-		E134707013937DFF00AF58CB /* RDIPStationInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F0319B11653092002B5FC1 /* RDIPStationInfoViewController.m */; };
-		E134707113937DFF00AF58CB /* RDIPProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F0373411662C62002B5FC1 /* RDIPProgram.m */; };
-		E134707213937DFF00AF58CB /* StatusBarAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F03C7611679124002B5FC1 /* StatusBarAlert.m */; };
-		E134707313937DFF00AF58CB /* RDIPProgramClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F03D481167A478002B5FC1 /* RDIPProgramClient.m */; };
-		E134707413937DFF00AF58CB /* RDIPEPG.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F03D621167AAFE002B5FC1 /* RDIPEPG.m */; };
-		E134707513937DFF00AF58CB /* RDIPProgramViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F03ED211685B4B002B5FC1 /* RDIPProgramViewCell.m */; };
-		E134707613937DFF00AF58CB /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F003021169C0BB0063B091 /* NSObject+SBJSON.m */; };
-		E134707713937DFF00AF58CB /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F003041169C0BB0063B091 /* NSString+SBJSON.m */; };
-		E134707813937DFF00AF58CB /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F003061169C0BB0063B091 /* SBJSON.m */; };
-		E134707913937DFF00AF58CB /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F003081169C0BB0063B091 /* SBJsonBase.m */; };
-		E134707A13937DFF00AF58CB /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F0030A1169C0BB0063B091 /* SBJsonParser.m */; };
-		E134707B13937DFF00AF58CB /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F0030C1169C0BB0063B091 /* SBJsonWriter.m */; };
-		E134707C13937DFF00AF58CB /* RDIPTwitterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1719848116B09FD009526B6 /* RDIPTwitterViewController.m */; };
-		E134707D13937DFF00AF58CB /* RDIPSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F0444A116B9DB8002B5FC1 /* RDIPSettingViewController.m */; };
-		E134707E13937DFF00AF58CB /* RDIPOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E14BD037116DAEEB00232A3E /* RDIPOAuthViewController.m */; };
-		E134707F13937DFF00AF58CB /* AppSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = E197AFD5116F190600A8969E /* AppSetting.m */; };
-		E134708013937DFF00AF58CB /* RDIPSettingValueSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E14BD2181172E2EA00232A3E /* RDIPSettingValueSelectViewController.m */; };
-		E134708113937DFF00AF58CB /* RDIPTwitterClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E13DDEAB1174156C0033175B /* RDIPTwitterClient.m */; };
-		E134708213937DFF00AF58CB /* OAuthHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E14BD3491174295A00232A3E /* OAuthHttpClient.m */; };
-		E134708313937DFF00AF58CB /* NSString+RDIPExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DE4E5111745DE10010A1D1 /* NSString+RDIPExtend.m */; };
-		E134708413937DFF00AF58CB /* RDIPTwitterStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DE4EDF11746F9C0010A1D1 /* RDIPTwitterStatus.m */; };
-		E134708513937DFF00AF58CB /* RDIPTwitterUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DE4EE7117477B00010A1D1 /* RDIPTwitterUser.m */; };
-		E134708613937DFF00AF58CB /* NSDate+RDIPExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DE4F6F11747DD00010A1D1 /* NSDate+RDIPExtend.m */; };
-		E134708713937DFF00AF58CB /* NSDictionary+RDIPExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DE4F7511747F740010A1D1 /* NSDictionary+RDIPExtend.m */; };
-		E134708813937DFF00AF58CB /* RDIPTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E14BD41911748C8E00232A3E /* RDIPTimelineViewController.m */; };
-		E134708913937DFF00AF58CB /* RDIPStationTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E14BD4E711757D5E00232A3E /* RDIPStationTimelineViewController.m */; };
-		E134708A13937DFF00AF58CB /* RDIPHomeTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E14BD5F61175C00700232A3E /* RDIPHomeTimelineViewController.m */; };
-		E134708B13937DFF00AF58CB /* RDIPStatusViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E14BD67E1175C70800232A3E /* RDIPStatusViewCell.m */; };
-		E134708C13937DFF00AF58CB /* RDIPMentionsTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DE524C1176F8E70010A1D1 /* RDIPMentionsTimelineViewController.m */; };
-		E134708D13937DFF00AF58CB /* RDIPDirectMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DE529D1176FCEE0010A1D1 /* RDIPDirectMessageViewController.m */; };
-		E134708E13937DFF00AF58CB /* RDIPLoadingViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DE5390117717AD0010A1D1 /* RDIPLoadingViewCell.m */; };
-		E134708F13937DFF00AF58CB /* RDIPSearchTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E18804D7117DA66B002FB863 /* RDIPSearchTimelineViewController.m */; };
-		E134709013937DFF00AF58CB /* RDIPComposeView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC6267117EB48D005F10FB /* RDIPComposeView.m */; };
-		E134709113937DFF00AF58CB /* RDIPComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC6274117EB8E6005F10FB /* RDIPComposeViewController.m */; };
-		E134709213937DFF00AF58CB /* RDIPStatusDetailViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E188080811801C51002FB863 /* RDIPStatusDetailViewCell.m */; };
-		E134709313937DFF00AF58CB /* SimpleAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = E16390F9118533E900871D28 /* SimpleAlert.m */; };
-		E134709413937DFF00AF58CB /* RDIPWebBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = E11475AE1185696500B83E2E /* RDIPWebBrowserController.m */; };
-		E134709513937DFF00AF58CB /* RDIPStatusProfileViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E17D5E26118C18D00069A41D /* RDIPStatusProfileViewCell.m */; };
-		E134709613937DFF00AF58CB /* RDIPProfileImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E17D5E4B118C22780069A41D /* RDIPProfileImageView.m */; };
-		E134709713937DFF00AF58CB /* RDIPStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17D5E7B118C27BF0069A41D /* RDIPStatusViewController.m */; };
-		E134709813937DFF00AF58CB /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = E17D6017118C812C0069A41D /* RegexKitLite.m */; };
-		E134709913937DFF00AF58CB /* RDIPStatusFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E17D60BE118C8F480069A41D /* RDIPStatusFooterView.m */; };
-		E134709A13937DFF00AF58CB /* RDIPUserTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17D620C118CBD620069A41D /* RDIPUserTimelineViewController.m */; };
-		E134709B13937DFF00AF58CB /* RDIPProgramListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A3CE7E118D9603008964C7 /* RDIPProgramListViewController.m */; };
-		E134709C13937DFF00AF58CB /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E17D636A118EBA8A0069A41D /* Reachability.m */; };
-		E134709D13937DFF00AF58CB /* RDIPNoServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E135B54A11EB1E5D00B2DBC7 /* RDIPNoServiceViewController.m */; };
-		E134709E13937DFF00AF58CB /* RDIPReverseGeocoder.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AA8D3C11EC2E220086F169 /* RDIPReverseGeocoder.m */; };
-		E134709F13937DFF00AF58CB /* RDIPAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AA8F0C11EC50380086F169 /* RDIPAboutViewController.m */; };
-		E13470A013937DFF00AF58CB /* RDIPMainViewControllerRadikoPlayerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EACA1A11EE2CDE0021F67F /* RDIPMainViewControllerRadikoPlayerDelegate.m */; };
-		E13470A113937DFF00AF58CB /* RDIPMainViewControllerTunerViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EACA3E11EE2E830021F67F /* RDIPMainViewControllerTunerViewDelegate.m */; };
-		E13470A213937DFF00AF58CB /* RDIPMainViewControllerUpdateStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EACA6C11EE310E0021F67F /* RDIPMainViewControllerUpdateStatus.m */; };
-		E13470A313937DFF00AF58CB /* RDIPMainViewControllerToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EF0C0A11EEB462003C4043 /* RDIPMainViewControllerToolbar.m */; };
-		E13470A413937DFF00AF58CB /* AuthClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E1346FF513937BE000AF58CB /* AuthClient.m */; };
-		E13470A513937DFF00AF58CB /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = E1346FFA13937C5100AF58CB /* ASIAuthenticationDialog.m */; };
-		E13470A613937DFF00AF58CB /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = E1346FFD13937C5100AF58CB /* ASIDataCompressor.m */; };
-		E13470A713937DFF00AF58CB /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = E1346FFF13937C5100AF58CB /* ASIDataDecompressor.m */; };
-		E13470A813937DFF00AF58CB /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E134700113937C5100AF58CB /* ASIDownloadCache.m */; };
-		E13470A913937DFF00AF58CB /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E134700313937C5100AF58CB /* ASIFormDataRequest.m */; };
-		E13470AA13937DFF00AF58CB /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E134700513937C5100AF58CB /* ASIHTTPRequest.m */; };
-		E13470AB13937DFF00AF58CB /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = E134700913937C5100AF58CB /* ASIInputStream.m */; };
-		E13470AC13937DFF00AF58CB /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E134700B13937C5100AF58CB /* ASINetworkQueue.m */; };
-		E13470AF13937DFF00AF58CB /* librfxswf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E134701B13937CA200AF58CB /* librfxswf.a */; };
-		E13470B013937DFF00AF58CB /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E134701513937C7100AF58CB /* CFNetwork.framework */; };
-		E13470B113937DFF00AF58CB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E134701613937C7100AF58CB /* MobileCoreServices.framework */; };
-		E13470B213937DFF00AF58CB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1E8C2D011648D8600FA591C /* Security.framework */; };
-		E13470B313937DFF00AF58CB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17D6370118EBBAD0069A41D /* SystemConfiguration.framework */; };
-		E13470B413937DFF00AF58CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
-		E13470B513937DFF00AF58CB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		E13470B613937DFF00AF58CB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
-		E13470B713937DFF00AF58CB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1C77C3D11604605006DC915 /* AudioToolbox.framework */; };
-		E13470B813937DFF00AF58CB /* libssl_sim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E184C0881161B7E200176B88 /* libssl_sim.a */; };
-		E13470B913937DFF00AF58CB /* libcrypto_sim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E184C0891161B7E200176B88 /* libcrypto_sim.a */; };
-		E13470BC13937DFF00AF58CB /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E184C10A1161C84300176B88 /* libxml2.2.dylib */; };
-		E13470BD13937DFF00AF58CB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E168191B116345250078D8C2 /* QuartzCore.framework */; };
-		E13470BE13937DFF00AF58CB /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F04392116B8C27002B5FC1 /* MediaPlayer.framework */; };
-		E13470BF13937DFF00AF58CB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11CFEB7117AF6480042D65B /* AVFoundation.framework */; };
-		E13470C013937DFF00AF58CB /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17D62C2118EAB170069A41D /* MessageUI.framework */; };
-		E13470C113937DFF00AF58CB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17D6372118EBBB70069A41D /* CoreLocation.framework */; };
-		E13470C213937DFF00AF58CB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E135B4CF11EB03BE00B2DBC7 /* MapKit.framework */; };
-		E13470CB13937FE100AF58CB /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E13470CA13937FE100AF58CB /* libz.1.2.3.dylib */; };
-		E13470CC1393800500AF58CB /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E13470CA13937FE100AF58CB /* libz.1.2.3.dylib */; };
-		E13470D11393808E00AF58CB /* libbase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E13470CD1393808E00AF58CB /* libbase.a */; };
-		E13470D6139380CF00AF58CB /* libbase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E13470D5139380CF00AF58CB /* libbase.a */; };
 		E135B4D011EB03BE00B2DBC7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E135B4CF11EB03BE00B2DBC7 /* MapKit.framework */; };
 		E135B54B11EB1E5D00B2DBC7 /* RDIPNoServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E135B54A11EB1E5D00B2DBC7 /* RDIPNoServiceViewController.m */; };
 		E13DDEAC1174156C0033175B /* RDIPTwitterClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E13DDEAB1174156C0033175B /* RDIPTwitterClient.m */; };
+		E1499C241446E88B00F3842D /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1499C221446E88B00F3842D /* libssl.a */; };
+		E1499C251446E88B00F3842D /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1499C231446E88B00F3842D /* libcrypto.a */; };
 		E14BD038116DAEEB00232A3E /* RDIPOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E14BD037116DAEEB00232A3E /* RDIPOAuthViewController.m */; };
 		E14BD2191172E2EA00232A3E /* RDIPSettingValueSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E14BD2181172E2EA00232A3E /* RDIPSettingValueSelectViewController.m */; };
 		E14BD34A1174295A00232A3E /* OAuthHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E14BD3491174295A00232A3E /* OAuthHttpClient.m */; };
@@ -199,14 +47,9 @@
 		E16819E3116431130078D8C2 /* RDIPStationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E16819E2116431130078D8C2 /* RDIPStationViewController.m */; };
 		E16819F1116439CE0078D8C2 /* RDIPSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E16819F0116439CE0078D8C2 /* RDIPSubViewController.m */; };
 		E1681A0A116441530078D8C2 /* RDIPSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1681A09116441530078D8C2 /* RDIPSubView.m */; };
-		E1703D9D1410D50A001AC28C /* librtmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1703D941410D50A001AC28C /* librtmp.a */; settings = {ATTRIBUTES = (Required, ); }; };
-		E1703DAB1410F515001AC28C /* librtmp-sim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1703DAA1410F515001AC28C /* librtmp-sim.a */; };
 		E1703DB314111A1A001AC28C /* radiru_FM.png in Resources */ = {isa = PBXBuildFile; fileRef = E1703DAD14111A1A001AC28C /* radiru_FM.png */; };
-		E1703DB414111A1A001AC28C /* radiru_FM.png in Resources */ = {isa = PBXBuildFile; fileRef = E1703DAD14111A1A001AC28C /* radiru_FM.png */; };
 		E1703DB714111A1A001AC28C /* radiru_R2.png in Resources */ = {isa = PBXBuildFile; fileRef = E1703DAF14111A1A001AC28C /* radiru_R2.png */; };
-		E1703DB814111A1A001AC28C /* radiru_R2.png in Resources */ = {isa = PBXBuildFile; fileRef = E1703DAF14111A1A001AC28C /* radiru_R2.png */; };
 		E1703DBD14111A1A001AC28C /* radiru_R1.png in Resources */ = {isa = PBXBuildFile; fileRef = E1703DB214111A1A001AC28C /* radiru_R1.png */; };
-		E1703DBE14111A1A001AC28C /* radiru_R1.png in Resources */ = {isa = PBXBuildFile; fileRef = E1703DB214111A1A001AC28C /* radiru_R1.png */; };
 		E1719849116B09FD009526B6 /* RDIPTwitterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1719848116B09FD009526B6 /* RDIPTwitterViewController.m */; };
 		E1719880116B1367009526B6 /* bird.png in Resources */ = {isa = PBXBuildFile; fileRef = E1719872116B1367009526B6 /* bird.png */; };
 		E1719884116B1367009526B6 /* envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = E1719876116B1367009526B6 /* envelope.png */; };
@@ -244,6 +87,10 @@
 		E184C1351161CB8C00176B88 /* SharedImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E184C1341161CB8C00176B88 /* SharedImageStore.m */; };
 		E18804D8117DA66B002FB863 /* RDIPSearchTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E18804D7117DA66B002FB863 /* RDIPSearchTimelineViewController.m */; };
 		E188080911801C51002FB863 /* RDIPStatusDetailViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E188080811801C51002FB863 /* RDIPStatusDetailViewCell.m */; };
+		E18D738C1446E6C700B7FD7D /* librfxswf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E18D738A1446E6C700B7FD7D /* librfxswf.a */; };
+		E18D738D1446E6C700B7FD7D /* libbase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E18D738B1446E6C700B7FD7D /* libbase.a */; };
+		E18D73931446E70400B7FD7D /* librtmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E18D73921446E70400B7FD7D /* librtmp.a */; };
+		E18E1CCB1446F163007A85E2 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E18E1CCA1446F163007A85E2 /* libz.1.2.5.dylib */; };
 		E1935B891160B357003E6BF0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E1935B881160B357003E6BF0 /* main.m */; };
 		E197AFD6116F190600A8969E /* AppSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = E197AFD5116F190600A8969E /* AppSetting.m */; };
 		E1A3CE3C118D7320008964C7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A3CE3B118D7320008964C7 /* Default.png */; };
@@ -352,18 +199,14 @@
 		E134701613937C7100AF58CB /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		E134701713937C7100AF58CB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E134701813937C7100AF58CB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		E134701B13937CA200AF58CB /* librfxswf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = librfxswf.a; path = "../Libraries/swftools-0.9.1/simulator/lib/librfxswf.a"; sourceTree = "<group>"; };
-		E134701D13937CB600AF58CB /* librfxswf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = librfxswf.a; path = "../Libraries/swftools-0.9.1/device/lib/librfxswf.a"; sourceTree = "<group>"; };
-		E13470CA13937FE100AF58CB /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = usr/lib/libz.1.2.3.dylib; sourceTree = SDKROOT; };
-		E13470CD1393808E00AF58CB /* libbase.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbase.a; path = "../Libraries/swftools-0.9.1/simulator/lib/libbase.a"; sourceTree = "<group>"; };
-		E13470D5139380CF00AF58CB /* libbase.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbase.a; path = "../Libraries/swftools-0.9.1/device/lib/libbase.a"; sourceTree = "<group>"; };
-		E13470E1139382DB00AF58CB /* radikker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = radikker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E135B4CF11EB03BE00B2DBC7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E135B54911EB1E5D00B2DBC7 /* RDIPNoServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDIPNoServiceViewController.h; sourceTree = "<group>"; };
 		E135B54A11EB1E5D00B2DBC7 /* RDIPNoServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDIPNoServiceViewController.m; sourceTree = "<group>"; };
 		E13DDEAA1174156C0033175B /* RDIPTwitterClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDIPTwitterClient.h; sourceTree = "<group>"; };
 		E13DDEAB1174156C0033175B /* RDIPTwitterClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDIPTwitterClient.m; sourceTree = "<group>"; };
 		E142419011E2D8A2001E751A /* twitter_apikey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = twitter_apikey.h; sourceTree = "<group>"; };
+		E1499C221446E88B00F3842D /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "../Libraries/ios-openssl/lib/libssl.a"; sourceTree = "<group>"; };
+		E1499C231446E88B00F3842D /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../Libraries/ios-openssl/lib/libcrypto.a"; sourceTree = "<group>"; };
 		E14BD036116DAEEB00232A3E /* RDIPOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDIPOAuthViewController.h; sourceTree = "<group>"; };
 		E14BD037116DAEEB00232A3E /* RDIPOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDIPOAuthViewController.m; sourceTree = "<group>"; };
 		E14BD2171172E2EA00232A3E /* RDIPSettingValueSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDIPSettingValueSelectViewController.h; sourceTree = "<group>"; };
@@ -399,8 +242,6 @@
 		E1681A08116441530078D8C2 /* RDIPSubView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDIPSubView.h; sourceTree = "<group>"; };
 		E1681A09116441530078D8C2 /* RDIPSubView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDIPSubView.m; sourceTree = "<group>"; };
 		E1681AB81164735F0078D8C2 /* graphics_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = graphics_util.h; sourceTree = "<group>"; };
-		E1703D941410D50A001AC28C /* librtmp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = librtmp.a; path = ../Libraries/librtmp/lib/librtmp.a; sourceTree = "<group>"; };
-		E1703DAA1410F515001AC28C /* librtmp-sim.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "librtmp-sim.a"; path = "../Libraries/librtmp/lib/librtmp-sim.a"; sourceTree = "<group>"; };
 		E1703DAD14111A1A001AC28C /* radiru_FM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radiru_FM.png; sourceTree = "<group>"; };
 		E1703DAF14111A1A001AC28C /* radiru_R2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radiru_R2.png; sourceTree = "<group>"; };
 		E1703DB214111A1A001AC28C /* radiru_R1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radiru_R1.png; sourceTree = "<group>"; };
@@ -430,10 +271,6 @@
 		E17D636A118EBA8A0069A41D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		E17D6370118EBBAD0069A41D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E17D6372118EBBB70069A41D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		E184C0881161B7E200176B88 /* libssl_sim.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl_sim.a; path = ../Libraries/openssl/lib/libssl_sim.a; sourceTree = SOURCE_ROOT; };
-		E184C0891161B7E200176B88 /* libcrypto_sim.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto_sim.a; path = ../Libraries/openssl/lib/libcrypto_sim.a; sourceTree = SOURCE_ROOT; };
-		E184C08A1161B7E200176B88 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = ../Libraries/openssl/lib/libssl.a; sourceTree = SOURCE_ROOT; };
-		E184C08B1161B7E200176B88 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = ../Libraries/openssl/lib/libcrypto.a; sourceTree = SOURCE_ROOT; };
 		E184C0BE1161BA4E00176B88 /* AppConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConfig.h; sourceTree = "<group>"; };
 		E184C0BF1161BA4E00176B88 /* AppConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConfig.m; sourceTree = "<group>"; };
 		E184C0C11161BA4E00176B88 /* AudioStreamPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStreamPlayer.h; sourceTree = "<group>"; };
@@ -474,6 +311,10 @@
 		E18804D7117DA66B002FB863 /* RDIPSearchTimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDIPSearchTimelineViewController.m; sourceTree = "<group>"; };
 		E188080711801C51002FB863 /* RDIPStatusDetailViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDIPStatusDetailViewCell.h; sourceTree = "<group>"; };
 		E188080811801C51002FB863 /* RDIPStatusDetailViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDIPStatusDetailViewCell.m; sourceTree = "<group>"; };
+		E18D738A1446E6C700B7FD7D /* librfxswf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = librfxswf.a; path = "../Libraries/swftools-0.9.1/lib/librfxswf.a"; sourceTree = "<group>"; };
+		E18D738B1446E6C700B7FD7D /* libbase.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbase.a; path = "../Libraries/swftools-0.9.1/lib/libbase.a"; sourceTree = "<group>"; };
+		E18D73921446E70400B7FD7D /* librtmp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = librtmp.a; path = ../Libraries/librtmp/lib/librtmp.a; sourceTree = "<group>"; };
+		E18E1CCA1446F163007A85E2 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		E19357CA115F50EC003E6BF0 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = English; path = English.lproj/AppConfig.plist; sourceTree = "<group>"; };
 		E1935B881160B357003E6BF0 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E197AFD4116F190600A8969E /* AppSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSetting.h; sourceTree = "<group>"; };
@@ -602,7 +443,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E13470CC1393800500AF58CB /* libz.1.2.3.dylib in Frameworks */,
+				E18E1CCB1446F163007A85E2 /* libz.1.2.5.dylib in Frameworks */,
+				E1499C241446E88B00F3842D /* libssl.a in Frameworks */,
+				E1499C251446E88B00F3842D /* libcrypto.a in Frameworks */,
+				E18D73931446E70400B7FD7D /* librtmp.a in Frameworks */,
 				E134701913937C7100AF58CB /* CFNetwork.framework in Frameworks */,
 				E134701A13937C7100AF58CB /* MobileCoreServices.framework in Frameworks */,
 				E1E8C2D111648D8600FA591C /* Security.framework in Frameworks */,
@@ -611,46 +455,15 @@
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				E1C77C3E11604605006DC915 /* AudioToolbox.framework in Frameworks */,
-				E11CFEF9117AFDCC0042D65B /* libssl.a in Frameworks */,
-				E11CFEFA117AFDCC0042D65B /* libcrypto.a in Frameworks */,
-				E13470D6139380CF00AF58CB /* libbase.a in Frameworks */,
-				E134701E13937CB600AF58CB /* librfxswf.a in Frameworks */,
+				E18D738C1446E6C700B7FD7D /* librfxswf.a in Frameworks */,
+				E18D738D1446E6C700B7FD7D /* libbase.a in Frameworks */,
 				E184C10B1161C84300176B88 /* libxml2.2.dylib in Frameworks */,
-				E1703D9D1410D50A001AC28C /* librtmp.a in Frameworks */,
 				E168191C116345250078D8C2 /* QuartzCore.framework in Frameworks */,
 				E1F04393116B8C27002B5FC1 /* MediaPlayer.framework in Frameworks */,
 				E11CFEB8117AF6480042D65B /* AVFoundation.framework in Frameworks */,
 				E17D62C3118EAB170069A41D /* MessageUI.framework in Frameworks */,
 				E17D6373118EBBB70069A41D /* CoreLocation.framework in Frameworks */,
 				E135B4D011EB03BE00B2DBC7 /* MapKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E13470AD13937DFF00AF58CB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E13470CB13937FE100AF58CB /* libz.1.2.3.dylib in Frameworks */,
-				E13470B013937DFF00AF58CB /* CFNetwork.framework in Frameworks */,
-				E13470B113937DFF00AF58CB /* MobileCoreServices.framework in Frameworks */,
-				E13470B213937DFF00AF58CB /* Security.framework in Frameworks */,
-				E13470B313937DFF00AF58CB /* SystemConfiguration.framework in Frameworks */,
-				E13470B413937DFF00AF58CB /* Foundation.framework in Frameworks */,
-				E13470B513937DFF00AF58CB /* UIKit.framework in Frameworks */,
-				E13470B613937DFF00AF58CB /* CoreGraphics.framework in Frameworks */,
-				E13470B713937DFF00AF58CB /* AudioToolbox.framework in Frameworks */,
-				E13470B813937DFF00AF58CB /* libssl_sim.a in Frameworks */,
-				E13470B913937DFF00AF58CB /* libcrypto_sim.a in Frameworks */,
-				E13470BC13937DFF00AF58CB /* libxml2.2.dylib in Frameworks */,
-				E13470D11393808E00AF58CB /* libbase.a in Frameworks */,
-				E13470AF13937DFF00AF58CB /* librfxswf.a in Frameworks */,
-				E1703DAB1410F515001AC28C /* librtmp-sim.a in Frameworks */,
-				E13470BD13937DFF00AF58CB /* QuartzCore.framework in Frameworks */,
-				E13470BE13937DFF00AF58CB /* MediaPlayer.framework in Frameworks */,
-				E13470BF13937DFF00AF58CB /* AVFoundation.framework in Frameworks */,
-				E13470C013937DFF00AF58CB /* MessageUI.framework in Frameworks */,
-				E13470C113937DFF00AF58CB /* CoreLocation.framework in Frameworks */,
-				E13470C213937DFF00AF58CB /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,7 +474,6 @@
 			isa = PBXGroup;
 			children = (
 				1D6058910D05DD3D006BFB54 /* radikker.app */,
-				E13470E1139382DB00AF58CB /* radikker.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -708,10 +520,12 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E1703DAC1410F523001AC28C /* librtmp */,
-				E15DD605115BFE36007A7A63 /* openssl */,
-				E1703DA51410D6A5001AC28C /* swftools */,
-				E13470CA13937FE100AF58CB /* libz.1.2.3.dylib */,
+				E18E1CCA1446F163007A85E2 /* libz.1.2.5.dylib */,
+				E18D73921446E70400B7FD7D /* librtmp.a */,
+				E18D738A1446E6C700B7FD7D /* librfxswf.a */,
+				E18D738B1446E6C700B7FD7D /* libbase.a */,
+				E1499C221446E88B00F3842D /* libssl.a */,
+				E1499C231446E88B00F3842D /* libcrypto.a */,
 				E134701513937C7100AF58CB /* CFNetwork.framework */,
 				E134701613937C7100AF58CB /* MobileCoreServices.framework */,
 				E134701713937C7100AF58CB /* Security.framework */,
@@ -834,18 +648,6 @@
 			path = ../Libraries;
 			sourceTree = "<group>";
 		};
-		E15DD605115BFE36007A7A63 /* openssl */ = {
-			isa = PBXGroup;
-			children = (
-				E184C0881161B7E200176B88 /* libssl_sim.a */,
-				E184C0891161B7E200176B88 /* libcrypto_sim.a */,
-				E184C08A1161B7E200176B88 /* libssl.a */,
-				E184C08B1161B7E200176B88 /* libcrypto.a */,
-			);
-			name = openssl;
-			path = ../Libraries/openssl/lib;
-			sourceTree = "<group>";
-		};
 		E15DDA3C11640463007A7A63 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -956,26 +758,6 @@
 				E1681A09116441530078D8C2 /* RDIPSubView.m */,
 			);
 			name = SubView;
-			sourceTree = "<group>";
-		};
-		E1703DA51410D6A5001AC28C /* swftools */ = {
-			isa = PBXGroup;
-			children = (
-				E13470D5139380CF00AF58CB /* libbase.a */,
-				E134701D13937CB600AF58CB /* librfxswf.a */,
-				E13470CD1393808E00AF58CB /* libbase.a */,
-				E134701B13937CA200AF58CB /* librfxswf.a */,
-			);
-			name = swftools;
-			sourceTree = "<group>";
-		};
-		E1703DAC1410F523001AC28C /* librtmp */ = {
-			isa = PBXGroup;
-			children = (
-				E1703D941410D50A001AC28C /* librtmp.a */,
-				E1703DAA1410F515001AC28C /* librtmp-sim.a */,
-			);
-			name = librtmp;
 			sourceTree = "<group>";
 		};
 		E1703DBF14111A2E001AC28C /* radiru */ = {
@@ -1414,23 +1196,6 @@
 			productReference = 1D6058910D05DD3D006BFB54 /* radikker.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E134702513937DFF00AF58CB /* radikker-sim */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E13470C313937DFF00AF58CB /* Build configuration list for PBXNativeTarget "radikker-sim" */;
-			buildPhases = (
-				E134702613937DFF00AF58CB /* Resources */,
-				E134703F13937DFF00AF58CB /* Sources */,
-				E13470AD13937DFF00AF58CB /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "radikker-sim";
-			productName = radikker;
-			productReference = E13470E1139382DB00AF58CB /* radikker.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1454,7 +1219,6 @@
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* radikker */,
-				E134702513937DFF00AF58CB /* radikker-sim */,
 			);
 		};
 /* End PBXProject section */
@@ -1492,41 +1256,6 @@
 				E1703DB314111A1A001AC28C /* radiru_FM.png in Resources */,
 				E1703DB714111A1A001AC28C /* radiru_R2.png in Resources */,
 				E1703DBD14111A1A001AC28C /* radiru_R1.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E134702613937DFF00AF58CB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E134702713937DFF00AF58CB /* AppConfig.plist in Resources */,
-				E134702813937DFF00AF58CB /* twitter.png in Resources */,
-				E134702913937DFF00AF58CB /* icon.png in Resources */,
-				E134702A13937DFF00AF58CB /* bird.png in Resources */,
-				E134702B13937DFF00AF58CB /* envelope.png in Resources */,
-				E134702C13937DFF00AF58CB /* headphones.png in Resources */,
-				E134702D13937DFF00AF58CB /* house.png in Resources */,
-				E134702E13937DFF00AF58CB /* magnifying-glass.png in Resources */,
-				E134702F13937DFF00AF58CB /* chat.png in Resources */,
-				E134703013937DFF00AF58CB /* gear.png in Resources */,
-				E134703113937DFF00AF58CB /* speaker.png in Resources */,
-				E134703213937DFF00AF58CB /* speaker-white.png in Resources */,
-				E134703313937DFF00AF58CB /* cancel.png in Resources */,
-				E134703413937DFF00AF58CB /* refresh.png in Resources */,
-				E134703513937DFF00AF58CB /* Default.png in Resources */,
-				E134703613937DFF00AF58CB /* atmark.png in Resources */,
-				E134703713937DFF00AF58CB /* left.png in Resources */,
-				E134703813937DFF00AF58CB /* right.png in Resources */,
-				E134703913937DFF00AF58CB /* list.png in Resources */,
-				E134703A13937DFF00AF58CB /* icon-alpha.png in Resources */,
-				E134703B13937DFF00AF58CB /* about.html in Resources */,
-				E134703C13937DFF00AF58CB /* Localizable.strings in Resources */,
-				E134703D13937DFF00AF58CB /* warning.png in Resources */,
-				E134703E13937DFF00AF58CB /* icon@2x.png in Resources */,
-				E12E449813947F3A008725A4 /* Default@2x.png in Resources */,
-				E1703DB414111A1A001AC28C /* radiru_FM.png in Resources */,
-				E1703DB814111A1A001AC28C /* radiru_R2.png in Resources */,
-				E1703DBE14111A1A001AC28C /* radiru_R1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1644,117 +1373,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E134703F13937DFF00AF58CB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E134704013937DFF00AF58CB /* main.m in Sources */,
-				E134704613937DFF00AF58CB /* AppConfig.m in Sources */,
-				E134704713937DFF00AF58CB /* AudioStreamPlayer.m in Sources */,
-				E134704813937DFF00AF58CB /* FileSave.m in Sources */,
-				E134704913937DFF00AF58CB /* FLVConverter.m in Sources */,
-				E134704A13937DFF00AF58CB /* RadikoPlayer.m in Sources */,
-				E134704B13937DFF00AF58CB /* RTMPClient.m in Sources */,
-				E134704C13937DFF00AF58CB /* RDIPAppDelegate.m in Sources */,
-				E134704D13937DFF00AF58CB /* RDIPTunerView.m in Sources */,
-				E134704E13937DFF00AF58CB /* RDIPStation.m in Sources */,
-				E134704F13937DFF00AF58CB /* RDIPMainViewController.m in Sources */,
-				E134705013937DFF00AF58CB /* GDataXMLNode.m in Sources */,
-				E134705113937DFF00AF58CB /* HttpClient.m in Sources */,
-				E134705213937DFF00AF58CB /* ImageDownloader.m in Sources */,
-				E134705313937DFF00AF58CB /* ImageStore.m in Sources */,
-				E134705413937DFF00AF58CB /* StringHelper.m in Sources */,
-				E134705513937DFF00AF58CB /* SharedImageStore.m in Sources */,
-				E134705613937DFF00AF58CB /* RDIPStationClient.m in Sources */,
-				E134705713937DFF00AF58CB /* GDataXMLNodeUtil.m in Sources */,
-				E134705813937DFF00AF58CB /* RDIPTunerStationView.m in Sources */,
-				E134705913937DFF00AF58CB /* RDIPFooterView.m in Sources */,
-				E134705A13937DFF00AF58CB /* RDIPMainView.m in Sources */,
-				E134705B13937DFF00AF58CB /* RDIPSquareButton.m in Sources */,
-				E134705C13937DFF00AF58CB /* RDIPStationViewController.m in Sources */,
-				E134705D13937DFF00AF58CB /* RDIPSubViewController.m in Sources */,
-				E134705E13937DFF00AF58CB /* RDIPSubView.m in Sources */,
-				E134705F13937DFF00AF58CB /* NSMutableURLRequest+Parameters.m in Sources */,
-				E134706013937DFF00AF58CB /* NSString+URLEncoding.m in Sources */,
-				E134706113937DFF00AF58CB /* NSURL+Base.m in Sources */,
-				E134706213937DFF00AF58CB /* Base64Transcoder.c in Sources */,
-				E134706313937DFF00AF58CB /* hmac.c in Sources */,
-				E134706413937DFF00AF58CB /* sha1.c in Sources */,
-				E134706513937DFF00AF58CB /* OACall.m in Sources */,
-				E134706613937DFF00AF58CB /* OAConsumer.m in Sources */,
-				E134706713937DFF00AF58CB /* OADataFetcher.m in Sources */,
-				E134706813937DFF00AF58CB /* OAHMAC_SHA1SignatureProvider.m in Sources */,
-				E134706913937DFF00AF58CB /* OAMutableURLRequest.m in Sources */,
-				E134706A13937DFF00AF58CB /* OAPlaintextSignatureProvider.m in Sources */,
-				E134706B13937DFF00AF58CB /* OAProblem.m in Sources */,
-				E134706C13937DFF00AF58CB /* OARequestParameter.m in Sources */,
-				E134706D13937DFF00AF58CB /* OAServiceTicket.m in Sources */,
-				E134706E13937DFF00AF58CB /* OAToken.m in Sources */,
-				E134706F13937DFF00AF58CB /* OATokenManager.m in Sources */,
-				E134707013937DFF00AF58CB /* RDIPStationInfoViewController.m in Sources */,
-				E134707113937DFF00AF58CB /* RDIPProgram.m in Sources */,
-				E134707213937DFF00AF58CB /* StatusBarAlert.m in Sources */,
-				E134707313937DFF00AF58CB /* RDIPProgramClient.m in Sources */,
-				E134707413937DFF00AF58CB /* RDIPEPG.m in Sources */,
-				E134707513937DFF00AF58CB /* RDIPProgramViewCell.m in Sources */,
-				E134707613937DFF00AF58CB /* NSObject+SBJSON.m in Sources */,
-				E134707713937DFF00AF58CB /* NSString+SBJSON.m in Sources */,
-				E134707813937DFF00AF58CB /* SBJSON.m in Sources */,
-				E134707913937DFF00AF58CB /* SBJsonBase.m in Sources */,
-				E134707A13937DFF00AF58CB /* SBJsonParser.m in Sources */,
-				E134707B13937DFF00AF58CB /* SBJsonWriter.m in Sources */,
-				E134707C13937DFF00AF58CB /* RDIPTwitterViewController.m in Sources */,
-				E134707D13937DFF00AF58CB /* RDIPSettingViewController.m in Sources */,
-				E134707E13937DFF00AF58CB /* RDIPOAuthViewController.m in Sources */,
-				E134707F13937DFF00AF58CB /* AppSetting.m in Sources */,
-				E134708013937DFF00AF58CB /* RDIPSettingValueSelectViewController.m in Sources */,
-				E134708113937DFF00AF58CB /* RDIPTwitterClient.m in Sources */,
-				E134708213937DFF00AF58CB /* OAuthHttpClient.m in Sources */,
-				E134708313937DFF00AF58CB /* NSString+RDIPExtend.m in Sources */,
-				E134708413937DFF00AF58CB /* RDIPTwitterStatus.m in Sources */,
-				E134708513937DFF00AF58CB /* RDIPTwitterUser.m in Sources */,
-				E134708613937DFF00AF58CB /* NSDate+RDIPExtend.m in Sources */,
-				E134708713937DFF00AF58CB /* NSDictionary+RDIPExtend.m in Sources */,
-				E134708813937DFF00AF58CB /* RDIPTimelineViewController.m in Sources */,
-				E134708913937DFF00AF58CB /* RDIPStationTimelineViewController.m in Sources */,
-				E134708A13937DFF00AF58CB /* RDIPHomeTimelineViewController.m in Sources */,
-				E134708B13937DFF00AF58CB /* RDIPStatusViewCell.m in Sources */,
-				E134708C13937DFF00AF58CB /* RDIPMentionsTimelineViewController.m in Sources */,
-				E134708D13937DFF00AF58CB /* RDIPDirectMessageViewController.m in Sources */,
-				E134708E13937DFF00AF58CB /* RDIPLoadingViewCell.m in Sources */,
-				E134708F13937DFF00AF58CB /* RDIPSearchTimelineViewController.m in Sources */,
-				E134709013937DFF00AF58CB /* RDIPComposeView.m in Sources */,
-				E134709113937DFF00AF58CB /* RDIPComposeViewController.m in Sources */,
-				E134709213937DFF00AF58CB /* RDIPStatusDetailViewCell.m in Sources */,
-				E134709313937DFF00AF58CB /* SimpleAlert.m in Sources */,
-				E134709413937DFF00AF58CB /* RDIPWebBrowserController.m in Sources */,
-				E134709513937DFF00AF58CB /* RDIPStatusProfileViewCell.m in Sources */,
-				E134709613937DFF00AF58CB /* RDIPProfileImageView.m in Sources */,
-				E134709713937DFF00AF58CB /* RDIPStatusViewController.m in Sources */,
-				E134709813937DFF00AF58CB /* RegexKitLite.m in Sources */,
-				E134709913937DFF00AF58CB /* RDIPStatusFooterView.m in Sources */,
-				E134709A13937DFF00AF58CB /* RDIPUserTimelineViewController.m in Sources */,
-				E134709B13937DFF00AF58CB /* RDIPProgramListViewController.m in Sources */,
-				E134709C13937DFF00AF58CB /* Reachability.m in Sources */,
-				E134709D13937DFF00AF58CB /* RDIPNoServiceViewController.m in Sources */,
-				E134709E13937DFF00AF58CB /* RDIPReverseGeocoder.m in Sources */,
-				E134709F13937DFF00AF58CB /* RDIPAboutViewController.m in Sources */,
-				E13470A013937DFF00AF58CB /* RDIPMainViewControllerRadikoPlayerDelegate.m in Sources */,
-				E13470A113937DFF00AF58CB /* RDIPMainViewControllerTunerViewDelegate.m in Sources */,
-				E13470A213937DFF00AF58CB /* RDIPMainViewControllerUpdateStatus.m in Sources */,
-				E13470A313937DFF00AF58CB /* RDIPMainViewControllerToolbar.m in Sources */,
-				E13470A413937DFF00AF58CB /* AuthClient.m in Sources */,
-				E13470A513937DFF00AF58CB /* ASIAuthenticationDialog.m in Sources */,
-				E13470A613937DFF00AF58CB /* ASIDataCompressor.m in Sources */,
-				E13470A713937DFF00AF58CB /* ASIDataDecompressor.m in Sources */,
-				E13470A813937DFF00AF58CB /* ASIDownloadCache.m in Sources */,
-				E13470A913937DFF00AF58CB /* ASIFormDataRequest.m in Sources */,
-				E13470AA13937DFF00AF58CB /* ASIHTTPRequest.m in Sources */,
-				E13470AB13937DFF00AF58CB /* ASIInputStream.m in Sources */,
-				E13470AC13937DFF00AF58CB /* ASINetworkQueue.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -1783,7 +1401,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
 				CODE_SIGN_ENTITLEMENTS = "~/Dropbox/Works/private/iPhone/radikker/Resources/Entitlements.plist";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1795,10 +1416,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(SRCROOT)/../Libraries/librtmp/lib",
 					"$(inherited)",
-					"$(SRCROOT)/../Libraries/openssl/lib",
-					"$(SRCROOT)/../Libraries/swftools-0.9.1/device/lib",
+					"\"$(SRCROOT)/../Libraries/ios-openssl/lib\"",
+					"\"$(SRCROOT)/../Libraries/swftools-0.9.1/lib\"",
 				);
 				PRODUCT_NAME = radikker;
+				VALID_ARCHS = "armv6 i386";
 			};
 			name = Debug;
 		};
@@ -1806,7 +1428,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
 				CODE_SIGN_ENTITLEMENTS = "~/Dropbox/Works/private/iPhone/radikker/Resources/Entitlements.plist";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1816,11 +1441,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(SRCROOT)/../Libraries/librtmp/lib",
 					"$(inherited)",
-					"$(SRCROOT)/../Libraries/openssl/lib",
-					"$(SRCROOT)/../Libraries/swftools-0.9.1/device/lib",
+					"\"$(SRCROOT)/../Libraries/ios-openssl/lib\"",
+					"\"$(SRCROOT)/../Libraries/swftools-0.9.1/lib\"",
 				);
 				PRODUCT_NAME = radikker;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv6 i386";
 			};
 			name = Release;
 		};
@@ -1835,6 +1461,7 @@
 					CRYPTO,
 					DEBUG,
 				);
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
@@ -1848,12 +1475,12 @@
 					"-licucore",
 					"-lz",
 				);
-				PROVISIONING_PROFILE = "4470ACE7-00F6-41E6-8C8E-EA686C93C956";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4470ACE7-00F6-41E6-8C8E-EA686C93C956";
+				PROVISIONING_PROFILE = "7974E9A0-92C7-45B3-A9C6-8E8B813B33D1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7974E9A0-92C7-45B3-A9C6-8E8B813B33D1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "armv6 i386";
+				VALID_ARCHS = "armv7 i386";
 			};
 			name = Debug;
 		};
@@ -1865,6 +1492,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tomoaki Shibata (MEAG2JJH9D)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_PREPROCESSOR_DEFINITIONS = CRYPTO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
@@ -1879,103 +1507,14 @@
 					"-licucore",
 					"-lz",
 				);
-				PROVISIONING_PROFILE = "4470ACE7-00F6-41E6-8C8E-EA686C93C956";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4470ACE7-00F6-41E6-8C8E-EA686C93C956";
+				PROVISIONING_PROFILE = "7974E9A0-92C7-45B3-A9C6-8E8B813B33D1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7974E9A0-92C7-45B3-A9C6-8E8B813B33D1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "armv6 i386";
+				VALID_ARCHS = "armv7 i386";
 			};
 			name = Release;
-		};
-		E13470C413937DFF00AF58CB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_ENTITLEMENTS = "~/Dropbox/Works/private/iPhone/radikker/Resources/Entitlements.plist";
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = radikker_Prefix.pch;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
-				INFOPLIST_FILE = Info.plist;
-				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/../Libraries/librtmp/lib",
-					"$(inherited)",
-					"$(SRCROOT)/../Libraries/openssl/lib",
-					"$(SRCROOT)/../Libraries/swftools-0.9.1/simulator/lib",
-				);
-				PRODUCT_NAME = radikker;
-			};
-			name = Debug;
-		};
-		E13470C513937DFF00AF58CB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_ENTITLEMENTS = "~/Dropbox/Works/private/iPhone/radikker/Resources/Entitlements.plist";
-				COPY_PHASE_STRIP = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = radikker_Prefix.pch;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
-				INFOPLIST_FILE = Info.plist;
-				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/../Libraries/librtmp/lib",
-					"$(inherited)",
-					"$(SRCROOT)/../Libraries/openssl/lib",
-					"$(SRCROOT)/../Libraries/swftools-0.9.1/simulator/lib",
-				);
-				PRODUCT_NAME = radikker;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		E13470C613937DFF00AF58CB /* AdHoc */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_ENTITLEMENTS = "~/Dropbox/Works/private/iPhone/radikker/Resources/Entitlements.plist";
-				COPY_PHASE_STRIP = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = radikker_Prefix.pch;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
-				INFOPLIST_FILE = Info.plist;
-				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/../Libraries/librtmp/lib",
-					"$(inherited)",
-					"$(SRCROOT)/../Libraries/openssl/lib",
-					"$(SRCROOT)/../Libraries/swftools-0.9.1/simulator/lib",
-				);
-				PRODUCT_NAME = radikker;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = AdHoc;
-		};
-		E13470C713937DFF00AF58CB /* AppStore */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_ENTITLEMENTS = "~/Dropbox/Works/private/iPhone/radikker/Resources/Entitlements.plist";
-				COPY_PHASE_STRIP = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = radikker_Prefix.pch;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
-				INFOPLIST_FILE = Info.plist;
-				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/../Libraries/librtmp/lib",
-					"$(inherited)",
-					"$(SRCROOT)/../Libraries/openssl/lib",
-					"$(SRCROOT)/../Libraries/swftools-0.9.1/simulator/lib",
-				);
-				PRODUCT_NAME = radikker;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = AppStore;
 		};
 		E17D5D021189B1380069A41D /* AdHoc */ = {
 			isa = XCBuildConfiguration;
@@ -1985,6 +1524,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tomoaki Shibata";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_PREPROCESSOR_DEFINITIONS = CRYPTO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
@@ -2004,7 +1544,7 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "armv6 i386";
+				VALID_ARCHS = "armv7 i386";
 			};
 			name = AdHoc;
 		};
@@ -2012,7 +1552,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
 				CODE_SIGN_ENTITLEMENTS = "~/Dropbox/Works/private/iPhone/radikker/Resources/Entitlements.plist";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2022,11 +1565,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(SRCROOT)/../Libraries/librtmp/lib",
 					"$(inherited)",
-					"$(SRCROOT)/../Libraries/openssl/lib",
-					"$(SRCROOT)/../Libraries/swftools-0.9.1/device/lib",
+					"\"$(SRCROOT)/../Libraries/ios-openssl/lib\"",
+					"\"$(SRCROOT)/../Libraries/swftools-0.9.1/lib\"",
 				);
 				PRODUCT_NAME = radikker;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv6 i386";
 			};
 			name = AdHoc;
 		};
@@ -2039,6 +1583,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tomoaki Shibata";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_PREPROCESSOR_DEFINITIONS = CRYPTO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
@@ -2058,7 +1603,7 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "armv6 i386";
+				VALID_ARCHS = "armv7 i386";
 			};
 			name = AppStore;
 		};
@@ -2066,7 +1611,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
 				CODE_SIGN_ENTITLEMENTS = "~/Dropbox/Works/private/iPhone/radikker/Resources/Entitlements.plist";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2076,11 +1624,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(SRCROOT)/../Libraries/librtmp/lib",
 					"$(inherited)",
-					"$(SRCROOT)/../Libraries/openssl/lib",
-					"$(SRCROOT)/../Libraries/swftools-0.9.1/device/lib",
+					"\"$(SRCROOT)/../Libraries/ios-openssl/lib\"",
+					"\"$(SRCROOT)/../Libraries/swftools-0.9.1/lib\"",
 				);
 				PRODUCT_NAME = radikker;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv6 i386";
 			};
 			name = AppStore;
 		};
@@ -2105,17 +1654,6 @@
 				C01FCF5008A954540054247B /* Release */,
 				E17D5D021189B1380069A41D /* AdHoc */,
 				E17D5D041189B13C0069A41D /* AppStore */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E13470C313937DFF00AF58CB /* Build configuration list for PBXNativeTarget "radikker-sim" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E13470C413937DFF00AF58CB /* Debug */,
-				E13470C513937DFF00AF58CB /* Release */,
-				E13470C613937DFF00AF58CB /* AdHoc */,
-				E13470C713937DFF00AF58CB /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
