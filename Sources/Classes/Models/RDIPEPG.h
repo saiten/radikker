@@ -27,5 +27,6 @@
 - (RDIPProgram*)programForStationAtNow:(NSString*)stationId;
 - (RDIPProgram*)programForStation:(NSString *)stationId atTime:(NSDate*)date;
 - (NSArray*)programsForStation:(NSString*)stationId;
+- (NSInteger)indexAtProgram:(RDIPProgram*)program forStation:(NSString*)stationId;
 
 @end

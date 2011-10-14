@@ -102,7 +102,6 @@
 		return 0;
 }
 
-
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 {    
@@ -212,19 +211,23 @@
 		[indicatorView removeFromSuperview];
 		[indicatorView stopAnimating];
 		
-		if(programs != ps) {
-			[programs release];
-			programs = [ps retain];
-		
-			[self.tableView reloadData];
-		}
-		
 		RDIPProgram *p = [[RDIPEPG sharedInstance] programForStationAtNow:station.stationId];
 		if(p && nowOnAir != p) {
 			[nowOnAir release];
 			nowOnAir = [p retain];		
 		}
+    
+		if(programs != ps) {
+			[programs release];
+			programs = [ps retain];
 		
+			[self.tableView reloadData];
+      NSInteger index = [[RDIPEPG sharedInstance] indexAtProgram:p forStation:station.stationId];
+      [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] 
+                            atScrollPosition:UITableViewScrollPositionTop 
+                                    animated:YES];
+		}
+				
 		return;
 	}
 	

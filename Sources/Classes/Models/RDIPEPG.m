@@ -69,6 +69,22 @@ static RDIPEPG *_instance = nil;
 	return nil;
 }
 
+- (NSInteger)indexAtProgram:(RDIPProgram*)program forStation:(NSString*)stationId
+{
+	if(programs.count > 0) {
+		NSArray *arr = [programs objectForKey:stationId];
+    for(NSInteger index = 0; index<[arr count]; index++) {
+      RDIPProgram *p = [arr objectAtIndex:index];
+      if(program == p)
+        return index;
+    }
+		return -1;
+	} else {
+		[self getPrograms:[NSDate date]];
+	}
+	return -1;  
+}
+
 - (RDIPProgram*)programForStationAtNow:(NSString *)stationId
 {
 	return [self programForStation:stationId atTime:[NSDate date]];
