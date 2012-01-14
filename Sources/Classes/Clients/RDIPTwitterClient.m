@@ -56,26 +56,26 @@
 
 - (void)getStatuses:(NSString*)statusType format:(NSString*)format params:(NSDictionary*)params
 {
-	NSString *url = [NSString stringWithFormat:@"http://api.twitter.com/1/statuses/%@.%@", statusType, format];
+	NSString *url = [NSString stringWithFormat:@"https://api.twitter.com/1/statuses/%@.%@", statusType, format];
 	[self getRequest:url parameters:params];
 }
 
 - (void)postStatuses:(NSString*)statusType format:(NSString*)format params:(NSDictionary*)params
 {
-	NSString *url = [NSString stringWithFormat:@"http://api.twitter.com/1/statuses/%@.%@", statusType, format];
+	NSString *url = [NSString stringWithFormat:@"https://api.twitter.com/1/statuses/%@.%@", statusType, format];
 	[self postRequest:url parameters:params];
 }
 
 
 - (void)getDirectMessageFormat:(NSString*)format params:(NSDictionary*)params
 {
-	NSString *url = [NSString stringWithFormat:@"http://api.twitter.com/1/direct_messages.%@", format];
+	NSString *url = [NSString stringWithFormat:@"https://api.twitter.com/1/direct_messages.%@", format];
 	[self getRequest:url parameters:params];
 }
 
 - (void)getSearchFormat:(NSString*)format params:(NSDictionary*)params
 {
-	NSString *url = [NSString stringWithFormat:@"http://search.twitter.com/search.%@", format];
+	NSString *url = [NSString stringWithFormat:@"https://search.twitter.com/search.%@", format];
 	[self getRequest:url parameters:params];
 }
 

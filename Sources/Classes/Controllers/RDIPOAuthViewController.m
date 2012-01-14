@@ -120,7 +120,7 @@
 	activeClient.delegate = self;
 
 	temporaryAccess = YES;
-	[activeClient get:@"http://twitter.com/oauth/request_token" parameters:nil];
+	[activeClient get:@"https://api.twitter.com/oauth/request_token" parameters:nil];
 }
 
 - (void)oAuthHttpClientSucceeded:(OAuthHttpClient*)sender ticket:(OAServiceTicket*)ticket data:(NSData*)data
@@ -146,7 +146,7 @@
 			[[AppSetting sharedInstance] setString:screenName
 											forKey:RDIPSETTING_SCREENNAME];
 		}
-	}		
+	}
 	
 	if(!temporaryAccess) {
 		// save AccessToken and SecretKey
@@ -157,7 +157,7 @@
 		[self closeModalView:nil];
 	} else {
 		// goto Authorized URL
-		NSString *urlStr = [NSString stringWithFormat:@"http://twitter.com/oauth/authorize?oauth_token=%@", accessToken.key];
+		NSString *urlStr = [NSString stringWithFormat:@"https://api.twitter.com/oauth/authorize?oauth_token=%@", accessToken.key];
 		NSURL *url = [NSURL URLWithString:urlStr];
 		[webView loadRequest:[NSURLRequest requestWithURL:url]];
 	}
@@ -192,7 +192,7 @@
 			activeClient.delegate = self;
 			
 			temporaryAccess = NO;
-			[activeClient get:@"http://twitter.com/oauth/access_token" parameters:nil];
+			[activeClient get:@"https://api.twitter.com/oauth/access_token" parameters:nil];
 		} else {
 			SimpleAlertShow(@"Error", @"Callback Error.");
 			[indicatorView stopAnimating];
