@@ -109,7 +109,8 @@ void extract_id(const void *data, int len, int extract_id, void **extract_data, 
   __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
   [request setDownloadCache:[ASIDownloadCache sharedCache]];
   [request setCachePolicy:ASIUseDefaultCachePolicy];
-  
+  [request setUserAgent:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_3) AppleWebKit/534.55.3 (KHTML, like Gecko) Version/5.1.3 Safari/534.53.10"];
+    
   [request setCompletionBlock:^{
     NSData *data = [request responseData];
     if([self _extractAuthTokenWithData:data])

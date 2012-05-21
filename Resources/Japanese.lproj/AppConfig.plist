@@ -124,7 +124,7 @@
 		<key>Protocol</key>
 		<string>rtmpe</string>
 		<key>SwfUrl</key>
-		<string>http://radiko.jp/player/swf/player_2.0.1.00.swf</string>
+		<string>http://radiko.jp/player/swf/player_2.1.0.00.swf</string>
 	</dict>
 	<key>RadiruPlayer_R1</key>
 	<dict>
