@@ -70,7 +70,7 @@
 	char *buffer = (char *) malloc(bufferSize);
 	if(buffer == NULL) {
 		[self _setErrorWithErrorCode:RTMPCLIENT_ERROR_UNKNOWN_CODE
-							 message:@"failed to allocate memory."];
+                         message:@"failed to allocate memory."];
 		return RTMPCLIENT_STATUS_FAILED;
 	}
 	
@@ -91,7 +91,7 @@
 	
 	do {
 		readSize = RTMP_Read(&rtmp, buffer, bufferSize);
-
+    
 		if (readSize > 0) {
 			if(delegate && [delegate respondsToSelector:@selector(rtmpClient:receiveData:dataSize:)]) {
 				[delegate rtmpClient:self receiveData:(const char*)buffer dataSize:readSize];
@@ -107,14 +107,14 @@
 					bufferTime = (uint32_t) (duration * 1000.0) + 5000;   // extra 5sec to make sure we've got enough
 					
 					RTMP_Log(RTMP_LOGDEBUG,
-							 "Detected that buffer time is less than duration, resetting to: %dms",
-							 bufferTime);
+                   "Detected that buffer time is less than duration, resetting to: %dms",
+                   bufferTime);
 					RTMP_SetBufferMS(&rtmp, bufferTime);
 					RTMP_UpdateBufferMS(&rtmp);
-                }
-            }
-        }		
-    } while (!RTMP_ctrlC && readSize > -1 && RTMP_IsConnected(&rtmp) && !RTMP_IsTimedout(&rtmp));
+        }
+      }
+    }		
+  } while (!RTMP_ctrlC && readSize > -1 && RTMP_IsConnected(&rtmp) && !RTMP_IsTimedout(&rtmp));
 	
 	free(buffer);
 	
@@ -202,59 +202,59 @@ static const AVal av_conn = AVC("conn");
 
 		RTMP_SetBufferMS(&rtmp, bufferTime);
 		
-		if(first) {
+		if(first) {      
 			first = NO;
+      
 			NSLog(@"RTMPClient Connecting");
 			
 			if (!RTMP_Connect(&rtmp, NULL)) {
 				status = RTMPCLIENT_STATUS_FAILED;
 				[self _setErrorWithErrorCode:RTMPCLIENT_ERROR_FAILED_CONNECT_CODE
-									 message:@"failed to connect server."];
+                             message:@"failed to connect server."];
 				break;
-            }
+      }
 
 			if(delegate && [delegate respondsToSelector:@selector(rtmpClientDidOpenConnection:)]) {
 				[delegate performSelector:@selector(rtmpClientDidOpenConnection:)
-								 onThread:[NSThread mainThread]
-							   withObject:self 
-							waitUntilDone:NO];
+                         onThread:[NSThread mainThread]
+                       withObject:self 
+                    waitUntilDone:NO];
 			}
 			
 			if (!RTMP_ConnectStream(&rtmp, seek)) {
 				NSLog(@"Failed to connect the stream");
 				status = RTMPCLIENT_STATUS_FAILED;
 				[self _setErrorWithErrorCode:RTMPCLIENT_ERROR_FAILED_CONNECTSTREAM_CODE
-									 message:@"failed to connect stream."];
+                             message:@"failed to connect stream."];
 				break;
-            }
-        } else {
+      }      
+    } else {
 			if (retries) {
 				NSLog(@"Failed to resume the stream");
 				status = RTMPCLIENT_STATUS_FAILED;
 				[self _setErrorWithErrorCode:RTMPCLIENT_ERROR_FAILED_RETRY_CODE
-									 message:@"connection timed out."];
+                             message:@"connection timed out."];
 				break;
-            }
+      }
 
 			NSLog(@"Connection timed out, trying to resume.");
 			if (rtmp.m_pausing == 3) {
 				retries = YES;
-				if (!RTMP_ReconnectStream(&rtmp, seek))
-                {
+				if (!RTMP_ReconnectStream(&rtmp, seek)) {
 					NSLog(@"Failed to resume the stream");
 					status = RTMPCLIENT_STATUS_FAILED;
 					[self _setErrorWithErrorCode:RTMPCLIENT_ERROR_FAILED_RECONNECTSTREAM_CODE
-										 message:@"failed to reconnect stream."];
+                               message:@"failed to reconnect stream."];
 					break;
-                }
-            } else if(!RTMP_ToggleStream(&rtmp)) {
+         }
+      } else if(!RTMP_ToggleStream(&rtmp)) {
 				NSLog(@"Failed to resume the stream");
 				status = RTMPCLIENT_STATUS_FAILED;
 				[self _setErrorWithErrorCode:RTMPCLIENT_ERROR_FAILED_TOGGLESTREAM_CODE
-									 message:@"failed to toggle stream."];
+                             message:@"failed to toggle stream."];
 				break;
-            }
-        }
+      }
+    }
 
 		status = [self _getData];
 		
@@ -267,9 +267,9 @@ static const AVal av_conn = AVC("conn");
 
 		if(delegate && [delegate respondsToSelector:@selector(rtmpClientDidFailed:)]) {
 			[delegate performSelector:@selector(rtmpClientDidFailed:)
-							 onThread:[NSThread mainThread]
-						   withObject:self 
-						waitUntilDone:NO];
+                       onThread:[NSThread mainThread]
+                     withObject:self 
+                  waitUntilDone:NO];
 		}
 	}
 
@@ -278,9 +278,9 @@ static const AVal av_conn = AVC("conn");
 	
 	if(delegate && [delegate respondsToSelector:@selector(rtmpClientDidCloseConnection:)]) {
 		[delegate performSelector:@selector(rtmpClientDidCloseConnection:)
-						 onThread:[NSThread mainThread]
-					   withObject:self 
-					waitUntilDone:NO];
+                     onThread:[NSThread mainThread]
+                   withObject:self 
+                waitUntilDone:NO];
 	}
 	
 	status = RTMPCLIENT_STATUS_DISCONNECT;

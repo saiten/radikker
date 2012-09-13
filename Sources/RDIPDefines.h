@@ -10,7 +10,7 @@
 //
 // limit setting
 //
-#define RDIP_CHECK_LOCATION_VIA_3G YES
+#define RDIP_CHECK_LOCATION_VIA_3G NO
 #define RDIP_CHECK_JAILBREAK       NO
 
 //
@@ -55,6 +55,7 @@
 @"      word-wrap: break-word; " \
 @"      margin: 4px 0 4px 0; }" \
 @"  a { color: #4169E1; font-weight: bold; text-decoration: none; } " \
+@"  body { background-color: transparent; }" \
 @"  #text { color: #222; }" \
 @"  #foot { margin-top: 1em; font-size: 12px; color: #555; }" \
 @"  #foot a { font-size: 14px; } " \

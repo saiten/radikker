@@ -10,6 +10,12 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		7F82D74E1601D9D000F2BA87 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F82D74C1601D9D000F2BA87 /* libcrypto.a */; };
+		7F82D74F1601D9D000F2BA87 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F82D74D1601D9D000F2BA87 /* libssl.a */; };
+		7F82D7511601D9E200F2BA87 /* librtmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F82D7501601D9E200F2BA87 /* librtmp.a */; };
+		7F82D7541601D9F500F2BA87 /* libbase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F82D7521601D9F500F2BA87 /* libbase.a */; };
+		7F82D7551601D9F500F2BA87 /* librfxswf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F82D7531601D9F500F2BA87 /* librfxswf.a */; };
+		7F918A381601BE36002650F9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F918A371601BE36002650F9 /* Default-568h@2x.png */; };
 		E11475AF1185696500B83E2E /* RDIPWebBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = E11475AE1185696500B83E2E /* RDIPWebBrowserController.m */; };
 		E11CFEB8117AF6480042D65B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11CFEB7117AF6480042D65B /* AVFoundation.framework */; };
 		E12E449713947F3A008725A4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E12E449613947F3A008725A4 /* Default@2x.png */; };
@@ -27,8 +33,6 @@
 		E135B4D011EB03BE00B2DBC7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E135B4CF11EB03BE00B2DBC7 /* MapKit.framework */; };
 		E135B54B11EB1E5D00B2DBC7 /* RDIPNoServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E135B54A11EB1E5D00B2DBC7 /* RDIPNoServiceViewController.m */; };
 		E13DDEAC1174156C0033175B /* RDIPTwitterClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E13DDEAB1174156C0033175B /* RDIPTwitterClient.m */; };
-		E1499C241446E88B00F3842D /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1499C221446E88B00F3842D /* libssl.a */; };
-		E1499C251446E88B00F3842D /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1499C231446E88B00F3842D /* libcrypto.a */; };
 		E14BD038116DAEEB00232A3E /* RDIPOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E14BD037116DAEEB00232A3E /* RDIPOAuthViewController.m */; };
 		E14BD2191172E2EA00232A3E /* RDIPSettingValueSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E14BD2181172E2EA00232A3E /* RDIPSettingValueSelectViewController.m */; };
 		E14BD34A1174295A00232A3E /* OAuthHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E14BD3491174295A00232A3E /* OAuthHttpClient.m */; };
@@ -87,9 +91,6 @@
 		E184C1351161CB8C00176B88 /* SharedImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E184C1341161CB8C00176B88 /* SharedImageStore.m */; };
 		E18804D8117DA66B002FB863 /* RDIPSearchTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E18804D7117DA66B002FB863 /* RDIPSearchTimelineViewController.m */; };
 		E188080911801C51002FB863 /* RDIPStatusDetailViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E188080811801C51002FB863 /* RDIPStatusDetailViewCell.m */; };
-		E18D738C1446E6C700B7FD7D /* librfxswf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E18D738A1446E6C700B7FD7D /* librfxswf.a */; };
-		E18D738D1446E6C700B7FD7D /* libbase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E18D738B1446E6C700B7FD7D /* libbase.a */; };
-		E18D73931446E70400B7FD7D /* librtmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E18D73921446E70400B7FD7D /* librtmp.a */; };
 		E18E1CCB1446F163007A85E2 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E18E1CCA1446F163007A85E2 /* libz.1.2.5.dylib */; };
 		E1935B891160B357003E6BF0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E1935B881160B357003E6BF0 /* main.m */; };
 		E197AFD6116F190600A8969E /* AppSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = E197AFD5116F190600A8969E /* AppSetting.m */; };
@@ -168,6 +169,12 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* radikker_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = radikker_Prefix.pch; path = ../radikker_Prefix.pch; sourceTree = "<group>"; };
+		7F82D74C1601D9D000F2BA87 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "vendor/ios-openssl/lib/libcrypto.a"; sourceTree = "<group>"; };
+		7F82D74D1601D9D000F2BA87 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "vendor/ios-openssl/lib/libssl.a"; sourceTree = "<group>"; };
+		7F82D7501601D9E200F2BA87 /* librtmp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = librtmp.a; path = "vendor/ios-librtmp/lib/librtmp.a"; sourceTree = "<group>"; };
+		7F82D7521601D9F500F2BA87 /* libbase.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbase.a; path = "vendor/ios-librfxswf/lib/libbase.a"; sourceTree = "<group>"; };
+		7F82D7531601D9F500F2BA87 /* librfxswf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = librfxswf.a; path = "vendor/ios-librfxswf/lib/librfxswf.a"; sourceTree = "<group>"; };
+		7F918A371601BE36002650F9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		E11475AD1185696500B83E2E /* RDIPWebBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDIPWebBrowserController.h; sourceTree = "<group>"; };
 		E11475AE1185696500B83E2E /* RDIPWebBrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDIPWebBrowserController.m; sourceTree = "<group>"; };
@@ -205,8 +212,6 @@
 		E13DDEAA1174156C0033175B /* RDIPTwitterClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDIPTwitterClient.h; sourceTree = "<group>"; };
 		E13DDEAB1174156C0033175B /* RDIPTwitterClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDIPTwitterClient.m; sourceTree = "<group>"; };
 		E142419011E2D8A2001E751A /* twitter_apikey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = twitter_apikey.h; sourceTree = "<group>"; };
-		E1499C221446E88B00F3842D /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "../Libraries/ios-openssl/lib/libssl.a"; sourceTree = "<group>"; };
-		E1499C231446E88B00F3842D /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../Libraries/ios-openssl/lib/libcrypto.a"; sourceTree = "<group>"; };
 		E14BD036116DAEEB00232A3E /* RDIPOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDIPOAuthViewController.h; sourceTree = "<group>"; };
 		E14BD037116DAEEB00232A3E /* RDIPOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDIPOAuthViewController.m; sourceTree = "<group>"; };
 		E14BD2171172E2EA00232A3E /* RDIPSettingValueSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDIPSettingValueSelectViewController.h; sourceTree = "<group>"; };
@@ -311,12 +316,9 @@
 		E18804D7117DA66B002FB863 /* RDIPSearchTimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDIPSearchTimelineViewController.m; sourceTree = "<group>"; };
 		E188080711801C51002FB863 /* RDIPStatusDetailViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDIPStatusDetailViewCell.h; sourceTree = "<group>"; };
 		E188080811801C51002FB863 /* RDIPStatusDetailViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDIPStatusDetailViewCell.m; sourceTree = "<group>"; };
-		E18D738A1446E6C700B7FD7D /* librfxswf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = librfxswf.a; path = "../Libraries/swftools-0.9.1/lib/librfxswf.a"; sourceTree = "<group>"; };
-		E18D738B1446E6C700B7FD7D /* libbase.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbase.a; path = "../Libraries/swftools-0.9.1/lib/libbase.a"; sourceTree = "<group>"; };
-		E18D73921446E70400B7FD7D /* librtmp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = librtmp.a; path = ../Libraries/librtmp/lib/librtmp.a; sourceTree = "<group>"; };
 		E18E1CCA1446F163007A85E2 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		E19357CA115F50EC003E6BF0 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = English; path = English.lproj/AppConfig.plist; sourceTree = "<group>"; };
-		E1935B881160B357003E6BF0 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E1935B881160B357003E6BF0 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; tabWidth = 5; };
 		E197AFD4116F190600A8969E /* AppSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSetting.h; sourceTree = "<group>"; };
 		E197AFD5116F190600A8969E /* AppSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSetting.m; sourceTree = "<group>"; };
 		E197AFF1116F227500A8969E /* RDIPDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDIPDefines.h; sourceTree = "<group>"; };
@@ -443,10 +445,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F82D7541601D9F500F2BA87 /* libbase.a in Frameworks */,
+				7F82D7551601D9F500F2BA87 /* librfxswf.a in Frameworks */,
+				7F82D7511601D9E200F2BA87 /* librtmp.a in Frameworks */,
+				7F82D74E1601D9D000F2BA87 /* libcrypto.a in Frameworks */,
+				7F82D74F1601D9D000F2BA87 /* libssl.a in Frameworks */,
 				E18E1CCB1446F163007A85E2 /* libz.1.2.5.dylib in Frameworks */,
-				E1499C241446E88B00F3842D /* libssl.a in Frameworks */,
-				E1499C251446E88B00F3842D /* libcrypto.a in Frameworks */,
-				E18D73931446E70400B7FD7D /* librtmp.a in Frameworks */,
 				E134701913937C7100AF58CB /* CFNetwork.framework in Frameworks */,
 				E134701A13937C7100AF58CB /* MobileCoreServices.framework in Frameworks */,
 				E1E8C2D111648D8600FA591C /* Security.framework in Frameworks */,
@@ -455,8 +459,6 @@
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				E1C77C3E11604605006DC915 /* AudioToolbox.framework in Frameworks */,
-				E18D738C1446E6C700B7FD7D /* librfxswf.a in Frameworks */,
-				E18D738D1446E6C700B7FD7D /* libbase.a in Frameworks */,
 				E184C10B1161C84300176B88 /* libxml2.2.dylib in Frameworks */,
 				E168191C116345250078D8C2 /* QuartzCore.framework in Frameworks */,
 				E1F04393116B8C27002B5FC1 /* MediaPlayer.framework in Frameworks */,
@@ -494,6 +496,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				7F82D7441601D96E00F2BA87 /* vendor */,
 				E156A189115B3B4B0054C989 /* Libraries */,
 				E15F4EAC114E1C1100851D7A /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Sources */,
@@ -521,11 +524,6 @@
 			isa = PBXGroup;
 			children = (
 				E18E1CCA1446F163007A85E2 /* libz.1.2.5.dylib */,
-				E18D73921446E70400B7FD7D /* librtmp.a */,
-				E18D738A1446E6C700B7FD7D /* librfxswf.a */,
-				E18D738B1446E6C700B7FD7D /* libbase.a */,
-				E1499C221446E88B00F3842D /* libssl.a */,
-				E1499C231446E88B00F3842D /* libcrypto.a */,
 				E134701513937C7100AF58CB /* CFNetwork.framework */,
 				E134701613937C7100AF58CB /* MobileCoreServices.framework */,
 				E134701713937C7100AF58CB /* Security.framework */,
@@ -545,6 +543,42 @@
 				E135B4CF11EB03BE00B2DBC7 /* MapKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7F82D7441601D96E00F2BA87 /* vendor */ = {
+			isa = PBXGroup;
+			children = (
+				7F82D7471601D98E00F2BA87 /* ios-librfxswf */,
+				7F82D7461601D98800F2BA87 /* ios-librtmp */,
+				7F82D7451601D97500F2BA87 /* ios-openssl */,
+			);
+			name = vendor;
+			sourceTree = "<group>";
+		};
+		7F82D7451601D97500F2BA87 /* ios-openssl */ = {
+			isa = PBXGroup;
+			children = (
+				7F82D74C1601D9D000F2BA87 /* libcrypto.a */,
+				7F82D74D1601D9D000F2BA87 /* libssl.a */,
+			);
+			name = "ios-openssl";
+			sourceTree = "<group>";
+		};
+		7F82D7461601D98800F2BA87 /* ios-librtmp */ = {
+			isa = PBXGroup;
+			children = (
+				7F82D7501601D9E200F2BA87 /* librtmp.a */,
+			);
+			name = "ios-librtmp";
+			sourceTree = "<group>";
+		};
+		7F82D7471601D98E00F2BA87 /* ios-librfxswf */ = {
+			isa = PBXGroup;
+			children = (
+				7F82D7521601D9F500F2BA87 /* libbase.a */,
+				7F82D7531601D9F500F2BA87 /* librfxswf.a */,
+			);
+			name = "ios-librfxswf";
 			sourceTree = "<group>";
 		};
 		E1346FF813937C5100AF58CB /* ASIHttpRequest */ = {
@@ -658,6 +692,7 @@
 				E1EF0CB311EEC79F003C4043 /* warning.png */,
 				E1A3CE3B118D7320008964C7 /* Default.png */,
 				E12E449613947F3A008725A4 /* Default@2x.png */,
+				7F918A371601BE36002650F9 /* Default-568h@2x.png */,
 				E1703DBF14111A2E001AC28C /* radiru */,
 				E15DDA3D11640463007A7A63 /* twitter.png */,
 			);
@@ -1256,6 +1291,7 @@
 				E1703DB314111A1A001AC28C /* radiru_FM.png in Resources */,
 				E1703DB714111A1A001AC28C /* radiru_R2.png in Resources */,
 				E1703DBD14111A1A001AC28C /* radiru_R1.png in Resources */,
+				7F918A381601BE36002650F9 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1401,11 +1437,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_ENTITLEMENTS = "~/Dropbox/Works/private/iPhone/radikker/Resources/Entitlements.plist";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Tomoaki Shibata (MEAG2JJH9D)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1414,13 +1448,14 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = Info.plist;
 				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/../Libraries/librtmp/lib",
 					"$(inherited)",
-					"\"$(SRCROOT)/../Libraries/ios-openssl/lib\"",
-					"\"$(SRCROOT)/../Libraries/swftools-0.9.1/lib\"",
+					"\"$(SRCROOT)/vendor/ios-openssl/lib\"",
+					"\"$(SRCROOT)/vendor/ios-librtmp/lib\"",
+					"\"$(SRCROOT)/vendor/ios-librfxswf/lib\"",
 				);
 				PRODUCT_NAME = radikker;
-				VALID_ARCHS = "armv6 i386";
+				PROVISIONING_PROFILE = "148EECCC-3354-4DE3-80B1-79FDF808BE13";
+				VALID_ARCHS = "armv7 i386";
 			};
 			name = Debug;
 		};
@@ -1428,25 +1463,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_ENTITLEMENTS = "~/Dropbox/Works/private/iPhone/radikker/Resources/Entitlements.plist";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Tomoaki Shibata (MEAG2JJH9D)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radikker_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = Info.plist;
 				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/../Libraries/librtmp/lib",
 					"$(inherited)",
-					"\"$(SRCROOT)/../Libraries/ios-openssl/lib\"",
-					"\"$(SRCROOT)/../Libraries/swftools-0.9.1/lib\"",
+					"\"$(SRCROOT)/vendor/ios-openssl/lib\"",
+					"\"$(SRCROOT)/vendor/ios-librtmp/lib\"",
+					"\"$(SRCROOT)/vendor/ios-librfxswf/lib\"",
 				);
 				PRODUCT_NAME = radikker;
+				PROVISIONING_PROFILE = "148EECCC-3354-4DE3-80B1-79FDF808BE13";
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "armv6 i386";
+				VALID_ARCHS = "armv7 i386";
 			};
 			name = Release;
 		};
@@ -1455,7 +1489,6 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Tomoaki Shibata (MEAG2JJH9D)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tomoaki Shibata (MEAG2JJH9D)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					CRYPTO,
@@ -1475,8 +1508,7 @@
 					"-licucore",
 					"-lz",
 				);
-				PROVISIONING_PROFILE = "7974E9A0-92C7-45B3-A9C6-8E8B813B33D1";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7974E9A0-92C7-45B3-A9C6-8E8B813B33D1";
+				PROVISIONING_PROFILE = "148EECCC-3354-4DE3-80B1-79FDF808BE13";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1489,7 +1521,6 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Tomoaki Shibata (MEAG2JJH9D)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tomoaki Shibata (MEAG2JJH9D)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_PREPROCESSOR_DEFINITIONS = CRYPTO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1507,8 +1538,7 @@
 					"-licucore",
 					"-lz",
 				);
-				PROVISIONING_PROFILE = "7974E9A0-92C7-45B3-A9C6-8E8B813B33D1";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7974E9A0-92C7-45B3-A9C6-8E8B813B33D1";
+				PROVISIONING_PROFILE = "148EECCC-3354-4DE3-80B1-79FDF808BE13";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1521,7 +1551,6 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Tomoaki Shibata";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tomoaki Shibata";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_PREPROCESSOR_DEFINITIONS = CRYPTO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1540,7 +1569,6 @@
 					"-lz",
 				);
 				PROVISIONING_PROFILE = "707FB16A-89A8-49F5-B767-C29DA8C000B3";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "707FB16A-89A8-49F5-B767-C29DA8C000B3";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1552,25 +1580,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_ENTITLEMENTS = "~/Dropbox/Works/private/iPhone/radikker/Resources/Entitlements.plist";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Tomoaki Shibata";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radikker_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = Info.plist;
 				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/../Libraries/librtmp/lib",
 					"$(inherited)",
-					"\"$(SRCROOT)/../Libraries/ios-openssl/lib\"",
-					"\"$(SRCROOT)/../Libraries/swftools-0.9.1/lib\"",
+					"\"$(SRCROOT)/vendor/ios-openssl/lib\"",
+					"\"$(SRCROOT)/vendor/ios-librtmp/lib\"",
+					"\"$(SRCROOT)/vendor/ios-librfxswf/lib\"",
 				);
 				PRODUCT_NAME = radikker;
+				PROVISIONING_PROFILE = "4C798CAB-486E-4567-9B95-EEF1104EF4DB";
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "armv6 i386";
+				VALID_ARCHS = "armv7 i386";
 			};
 			name = AdHoc;
 		};
@@ -1580,7 +1607,6 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Tomoaki Shibata";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tomoaki Shibata";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_PREPROCESSOR_DEFINITIONS = CRYPTO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1599,7 +1625,6 @@
 					"-lz",
 				);
 				PROVISIONING_PROFILE = "31700C07-D603-4783-9645-90E6A477131E";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "31700C07-D603-4783-9645-90E6A477131E";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1611,25 +1636,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_ENTITLEMENTS = "~/Dropbox/Works/private/iPhone/radikker/Resources/Entitlements.plist";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Tomoaki Shibata";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radikker_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = Info.plist;
 				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/../Libraries/librtmp/lib",
 					"$(inherited)",
-					"\"$(SRCROOT)/../Libraries/ios-openssl/lib\"",
-					"\"$(SRCROOT)/../Libraries/swftools-0.9.1/lib\"",
+					"\"$(SRCROOT)/vendor/ios-openssl/lib\"",
+					"\"$(SRCROOT)/vendor/ios-librtmp/lib\"",
+					"\"$(SRCROOT)/vendor/ios-librfxswf/lib\"",
 				);
 				PRODUCT_NAME = radikker;
+				PROVISIONING_PROFILE = "50880F60-B61C-4E4C-A080-70D0C3716889";
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "armv6 i386";
+				VALID_ARCHS = "armv7 i386";
 			};
 			name = AppStore;
 		};

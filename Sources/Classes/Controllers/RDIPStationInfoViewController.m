@@ -41,7 +41,9 @@
 	self.view.backgroundColor = [UIColor clearColor];
 
 	self.tableView.scrollEnabled = NO;
-	
+    self.tableView.backgroundView = nil;
+    self.tableView.backgroundColor = [UIColor lightGrayColor];
+    
 	indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
 	CGRect rect = CGRectMake((self.view.frame.size.width - 24)/2, 40, 24, 24);
 	indicatorView.frame = rect;
@@ -83,17 +85,17 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	CGFloat programCellHeight;
-  if(program.title)
-    programCellHeight = [RDIPProgramViewCell cellHeightForProgram:program];
-  else
-    programCellHeight = [RDIPProgramViewCell cellHeightForStation:station];
+    if(program.title)
+        programCellHeight = [RDIPProgramViewCell cellHeightForProgram:program];
+    else
+        programCellHeight = [RDIPProgramViewCell cellHeightForStation:station];
   
 	if([indexPath section] == 0) {
 		switch([indexPath row]) {
 			case 0:
 				return programCellHeight;
 			case 1:
-				return 280 - programCellHeight;
+				return self.tableView.frame.size.height - 18 - programCellHeight;
 		}
 	}
 	

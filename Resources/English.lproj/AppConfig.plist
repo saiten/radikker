@@ -215,6 +215,8 @@
 				<string>64KB</string>
 				<string>96KB</string>
 				<string>128KB</string>
+				<string>192KB</string>
+				<string>256KB</string>
 			</array>
 			<key>Title</key>
 			<string>Buffer Size</string>
@@ -225,6 +227,8 @@
 				<integer>64000</integer>
 				<integer>96000</integer>
 				<integer>128000</integer>
+				<string>192000</string>
+				<string>256000</string>
 			</array>
 		</dict>
 		<key>SettingInitialLoad</key>

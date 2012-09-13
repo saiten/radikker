@@ -155,11 +155,16 @@
 	if(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
 		webView = [[UIWebView alloc] initWithFrame:CGRectMake(10, 2, 280, 156)];
 		webView.delegate = self;
-		webView.backgroundColor = [UIColor whiteColor];
+		webView.backgroundColor = [UIColor clearColor];
+        webView.opaque = NO;
 		webView.scalesPageToFit = YES;
 		webView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
 		webView.autoresizesSubviews = YES;
-		
+        // 影消し
+        for(UIView *view in [[[webView subviews] objectAtIndex:0] subviews]) {
+            if([view isKindOfClass:[UIImageView class]]) { view.hidden = YES; }
+        }
+        
 		[self.contentView addSubview:webView];
 	}
 	
