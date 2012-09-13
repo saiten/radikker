@@ -1,15 +1,10 @@
-# osx noise
-.DS_Store
-profile
+*.xcodeproj/xcuserdata
+*.xcodeproj/project.xcworkspace
+*.xcodeproj/.DS_Store
+*.xcworkspace/xcuserdata
 
-#xcode specific
-build/*
-*.pbxuser
-*.mode2v3
-*.mode1v3
-*.perspective
-*.perspectivev3
-*~.nib
-#ignore private workspace stuff added by Xcode4
-xcuserdata
-project.xcworkspace
+Pods/Pods.xcodeproj/xcuserdata
+Pods
+
+Podfile.lock
+.DS_Store
