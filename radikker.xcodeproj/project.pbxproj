@@ -1498,10 +1498,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					../Libraries/librtmp/include/librtmp,
 					"${SDK_ROOT}/usr/include/libxml2",
-					../Libraries/openssl/include,
-					"../Libraries/swftools-0.9.1/device/lib",
+					"$(SRCROOT)/vendor/ios-librfxswf/include",
+					"$(SRCROOT)/vendor/ios-librtmp/include",
+					"$(SRCROOT)/vendor/ios-openssl/include",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
 				OTHER_LDFLAGS = (
@@ -1527,10 +1527,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					../Libraries/librtmp/include/librtmp,
 					"${SDK_ROOT}/usr/include/libxml2",
-					../Libraries/openssl/include,
-					"../Libraries/swftools-0.9.1/device/lib",
+					"$(SRCROOT)/vendor/ios-librfxswf/include",
+					"$(SRCROOT)/vendor/ios-librtmp/include",
+					"$(SRCROOT)/vendor/ios-openssl/include",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
@@ -1557,10 +1557,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					../Libraries/librtmp/include/librtmp,
 					"${SDK_ROOT}/usr/include/libxml2",
-					../Libraries/openssl/include,
-					"../Libraries/swftools-0.9.1/device/lib",
+					"$(SRCROOT)/vendor/ios-librfxswf/include",
+					"$(SRCROOT)/vendor/ios-librtmp/include",
+					"$(SRCROOT)/vendor/ios-openssl/include",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
@@ -1613,10 +1613,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					../Libraries/librtmp/include/librtmp,
 					"${SDK_ROOT}/usr/include/libxml2",
-					../Libraries/openssl/include,
-					"../Libraries/swftools-0.9.1/device/lib",
+					"$(SRCROOT)/vendor/ios-librfxswf/include",
+					"$(SRCROOT)/vendor/ios-librtmp/include",
+					"$(SRCROOT)/vendor/ios-openssl/include",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";

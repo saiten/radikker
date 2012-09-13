@@ -6,8 +6,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "log.h"
-#import "rtmp.h"
+#import "librtmp/log.h"
+#import "librtmp/rtmp.h"
 
 #define RTMPCLIENT_ERROR_DOMAIN @"net.isidesystem.RTMPClientErrorDomain"
 #define RTMPCLIENT_ERROR_FAILED_CONNECT_CODE         100

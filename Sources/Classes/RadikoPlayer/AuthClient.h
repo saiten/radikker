@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "rfxswf.h"
+#import "swftools/rfxswf.h"
 #import "HttpClient.h"
 
 typedef enum {

@@ -10,7 +10,7 @@
 #import "AppConfig.h"
 #import "ASIHTTPRequest.h"
 #import "ASIDownloadCache.h"
-#import "rfxswf.h"
+#import "swftools/rfxswf.h"
 #import "RegexKitLite.h"
 
 // extract binary from swf
