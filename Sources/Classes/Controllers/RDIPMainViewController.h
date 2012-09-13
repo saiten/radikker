@@ -19,6 +19,7 @@
 #import "RDIPStationClient.h"
 
 #import "RDIPReverseGeocoder.h"
+#import "RDIPEPG.h"
 
 typedef enum {
 	RDIP_RADIKOSTATUS_CANPLAY,
@@ -56,6 +57,9 @@ typedef enum {
 	RadikoPlayer *radikoPlayer;
 	
 	Reachability *reachability;
+    
+    NSTimer *updateTimer;
+    RDIPProgram *nowOnAir;
 }
 
 @property(nonatomic, readwrite) RDIP_RADIKOSTATUS radikoStatus;

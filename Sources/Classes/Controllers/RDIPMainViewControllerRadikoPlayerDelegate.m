@@ -9,6 +9,7 @@
 #import "RDIPMainViewController.h"
 #import "StatusBarAlert.h"
 #import "RDIPStationViewController.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @implementation RDIPMainViewController(RadikoPlayerDelegate)
 
@@ -79,7 +80,14 @@
 {
 	[[StatusBarAlert sharedInstance] hideStatusAnimated:YES];
 	replay = NO;
-	
+
+	[updateTimer invalidate];
+	updateTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f
+                                                   target:self
+                                                 selector:@selector(checkNowOnAir)
+                                                 userInfo:nil
+                                                  repeats:YES];
+    
 	if([currentViewController isKindOfClass:[RDIPStationViewController class]])
 		[(RDIPStationViewController*)currentViewController nowOnAir];
 }
@@ -96,7 +104,11 @@
 		[radikoPlayer play];
 	else
 		[[StatusBarAlert sharedInstance] hideStatusAnimated:YES];
-  [self setToolbarPlaying:NO];
+
+	[updateTimer invalidate];
+	updateTimer = nil;
+    
+	[self setToolbarPlaying:NO];
 }
 
 - (void)radikoPlayerDidEmptyBuffer:(RadikoPlayer *)aRadikoPlayer
@@ -128,6 +140,25 @@
                                              cancelButtonTitle:@"OK"
                                              otherButtonTitles:nil] autorelease];
   [alertView show];
+}
+
+- (void)checkNowOnAir
+{
+  RDIPProgram *program = [[RDIPEPG sharedInstance] programForStationAtNow:radikoPlayer.channel];
+  if(nowOnAir != program) {
+    [nowOnAir release];
+    nowOnAir = [program retain];
+      
+    Class playingInfoCenter = NSClassFromString(@"MPNowPlayingInfoCenter");
+    if(playingInfoCenter) {
+      MPNowPlayingInfoCenter *center = [MPNowPlayingInfoCenter defaultCenter];
+      NSDictionary *playingInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   radikoPlayer.channel, MPMediaItemPropertyAlbumTitle,
+                                   program.title, MPMediaItemPropertyTitle,
+                                   program.performer, MPMediaItemPropertyArtist, nil];
+      center.nowPlayingInfo = playingInfo;
+    }
+  }
 }
 
 @end

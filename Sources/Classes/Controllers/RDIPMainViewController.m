@@ -99,6 +99,7 @@
 
 - (void)dealloc 
 {
+	[nowOnAir release];
 	[stations release];
 
 	[flexibleItem release];
