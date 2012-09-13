@@ -1,0 +1,9 @@
+[submodule "vendor/ios-librtmp"]
+	path = vendor/ios-librtmp
+	url = git://github.com/saiten/ios-librtmp.git
+[submodule "vendor/ios-librfxswf"]
+	path = vendor/ios-librfxswf
+	url = git://github.com/saiten/ios-librfxswf.git
+[submodule "vendor/ios-openssl"]
+	path = vendor/ios-openssl
+	url = git://github.com/st3fan/ios-openssl.git
