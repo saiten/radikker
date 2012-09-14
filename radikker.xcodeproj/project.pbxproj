@@ -1447,14 +1447,16 @@
 				GCC_PREFIX_HEADER = radikker_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/vendor/ios-openssl/lib\"",
 					"\"$(SRCROOT)/vendor/ios-librtmp/lib\"",
 					"\"$(SRCROOT)/vendor/ios-librfxswf/lib\"",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = radikker;
-				PROVISIONING_PROFILE = "148EECCC-3354-4DE3-80B1-79FDF808BE13";
+				PROVISIONING_PROFILE = "18D7A3CF-FAAF-4D6E-A499-40B931D1E54F";
 				VALID_ARCHS = "armv7 i386";
 			};
 			name = Debug;
@@ -1471,14 +1473,16 @@
 				GCC_PREFIX_HEADER = radikker_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/vendor/ios-openssl/lib\"",
 					"\"$(SRCROOT)/vendor/ios-librtmp/lib\"",
 					"\"$(SRCROOT)/vendor/ios-librfxswf/lib\"",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = radikker;
-				PROVISIONING_PROFILE = "148EECCC-3354-4DE3-80B1-79FDF808BE13";
+				PROVISIONING_PROFILE = "18D7A3CF-FAAF-4D6E-A499-40B931D1E54F";
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv7 i386";
 			};
@@ -1588,12 +1592,14 @@
 				GCC_PREFIX_HEADER = radikker_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/vendor/ios-openssl/lib\"",
 					"\"$(SRCROOT)/vendor/ios-librtmp/lib\"",
 					"\"$(SRCROOT)/vendor/ios-librfxswf/lib\"",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = radikker;
 				PROVISIONING_PROFILE = "4C798CAB-486E-4567-9B95-EEF1104EF4DB";
 				VALIDATE_PRODUCT = YES;
@@ -1644,12 +1650,14 @@
 				GCC_PREFIX_HEADER = radikker_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/vendor/ios-openssl/lib\"",
 					"\"$(SRCROOT)/vendor/ios-librtmp/lib\"",
 					"\"$(SRCROOT)/vendor/ios-librfxswf/lib\"",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = radikker;
 				PROVISIONING_PROFILE = "50880F60-B61C-4E4C-A080-70D0C3716889";
 				VALIDATE_PRODUCT = YES;
