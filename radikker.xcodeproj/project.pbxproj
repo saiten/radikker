@@ -605,7 +605,8 @@
 				E134700B13937C5100AF58CB /* ASINetworkQueue.m */,
 				E134700C13937C5100AF58CB /* ASIProgressDelegate.h */,
 			);
-			path = ASIHttpRequest;
+			name = ASIHttpRequest;
+			path = ../radikker/Libraries/ASIHttpRequest;
 			sourceTree = "<group>";
 		};
 		E135B54611EB1E3F00B2DBC7 /* NoServiceViewController */ = {
@@ -676,7 +677,7 @@
 				E1F002FF1169C0BB0063B091 /* JSON */,
 				E184C0F81161C77700176B88 /* GData */,
 				E184C1241161CA8900176B88 /* ImageStore */,
-				E1E8C29111648D5B00FA591C /* OAuthConsumer */,
+				E1E8C29111648D5B00FA591C /* jdg-OAuthConsumer */,
 			);
 			name = Libraries;
 			path = ../Libraries;
@@ -848,7 +849,8 @@
 				E17D6015118C812C0069A41D /* RegexKitLite.h */,
 				E17D6017118C812C0069A41D /* RegexKitLite.m */,
 			);
-			path = RegexKitLite;
+			name = RegexKitLite;
+			path = ../radikker/Libraries/RegexKitLite;
 			sourceTree = "<group>";
 		};
 		E17D6368118EBA8A0069A41D /* Reachability */ = {
@@ -857,7 +859,8 @@
 				E17D6369118EBA8A0069A41D /* Reachability.h */,
 				E17D636A118EBA8A0069A41D /* Reachability.m */,
 			);
-			path = Reachability;
+			name = Reachability;
+			path = ../radikker/Libraries/Reachability;
 			sourceTree = "<group>";
 		};
 		E184C0BD1161BA4E00176B88 /* Utilities */ = {
@@ -967,7 +970,8 @@
 				E184C0FA1161C77700176B88 /* GDataTargetNamespace.h */,
 				E184C0FB1161C77700176B88 /* XMLSupport */,
 			);
-			path = GData;
+			name = GData;
+			path = ../radikker/Libraries/GData;
 			sourceTree = "<group>";
 		};
 		E184C0FB1161C77700176B88 /* XMLSupport */ = {
@@ -993,7 +997,8 @@
 				E184C12B1161CA8900176B88 /* StringHelper.h */,
 				E184C12C1161CA8900176B88 /* StringHelper.m */,
 			);
-			path = ImageStore;
+			name = ImageStore;
+			path = ../radikker/Libraries/ImageStore;
 			sourceTree = "<group>";
 		};
 		E188082D11856390002FB863 /* WebBrowser */ = {
@@ -1091,7 +1096,7 @@
 			path = loading;
 			sourceTree = "<group>";
 		};
-		E1E8C29111648D5B00FA591C /* OAuthConsumer */ = {
+		E1E8C29111648D5B00FA591C /* jdg-OAuthConsumer */ = {
 			isa = PBXGroup;
 			children = (
 				E1E8C29211648D5B00FA591C /* Categories */,
@@ -1121,8 +1126,8 @@
 				E1E8C2B911648D5B00FA591C /* OATokenManager.m */,
 				E1E8C2BA11648D5B00FA591C /* OAuthConsumer.h */,
 			);
-			name = OAuthConsumer;
-			path = "jdg-OAuthConsumer";
+			name = "jdg-OAuthConsumer";
+			path = "../radikker/Libraries/jdg-OAuthConsumer";
 			sourceTree = "<group>";
 		};
 		E1E8C29211648D5B00FA591C /* Categories */ = {
@@ -1169,7 +1174,7 @@
 				E1F0030C1169C0BB0063B091 /* SBJsonWriter.m */,
 			);
 			name = JSON;
-			path = ../Libraries/JSON;
+			path = Libraries/JSON;
 			sourceTree = SOURCE_ROOT;
 		};
 		E1F0319811652FFF002B5FC1 /* StationInfoViewController */ = {

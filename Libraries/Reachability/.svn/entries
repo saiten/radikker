@@ -1,0 +1,54 @@
+8
+
+dir
+289
+http://labs.isidesystem.net/svn/repos/movbile-iphone/trunk/moVbilePlayer/Libraries/Reachability
+http://labs.isidesystem.net/svn/repos
+
+
+
+2009-05-24T09:59:39.309323Z
+287
+saiten
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f57ecdf7-6cd7-49a9-b143-66ef2f073bb8
+
+Reachability.h
+file
+
+
+
+
+2009-05-27T08:31:41.000000Z
+3dd8853e5b53773f5c0e71b9eb3b8f0e
+2009-05-24T09:59:39.309323Z
+287
+saiten
+has-props
+
+Reachability.m
+file
+
+
+
+
+2009-05-27T08:31:41.000000Z
+0d89d4caf808bfe5c459e9a6c9c4351f
+2009-05-24T09:59:39.309323Z
+287
+saiten
+has-props
+

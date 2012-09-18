@@ -1,0 +1,64 @@
+8
+
+dir
+5
+https://repos.syun.ne.jp:10443/svn/nikkaniphone/trunk/client/Libraries/GData/XMLSupport
+https://repos.syun.ne.jp:10443/svn/nikkaniphone
+
+
+
+2009-10-21T10:55:34.661118Z
+5
+shibata
+
+
+svn:special svn:externals svn:needs-lock
+
+GDataXMLNodeUtil.m
+file
+
+
+
+
+2009-08-05T06:37:24.000000Z
+622164c5d06244d598409e99df6b2012
+2009-10-21T10:55:34.661118Z
+5
+shibata
+
+GDataXMLNode.m
+file
+
+
+
+
+2009-07-02T05:29:04.000000Z
+019cb1e84629c582ceb043270601aef3
+2009-10-21T10:55:34.661118Z
+5
+shibata
+
+GDataXMLNodeUtil.h
+file
+
+
+
+
+2009-08-05T02:54:34.000000Z
+aada946eeca42b8ea3e0616d56e7abf3
+2009-10-21T10:55:34.661118Z
+5
+shibata
+
+GDataXMLNode.h
+file
+
+
+
+
+2009-07-02T05:29:04.000000Z
+77ebe6eae9634269a70c13ba3bf961b6
+2009-10-21T10:55:34.661118Z
+5
+shibata
+
