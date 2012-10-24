@@ -269,8 +269,8 @@ static const AVal av_conn = AVC("conn");
         }
         
 		status = [self _getData];
-		if (status != RTMPCLIENT_STATUS_INCOMPLETE || !RTMP_IsTimedout(&rtmp) || liveStream)
 		DLog(@"status = %d, timed out = %d", status, RTMP_IsTimedout(&rtmp));
+		if (status != RTMPCLIENT_STATUS_INCOMPLETE || !RTMP_IsTimedout(&rtmp))
 			break;
 	}
     
