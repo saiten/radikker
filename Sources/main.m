@@ -8,15 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-void sig_pipe(int sig) 
-{
-	NSLog(@"catch SIGPIPE !!");
-}
-
 int main(int argc, char *argv[]) 
 {
-	// ('A`) < iphone can not catch signal ..
-	//signal(SIGPIPE, sig_pipe);
+	signal(SIGPIPE, SIG_IGN);
 	
 	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
     int retVal = UIApplicationMain(argc, argv, nil, @"RDIPAppDelegate");
