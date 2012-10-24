@@ -55,12 +55,12 @@
 #endif
 		write(ofh, buf, size);
 	}
-
+    
 	[inputHandle closeFile];
 	[outputHandle closeFile];
 	
 	active = NO;
-
+    
 #ifdef DEBUG
 	NSLog(@"FileSave end.");
 #endif

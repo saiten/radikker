@@ -10,6 +10,7 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		7F407A101612F9AE0061FF7F /* NetworkInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F407A0F1612F9AE0061FF7F /* NetworkInformation.m */; };
 		7F82D74E1601D9D000F2BA87 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F82D74C1601D9D000F2BA87 /* libcrypto.a */; };
 		7F82D74F1601D9D000F2BA87 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F82D74D1601D9D000F2BA87 /* libssl.a */; };
 		7F82D7511601D9E200F2BA87 /* librtmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F82D7501601D9E200F2BA87 /* librtmp.a */; };
@@ -54,6 +55,7 @@
 		7F82D843160833AC00F2BA87 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F82D836160833AC00F2BA87 /* ASIHTTPRequest.m */; };
 		7F82D844160833AC00F2BA87 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F82D83A160833AC00F2BA87 /* ASIInputStream.m */; };
 		7F82D845160833AC00F2BA87 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F82D83C160833AC00F2BA87 /* ASINetworkQueue.m */; };
+		7F87CD811637DDC400CC8632 /* StreamURLClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F87CD801637DDC400CC8632 /* StreamURLClient.m */; };
 		7F918A381601BE36002650F9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F918A371601BE36002650F9 /* Default-568h@2x.png */; };
 		E11475AF1185696500B83E2E /* RDIPWebBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = E11475AE1185696500B83E2E /* RDIPWebBrowserController.m */; };
 		E11CFEB8117AF6480042D65B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11CFEB7117AF6480042D65B /* AVFoundation.framework */; };
@@ -169,6 +171,8 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* radikker_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = radikker_Prefix.pch; path = ../radikker_Prefix.pch; sourceTree = "<group>"; };
+		7F407A0E1612F9AE0061FF7F /* NetworkInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInformation.h; sourceTree = "<group>"; };
+		7F407A0F1612F9AE0061FF7F /* NetworkInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkInformation.m; sourceTree = "<group>"; };
 		7F82D74C1601D9D000F2BA87 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "vendor/ios-openssl/lib/libcrypto.a"; sourceTree = "<group>"; };
 		7F82D74D1601D9D000F2BA87 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "vendor/ios-openssl/lib/libssl.a"; sourceTree = "<group>"; };
 		7F82D7501601D9E200F2BA87 /* librtmp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = librtmp.a; path = "vendor/ios-librtmp/lib/librtmp.a"; sourceTree = "<group>"; };
@@ -261,6 +265,8 @@
 		7F82D83B160833AC00F2BA87 /* ASINetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASINetworkQueue.h; sourceTree = "<group>"; };
 		7F82D83C160833AC00F2BA87 /* ASINetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASINetworkQueue.m; sourceTree = "<group>"; };
 		7F82D83D160833AC00F2BA87 /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIProgressDelegate.h; sourceTree = "<group>"; };
+		7F87CD7F1637DDC400CC8632 /* StreamURLClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamURLClient.h; sourceTree = "<group>"; };
+		7F87CD801637DDC400CC8632 /* StreamURLClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamURLClient.m; sourceTree = "<group>"; };
 		7F918A371601BE36002650F9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		E11475AD1185696500B83E2E /* RDIPWebBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDIPWebBrowserController.h; sourceTree = "<group>"; };
@@ -545,6 +551,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7F407A0D1612F9AE0061FF7F /* NetworkInformation */ = {
+			isa = PBXGroup;
+			children = (
+				7F407A0E1612F9AE0061FF7F /* NetworkInformation.h */,
+				7F407A0F1612F9AE0061FF7F /* NetworkInformation.m */,
+			);
+			name = NetworkInformation;
+			path = Libraries/NetworkInformation;
+			sourceTree = SOURCE_ROOT;
+		};
 		7F82D7441601D96E00F2BA87 /* vendor */ = {
 			isa = PBXGroup;
 			children = (
@@ -789,6 +805,7 @@
 		E156A189115B3B4B0054C989 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				7F407A0D1612F9AE0061FF7F /* NetworkInformation */,
 				7F82D829160833AC00F2BA87 /* ASIHttpRequest */,
 				7F82D825160833A200F2BA87 /* Reachability */,
 				7F82D80D1608337F00F2BA87 /* RegexKitLite */,
@@ -987,6 +1004,8 @@
 		E184C0C01161BA4E00176B88 /* RadikoPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				7F87CD7F1637DDC400CC8632 /* StreamURLClient.h */,
+				7F87CD801637DDC400CC8632 /* StreamURLClient.m */,
 				E1346FF613937BE000AF58CB /* AuthClient.h */,
 				E1346FF513937BE000AF58CB /* AuthClient.m */,
 				E184C0C11161BA4E00176B88 /* AudioStreamPlayer.h */,
@@ -1411,6 +1430,8 @@
 				7F82D843160833AC00F2BA87 /* ASIHTTPRequest.m in Sources */,
 				7F82D844160833AC00F2BA87 /* ASIInputStream.m in Sources */,
 				7F82D845160833AC00F2BA87 /* ASINetworkQueue.m in Sources */,
+				7F407A101612F9AE0061FF7F /* NetworkInformation.m in Sources */,
+				7F87CD811637DDC400CC8632 /* StreamURLClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1444,7 +1465,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_ENTITLEMENTS = "~/Dropbox/Works/private/iPhone/radikker/Resources/Entitlements.plist";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Tomoaki Shibata (MEAG2JJH9D)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Tomoaki Shibata (239V6PBF7Y)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1467,7 +1488,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = radikker;
-				PROVISIONING_PROFILE = "18D7A3CF-FAAF-4D6E-A499-40B931D1E54F";
+				PROVISIONING_PROFILE = "C1200B3E-9050-4661-9DCC-51FF5E304743";
 				VALID_ARCHS = "armv7 i386";
 			};
 			name = Debug;

@@ -107,6 +107,8 @@
 	<string>http://radiko.jp/v2/api/program</string>
 	<key>RadikoPlayer</key>
 	<dict>
+		<key>StreamListUrl</key>
+		<string>http://radiko.jp/v2/station/stream/%@.xml</string>
 		<key>AppFormat</key>
 		<string>%@/_defInst_</string>
 		<key>Auth1Url</key>
@@ -124,7 +126,9 @@
 		<key>Protocol</key>
 		<string>rtmpe</string>
 		<key>SwfUrl</key>
-		<string>http://radiko.jp/player/swf/player_2.1.0.00.swf</string>
+		<string>http://radiko.jp/player/swf/player_3.0.0.01.swf</string>
+		<key>ExtractKeyId</key>
+		<integer>14</integer>
 	</dict>
 	<key>RadiruPlayer_R1</key>
 	<dict>

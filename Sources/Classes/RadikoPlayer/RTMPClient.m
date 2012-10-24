@@ -24,7 +24,7 @@
 		delegate = aDelegate;
 		
 		status = RTMPCLIENT_STATUS_INIT;
-
+        
 		swfSize = 0;
 		seek = 0;
 		length = 0;
@@ -32,10 +32,10 @@
 		liveStream = YES;
 		
 		flashVersion = @"WIN 10,0,45,2";
-
+        
 		bufferTime = 10 * 60 * 60 * 1000;
 		bufferSize = 16 * 1024;
-	}	
+	}
 	return self;
 }
 
@@ -43,8 +43,8 @@
 {
 	if(status != RTMPCLIENT_STATUS_INIT)
 		return;
-
-	RTMP_ctrlC = NO;	
+    
+	RTMP_ctrlC = NO;
 	[NSThread detachNewThreadSelector:@selector(run:) toTarget:self withObject:self];
 }
 
@@ -59,30 +59,30 @@
 	
 	NSDictionary *userInfo = [NSDictionary dictionaryWithObject:message forKey:NSLocalizedDescriptionKey];
 	error = [[NSError alloc] initWithDomain:RTMPCLIENT_ERROR_DOMAIN
-									   code:code 
+									   code:code
 								   userInfo:userInfo];
 }
 
 - (RTMPCLIENT_STATUS)_getData
 {
 	int32_t now, lastUpdate;
-
+    
 	char *buffer = (char *) malloc(bufferSize);
 	if(buffer == NULL) {
 		[self _setErrorWithErrorCode:RTMPCLIENT_ERROR_UNKNOWN_CODE
-                         message:@"failed to allocate memory."];
+                             message:@"failed to allocate memory."];
 		return RTMPCLIENT_STATUS_FAILED;
 	}
 	
 	int size = 0;
 	int readSize = 0;
-
+    
 	rtmp.m_read.timestamp = seek;
-
+    
 	if (rtmp.m_read.timestamp)
-		RTMP_Log(RTMP_LOGDEBUG, "Continuing at TS: %d ms\n", rtmp.m_read.timestamp);	
+		RTMP_Log(RTMP_LOGDEBUG, "Continuing at TS: %d ms\n", rtmp.m_read.timestamp);
 	if (liveStream)
-		RTMP_Log(RTMP_LOGDEBUG, "Starting Live Stream\n");	
+		RTMP_Log(RTMP_LOGDEBUG, "Starting Live Stream\n");
 	if (length > 0)
 		RTMP_Log(RTMP_LOGDEBUG, "For duration: %.3f sec\n", (double) length / 1000.0);
 	
@@ -91,7 +91,7 @@
 	
 	do {
 		readSize = RTMP_Read(&rtmp, buffer, bufferSize);
-    
+        
 		if (readSize > 0) {
 			if(delegate && [delegate respondsToSelector:@selector(rtmpClient:receiveData:dataSize:)]) {
 				[delegate rtmpClient:self receiveData:(const char*)buffer dataSize:readSize];
@@ -107,43 +107,52 @@
 					bufferTime = (uint32_t) (duration * 1000.0) + 5000;   // extra 5sec to make sure we've got enough
 					
 					RTMP_Log(RTMP_LOGDEBUG,
-                   "Detected that buffer time is less than duration, resetting to: %dms",
-                   bufferTime);
+                             "Detected that buffer time is less than duration, resetting to: %dms",
+                             bufferTime);
 					RTMP_SetBufferMS(&rtmp, bufferTime);
 					RTMP_UpdateBufferMS(&rtmp);
+                }
+            }
         }
-      }
-    }		
-  } while (!RTMP_ctrlC && readSize > -1 && RTMP_IsConnected(&rtmp) && !RTMP_IsTimedout(&rtmp));
+    } while (!RTMP_ctrlC && readSize > -1 && RTMP_IsConnected(&rtmp) && !RTMP_IsTimedout(&rtmp));
 	
 	free(buffer);
 	
 	if (readSize < 0)
 		readSize = rtmp.m_read.status;
+    
+    if(readSize == -2)
+        return RTMPCLIENT_STATUS_FAILED;
+    
+    if(readSize == -3)
+        return RTMPCLIENT_STATUS_SUCCESS;
 	
-	return RTMPCLIENT_STATUS_SUCCESS;
+    if(readSize < 0 || RTMP_ctrlC || RTMP_IsTimedout(&rtmp))
+        return RTMPCLIENT_STATUS_INCOMPLETE;
+    else
+        return RTMPCLIENT_STATUS_SUCCESS;
 }
 
 static const AVal av_conn = AVC("conn");
 
 - (void)_connectStream
 {
-  AVal aHostName = { 0, 0 };
+    AVal aHostName = { 0, 0 };
 	AVal aPlayPath = { 0, 0 };
 	AVal aTcUrl = { 0, 0 };
 	AVal aPageUrl = { 0, 0 };
 	AVal aApp = { 0, 0 };
 	AVal aSwfUrl = { 0, 0 };
 	AVal aFlashVer = { 0, 0 };
-  AVal swfHash = { 0, 0 };
-  AVal sockshost = { 0, 0 }; 
-  
-  unsigned char hash[RTMP_SWF_HASHLEN];
-  uint32_t swfSize = 0;
-
-  if(host) {
-    STR2AVAL(aHostName, [host cStringUsingEncoding:NSASCIIStringEncoding]);
-  }  
+    AVal swfHash = { 0, 0 };
+    AVal sockshost = { 0, 0 };
+    
+    unsigned char hash[RTMP_SWF_HASHLEN];
+    uint32_t swfSize = 0;
+    
+    if(host) {
+        STR2AVAL(aHostName, [host cStringUsingEncoding:NSASCIIStringEncoding]);
+    }
 	if(swfUrl) {
 		STR2AVAL(aSwfUrl,   [swfUrl cStringUsingEncoding:NSASCIIStringEncoding]);
 	}
@@ -162,81 +171,82 @@ static const AVal av_conn = AVC("conn");
 	if(flashVersion) {
 		STR2AVAL(aFlashVer, [flashVersion cStringUsingEncoding:NSASCIIStringEncoding]);
 	}
-  
+    
 	duration = 0.0;
 	
+    RTMP_LogSetLevel(RTMP_LOGDEBUG);
 	RTMP_Init(&rtmp);
-
-  if(radikoAuthToken) {
-    AVal av1 = { 0, 0 };
-    STR2AVAL(av1, [@"S:" cStringUsingEncoding:NSASCIIStringEncoding]);
-    RTMP_SetOpt(&rtmp, &av_conn, &av1);
-    AVal av2 = { 0, 0 };
-    STR2AVAL(av2, [@"S:" cStringUsingEncoding:NSASCIIStringEncoding]);
-    RTMP_SetOpt(&rtmp, &av_conn, &av2);
-    AVal av3 = { 0, 0 };
-    STR2AVAL(av3, [@"S:" cStringUsingEncoding:NSASCIIStringEncoding]);
-    RTMP_SetOpt(&rtmp, &av_conn, &av3);
-    AVal av4 = { 0, 0 };
-    NSString *token = [NSString stringWithFormat:@"S:%@", radikoAuthToken];
-    STR2AVAL(av4, [token cStringUsingEncoding:NSASCIIStringEncoding]);
-    RTMP_SetOpt(&rtmp, &av_conn, &av4);    
-  }
-  
-  if(radikoSwfUrl) {
-    if(RTMP_HashSWF([radikoSwfUrl cStringUsingEncoding:NSASCIIStringEncoding], &swfSize, hash, 30) == 0) {
-      swfHash.av_val = (char*)hash;
-      swfHash.av_len = RTMP_SWF_HASHLEN;
+    
+    if(radikoAuthToken) {
+        AVal av1 = { 0, 0 };
+        STR2AVAL(av1, [@"S:" cStringUsingEncoding:NSASCIIStringEncoding]);
+        RTMP_SetOpt(&rtmp, &av_conn, &av1);
+        AVal av2 = { 0, 0 };
+        STR2AVAL(av2, [@"S:" cStringUsingEncoding:NSASCIIStringEncoding]);
+        RTMP_SetOpt(&rtmp, &av_conn, &av2);
+        AVal av3 = { 0, 0 };
+        STR2AVAL(av3, [@"S:" cStringUsingEncoding:NSASCIIStringEncoding]);
+        RTMP_SetOpt(&rtmp, &av_conn, &av3);
+        AVal av4 = { 0, 0 };
+        NSString *token = [NSString stringWithFormat:@"S:%@", radikoAuthToken];
+        STR2AVAL(av4, [token cStringUsingEncoding:NSASCIIStringEncoding]);
+        RTMP_SetOpt(&rtmp, &av_conn, &av4);
     }
-  }
-  
+    
+    if(radikoSwfUrl) {
+        if(RTMP_HashSWF([radikoSwfUrl cStringUsingEncoding:NSASCIIStringEncoding], &swfSize, hash, 30) == 0) {
+            swfHash.av_val = (char*)hash;
+            swfHash.av_len = RTMP_SWF_HASHLEN;
+        }
+    }
+    
 	RTMP_SetupStream(&rtmp, protocol, &aHostName, port, &sockshost, &aPlayPath,
 					 &aTcUrl, &aSwfUrl, &aPageUrl, &aApp, NULL, &swfHash, swfSize,
 					 &aFlashVer, NULL, NULL, seek, length, liveStream, timeout);
 	
 	BOOL first = YES;
 	BOOL retries = NO;
-
+    
 	status = RTMPCLIENT_STATUS_CONNECT;
 	while(!RTMP_ctrlC) {
-
+        
 		RTMP_SetBufferMS(&rtmp, bufferTime);
 		
-		if(first) {      
+		if(first) {
 			first = NO;
-      
+            
 			NSLog(@"RTMPClient Connecting");
 			
 			if (!RTMP_Connect(&rtmp, NULL)) {
 				status = RTMPCLIENT_STATUS_FAILED;
 				[self _setErrorWithErrorCode:RTMPCLIENT_ERROR_FAILED_CONNECT_CODE
-                             message:@"failed to connect server."];
+                                     message:@"failed to connect server."];
 				break;
-      }
-
+            }
+            
 			if(delegate && [delegate respondsToSelector:@selector(rtmpClientDidOpenConnection:)]) {
 				[delegate performSelector:@selector(rtmpClientDidOpenConnection:)
-                         onThread:[NSThread mainThread]
-                       withObject:self 
-                    waitUntilDone:NO];
+                                 onThread:[NSThread mainThread]
+                               withObject:self
+                            waitUntilDone:NO];
 			}
 			
 			if (!RTMP_ConnectStream(&rtmp, seek)) {
 				NSLog(@"Failed to connect the stream");
 				status = RTMPCLIENT_STATUS_FAILED;
 				[self _setErrorWithErrorCode:RTMPCLIENT_ERROR_FAILED_CONNECTSTREAM_CODE
-                             message:@"failed to connect stream."];
+                                     message:@"failed to connect stream."];
 				break;
-      }      
-    } else {
+            }
+        } else {
 			if (retries) {
 				NSLog(@"Failed to resume the stream");
 				status = RTMPCLIENT_STATUS_FAILED;
 				[self _setErrorWithErrorCode:RTMPCLIENT_ERROR_FAILED_RETRY_CODE
-                             message:@"connection timed out."];
+                                     message:@"connection timed out."];
 				break;
-      }
-
+            }
+            
 			NSLog(@"Connection timed out, trying to resume.");
 			if (rtmp.m_pausing == 3) {
 				retries = YES;
@@ -244,43 +254,43 @@ static const AVal av_conn = AVC("conn");
 					NSLog(@"Failed to resume the stream");
 					status = RTMPCLIENT_STATUS_FAILED;
 					[self _setErrorWithErrorCode:RTMPCLIENT_ERROR_FAILED_RECONNECTSTREAM_CODE
-                               message:@"failed to reconnect stream."];
+                                         message:@"failed to reconnect stream."];
 					break;
-         }
-      } else if(!RTMP_ToggleStream(&rtmp)) {
+                }
+            } else if(!RTMP_ToggleStream(&rtmp)) {
 				NSLog(@"Failed to resume the stream");
 				status = RTMPCLIENT_STATUS_FAILED;
 				[self _setErrorWithErrorCode:RTMPCLIENT_ERROR_FAILED_TOGGLESTREAM_CODE
-                             message:@"failed to toggle stream."];
+                                     message:@"failed to toggle stream."];
 				break;
-      }
-    }
-
+            }
+        }
+        
 		status = [self _getData];
-		
-		if (!RTMP_IsTimedout(&rtmp) || liveStream)
+		NSLog(@"status = %d, timed out = %d", status, RTMP_IsTimedout(&rtmp));
+		if (status != RTMPCLIENT_STATUS_INCOMPLETE || !RTMP_IsTimedout(&rtmp) || liveStream)
 			break;
 	}
-
+    
 	if(status == RTMPCLIENT_STATUS_FAILED) {
 		NSLog(@"RTMPClient failed");
-
+        
 		if(delegate && [delegate respondsToSelector:@selector(rtmpClientDidFailed:)]) {
 			[delegate performSelector:@selector(rtmpClientDidFailed:)
-                       onThread:[NSThread mainThread]
-                     withObject:self 
-                  waitUntilDone:NO];
+                             onThread:[NSThread mainThread]
+                           withObject:self
+                        waitUntilDone:NO];
 		}
 	}
-
+    
 	NSLog(@"Closing connection.");
 	RTMP_Close(&rtmp);
 	
 	if(delegate && [delegate respondsToSelector:@selector(rtmpClientDidCloseConnection:)]) {
 		[delegate performSelector:@selector(rtmpClientDidCloseConnection:)
-                     onThread:[NSThread mainThread]
-                   withObject:self 
-                waitUntilDone:NO];
+                         onThread:[NSThread mainThread]
+                       withObject:self
+                    waitUntilDone:NO];
 	}
 	
 	status = RTMPCLIENT_STATUS_DISCONNECT;
@@ -289,7 +299,7 @@ static const AVal av_conn = AVC("conn");
 - (void)run:(id)param
 {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-
+    
 	[self _connectStream];
 	
 	[pool release];
@@ -299,7 +309,7 @@ static const AVal av_conn = AVC("conn");
 - (void)dealloc
 {
 	[error release];
-
+    
 	[url release];
 	[host release];
 	
@@ -310,7 +320,7 @@ static const AVal av_conn = AVC("conn");
 	[flashVersion release];
 	
 	[swfUrl release];
-		
+    
 	[super dealloc];
 }
 

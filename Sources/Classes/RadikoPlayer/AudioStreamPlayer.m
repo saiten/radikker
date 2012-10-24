@@ -16,11 +16,11 @@
 
 - (void)_audioQueueOutputCallback:(AudioQueueRef)aAudioQueue audioQueueBuffer:(AudioQueueBufferRef)aAudioBuffer;
 
-- (void)_propertyListenerCallback:(AudioFileStreamID)inAudioFileStream 
-		audioFileStreamPropertyId:(AudioFileStreamPropertyID)inPropertyID 
+- (void)_propertyListenerCallback:(AudioFileStreamID)inAudioFileStream
+		audioFileStreamPropertyId:(AudioFileStreamPropertyID)inPropertyID
 						  ioFlags:(UInt32*)ioFlags;
 
-- (void)_packetsCallback:(UInt32)inNumberBytes numberPackets:(UInt32)inNumberPackets 
+- (void)_packetsCallback:(UInt32)inNumberBytes numberPackets:(UInt32)inNumberPackets
 			   inputData:(const void *)inInputData audioStreamPacketDescription:(AudioStreamPacketDescription*)inPacketDescription;
 
 - (void)_enqueueBuffer;
@@ -36,21 +36,21 @@ static void _audio_queue_output_callback(void *userData, AudioQueueRef aAudioQue
 	[(AudioStreamPlayer*)userData _audioQueueOutputCallback:aAudioQueue audioQueueBuffer:aAudioBuffer];
 }
 
-static void _property_Listener_callback(void *inClientData, AudioFileStreamID inAudioFileStream, 
+static void _property_Listener_callback(void *inClientData, AudioFileStreamID inAudioFileStream,
 										AudioFileStreamPropertyID inPropertyID, UInt32 *ioFlags)
 {
-	[(AudioStreamPlayer*)inClientData _propertyListenerCallback:inAudioFileStream 
-							 audioFileStreamPropertyId:inPropertyID 
-											   ioFlags:ioFlags];
+	[(AudioStreamPlayer*)inClientData _propertyListenerCallback:inAudioFileStream
+                                      audioFileStreamPropertyId:inPropertyID
+                                                        ioFlags:ioFlags];
 }
 
-static void _packets_proc(void *inClientData, UInt32 inNumberBytes, UInt32 inNumberPackets, 
+static void _packets_proc(void *inClientData, UInt32 inNumberBytes, UInt32 inNumberPackets,
 						  const void *inInputData, AudioStreamPacketDescription *inPacketDescription)
 {
-	[(AudioStreamPlayer*)inClientData _packetsCallback:inNumberBytes 
-								numberPackets:inNumberPackets 
-									inputData:inInputData
-				 audioStreamPacketDescription:inPacketDescription];
+	[(AudioStreamPlayer*)inClientData _packetsCallback:inNumberBytes
+                                         numberPackets:inNumberPackets
+                                             inputData:inInputData
+                          audioStreamPacketDescription:inPacketDescription];
 }
 
 static BOOL active = NO, buffering;
@@ -63,11 +63,11 @@ static BOOL active = NO, buffering;
 {
 	if((self = [super init])) {
 		delegate = aDelegate;
-
+        
 		bufferSize = AUDIOBUFFER_SIZE;
 		bufferCount = size / bufferSize;
-    volume = 1.0f;
-
+        volume = 1.0f;
+        
 		if(bufferCount < 3)
 			bufferCount = 3;
 	}
@@ -81,10 +81,10 @@ static BOOL active = NO, buffering;
 
 - (void)setVolume:(Float32)_volume
 {
-  volume = _volume;
-  if(audioQueue) {
-    AudioQueueSetParameter(audioQueue, kAudioQueueParam_Volume, volume);
-  }
+    volume = _volume;
+    if(audioQueue) {
+        AudioQueueSetParameter(audioQueue, kAudioQueueParam_Volume, volume);
+    }
 }
 
 - (UInt32)calculateBufferSizePerTime:(NSTimeInterval)interval
@@ -93,7 +93,7 @@ static BOOL active = NO, buffering;
 	Float64 numPacketPerTime = 0.0;
 	
 	UInt32 dataSize = sizeof(maxPacketSize);
-	AudioFileStreamGetProperty(audioStreamId, kAudioFileStreamProperty_PacketSizeUpperBound, 
+	AudioFileStreamGetProperty(audioStreamId, kAudioFileStreamProperty_PacketSizeUpperBound,
 							   &dataSize, &maxPacketSize);
 	
 	numPacketPerTime = audioBasicDesc.mSampleRate / audioBasicDesc.mFramesPerPacket;
@@ -101,16 +101,16 @@ static BOOL active = NO, buffering;
 }
 
 
-- (void)_propertyListenerCallback:(AudioFileStreamID)inAudioFileStream 
-		audioFileStreamPropertyId:(AudioFileStreamPropertyID)inPropertyID 
+- (void)_propertyListenerCallback:(AudioFileStreamID)inAudioFileStream
+		audioFileStreamPropertyId:(AudioFileStreamPropertyID)inPropertyID
 						  ioFlags:(UInt32*)ioFlags
 {
 	OSStatus oStatus = 0;
 	
 #ifdef DEBUG
-	NSLog(@"found property '%c%c%c%c'\n", 
-		  (inPropertyID>>24)&255, 
-		  (inPropertyID>>16)&255, 
+	NSLog(@"found property '%c%c%c%c'\n",
+		  (inPropertyID>>24)&255,
+		  (inPropertyID>>16)&255,
 		  (inPropertyID>>8)&255,
 		  inPropertyID&255
 		  );
@@ -120,7 +120,7 @@ static BOOL active = NO, buffering;
 		UInt32 dataSize = sizeof(audioBasicDesc);
 		AudioFileStreamGetProperty(inAudioFileStream, kAudioFileStreamProperty_DataFormat, &dataSize, &audioBasicDesc);
 		
-		oStatus = AudioQueueNewOutput(&audioBasicDesc, _audio_queue_output_callback, self, 
+		oStatus = AudioQueueNewOutput(&audioBasicDesc, _audio_queue_output_callback, self,
 									  NULL, NULL, 0, &audioQueue);
 		if(oStatus)
 			NSLog(@"failed AudioQueueNewOutput : %d", oStatus);
@@ -138,19 +138,19 @@ static BOOL active = NO, buffering;
 	}
 }
 
-- (void)_packetsCallback:(UInt32)inNumberBytes numberPackets:(UInt32)inNumberPackets 
+- (void)_packetsCallback:(UInt32)inNumberBytes numberPackets:(UInt32)inNumberPackets
 			   inputData:(const void *)inInputData audioStreamPacketDescription:(AudioStreamPacketDescription*)inPacketDescription
 {
 	for(int i = 0; i < inNumberPackets; i++) {
 		SInt64 packetOffset = inPacketDescription[i].mStartOffset;
 		SInt64 packetSize   = inPacketDescription[i].mDataByteSize;
-
+        
 		size_t remainCount = bufferSize - fillBufferSize;
 		if(remainCount < packetSize)
 			[self _enqueueBuffer];
 		
 		AudioQueueBufferRef buffer = audioBuffers[targetBufferIndex];
-		memcpy((uint8_t*)buffer->mAudioData + fillBufferSize, 
+		memcpy((uint8_t*)buffer->mAudioData + fillBufferSize,
 			   (uint8_t*)inInputData + packetOffset, packetSize);
 		packetDescs[fillPacketDescIndex] = inPacketDescription[i];
 		packetDescs[fillPacketDescIndex].mStartOffset = fillBufferSize;
@@ -174,7 +174,7 @@ static BOOL active = NO, buffering;
 #endif
 	useBuffer[targetBufferIndex] = YES;
 	fillQueueBufferCount++;
-
+    
 	AudioQueueBufferRef buffer = audioBuffers[targetBufferIndex];
 	buffer->mAudioDataByteSize = fillBufferSize;
 	
@@ -183,19 +183,19 @@ static BOOL active = NO, buffering;
 		NSLog(@"failed AudioQueueEnqueueBuffer : %d", oStatus);
 	
 	if(buffering && fillQueueBufferCount == bufferCount) {
-    // set volume
-    AudioQueueSetParameter(audioQueue, kAudioQueueParam_Volume, volume);
-    
+        // set volume
+        AudioQueueSetParameter(audioQueue, kAudioQueueParam_Volume, volume);
+        
 		oStatus = AudioQueueStart(audioQueue, NULL);
 		if(oStatus)
 			NSLog(@"failed AudioQueueStart : %d", oStatus);
 		buffering = NO;
 		NSLog(@"AudioStreamPlayer play start.");
-
+        
 		if(delegate && [delegate respondsToSelector:@selector(audioStreamPlayerDidPlay:)]) {
-			[delegate performSelector:@selector(audioStreamPlayerDidPlay:) 
+			[delegate performSelector:@selector(audioStreamPlayerDidPlay:)
 							 onThread:[NSThread mainThread]
-						   withObject:self 
+						   withObject:self
 						waitUntilDone:NO];
 		}
 	}
@@ -208,7 +208,7 @@ static BOOL active = NO, buffering;
 #ifdef DEBUG
 	NSLog(@"next fill buffer : %d", targetBufferIndex);
 #endif
-
+    
 	while(useBuffer[targetBufferIndex] && active)
 		[NSThread sleepForTimeInterval:0.1];
 }
@@ -241,11 +241,11 @@ static BOOL active = NO, buffering;
 #endif
 		//AudioQueuePause(audioQueue);
 		//buffering = YES;
-
+        
 		if(delegate && [delegate respondsToSelector:@selector(audioStreamPlayerDidEmptyBuffer:)]) {
-			[delegate performSelector:@selector(audioStreamPlayerDidEmptyBuffer:) 
+			[delegate performSelector:@selector(audioStreamPlayerDidEmptyBuffer:)
 							 onThread:[NSThread mainThread]
-						   withObject:self 
+						   withObject:self
 						waitUntilDone:NO];
 		}
 	}
@@ -282,7 +282,7 @@ static BOOL active = NO, buffering;
 	
 	[self _openAudioFileStream];
 	
-	[NSThread detachNewThreadSelector:@selector(run:) toTarget:self withObject:self];	
+	[NSThread detachNewThreadSelector:@selector(run:) toTarget:self withObject:self];
 }
 
 - (void)stop
@@ -333,23 +333,23 @@ static void _read_stream(int fh, AudioFileStreamID audioStreamId)
 	NSLog(@"AudioStreamPlayer start");
 #endif
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-
+    
  	int fh = [inputHandle fileDescriptor];
 	
 	_read_stream(fh, audioStreamId);
-
+    
 #ifdef DEBUG
 	NSLog(@"AudioStreamPlayer end");
 #endif
-  
-  if(active)
-    [self stop];
-
+    
+    if(active)
+        [self stop];
+    
 	AudioFileStreamClose(audioStreamId);
 	for(int i=0; i<bufferCount; i++)
 		AudioQueueFreeBuffer(audioQueue, audioBuffers[i]);
 	AudioQueueDispose(audioQueue, true);
-  
+    
 	if(delegate && [delegate respondsToSelector:@selector(audioStreamPlayerDidStop:)]) {
 		[delegate performSelector:@selector(audioStreamPlayerDidStop:) 
 						 onThread:[NSThread mainThread]

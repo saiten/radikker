@@ -39,8 +39,8 @@ static RDIPEPG *_instance = nil;
 	[super dealloc];
 }
 
-- (NSArray*)programs { 
-	return (NSArray*)programs; 
+- (NSArray*)programs {
+	return (NSArray*)programs;
 }
 
 - (void)getPrograms:(NSDate*)date
@@ -48,7 +48,7 @@ static RDIPEPG *_instance = nil;
 	@synchronized(activeClient) {
 		if(activeClient == nil) {
 			activeClient = [[RDIPProgramClient alloc] initWithDelegate:self];
-			[activeClient getProgramsOnTodayWithAreaId:areaId];			
+			[activeClient getProgramsOnTodayWithAreaId:areaId];
 		}
 	}
 }
@@ -73,21 +73,38 @@ static RDIPEPG *_instance = nil;
 {
 	if(programs.count > 0) {
 		NSArray *arr = [programs objectForKey:stationId];
-    for(NSInteger index = 0; index<[arr count]; index++) {
-      RDIPProgram *p = [arr objectAtIndex:index];
-      if(program == p)
-        return index;
-    }
+        for(NSInteger index = 0; index<[arr count]; index++) {
+            RDIPProgram *p = [arr objectAtIndex:index];
+            if(program == p)
+                return index;
+        }
 		return -1;
 	} else {
 		[self getPrograms:[NSDate date]];
 	}
-	return -1;  
+	return -1;
 }
 
 - (RDIPProgram*)programForStationAtNow:(NSString *)stationId
 {
 	return [self programForStation:stationId atTime:[NSDate date]];
+}
+
+- (NSArray*)programsForStation:(NSString*)stationId fromDate:(NSDate*)fromDate toDate:(NSDate*)toDate
+{
+    NSMutableArray *targetPrograms = [NSMutableArray array];
+    if(programs.count > 0) {
+        for(RDIPProgram *program in programs) {
+            if([program.fromTime compare:toDate] != NSOrderedDescending &&
+               [program.toTime compare:fromDate] != NSOrderedAscending) {
+                [targetPrograms addObject:program];
+            }
+        }
+    } else {
+        [self getPrograms:fromDate];
+    }
+    
+    return targetPrograms;
 }
 
 - (NSArray*)programsForStation:(NSString*)stationId
@@ -103,9 +120,9 @@ static RDIPEPG *_instance = nil;
 - (void)programClient:(RDIPProgramClient*)stationClient didGetPrograms:(NSDictionary*)aPrograms
 {
 	[programs addEntriesFromDictionary:aPrograms];
-
+    
 	[[NSNotificationCenter defaultCenter] postNotificationName:RDIPEPG_GETPROGRAM_NOTIFICATION
-														object:self 
+														object:self
 													  userInfo:nil];
 	[activeClient autorelease];
 	activeClient = nil;
@@ -115,7 +132,7 @@ static RDIPEPG *_instance = nil;
 {
 	NSDictionary *userDic = [NSDictionary dictionaryWithObject:error forKey:RDIPEPG_KEY_ERROR];
 	[[NSNotificationCenter defaultCenter] postNotificationName:RDIPEPG_GETPROGRAM_NOTIFICATION
-														object:self 
+														object:self
 													  userInfo:userDic];
 	[activeClient autorelease];
 	activeClient = nil;

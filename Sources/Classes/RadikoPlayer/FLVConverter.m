@@ -75,18 +75,18 @@ static void output_aac_header(int ofh, aac_simple_header *aac_header)
 {
 	uint8_t header[7];
 	memset(header, 0, 7);
-
-	uint8_t profile = 0;
+    
+	uint8_t profile = 5;
 	uint8_t private_bit = 0;
 	
 	header[0] = 0xff;
 	header[1] = 0xf1;
 	header[2] = ((profile & 0x03) << 6) |
-	            ((aac_header->frequency_index & 0x0f) << 2) |
+                ((aac_header->frequency_index & 0x0f) << 2) |
                 ((private_bit & 0x01) << 1) |
-				((aac_header->channel & 0x04));
+                ((aac_header->channel & 0x04));
 	header[3] = ((aac_header->channel & 0x03) << 6) |
-	            ((aac_header->frame_length & 0x1800) >> 11);
+                ((aac_header->frame_length & 0x1800) >> 11);
 	header[4] = ((aac_header->frame_length & 0x07f8) >> 3);
 	header[5] = ((aac_header->frame_length & 0x0007) << 5) | 0x1f;
 	header[6] = 0x0c;
@@ -115,14 +115,14 @@ static int read_aac(int fh, flv_tag_header *tag_header, aac_simple_header *aac_h
 #ifdef DEBUG
 	//NSLog(@"   FLVConverter read_aac");
 #endif
-
+    
 	int read_size = 0;
-
+    
 	uint8_t type = 0;
 	read_size += read_ui8(fh, &type);
-
+    
 	int data_size = tag_header->data_size - 2;
-
+    
 	if(type == 0) {
 #ifdef DEBUG
 		//NSLog(@"   FLVConverter aac header setting : %d", data_size);
@@ -131,25 +131,25 @@ static int read_aac(int fh, flv_tag_header *tag_header, aac_simple_header *aac_h
 			uint8_t val[2];
 			read_size += read_ui8(fh, val);
 			read_size += read_ui8(fh, val+1);
-
+            
 			aac_header->audio_object_type = (val[0] & 0xf8) >> 3;
-			aac_header->frequency_index   = ((val[0] & 0x07) << 1) | ((val[1] & 0x80) >> 3); 
+			aac_header->frequency_index   = ((val[0] & 0x07) << 1) | ((val[1] & 0x80) >> 3);
 			aac_header->channel           = (val[1] & 0x78) >> 3;
-
+            
 			data_size -= 2;
 		}
 		
 		read_size += read_through(fh, data_size);
 		return read_size;
 	}
-
+    
 	aac_header->frame_length = data_size + 7;
 	output_aac_header(ofh, aac_header);
-
+    
 #ifdef DEBUG
 	//NSLog(@"   FLVConverter output aac raw : %d", data_size);
 #endif
-
+    
 	uint8_t c = 0;
 	int size = 0;
 	while(data_size > 0) {
@@ -159,7 +159,7 @@ static int read_aac(int fh, flv_tag_header *tag_header, aac_simple_header *aac_h
 			active = NO;
 			break;
 		}
-
+        
 		write(ofh, &c, 1);
 		data_size -= size;
 		read_size += size;
@@ -201,7 +201,7 @@ static int read_tag(int fh, flv_tag_header *tag_header)
 	int read_size = 0;
 	uint32_t tmp32;
 	read_size += read_ui32(fh, &tmp32); // previous tag size
-
+    
 	read_size += read_ui8(fh, &(tag_header->tag_type));
 	read_size += read_ui24(fh, &(tag_header->data_size));
 	read_size += read_ui24(fh, &(tag_header->timestamp));
@@ -230,11 +230,11 @@ static int read_header(int fh)
 			read_size += read_ui32(fh, &tmp32); // offset
 		}
 	}
-
+    
 	return read_size;
 }
 
-static void _convert(int fh, int ofh) 
+static void _convert(int fh, int ofh)
 {
 	aac_simple_header aac_header = {0};
 	
@@ -267,24 +267,24 @@ static void _convert(int fh, int ofh)
 	
 	int fh = [inputHandle fileDescriptor];
 	int ofh = [outputHandle fileDescriptor];
-
+    
 	if(delegate && [delegate respondsToSelector:@selector(flvConverterDidStartConvert:)]) {
-		[delegate performSelector:@selector(flvConverterDidStartConvert:) 
-						 onThread:[NSThread mainThread] 
-					   withObject:self 
+		[delegate performSelector:@selector(flvConverterDidStartConvert:)
+						 onThread:[NSThread mainThread]
+					   withObject:self
 					waitUntilDone:NO];
 	}
 	
 	_convert(fh, ofh);
 	
 	if(delegate && [delegate respondsToSelector:@selector(flvConverterDidFinishConvert:)]) {
-		[delegate performSelector:@selector(flvConverterDidFinishConvert:) 
-						 onThread:[NSThread mainThread] 
-					   withObject:self 
+		[delegate performSelector:@selector(flvConverterDidFinishConvert:)
+						 onThread:[NSThread mainThread]
+					   withObject:self
 					waitUntilDone:NO];
 	}
 	
-  active = NO;
+    active = NO;
 #ifdef DEBUG
 	NSLog(@"FLVConverter end.");
 #endif

@@ -107,24 +107,20 @@
 	<string>http://radiko.jp/v2/api/program</string>
 	<key>RadikoPlayer</key>
 	<dict>
-		<key>AppFormat</key>
-		<string>%@/_defInst_</string>
+		<key>StreamListUrl</key>
+		<string>http://radiko.jp/v2/station/stream/%@.xml</string>
 		<key>Auth1Url</key>
 		<string>https://radiko.jp/v2/api/auth1_fms</string>
 		<key>Auth2Url</key>
 		<string>https://radiko.jp/v2/api/auth2_fms</string>
 		<key>FlashVersion</key>
 		<string>WIN 10,1,53,64</string>
-		<key>HostName</key>
-		<string>radiko.smartstream.ne.jp</string>
-		<key>PlayPath</key>
-		<string>simul-stream</string>
 		<key>Port</key>
 		<integer>1935</integer>
-		<key>Protocol</key>
-		<string>rtmpe</string>
 		<key>SwfUrl</key>
-		<string>http://radiko.jp/player/swf/player_2.1.0.00.swf</string>
+		<string>http://radiko.jp/player/swf/player_3.0.0.01.swf</string>
+		<key>ExtractKeyId</key>
+		<integer>14</integer>
 	</dict>
 	<key>RadiruPlayer_R1</key>
 	<dict>

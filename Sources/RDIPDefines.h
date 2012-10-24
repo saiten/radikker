@@ -60,3 +60,10 @@
 @"  #foot { margin-top: 1em; font-size: 12px; color: #555; }" \
 @"  #foot a { font-size: 14px; } " \
 @"</style>"
+
+//
+// fake useragent
+//
+#define RDIP_FAKE_USERAGENT (@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_3) AppleWebKit/534.55.3 (KHTML, like Gecko) Version/5.1.3 Safari/534.53.10")
+
+

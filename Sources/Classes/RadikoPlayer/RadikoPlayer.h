@@ -10,6 +10,7 @@
 #import <AudioToolbox/AudioToolbox.h>
 
 #import "AuthClient.h"
+#import "StreamURLClient.h"
 #import "RTMPClient.h"
 #import "FLVConverter.h"
 #import "FileSave.h"
@@ -17,6 +18,7 @@
 
 typedef enum {
 	RADIKOPLAYER_STATUS_AUTH,
+	RADIKOPLAYER_STATUS_LOADSTREAMINFO,
 	RADIKOPLAYER_STATUS_CONNECT,
 	RADIKOPLAYER_STATUS_PLAY,
 	RADIKOPLAYER_STATUS_DISCONNECT,
