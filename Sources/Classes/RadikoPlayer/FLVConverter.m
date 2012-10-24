@@ -101,7 +101,7 @@ static int read_through(int fh, int size)
 	while(size - read_size > 0) {
 		int ret = read_ui8(fh, &c);
 		if(ret == 0) {
-			NSLog(@"read_through read_size == 0");
+			DLog(@"read_through read_size == 0");
 			active = NO;
 			break;
 		}
@@ -112,9 +112,7 @@ static int read_through(int fh, int size)
 
 static int read_aac(int fh, flv_tag_header *tag_header, aac_simple_header *aac_header, int ofh)
 {
-#ifdef DEBUG
-	//NSLog(@"   FLVConverter read_aac");
-#endif
+	//DLog(@"   FLVConverter read_aac");
     
 	int read_size = 0;
     
@@ -124,9 +122,7 @@ static int read_aac(int fh, flv_tag_header *tag_header, aac_simple_header *aac_h
 	int data_size = tag_header->data_size - 2;
     
 	if(type == 0) {
-#ifdef DEBUG
-		//NSLog(@"   FLVConverter aac header setting : %d", data_size);
-#endif
+		//DLog(@"   FLVConverter aac header setting : %d", data_size);
 		if(data_size >= 2) {
 			uint8_t val[2];
 			read_size += read_ui8(fh, val);
@@ -146,16 +142,14 @@ static int read_aac(int fh, flv_tag_header *tag_header, aac_simple_header *aac_h
 	aac_header->frame_length = data_size + 7;
 	output_aac_header(ofh, aac_header);
     
-#ifdef DEBUG
-	//NSLog(@"   FLVConverter output aac raw : %d", data_size);
-#endif
+	//DLog(@"   FLVConverter output aac raw : %d", data_size);
     
 	uint8_t c = 0;
 	int size = 0;
 	while(data_size > 0) {
 		size = read(fh, &c, 1);
 		if(size == 0) {
-			NSLog(@"break raw writing");
+			DLog(@"break raw writing");
 			active = NO;
 			break;
 		}
@@ -170,9 +164,7 @@ static int read_aac(int fh, flv_tag_header *tag_header, aac_simple_header *aac_h
 
 static int read_audio(int fh, flv_tag_header *tag_header, aac_simple_header *aac_header, int ofh)
 {
-#ifdef DEBUG
-	//NSLog(@"  FLVConverter read_audio");
-#endif
+	//DLog(@"  FLVConverter read_audio");
 	
 	int read_size = 0;
 	uint8_t head = 0;
@@ -194,9 +186,7 @@ static int read_audio(int fh, flv_tag_header *tag_header, aac_simple_header *aac
 
 static int read_tag(int fh, flv_tag_header *tag_header)
 {
-#ifdef DEBUG
-	//NSLog(@" FLVConverter read_tag");
-#endif
+	//DLog(@" FLVConverter read_tag");
 	
 	int read_size = 0;
 	uint32_t tmp32;
@@ -213,9 +203,7 @@ static int read_tag(int fh, flv_tag_header *tag_header)
 
 static int read_header(int fh)
 {
-#ifdef DEBUG
-	//NSLog(@" FLVConverter read_header");
-#endif
+	//DLog(@" FLVConverter read_header");
 	
 	int read_size = 0;
 	char sig[3];
@@ -261,9 +249,8 @@ static void _convert(int fh, int ofh)
 - (void)run:(id)param
 {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-#ifdef DEBUG
-	NSLog(@"FLVConverter start.");
-#endif
+    
+	DLog(@"FLVConverter start.");
 	
 	int fh = [inputHandle fileDescriptor];
 	int ofh = [outputHandle fileDescriptor];
@@ -285,9 +272,9 @@ static void _convert(int fh, int ofh)
 	}
 	
     active = NO;
-#ifdef DEBUG
-	NSLog(@"FLVConverter end.");
-#endif
+    
+	DLog(@"FLVConverter end.");
+    
 	[pool release];
 	[NSThread exit];
 }

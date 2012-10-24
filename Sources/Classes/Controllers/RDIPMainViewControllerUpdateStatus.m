@@ -125,9 +125,7 @@
 				formatted_address = s;
 		}
 
-#ifdef DEBUG
-		NSLog(@"fomratted_address : %@", formatted_address);
-#endif
+		DLog(@"fomratted_address : %@", formatted_address);
 		
 		NSArray *allowPrefecture = [[AppConfig sharedInstance] objectForKey:@"AllowPrefecture"];
 		

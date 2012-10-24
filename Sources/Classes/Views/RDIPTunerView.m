@@ -312,7 +312,7 @@
 
 	CGFloat mod = contentView.frame.origin.x - 12 * (int)(contentView.frame.origin.x / 12.0);
 	CGPoint pos = CGPointMake(contentView.frame.origin.x + 160 - mod, meterLayer.frame.size.height/2);
-	//NSLog(@"offset : %.2f, mod : %.2f, pos.x : %.2f", contentView.frame.origin.x, mod, pos.x);
+	//DLog(@"offset : %.2f, mod : %.2f, pos.x : %.2f", contentView.frame.origin.x, mod, pos.x);
 	
 	[CATransaction begin];
 	[CATransaction setDisableActions:YES];
@@ -328,7 +328,7 @@
 	CGFloat velocity = sv.contentOffset.x - beforeOffsetX;
 	if(fabs(velocity) < 10.0f && isDecelerate) {
 		CGFloat sx = sv.contentOffset.x - (selectedIndex * sv.frame.size.width);
-		//NSLog(@"contentOffset : %.1f, sx : %.1f, velocity : %.1f index : %d", 
+		//DLog(@"contentOffset : %.1f, sx : %.1f, velocity : %.1f index : %d", 
 		//	  sv.contentOffset.x, sx, velocity, selectedIndex);
 		if(velocity >= 0) {	
 			if(sx > 0 && selectedIndex < stationViews.count)

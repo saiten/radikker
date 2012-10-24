@@ -185,7 +185,7 @@
         if(service == RADIKOPLAYER_SERVICE_RADIKO) {
             
             NSTimeInterval interval = fabs([authClient.lastAuthDate timeIntervalSinceNow]);
-            NSLog(@"last auth date = %.1f", interval);
+            DLog(@"last auth date = %.1f", interval);
             
             if(authClient.state == AuthClientStateSuccess && interval < 600.0)
                 [self _connectRadiko];
@@ -306,7 +306,8 @@
 - (void)rtmpClientDidCloseConnection:(RTMPClient*)client
 {
 	@synchronized(self) {
-		NSLog(@"rtmpClientDidCliseConnection");
+		DLog(@"rtmpClientDidCliseConnection");
+        
 		[[rtmpToConvertPipe fileHandleForWriting] closeFile];
         
 		[rtmpClient autorelease];
@@ -351,7 +352,8 @@
 - (void)flvConverterDidFinishConvert:(FLVConverter *)converter
 {
 	@synchronized(self) {
-		NSLog(@"flvConverterDidFinishConvert");
+		DLog(@"flvConverterDidFinishConvert");
+
 		[[rtmpToConvertPipe fileHandleForReading] closeFile];
 		[rtmpToConvertPipe release];
 		rtmpToConvertPipe = nil;
@@ -388,7 +390,8 @@
 - (void)audioStreamPlayerDidStop:(AudioStreamPlayer *)player
 {
 	@synchronized(self) {
-		NSLog(@"audioStreamPlayerDidStop");
+		DLog(@"audioStreamPlayerDidStop");
+
 		[[convertToQueuePipe fileHandleForReading] closeFile];
 		[convertToQueuePipe release];
 		convertToQueuePipe = nil;

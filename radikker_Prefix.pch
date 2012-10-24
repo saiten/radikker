@@ -2,6 +2,12 @@
 // Prefix header for all source files of the 'radikker' target in the 'radikker' project
 //
 
+#ifdef DEBUG
+#define DLog(s, ...) NSLog(@"[%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__])
+#else
+#define DLog(s, ...)
+#endif
+
 #ifdef __OBJC__
     #import <Foundation/Foundation.h>
     #import <UIKit/UIKit.h>

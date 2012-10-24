@@ -35,12 +35,10 @@
 
 - (void)run:(id)param
 {
-#ifdef DEBUG
-	NSLog(@"FileSave start.");
-#endif
+	DLog(@"FileSave start.");
 	
 	if(inputHandle == nil) {
-		NSLog(@"FileSave inputHandle closed.");
+		DLog(@"FileSave inputHandle closed.");
 		return;
 	}
 	
@@ -50,9 +48,7 @@
 	int size = 0;
 	char buf[1024];
 	while((size = read(fh, buf, 1024)) > 0) {
-#ifdef DEBUG
-		NSLog(@"FileSave saveBuf : %d", size);
-#endif
+		DLog(@"FileSave saveBuf : %d", size);
 		write(ofh, buf, size);
 	}
     
@@ -61,9 +57,7 @@
 	
 	active = NO;
     
-#ifdef DEBUG
-	NSLog(@"FileSave end.");
-#endif
+	DLog(@"FileSave end.");
 }
 
 - (void)dealloc

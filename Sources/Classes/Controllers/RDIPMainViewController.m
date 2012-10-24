@@ -226,7 +226,7 @@
 
 - (void)stationClient:(RDIPStationClient*)aStationClient didFailWithError:(NSError*)error
 {
-	NSLog(@"stationClient failed : %@", [error description]);
+	DLog(@"stationClient failed : %@", [error description]);
 
 	mainView.tunerView.loading = NO;
 

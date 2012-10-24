@@ -36,7 +36,7 @@ static AppSetting *_instance = nil;
 	[settings removeObjectForKey:key];
 	[[NSUserDefaults standardUserDefaults] setObject:settings forKey:APPSETTING_DICTIONARY];
 	if(![[NSUserDefaults standardUserDefaults] synchronize]) {
-		NSLog(@"failed synchronize");
+		DLog(@"failed synchronize");
 	}
 }
 
@@ -49,7 +49,7 @@ static AppSetting *_instance = nil;
 	[settings setObject:obj forKey:key];
 	[[NSUserDefaults standardUserDefaults] setObject:settings forKey:APPSETTING_DICTIONARY];
 	if(![[NSUserDefaults standardUserDefaults] synchronize]) {
-		NSLog(@"failed synchronize");
+		DLog(@"failed synchronize");
 	}
 }
 
