@@ -31,20 +31,20 @@
 {
 	RDIPStation *station = [stations objectAtIndex:tunedStationIndex];
 	if(station) {
-    if([station isKindOfClass:[RDIPRadiruStation class]])
-      [radikoPlayer setService:RADIKOPLAYER_SERVICE_RADIRU];
-    else
-      [radikoPlayer setService:RADIKOPLAYER_SERVICE_RADIKO];
-    
-		[radikoPlayer setChannel:station.stationId];
-		
-		if(radikoPlayer.status == RADIKOPLAYER_STATUS_PLAY || 
-		   radikoPlayer.status == RADIKOPLAYER_STATUS_CONNECT) {
-			[radikoPlayer stop];
-			replay = YES;
-		} if(radikoPlayer.status == RADIKOPLAYER_STATUS_STOP) {
-			[radikoPlayer play];
-		}
+        if([station isKindOfClass:[RDIPRadiruStation class]]) {
+            [radikoPlayer setService:RADIKOPLAYER_SERVICE_RADIRU];
+        } else {
+            [radikoPlayer setService:RADIKOPLAYER_SERVICE_RADIKO];
+        }
+        
+        [radikoPlayer setChannel:station.stationId];
+        
+        if(radikoPlayer.status == RADIKOPLAYER_STATUS_STOP) {
+            [radikoPlayer play];
+        } else {
+            [radikoPlayer stop];
+            replay = YES;
+        }
 	}
 }
 
@@ -100,15 +100,16 @@
 
 - (void)radikoPlayerDidStop:(RadikoPlayer *)aRadikoPlayer
 {
-	if(replay)
-		[radikoPlayer play];
-	else
-		[[StatusBarAlert sharedInstance] hideStatusAnimated:YES];
-
 	[updateTimer invalidate];
 	updateTimer = nil;
     
 	[self setToolbarPlaying:NO];
+    
+	if(replay) {
+		[radikoPlayer play];
+	} else {
+		[[StatusBarAlert sharedInstance] hideStatusAnimated:YES];
+    }
 }
 
 - (void)radikoPlayerDidEmptyBuffer:(RadikoPlayer *)aRadikoPlayer
