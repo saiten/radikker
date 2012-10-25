@@ -27,9 +27,9 @@
 
 - (void)reachabilityChanged:(id)object
 {
-	[self stopRadiko];
-	[stations removeAllObjects];
-	[self updateStatus];
+	//[self stopRadiko];
+	//[stations removeAllObjects];
+	//[self updateStatus];
 }
 
 - (void)updateStatus
