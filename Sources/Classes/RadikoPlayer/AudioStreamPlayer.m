@@ -328,14 +328,18 @@ static void _read_stream(int fh, AudioFileStreamID audioStreamId)
 	_read_stream(fh, audioStreamId);
     
 	DLog(@"AudioStreamPlayer end");
+
+	AudioQueueStop(audioQueue, true);    
     
-    if(active)
-        [self stop];
-    
-	AudioFileStreamClose(audioStreamId);
-	for(int i=0; i<bufferCount; i++)
+	for(int i=0; i<bufferCount; i++) {
 		AudioQueueFreeBuffer(audioQueue, audioBuffers[i]);
+        audioBuffers[i] = NULL;
+    }
+    DLog(@"AudioQueueDispose");
 	AudioQueueDispose(audioQueue, true);
+    
+    DLog(@"AudoFileStreamClose");
+	AudioFileStreamClose(audioStreamId);
     
 	if(delegate && [delegate respondsToSelector:@selector(audioStreamPlayerDidStop:)]) {
 		[delegate performSelector:@selector(audioStreamPlayerDidStop:) 
