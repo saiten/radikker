@@ -257,14 +257,33 @@
 	if(event.type == UIEventTypeRemoteControl) {
 		switch(event.subtype) {
 			case UIEventSubtypeRemoteControlTogglePlayPause:
-				if(radikoPlayer.status == RADIKOPLAYER_STATUS_PLAY)
-					[self stopRadiko];
-				else
+				if(radikoPlayer.status == RADIKOPLAYER_STATUS_STOP) {
 					[self playRadiko];
+				} else {
+					[self stopRadiko];
+                }
 				break;
 			case UIEventSubtypeRemoteControlPlay:
 				[self playRadiko];
 				break;
+            case UIEventSubtypeRemoteControlNextTrack:
+                if(tunedStationIndex < stations.count-1) {
+                    tunedStationIndex++;
+                } else {
+                    tunedStationIndex = 0;
+                }
+                mainView.tunerView.tunedIndex = tunedStationIndex;
+                [self playRadiko];
+                break;
+            case UIEventSubtypeRemoteControlPreviousTrack:
+                if(tunedStationIndex > 0) {
+                    tunedStationIndex--;
+                } else {
+                    tunedStationIndex = stations.count-1;
+                }
+                mainView.tunerView.tunedIndex = tunedStationIndex;
+                [self playRadiko];
+                break;
 			case UIEventSubtypeRemoteControlPause:
 			case UIEventSubtypeRemoteControlStop:
 				[self stopRadiko];
