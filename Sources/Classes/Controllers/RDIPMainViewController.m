@@ -170,8 +170,9 @@
 - (void)loadStations:(BOOL)forceRefresh
 {
   if(!radikoPlayer.areaCode) {
-    [radikoPlayer authenticate];
-    return;
+      refreshButton.enabled = NO;
+      [radikoPlayer authenticate];
+      return;
   }
   
 	@synchronized(stationClient) {
@@ -194,6 +195,8 @@
 			
 			[stations removeAllObjects];
 			[self reloadTuner];
+            
+            refreshButton.enabled = NO;
 		}
 	}
 }
@@ -220,18 +223,16 @@
 	stationClient = nil;
 
 	selectedStationIndex = tunedStationIndex = 0;
-  [self setRadiruStation];
+    [self setRadiruStation];
 	[self reloadTuner];
+    refreshButton.enabled = YES;
 }
 
 - (void)stationClient:(RDIPStationClient*)aStationClient didFailWithError:(NSError*)error
 {
 	DLog(@"stationClient failed : %@", [error description]);
 
-	mainView.tunerView.loading = NO;
-
-	radikoStatus = RDIP_RADIKOSTATUS_NOTSERVICESAREA;
-	[self reloadTuner];
+    [self unavailableTuner];
 	
 	[stationClient autorelease];
 	stationClient = nil;
@@ -291,7 +292,6 @@
 		}
 	}
 }
-
 
 @end
 

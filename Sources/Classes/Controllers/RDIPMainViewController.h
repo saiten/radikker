@@ -78,6 +78,7 @@ typedef enum {
 - (NSArray*)stationsWithTuningItem;
 - (NSArray*)stationsWithKindOfClass:(Class)class;
 - (void)reloadTuner;
+- (void)unavailableTuner;
 @end
 
 @interface RDIPMainViewController(UpdateStatus) <CLLocationManagerDelegate, RDIPReverseGeocoderDelegate>

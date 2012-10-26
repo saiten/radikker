@@ -131,7 +131,7 @@
 									   animated:YES];
 }
 
-- (void)radikoPlayerDidFailed:(RadikoPlayer *)radikoPlayer withError:(NSError *)error
+- (void)radikoPlayerDidFailed:(RadikoPlayer *)aRadikoPlayer withError:(NSError *)error
 {
   [[StatusBarAlert sharedInstance] hideStatusAnimated:YES];
   [self setToolbarPlaying:NO];
@@ -141,6 +141,10 @@
                                              cancelButtonTitle:@"OK"
                                              otherButtonTitles:nil] autorelease];
   [alertView show];
+    
+  if(radikoPlayer.authOnly) {
+      [self unavailableTuner];
+  }
 }
 
 - (void)checkNowOnAir

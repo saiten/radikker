@@ -255,6 +255,7 @@
     } else if(client.error) {
         if(delegate && [delegate respondsToSelector:@selector(radikoPlayerDidFailed:withError:)])
             [delegate radikoPlayerDidFailed:self withError:client.error];
+        status = RADIKOPLAYER_STATUS_STOP;
         [self _endBackgroundTask];
     }
 }
@@ -289,6 +290,7 @@
     if(delegate && [delegate respondsToSelector:@selector(radikoPlayerDidFailed:withError:)]) {
         [delegate radikoPlayerDidFailed:self withError:error];
     }
+    status = RADIKOPLAYER_STATUS_STOP;
     [self _endBackgroundTask];
 }
 

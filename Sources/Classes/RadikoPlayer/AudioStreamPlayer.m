@@ -329,7 +329,8 @@ static void _read_stream(int fh, AudioFileStreamID audioStreamId)
     
 	DLog(@"AudioStreamPlayer end");
 
-	AudioQueueStop(audioQueue, true);    
+	AudioQueueStop(audioQueue, true);
+    active = NO;
     
 	for(int i=0; i<bufferCount; i++) {
 		AudioQueueFreeBuffer(audioQueue, audioBuffers[i]);

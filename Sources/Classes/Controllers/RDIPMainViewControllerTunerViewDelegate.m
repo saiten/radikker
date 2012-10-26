@@ -127,6 +127,15 @@
 	}
 }
 
+- (void)unavailableTuner
+{
+	mainView.tunerView.loading = NO;
+    refreshButton.enabled = YES;
+    
+	radikoStatus = RDIP_RADIKOSTATUS_NOTSERVICESAREA;
+	[self reloadTuner];
+}
+
 - (void)reloadTuner
 {
 	[self setUpdateStateStation];
