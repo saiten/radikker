@@ -1488,7 +1488,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = radikker;
-				PROVISIONING_PROFILE = "2E37397E-C697-48ED-A4C6-CB17DB8C6426";
+				PROVISIONING_PROFILE = "D02E32B3-A452-4B8A-9EBA-5E96A989F44B";
 				VALID_ARCHS = "armv7 i386";
 			};
 			name = Debug;
@@ -1499,7 +1499,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_ENTITLEMENTS = "~/Dropbox/Works/private/iPhone/radikker/Resources/Entitlements.plist";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Tomoaki Shibata (MEAG2JJH9D)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radikker_Prefix.pch;
@@ -1520,7 +1520,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = radikker;
-				PROVISIONING_PROFILE = "5C3FC58C-B254-4F6B-94BC-5665903D4F10";
+				PROVISIONING_PROFILE = "";
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv7 i386";
 			};
@@ -1624,7 +1624,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_ENTITLEMENTS = "~/Dropbox/Works/private/iPhone/radikker/Resources/Entitlements.plist";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Tomoaki Shibata";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radikker_Prefix.pch;
@@ -1645,7 +1645,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = radikker;
-				PROVISIONING_PROFILE = "2168A080-1B8F-4EEA-A740-295A0FC5DBD5";
+				PROVISIONING_PROFILE = "";
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv7 i386";
 			};
@@ -1688,7 +1688,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_ENTITLEMENTS = "~/Dropbox/Works/private/iPhone/radikker/Resources/Entitlements.plist";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Tomoaki Shibata";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radikker_Prefix.pch;
@@ -1709,7 +1709,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = radikker;
-				PROVISIONING_PROFILE = "50880F60-B61C-4E4C-A080-70D0C3716889";
+				PROVISIONING_PROFILE = "";
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv7 i386";
 			};
