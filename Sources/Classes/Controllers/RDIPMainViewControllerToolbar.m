@@ -111,7 +111,7 @@
 		}
 	}
 	
-	[self presentComposeViewControllerWithText:[NSString stringWithFormat:@" %@", hashTag] force:NO];
+	[self presentComposeViewControllerWithText:[NSString stringWithFormat:@"%@", hashTag] force:NO];
 }
 
 - (void)pressRefreshButton:(id)sender

@@ -182,7 +182,7 @@
 
 		NSString *query = [request.URL query];
 		NSDictionary *params = [query parseURLParameters];
-		if([params objectForKey:@"oauth_token"]) {
+		if([params objectForKey:@"oauth_token"] && [params objectForKey:@"oauth_verifier"]) {
 			[self cancel];			
 			OAConsumer *consumer = [[[OAConsumer alloc] initWithKey:CONSUMER_KEY 
 															 secret:CONSUMER_SECRET_KEY] autorelease];
@@ -190,9 +190,10 @@
 			
 			activeClient = [[OAuthHttpClient alloc] initWithConsumer:consumer token:token];
 			activeClient.delegate = self;
-			
+            
 			temporaryAccess = NO;
-			[activeClient get:@"https://api.twitter.com/oauth/access_token" parameters:nil];
+			[activeClient get:@"https://api.twitter.com/oauth/access_token"
+                   parameters:[NSDictionary dictionaryWithObject:[params objectForKey:@"oauth_verifier"] forKey:@"oauth_verifier"]];
 		} else {
 			SimpleAlertShow(@"Error", @"Callback Error.");
 			[indicatorView stopAnimating];

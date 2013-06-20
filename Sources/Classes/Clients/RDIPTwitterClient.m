@@ -56,32 +56,32 @@
 
 - (void)getStatuses:(NSString*)statusType format:(NSString*)format params:(NSDictionary*)params
 {
-	NSString *url = [NSString stringWithFormat:@"https://api.twitter.com/1/statuses/%@.%@", statusType, format];
+	NSString *url = [NSString stringWithFormat:@"https://api.twitter.com/1.1/statuses/%@.%@", statusType, format];
 	[self getRequest:url parameters:params];
 }
 
 - (void)postStatuses:(NSString*)statusType format:(NSString*)format params:(NSDictionary*)params
 {
-	NSString *url = [NSString stringWithFormat:@"https://api.twitter.com/1/statuses/%@.%@", statusType, format];
+	NSString *url = [NSString stringWithFormat:@"https://api.twitter.com/1.1/statuses/%@.%@", statusType, format];
 	[self postRequest:url parameters:params];
 }
 
 
 - (void)getDirectMessageFormat:(NSString*)format params:(NSDictionary*)params
 {
-	NSString *url = [NSString stringWithFormat:@"https://api.twitter.com/1/direct_messages.%@", format];
+	NSString *url = [NSString stringWithFormat:@"https://api.twitter.com/1.1/direct_messages.%@", format];
 	[self getRequest:url parameters:params];
 }
 
 - (void)getSearchFormat:(NSString*)format params:(NSDictionary*)params
 {
-	NSString *url = [NSString stringWithFormat:@"https://search.twitter.com/search.%@", format];
+	NSString *url = [NSString stringWithFormat:@"https://api.twitter.com/1.1/search/tweets.%@", format];
 	[self getRequest:url parameters:params];
 }
 
 - (void)getMentionsWithParams:(NSDictionary*)params;
 {
-	[self getStatuses:@"mentions" format:@"json" params:params];
+	[self getStatuses:@"mentions_timeline" format:@"json" params:params];
 }
 
 - (void)getHomeTimelineWithParams:(NSDictionary*)params;
@@ -111,6 +111,7 @@
 {
 	NSMutableDictionary *qParams = [NSMutableDictionary dictionaryWithDictionary:params];
 	[qParams setObject:keyword forKey:@"q"];
+    [qParams setObject:@"recent" forKey:@"result_type"];
 	
 	[self getSearchFormat:@"json" params:qParams];
 }
@@ -146,8 +147,8 @@
 	if([json isKindOfClass:[NSArray class]]) {  // statuses
 		statusesDic = json;
 	} else if([json isKindOfClass:[NSDictionary class]]) {
-		if([json objectForKey:@"results"]) { // search
-			statusesDic = [json objectForKey:@"results"];
+		if([json objectForKey:@"statuses"]) { // search
+			statusesDic = [json objectForKey:@"statuses"];
 		} else if([json objectForKey:@"text"]) { // status
 			statusesDic = [NSArray arrayWithObject:json];
 		}

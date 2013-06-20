@@ -289,6 +289,7 @@ enum {
 
 - (void)viewDidUnload 
 {
+    [super viewDidUnload];
 }
 
 

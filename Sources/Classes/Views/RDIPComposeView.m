@@ -63,16 +63,16 @@
     return self;
 }
 
-- (void)layoutSubviews
+- (void)setFrame:(CGRect)rect
 {
-	CGRect rect = CGRectInset(self.frame, 0, 0);
+    [super setFrame:rect];
 	
 	CGRect textRect = rect;
-	textRect.size.height = 168;
+    textRect.size.height -= 32;
 	textView.frame = textRect;
 	
 	CGRect barRect = rect;
-	barRect.origin.y = 168;
+	barRect.origin.y = textRect.size.height;
 	barRect.size.height = 32;
 	toolBar.frame = barRect;
 }

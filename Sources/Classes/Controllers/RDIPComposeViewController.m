@@ -45,9 +45,9 @@
 												 target:self 
 												 action:@selector(pressPostButton:)];
 
-	composeView = [[RDIPComposeView alloc] initWithFrame:CGRectZero];
+	composeView = [[RDIPComposeView alloc] initWithFrame:self.view.bounds];
 	composeView.delegate = self;
-	self.view = composeView;	
+    [self.view addSubview:composeView];
 }
 
 - (void)setSendingNavigationBar
@@ -67,6 +67,7 @@
 
 	self.navigationItem.title = NSLocalizedString(@"New Tweet", @"compose_view_title");
 	composeView.text = text;
+    [self composeViewDidChange:composeView];
 
 	[self setEditingNavigationBar];
 }
@@ -120,6 +121,7 @@
 	if(composeView)
 		composeView.text = text;
 
+    [self composeViewDidChange:composeView];
 	selectRange = NSMakeRange(0, 0);
 }
 
@@ -129,6 +131,11 @@
 - (void)viewWillAppear:(BOOL)animated 
 {
     [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
 	[postStatus release];
 	postStatus = nil;
 	[composeView showKeyboard];
@@ -144,6 +151,7 @@
 {
     [super viewWillDisappear:animated];
 	selectRange = composeView.selectRange;
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewDidDisappear:(BOOL)animated 
@@ -151,6 +159,15 @@
     [super viewDidDisappear:animated];
 }
 
+#pragma mark - keyboard notification
+
+-(void)keyboardWillShow:(NSNotification*)note
+{
+    CGRect keyboardFrame = [[note.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGRect rect = self.view.frame;
+    rect.size.height -= self.view.bounds.size.height - keyboardFrame.origin.y + 44.0f + 20.0f;
+    composeView.frame = rect;
+}
 #pragma mark -
 #pragma mark original methods
 

@@ -11,6 +11,7 @@
 #import "RDIPProgramListViewController.h"
 #import "RDIPStationTimelineViewController.h"
 #import "AppConfig.h"
+#import "AppSetting.h"
 #import "RDIPDefines.h"
 
 @implementation RDIPStationViewController
@@ -27,7 +28,7 @@
 
 - (NSArray*)loadButtons
 {
-	infoButton  = [[RDIPSquareButton alloc] initWithImage:[UIImage imageNamed:@"headphones.png"]];
+  infoButton  = [[RDIPSquareButton alloc] initWithImage:[UIImage imageNamed:@"headphones.png"]];
   infoButton.accessibilityLabel = NSLocalizedString(@"Program", @"Program Information");
   
   if(![station isKindOfClass:[RDIPRadiruStation class]]) {
@@ -35,14 +36,20 @@
     listButton.accessibilityLabel = NSLocalizedString(@"Program List", @"Program List");
   }
   
-	tweetButton = [[RDIPSquareButton alloc] initWithImage:[UIImage imageNamed:@"bird.png"]];
+  tweetButton = [[RDIPSquareButton alloc] initWithImage:[UIImage imageNamed:@"bird.png"]];
   tweetButton.accessibilityLabel = NSLocalizedString(@"Tweet List", @"Tweet List");
   
+  NSMutableArray *buttons = [NSMutableArray array];
+  [buttons addObject:infoButton];
   
-  if(![station isKindOfClass:[RDIPRadiruStation class]])
-    return [NSArray arrayWithObjects:infoButton, listButton, tweetButton, nil];
-  else
-    return [NSArray arrayWithObjects:infoButton,  tweetButton, nil];
+  if(![station isKindOfClass:[RDIPRadiruStation class]]) {
+    [buttons addObject:listButton];
+  }
+  if([[AppSetting sharedInstance] objectForKey:RDIPSETTING_USERID] != nil) {
+    [buttons addObject:tweetButton];
+  }
+
+  return buttons;
 }
 
 - (NSArray*)loadViewControllers
@@ -52,8 +59,12 @@
   RDIPProgramListViewController *programListViewController = nil;
   if(![station isKindOfClass:[RDIPRadiruStation class]])
     programListViewController = [[[RDIPProgramListViewController alloc] initWithStation:station] autorelease];									
-	
-	NSString *hashTag = [(NSDictionary*)[[AppConfig sharedInstance] objectForKey:RDIPCONFIG_HASHTAGS] objectForKey:station.stationId];
+
+	NSDictionary *hashTags = [[AppConfig sharedInstance] objectForKey:RDIPCONFIG_HASHTAGS];
+	NSString *hashTag = [hashTags objectForKey:station.stationId];
+    if(!hashTag) {
+        hashTag = [hashTags objectForKey:@"DEFAULT"];
+    }
 	RDIPStationTimelineViewController *timelineViewController = [[[RDIPStationTimelineViewController alloc] initWithHashTag:hashTag] autorelease];
 	
   if(![station isKindOfClass:[RDIPRadiruStation class]])
