@@ -2,9 +2,6 @@
 *.xcodeproj/project.xcworkspace
 *.xcodeproj/.DS_Store
 *.xcworkspace/xcuserdata
-
-Pods/Pods.xcodeproj/xcuserdata
-Pods
-
-Podfile.lock
+build/
 .DS_Store
+
