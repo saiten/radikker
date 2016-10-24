@@ -8,7 +8,7 @@
 
 #import "RDIPTwitterClient.h"
 #import "RDIPDefines.h"
-#import "twitter_apikey.h"
+#import "environment.h"
 #import "AppSetting.h"
 #import "SBJSON.h"
 

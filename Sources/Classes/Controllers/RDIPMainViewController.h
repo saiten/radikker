@@ -66,6 +66,7 @@ typedef enum {
 @property(nonatomic, readonly) RadikoPlayer *radikoPlayer;
 
 - (void)loadStations:(BOOL)forceRefresh;
+- (void)updateAdWithURLString:(NSString *)urlString;
 @end
 
 @interface RDIPMainViewController(RadikoPlayerDelegate)

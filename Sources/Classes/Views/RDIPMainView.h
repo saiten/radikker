@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
 #import "RDIPTunerView.h"
 #import "RDIPFooterView.h"
@@ -17,6 +18,7 @@
 	UIView *meterView;
 	UIView *containerView;
 	RDIPFooterView *footerView;
+    GADBannerView *bannerView;
 	
 	UIToolbar *volumeBar;
 	
@@ -25,6 +27,7 @@
 }
 
 @property(nonatomic, readonly) RDIPTunerView *tunerView;
+@property(nonatomic, readonly) GADBannerView *bannerView;
 @property(nonatomic, readonly) RDIPFooterView *footerView;
 @property(nonatomic, retain) UIView *containerView;
 

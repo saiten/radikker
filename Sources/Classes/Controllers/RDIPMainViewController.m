@@ -6,6 +6,7 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
+#import <GoogleMobileAds/GoogleMobileAds.h>
 #import "RDIPMainViewController.h"
 
 #import "AppConfig.h"
@@ -18,7 +19,9 @@
 #import "RDIPEPG.h"
 #import "StatusBarAlert.h"
 
-@interface RDIPMainViewController(private)
+#import "environment.h"
+
+@interface RDIPMainViewController(private) <GADBannerViewDelegate>
 @end
 
 @implementation RDIPMainViewController
@@ -47,7 +50,8 @@
 		mainView.tunerView.delegate = self;
 	}
 	
-	self.view = mainView;	
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+	self.view = mainView;
 }
 
 - (void)viewDidLoad 
@@ -56,7 +60,13 @@
 	[self loadToolbarButtons];
 	[self setToolbarPlaying:NO];
 
-	// enable remote control
+    NSLog(@"Google Mobile Ads SDK version: %@", [GADRequest sdkVersion]);
+    mainView.bannerView.adUnitID = ADMOB_ADUNIT_ID;
+    mainView.bannerView.rootViewController = self;
+    mainView.bannerView.delegate = self;
+    [self updateAdWithURLString:@"http://radiko.jp/"];
+    
+    // enable remote control
 	UIApplication *app = [UIApplication sharedApplication];
 	if([app respondsToSelector:@selector(beginReceivingRemoteControlEvents)])
 		[app beginReceivingRemoteControlEvents];	
@@ -166,6 +176,15 @@
 
 #pragma mark -
 #pragma mark RDIPStationClient methods
+
+- (void)updateAdWithURLString:(NSString *)urlString
+{
+    if(urlString && urlString.length > 0) {
+        GADRequest *request = [GADRequest request];
+        request.contentURL = urlString;
+        [mainView.bannerView loadRequest:request];
+    }
+}
 
 - (void)loadStations:(BOOL)forceRefresh
 {
@@ -291,6 +310,18 @@
 				break;
 		}
 	}
+}
+
+#pragma mark - Google Mobile Ads
+
+- (void)adViewDidReceiveAd:(GADBannerView *)bannerView
+{
+    NSLog(@"admob success");
+}
+
+- (void)adView:(GADBannerView *)bannerView didFailToReceiveAdWithError:(GADRequestError *)error
+{
+    NSLog(@"admob error : %@", error);
 }
 
 @end

@@ -11,11 +11,44 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		7F407A101612F9AE0061FF7F /* NetworkInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F407A0F1612F9AE0061FF7F /* NetworkInformation.m */; };
-		7F82D74E1601D9D000F2BA87 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F82D74C1601D9D000F2BA87 /* libcrypto.a */; };
-		7F82D74F1601D9D000F2BA87 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F82D74D1601D9D000F2BA87 /* libssl.a */; };
-		7F82D7511601D9E200F2BA87 /* librtmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F82D7501601D9E200F2BA87 /* librtmp.a */; };
-		7F82D7541601D9F500F2BA87 /* libbase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F82D7521601D9F500F2BA87 /* libbase.a */; };
-		7F82D7551601D9F500F2BA87 /* librfxswf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F82D7531601D9F500F2BA87 /* librfxswf.a */; };
+		7F578DAA1DBDC3F5008CDEB4 /* librtmp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F578DA81DBDC3F5008CDEB4 /* librtmp.framework */; };
+		7F578DAB1DBDC3F5008CDEB4 /* openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F578DA91DBDC3F5008CDEB4 /* openssl.framework */; };
+		7F578DF21DBDC438008CDEB4 /* SwiffBitmapDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DAE1DBDC438008CDEB4 /* SwiffBitmapDefinition.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578DF31DBDC438008CDEB4 /* SwiffDynamicTextAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DB21DBDC438008CDEB4 /* SwiffDynamicTextAttributes.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578DF41DBDC438008CDEB4 /* SwiffDynamicTextDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DB41DBDC438008CDEB4 /* SwiffDynamicTextDefinition.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578DF51DBDC438008CDEB4 /* SwiffFillStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DB61DBDC438008CDEB4 /* SwiffFillStyle.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578DF61DBDC438008CDEB4 /* SwiffFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DB81DBDC438008CDEB4 /* SwiffFilter.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578DF71DBDC438008CDEB4 /* SwiffFontDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DBA1DBDC438008CDEB4 /* SwiffFontDefinition.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578DF81DBDC438008CDEB4 /* SwiffFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DBC1DBDC438008CDEB4 /* SwiffFrame.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578DF91DBDC438008CDEB4 /* SwiffGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DBE1DBDC438008CDEB4 /* SwiffGradient.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578DFA1DBDC438008CDEB4 /* SwiffHTMLToCoreTextConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DC01DBDC438008CDEB4 /* SwiffHTMLToCoreTextConverter.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578DFB1DBDC438008CDEB4 /* SwiffLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DC31DBDC438008CDEB4 /* SwiffLayer.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578DFC1DBDC438008CDEB4 /* SwiffLineStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DC51DBDC438008CDEB4 /* SwiffLineStyle.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578DFD1DBDC438008CDEB4 /* SwiffMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DC71DBDC438008CDEB4 /* SwiffMovie.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578DFE1DBDC438008CDEB4 /* SwiffParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DC91DBDC438008CDEB4 /* SwiffParser.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578DFF1DBDC438008CDEB4 /* SwiffPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DCB1DBDC438008CDEB4 /* SwiffPath.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578E001DBDC438008CDEB4 /* SwiffPlacedDynamicText.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DCD1DBDC438008CDEB4 /* SwiffPlacedDynamicText.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578E011DBDC438008CDEB4 /* SwiffPlacedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DCF1DBDC438008CDEB4 /* SwiffPlacedObject.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578E021DBDC438008CDEB4 /* SwiffPlayhead.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DD11DBDC438008CDEB4 /* SwiffPlayhead.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578E031DBDC438008CDEB4 /* SwiffRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DD31DBDC438008CDEB4 /* SwiffRenderer.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578E041DBDC438008CDEB4 /* SwiffScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DD51DBDC438008CDEB4 /* SwiffScene.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578E051DBDC438008CDEB4 /* SwiffSceneAndFrameLabelData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DD71DBDC438008CDEB4 /* SwiffSceneAndFrameLabelData.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578E061DBDC438008CDEB4 /* SwiffShapeDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DD91DBDC438008CDEB4 /* SwiffShapeDefinition.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578E071DBDC438008CDEB4 /* SwiffSoundDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DDB1DBDC438008CDEB4 /* SwiffSoundDefinition.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578E081DBDC438008CDEB4 /* SwiffSoundEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DDD1DBDC438008CDEB4 /* SwiffSoundEvent.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578E091DBDC438008CDEB4 /* SwiffSoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DDF1DBDC438008CDEB4 /* SwiffSoundPlayer.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578E0A1DBDC438008CDEB4 /* SwiffSoundStreamBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DE11DBDC438008CDEB4 /* SwiffSoundStreamBlock.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578E0B1DBDC438008CDEB4 /* SwiffSparseArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DE31DBDC438008CDEB4 /* SwiffSparseArray.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578E0C1DBDC438008CDEB4 /* SwiffSpriteDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DE51DBDC438008CDEB4 /* SwiffSpriteDefinition.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578E0D1DBDC438008CDEB4 /* SwiffStaticTextDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DE71DBDC438008CDEB4 /* SwiffStaticTextDefinition.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578E0E1DBDC438008CDEB4 /* SwiffStaticTextRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DE91DBDC438008CDEB4 /* SwiffStaticTextRecord.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578E0F1DBDC438008CDEB4 /* SwiffTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DEB1DBDC438008CDEB4 /* SwiffTypes.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578E101DBDC438008CDEB4 /* SwiffUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DED1DBDC438008CDEB4 /* SwiffUtils.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578E111DBDC438008CDEB4 /* SwiffView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DEF1DBDC438008CDEB4 /* SwiffView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578E121DBDC438008CDEB4 /* SwiffWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DF11DBDC438008CDEB4 /* SwiffWriter.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7F578E141DBDC59A008CDEB4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F578E131DBDC59A008CDEB4 /* CoreText.framework */; };
+		7F578E161DBDF930008CDEB4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F578E151DBDF930008CDEB4 /* GoogleService-Info.plist */; };
+		7F578E1A1DBE08FF008CDEB4 /* icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F578E191DBE08FF008CDEB4 /* icon-120.png */; };
 		7F82D7B11608327600F2BA87 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F82D7A61608327600F2BA87 /* NSObject+SBJSON.m */; };
 		7F82D7B21608327600F2BA87 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F82D7A81608327600F2BA87 /* NSString+SBJSON.m */; };
 		7F82D7B31608327600F2BA87 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F82D7AA1608327600F2BA87 /* SBJSON.m */; };
@@ -57,6 +90,7 @@
 		7F82D845160833AC00F2BA87 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F82D83C160833AC00F2BA87 /* ASINetworkQueue.m */; };
 		7F87CD811637DDC400CC8632 /* StreamURLClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F87CD801637DDC400CC8632 /* StreamURLClient.m */; };
 		7F918A381601BE36002650F9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F918A371601BE36002650F9 /* Default-568h@2x.png */; };
+		9B84CC15728C8B073F45036A /* libPods-radikker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AD279A59574666F4A9693D /* libPods-radikker.a */; };
 		E11475AF1185696500B83E2E /* RDIPWebBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = E11475AE1185696500B83E2E /* RDIPWebBrowserController.m */; };
 		E11CFEB8117AF6480042D65B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11CFEB7117AF6480042D65B /* AVFoundation.framework */; };
 		E12E449713947F3A008725A4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E12E449613947F3A008725A4 /* Default@2x.png */; };
@@ -169,15 +203,86 @@
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* radikker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = radikker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		23DCB786D5EE976DDA6927D0 /* Pods-radikker.appstore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-radikker.appstore.xcconfig"; path = "Pods/Target Support Files/Pods-radikker/Pods-radikker.appstore.xcconfig"; sourceTree = "<group>"; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* radikker_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = radikker_Prefix.pch; path = ../radikker_Prefix.pch; sourceTree = "<group>"; };
+		430303B82B79C08F80C27831 /* Pods-radikker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-radikker.release.xcconfig"; path = "Pods/Target Support Files/Pods-radikker/Pods-radikker.release.xcconfig"; sourceTree = "<group>"; };
 		7F407A0E1612F9AE0061FF7F /* NetworkInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInformation.h; sourceTree = "<group>"; };
 		7F407A0F1612F9AE0061FF7F /* NetworkInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkInformation.m; sourceTree = "<group>"; };
-		7F82D74C1601D9D000F2BA87 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "vendor/ios-openssl/lib/libcrypto.a"; sourceTree = "<group>"; };
-		7F82D74D1601D9D000F2BA87 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "vendor/ios-openssl/lib/libssl.a"; sourceTree = "<group>"; };
-		7F82D7501601D9E200F2BA87 /* librtmp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = librtmp.a; path = "vendor/ios-librtmp/lib/librtmp.a"; sourceTree = "<group>"; };
-		7F82D7521601D9F500F2BA87 /* libbase.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbase.a; path = "vendor/ios-librfxswf/lib/libbase.a"; sourceTree = "<group>"; };
-		7F82D7531601D9F500F2BA87 /* librfxswf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = librfxswf.a; path = "vendor/ios-librfxswf/lib/librfxswf.a"; sourceTree = "<group>"; };
+		7F578DA81DBDC3F5008CDEB4 /* librtmp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = librtmp.framework; path = Frameworks/librtmp.framework; sourceTree = "<group>"; };
+		7F578DA91DBDC3F5008CDEB4 /* openssl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = openssl.framework; path = Frameworks/openssl.framework; sourceTree = "<group>"; };
+		7F578DAD1DBDC438008CDEB4 /* SwiffBitmapDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffBitmapDefinition.h; path = Libraries/SwiffCore/Source/SwiffBitmapDefinition.h; sourceTree = SOURCE_ROOT; };
+		7F578DAE1DBDC438008CDEB4 /* SwiffBitmapDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffBitmapDefinition.m; path = Libraries/SwiffCore/Source/SwiffBitmapDefinition.m; sourceTree = SOURCE_ROOT; };
+		7F578DAF1DBDC438008CDEB4 /* SwiffCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffCore.h; path = Libraries/SwiffCore/Source/SwiffCore.h; sourceTree = SOURCE_ROOT; };
+		7F578DB01DBDC438008CDEB4 /* SwiffDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffDefinition.h; path = Libraries/SwiffCore/Source/SwiffDefinition.h; sourceTree = SOURCE_ROOT; };
+		7F578DB11DBDC438008CDEB4 /* SwiffDynamicTextAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffDynamicTextAttributes.h; path = Libraries/SwiffCore/Source/SwiffDynamicTextAttributes.h; sourceTree = SOURCE_ROOT; };
+		7F578DB21DBDC438008CDEB4 /* SwiffDynamicTextAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffDynamicTextAttributes.m; path = Libraries/SwiffCore/Source/SwiffDynamicTextAttributes.m; sourceTree = SOURCE_ROOT; };
+		7F578DB31DBDC438008CDEB4 /* SwiffDynamicTextDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffDynamicTextDefinition.h; path = Libraries/SwiffCore/Source/SwiffDynamicTextDefinition.h; sourceTree = SOURCE_ROOT; };
+		7F578DB41DBDC438008CDEB4 /* SwiffDynamicTextDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffDynamicTextDefinition.m; path = Libraries/SwiffCore/Source/SwiffDynamicTextDefinition.m; sourceTree = SOURCE_ROOT; };
+		7F578DB51DBDC438008CDEB4 /* SwiffFillStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffFillStyle.h; path = Libraries/SwiffCore/Source/SwiffFillStyle.h; sourceTree = SOURCE_ROOT; };
+		7F578DB61DBDC438008CDEB4 /* SwiffFillStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffFillStyle.m; path = Libraries/SwiffCore/Source/SwiffFillStyle.m; sourceTree = SOURCE_ROOT; };
+		7F578DB71DBDC438008CDEB4 /* SwiffFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffFilter.h; path = Libraries/SwiffCore/Source/SwiffFilter.h; sourceTree = SOURCE_ROOT; };
+		7F578DB81DBDC438008CDEB4 /* SwiffFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffFilter.m; path = Libraries/SwiffCore/Source/SwiffFilter.m; sourceTree = SOURCE_ROOT; };
+		7F578DB91DBDC438008CDEB4 /* SwiffFontDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffFontDefinition.h; path = Libraries/SwiffCore/Source/SwiffFontDefinition.h; sourceTree = SOURCE_ROOT; };
+		7F578DBA1DBDC438008CDEB4 /* SwiffFontDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffFontDefinition.m; path = Libraries/SwiffCore/Source/SwiffFontDefinition.m; sourceTree = SOURCE_ROOT; };
+		7F578DBB1DBDC438008CDEB4 /* SwiffFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffFrame.h; path = Libraries/SwiffCore/Source/SwiffFrame.h; sourceTree = SOURCE_ROOT; };
+		7F578DBC1DBDC438008CDEB4 /* SwiffFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffFrame.m; path = Libraries/SwiffCore/Source/SwiffFrame.m; sourceTree = SOURCE_ROOT; };
+		7F578DBD1DBDC438008CDEB4 /* SwiffGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffGradient.h; path = Libraries/SwiffCore/Source/SwiffGradient.h; sourceTree = SOURCE_ROOT; };
+		7F578DBE1DBDC438008CDEB4 /* SwiffGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffGradient.m; path = Libraries/SwiffCore/Source/SwiffGradient.m; sourceTree = SOURCE_ROOT; };
+		7F578DBF1DBDC438008CDEB4 /* SwiffHTMLToCoreTextConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffHTMLToCoreTextConverter.h; path = Libraries/SwiffCore/Source/SwiffHTMLToCoreTextConverter.h; sourceTree = SOURCE_ROOT; };
+		7F578DC01DBDC438008CDEB4 /* SwiffHTMLToCoreTextConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffHTMLToCoreTextConverter.m; path = Libraries/SwiffCore/Source/SwiffHTMLToCoreTextConverter.m; sourceTree = SOURCE_ROOT; };
+		7F578DC11DBDC438008CDEB4 /* SwiffImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffImport.h; path = Libraries/SwiffCore/Source/SwiffImport.h; sourceTree = SOURCE_ROOT; };
+		7F578DC21DBDC438008CDEB4 /* SwiffLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffLayer.h; path = Libraries/SwiffCore/Source/SwiffLayer.h; sourceTree = SOURCE_ROOT; };
+		7F578DC31DBDC438008CDEB4 /* SwiffLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffLayer.m; path = Libraries/SwiffCore/Source/SwiffLayer.m; sourceTree = SOURCE_ROOT; };
+		7F578DC41DBDC438008CDEB4 /* SwiffLineStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffLineStyle.h; path = Libraries/SwiffCore/Source/SwiffLineStyle.h; sourceTree = SOURCE_ROOT; };
+		7F578DC51DBDC438008CDEB4 /* SwiffLineStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffLineStyle.m; path = Libraries/SwiffCore/Source/SwiffLineStyle.m; sourceTree = SOURCE_ROOT; };
+		7F578DC61DBDC438008CDEB4 /* SwiffMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffMovie.h; path = Libraries/SwiffCore/Source/SwiffMovie.h; sourceTree = SOURCE_ROOT; };
+		7F578DC71DBDC438008CDEB4 /* SwiffMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffMovie.m; path = Libraries/SwiffCore/Source/SwiffMovie.m; sourceTree = SOURCE_ROOT; };
+		7F578DC81DBDC438008CDEB4 /* SwiffParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffParser.h; path = Libraries/SwiffCore/Source/SwiffParser.h; sourceTree = SOURCE_ROOT; };
+		7F578DC91DBDC438008CDEB4 /* SwiffParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffParser.m; path = Libraries/SwiffCore/Source/SwiffParser.m; sourceTree = SOURCE_ROOT; };
+		7F578DCA1DBDC438008CDEB4 /* SwiffPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffPath.h; path = Libraries/SwiffCore/Source/SwiffPath.h; sourceTree = SOURCE_ROOT; };
+		7F578DCB1DBDC438008CDEB4 /* SwiffPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffPath.m; path = Libraries/SwiffCore/Source/SwiffPath.m; sourceTree = SOURCE_ROOT; };
+		7F578DCC1DBDC438008CDEB4 /* SwiffPlacedDynamicText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffPlacedDynamicText.h; path = Libraries/SwiffCore/Source/SwiffPlacedDynamicText.h; sourceTree = SOURCE_ROOT; };
+		7F578DCD1DBDC438008CDEB4 /* SwiffPlacedDynamicText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffPlacedDynamicText.m; path = Libraries/SwiffCore/Source/SwiffPlacedDynamicText.m; sourceTree = SOURCE_ROOT; };
+		7F578DCE1DBDC438008CDEB4 /* SwiffPlacedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffPlacedObject.h; path = Libraries/SwiffCore/Source/SwiffPlacedObject.h; sourceTree = SOURCE_ROOT; };
+		7F578DCF1DBDC438008CDEB4 /* SwiffPlacedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffPlacedObject.m; path = Libraries/SwiffCore/Source/SwiffPlacedObject.m; sourceTree = SOURCE_ROOT; };
+		7F578DD01DBDC438008CDEB4 /* SwiffPlayhead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffPlayhead.h; path = Libraries/SwiffCore/Source/SwiffPlayhead.h; sourceTree = SOURCE_ROOT; };
+		7F578DD11DBDC438008CDEB4 /* SwiffPlayhead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffPlayhead.m; path = Libraries/SwiffCore/Source/SwiffPlayhead.m; sourceTree = SOURCE_ROOT; };
+		7F578DD21DBDC438008CDEB4 /* SwiffRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffRenderer.h; path = Libraries/SwiffCore/Source/SwiffRenderer.h; sourceTree = SOURCE_ROOT; };
+		7F578DD31DBDC438008CDEB4 /* SwiffRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffRenderer.m; path = Libraries/SwiffCore/Source/SwiffRenderer.m; sourceTree = SOURCE_ROOT; };
+		7F578DD41DBDC438008CDEB4 /* SwiffScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffScene.h; path = Libraries/SwiffCore/Source/SwiffScene.h; sourceTree = SOURCE_ROOT; };
+		7F578DD51DBDC438008CDEB4 /* SwiffScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffScene.m; path = Libraries/SwiffCore/Source/SwiffScene.m; sourceTree = SOURCE_ROOT; };
+		7F578DD61DBDC438008CDEB4 /* SwiffSceneAndFrameLabelData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffSceneAndFrameLabelData.h; path = Libraries/SwiffCore/Source/SwiffSceneAndFrameLabelData.h; sourceTree = SOURCE_ROOT; };
+		7F578DD71DBDC438008CDEB4 /* SwiffSceneAndFrameLabelData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffSceneAndFrameLabelData.m; path = Libraries/SwiffCore/Source/SwiffSceneAndFrameLabelData.m; sourceTree = SOURCE_ROOT; };
+		7F578DD81DBDC438008CDEB4 /* SwiffShapeDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffShapeDefinition.h; path = Libraries/SwiffCore/Source/SwiffShapeDefinition.h; sourceTree = SOURCE_ROOT; };
+		7F578DD91DBDC438008CDEB4 /* SwiffShapeDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffShapeDefinition.m; path = Libraries/SwiffCore/Source/SwiffShapeDefinition.m; sourceTree = SOURCE_ROOT; };
+		7F578DDA1DBDC438008CDEB4 /* SwiffSoundDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffSoundDefinition.h; path = Libraries/SwiffCore/Source/SwiffSoundDefinition.h; sourceTree = SOURCE_ROOT; };
+		7F578DDB1DBDC438008CDEB4 /* SwiffSoundDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffSoundDefinition.m; path = Libraries/SwiffCore/Source/SwiffSoundDefinition.m; sourceTree = SOURCE_ROOT; };
+		7F578DDC1DBDC438008CDEB4 /* SwiffSoundEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffSoundEvent.h; path = Libraries/SwiffCore/Source/SwiffSoundEvent.h; sourceTree = SOURCE_ROOT; };
+		7F578DDD1DBDC438008CDEB4 /* SwiffSoundEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffSoundEvent.m; path = Libraries/SwiffCore/Source/SwiffSoundEvent.m; sourceTree = SOURCE_ROOT; };
+		7F578DDE1DBDC438008CDEB4 /* SwiffSoundPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffSoundPlayer.h; path = Libraries/SwiffCore/Source/SwiffSoundPlayer.h; sourceTree = SOURCE_ROOT; };
+		7F578DDF1DBDC438008CDEB4 /* SwiffSoundPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffSoundPlayer.m; path = Libraries/SwiffCore/Source/SwiffSoundPlayer.m; sourceTree = SOURCE_ROOT; };
+		7F578DE01DBDC438008CDEB4 /* SwiffSoundStreamBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffSoundStreamBlock.h; path = Libraries/SwiffCore/Source/SwiffSoundStreamBlock.h; sourceTree = SOURCE_ROOT; };
+		7F578DE11DBDC438008CDEB4 /* SwiffSoundStreamBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffSoundStreamBlock.m; path = Libraries/SwiffCore/Source/SwiffSoundStreamBlock.m; sourceTree = SOURCE_ROOT; };
+		7F578DE21DBDC438008CDEB4 /* SwiffSparseArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffSparseArray.h; path = Libraries/SwiffCore/Source/SwiffSparseArray.h; sourceTree = SOURCE_ROOT; };
+		7F578DE31DBDC438008CDEB4 /* SwiffSparseArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffSparseArray.m; path = Libraries/SwiffCore/Source/SwiffSparseArray.m; sourceTree = SOURCE_ROOT; };
+		7F578DE41DBDC438008CDEB4 /* SwiffSpriteDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffSpriteDefinition.h; path = Libraries/SwiffCore/Source/SwiffSpriteDefinition.h; sourceTree = SOURCE_ROOT; };
+		7F578DE51DBDC438008CDEB4 /* SwiffSpriteDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffSpriteDefinition.m; path = Libraries/SwiffCore/Source/SwiffSpriteDefinition.m; sourceTree = SOURCE_ROOT; };
+		7F578DE61DBDC438008CDEB4 /* SwiffStaticTextDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffStaticTextDefinition.h; path = Libraries/SwiffCore/Source/SwiffStaticTextDefinition.h; sourceTree = SOURCE_ROOT; };
+		7F578DE71DBDC438008CDEB4 /* SwiffStaticTextDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffStaticTextDefinition.m; path = Libraries/SwiffCore/Source/SwiffStaticTextDefinition.m; sourceTree = SOURCE_ROOT; };
+		7F578DE81DBDC438008CDEB4 /* SwiffStaticTextRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffStaticTextRecord.h; path = Libraries/SwiffCore/Source/SwiffStaticTextRecord.h; sourceTree = SOURCE_ROOT; };
+		7F578DE91DBDC438008CDEB4 /* SwiffStaticTextRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffStaticTextRecord.m; path = Libraries/SwiffCore/Source/SwiffStaticTextRecord.m; sourceTree = SOURCE_ROOT; };
+		7F578DEA1DBDC438008CDEB4 /* SwiffTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffTypes.h; path = Libraries/SwiffCore/Source/SwiffTypes.h; sourceTree = SOURCE_ROOT; };
+		7F578DEB1DBDC438008CDEB4 /* SwiffTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffTypes.m; path = Libraries/SwiffCore/Source/SwiffTypes.m; sourceTree = SOURCE_ROOT; };
+		7F578DEC1DBDC438008CDEB4 /* SwiffUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffUtils.h; path = Libraries/SwiffCore/Source/SwiffUtils.h; sourceTree = SOURCE_ROOT; };
+		7F578DED1DBDC438008CDEB4 /* SwiffUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffUtils.m; path = Libraries/SwiffCore/Source/SwiffUtils.m; sourceTree = SOURCE_ROOT; };
+		7F578DEE1DBDC438008CDEB4 /* SwiffView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffView.h; path = Libraries/SwiffCore/Source/SwiffView.h; sourceTree = SOURCE_ROOT; };
+		7F578DEF1DBDC438008CDEB4 /* SwiffView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffView.m; path = Libraries/SwiffCore/Source/SwiffView.m; sourceTree = SOURCE_ROOT; };
+		7F578DF01DBDC438008CDEB4 /* SwiffWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffWriter.h; path = Libraries/SwiffCore/Source/SwiffWriter.h; sourceTree = SOURCE_ROOT; };
+		7F578DF11DBDC438008CDEB4 /* SwiffWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwiffWriter.m; path = Libraries/SwiffCore/Source/SwiffWriter.m; sourceTree = SOURCE_ROOT; };
+		7F578E131DBDC59A008CDEB4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		7F578E151DBDF930008CDEB4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7F578E191DBE08FF008CDEB4 /* icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-120.png"; sourceTree = "<group>"; };
 		7F82D7A41608327600F2BA87 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		7F82D7A51608327600F2BA87 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
 		7F82D7A61608327600F2BA87 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
@@ -269,6 +374,9 @@
 		7F87CD801637DDC400CC8632 /* StreamURLClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamURLClient.m; sourceTree = "<group>"; };
 		7F918A371601BE36002650F9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		A7AD279A59574666F4A9693D /* libPods-radikker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-radikker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4AC5EAADD52DB6D3FFC6533 /* Pods-radikker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-radikker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-radikker/Pods-radikker.debug.xcconfig"; sourceTree = "<group>"; };
+		CB30EF74B2625AEF70896D86 /* Pods-radikker.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-radikker.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-radikker/Pods-radikker.adhoc.xcconfig"; sourceTree = "<group>"; };
 		E11475AD1185696500B83E2E /* RDIPWebBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDIPWebBrowserController.h; sourceTree = "<group>"; };
 		E11475AE1185696500B83E2E /* RDIPWebBrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDIPWebBrowserController.m; sourceTree = "<group>"; };
 		E11CFEB7117AF6480042D65B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -284,7 +392,7 @@
 		E135B54A11EB1E5D00B2DBC7 /* RDIPNoServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDIPNoServiceViewController.m; sourceTree = "<group>"; };
 		E13DDEAA1174156C0033175B /* RDIPTwitterClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDIPTwitterClient.h; sourceTree = "<group>"; };
 		E13DDEAB1174156C0033175B /* RDIPTwitterClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDIPTwitterClient.m; sourceTree = "<group>"; };
-		E142419011E2D8A2001E751A /* twitter_apikey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = twitter_apikey.h; sourceTree = "<group>"; };
+		E142419011E2D8A2001E751A /* environment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = environment.h; sourceTree = "<group>"; };
 		E14BD036116DAEEB00232A3E /* RDIPOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDIPOAuthViewController.h; sourceTree = "<group>"; };
 		E14BD037116DAEEB00232A3E /* RDIPOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDIPOAuthViewController.m; sourceTree = "<group>"; };
 		E14BD2171172E2EA00232A3E /* RDIPSettingValueSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDIPSettingValueSelectViewController.h; sourceTree = "<group>"; };
@@ -451,14 +559,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F82D7541601D9F500F2BA87 /* libbase.a in Frameworks */,
-				7F82D7551601D9F500F2BA87 /* librfxswf.a in Frameworks */,
-				7F82D7511601D9E200F2BA87 /* librtmp.a in Frameworks */,
-				7F82D74E1601D9D000F2BA87 /* libcrypto.a in Frameworks */,
-				7F82D74F1601D9D000F2BA87 /* libssl.a in Frameworks */,
+				7F578E141DBDC59A008CDEB4 /* CoreText.framework in Frameworks */,
 				E18E1CCB1446F163007A85E2 /* libz.1.2.5.dylib in Frameworks */,
 				E134701913937C7100AF58CB /* CFNetwork.framework in Frameworks */,
 				E134701A13937C7100AF58CB /* MobileCoreServices.framework in Frameworks */,
+				7F578DAB1DBDC3F5008CDEB4 /* openssl.framework in Frameworks */,
 				E1E8C2D111648D8600FA591C /* Security.framework in Frameworks */,
 				E17D6371118EBBAD0069A41D /* SystemConfiguration.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
@@ -467,11 +572,13 @@
 				E1C77C3E11604605006DC915 /* AudioToolbox.framework in Frameworks */,
 				E184C10B1161C84300176B88 /* libxml2.2.dylib in Frameworks */,
 				E168191C116345250078D8C2 /* QuartzCore.framework in Frameworks */,
+				7F578DAA1DBDC3F5008CDEB4 /* librtmp.framework in Frameworks */,
 				E1F04393116B8C27002B5FC1 /* MediaPlayer.framework in Frameworks */,
 				E11CFEB8117AF6480042D65B /* AVFoundation.framework in Frameworks */,
 				E17D62C3118EAB170069A41D /* MessageUI.framework in Frameworks */,
 				E17D6373118EBBB70069A41D /* CoreLocation.framework in Frameworks */,
 				E135B4D011EB03BE00B2DBC7 /* MapKit.framework in Frameworks */,
+				9B84CC15728C8B073F45036A /* libPods-radikker.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +596,7 @@
 		28EEBF621118D79A00187D67 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7F578E151DBDF930008CDEB4 /* GoogleService-Info.plist */,
 				E15DDA3C11640463007A7A63 /* Images */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				E1EF0C5411EEC1D3003C4043 /* AppConfig.plist */,
@@ -502,13 +610,13 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				7F82D7441601D96E00F2BA87 /* vendor */,
 				E156A189115B3B4B0054C989 /* Libraries */,
 				E15F4EAC114E1C1100851D7A /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Sources */,
 				28EEBF621118D79A00187D67 /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				C2869E56AA47BCDB9EA65129 /* Pods */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -520,7 +628,7 @@
 				E1681AB81164735F0078D8C2 /* graphics_util.h */,
 				E184C0E01161BA7300176B88 /* byte_stream.h */,
 				E1935B881160B357003E6BF0 /* main.m */,
-				E142419011E2D8A2001E751A /* twitter_apikey.h */,
+				E142419011E2D8A2001E751A /* environment.h */,
 				32CA4F630368D1EE00C91783 /* radikker_Prefix.pch */,
 			);
 			path = Sources;
@@ -529,6 +637,9 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7F578E131DBDC59A008CDEB4 /* CoreText.framework */,
+				7F578DA81DBDC3F5008CDEB4 /* librtmp.framework */,
+				7F578DA91DBDC3F5008CDEB4 /* openssl.framework */,
 				E18E1CCA1446F163007A85E2 /* libz.1.2.5.dylib */,
 				E134701513937C7100AF58CB /* CFNetwork.framework */,
 				E134701613937C7100AF58CB /* MobileCoreServices.framework */,
@@ -547,6 +658,7 @@
 				E17D6370118EBBAD0069A41D /* SystemConfiguration.framework */,
 				E17D6372118EBBB70069A41D /* CoreLocation.framework */,
 				E135B4CF11EB03BE00B2DBC7 /* MapKit.framework */,
+				A7AD279A59574666F4A9693D /* libPods-radikker.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -561,40 +673,80 @@
 			path = Libraries/NetworkInformation;
 			sourceTree = SOURCE_ROOT;
 		};
-		7F82D7441601D96E00F2BA87 /* vendor */ = {
+		7F578DAC1DBDC42E008CDEB4 /* SwiffCore */ = {
 			isa = PBXGroup;
 			children = (
-				7F82D7471601D98E00F2BA87 /* ios-librfxswf */,
-				7F82D7461601D98800F2BA87 /* ios-librtmp */,
-				7F82D7451601D97500F2BA87 /* ios-openssl */,
+				7F578DAD1DBDC438008CDEB4 /* SwiffBitmapDefinition.h */,
+				7F578DAE1DBDC438008CDEB4 /* SwiffBitmapDefinition.m */,
+				7F578DAF1DBDC438008CDEB4 /* SwiffCore.h */,
+				7F578DB01DBDC438008CDEB4 /* SwiffDefinition.h */,
+				7F578DB11DBDC438008CDEB4 /* SwiffDynamicTextAttributes.h */,
+				7F578DB21DBDC438008CDEB4 /* SwiffDynamicTextAttributes.m */,
+				7F578DB31DBDC438008CDEB4 /* SwiffDynamicTextDefinition.h */,
+				7F578DB41DBDC438008CDEB4 /* SwiffDynamicTextDefinition.m */,
+				7F578DB51DBDC438008CDEB4 /* SwiffFillStyle.h */,
+				7F578DB61DBDC438008CDEB4 /* SwiffFillStyle.m */,
+				7F578DB71DBDC438008CDEB4 /* SwiffFilter.h */,
+				7F578DB81DBDC438008CDEB4 /* SwiffFilter.m */,
+				7F578DB91DBDC438008CDEB4 /* SwiffFontDefinition.h */,
+				7F578DBA1DBDC438008CDEB4 /* SwiffFontDefinition.m */,
+				7F578DBB1DBDC438008CDEB4 /* SwiffFrame.h */,
+				7F578DBC1DBDC438008CDEB4 /* SwiffFrame.m */,
+				7F578DBD1DBDC438008CDEB4 /* SwiffGradient.h */,
+				7F578DBE1DBDC438008CDEB4 /* SwiffGradient.m */,
+				7F578DBF1DBDC438008CDEB4 /* SwiffHTMLToCoreTextConverter.h */,
+				7F578DC01DBDC438008CDEB4 /* SwiffHTMLToCoreTextConverter.m */,
+				7F578DC11DBDC438008CDEB4 /* SwiffImport.h */,
+				7F578DC21DBDC438008CDEB4 /* SwiffLayer.h */,
+				7F578DC31DBDC438008CDEB4 /* SwiffLayer.m */,
+				7F578DC41DBDC438008CDEB4 /* SwiffLineStyle.h */,
+				7F578DC51DBDC438008CDEB4 /* SwiffLineStyle.m */,
+				7F578DC61DBDC438008CDEB4 /* SwiffMovie.h */,
+				7F578DC71DBDC438008CDEB4 /* SwiffMovie.m */,
+				7F578DC81DBDC438008CDEB4 /* SwiffParser.h */,
+				7F578DC91DBDC438008CDEB4 /* SwiffParser.m */,
+				7F578DCA1DBDC438008CDEB4 /* SwiffPath.h */,
+				7F578DCB1DBDC438008CDEB4 /* SwiffPath.m */,
+				7F578DCC1DBDC438008CDEB4 /* SwiffPlacedDynamicText.h */,
+				7F578DCD1DBDC438008CDEB4 /* SwiffPlacedDynamicText.m */,
+				7F578DCE1DBDC438008CDEB4 /* SwiffPlacedObject.h */,
+				7F578DCF1DBDC438008CDEB4 /* SwiffPlacedObject.m */,
+				7F578DD01DBDC438008CDEB4 /* SwiffPlayhead.h */,
+				7F578DD11DBDC438008CDEB4 /* SwiffPlayhead.m */,
+				7F578DD21DBDC438008CDEB4 /* SwiffRenderer.h */,
+				7F578DD31DBDC438008CDEB4 /* SwiffRenderer.m */,
+				7F578DD41DBDC438008CDEB4 /* SwiffScene.h */,
+				7F578DD51DBDC438008CDEB4 /* SwiffScene.m */,
+				7F578DD61DBDC438008CDEB4 /* SwiffSceneAndFrameLabelData.h */,
+				7F578DD71DBDC438008CDEB4 /* SwiffSceneAndFrameLabelData.m */,
+				7F578DD81DBDC438008CDEB4 /* SwiffShapeDefinition.h */,
+				7F578DD91DBDC438008CDEB4 /* SwiffShapeDefinition.m */,
+				7F578DDA1DBDC438008CDEB4 /* SwiffSoundDefinition.h */,
+				7F578DDB1DBDC438008CDEB4 /* SwiffSoundDefinition.m */,
+				7F578DDC1DBDC438008CDEB4 /* SwiffSoundEvent.h */,
+				7F578DDD1DBDC438008CDEB4 /* SwiffSoundEvent.m */,
+				7F578DDE1DBDC438008CDEB4 /* SwiffSoundPlayer.h */,
+				7F578DDF1DBDC438008CDEB4 /* SwiffSoundPlayer.m */,
+				7F578DE01DBDC438008CDEB4 /* SwiffSoundStreamBlock.h */,
+				7F578DE11DBDC438008CDEB4 /* SwiffSoundStreamBlock.m */,
+				7F578DE21DBDC438008CDEB4 /* SwiffSparseArray.h */,
+				7F578DE31DBDC438008CDEB4 /* SwiffSparseArray.m */,
+				7F578DE41DBDC438008CDEB4 /* SwiffSpriteDefinition.h */,
+				7F578DE51DBDC438008CDEB4 /* SwiffSpriteDefinition.m */,
+				7F578DE61DBDC438008CDEB4 /* SwiffStaticTextDefinition.h */,
+				7F578DE71DBDC438008CDEB4 /* SwiffStaticTextDefinition.m */,
+				7F578DE81DBDC438008CDEB4 /* SwiffStaticTextRecord.h */,
+				7F578DE91DBDC438008CDEB4 /* SwiffStaticTextRecord.m */,
+				7F578DEA1DBDC438008CDEB4 /* SwiffTypes.h */,
+				7F578DEB1DBDC438008CDEB4 /* SwiffTypes.m */,
+				7F578DEC1DBDC438008CDEB4 /* SwiffUtils.h */,
+				7F578DED1DBDC438008CDEB4 /* SwiffUtils.m */,
+				7F578DEE1DBDC438008CDEB4 /* SwiffView.h */,
+				7F578DEF1DBDC438008CDEB4 /* SwiffView.m */,
+				7F578DF01DBDC438008CDEB4 /* SwiffWriter.h */,
+				7F578DF11DBDC438008CDEB4 /* SwiffWriter.m */,
 			);
-			name = vendor;
-			sourceTree = "<group>";
-		};
-		7F82D7451601D97500F2BA87 /* ios-openssl */ = {
-			isa = PBXGroup;
-			children = (
-				7F82D74C1601D9D000F2BA87 /* libcrypto.a */,
-				7F82D74D1601D9D000F2BA87 /* libssl.a */,
-			);
-			name = "ios-openssl";
-			sourceTree = "<group>";
-		};
-		7F82D7461601D98800F2BA87 /* ios-librtmp */ = {
-			isa = PBXGroup;
-			children = (
-				7F82D7501601D9E200F2BA87 /* librtmp.a */,
-			);
-			name = "ios-librtmp";
-			sourceTree = "<group>";
-		};
-		7F82D7471601D98E00F2BA87 /* ios-librfxswf */ = {
-			isa = PBXGroup;
-			children = (
-				7F82D7521601D9F500F2BA87 /* libbase.a */,
-				7F82D7531601D9F500F2BA87 /* librfxswf.a */,
-			);
-			name = "ios-librfxswf";
+			name = SwiffCore;
 			sourceTree = "<group>";
 		};
 		7F82D7B71608333100F2BA87 /* jdg-OAuthConsumer */ = {
@@ -743,6 +895,17 @@
 			path = Libraries/ASIHttpRequest;
 			sourceTree = SOURCE_ROOT;
 		};
+		C2869E56AA47BCDB9EA65129 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B4AC5EAADD52DB6D3FFC6533 /* Pods-radikker.debug.xcconfig */,
+				430303B82B79C08F80C27831 /* Pods-radikker.release.xcconfig */,
+				CB30EF74B2625AEF70896D86 /* Pods-radikker.adhoc.xcconfig */,
+				23DCB786D5EE976DDA6927D0 /* Pods-radikker.appstore.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E135B54611EB1E3F00B2DBC7 /* NoServiceViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -805,6 +968,7 @@
 		E156A189115B3B4B0054C989 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				7F578DAC1DBDC42E008CDEB4 /* SwiffCore */,
 				7F407A0D1612F9AE0061FF7F /* NetworkInformation */,
 				7F82D829160833AC00F2BA87 /* ASIHttpRequest */,
 				7F82D825160833A200F2BA87 /* Reachability */,
@@ -825,6 +989,7 @@
 				E1F003231169C25B0063B091 /* icon.png */,
 				E1EF0D0511EEDD72003C4043 /* icon@2x.png */,
 				E1AA8F1F11EC5AEF0086F169 /* icon-alpha.png */,
+				7F578E191DBE08FF008CDEB4 /* icon-120.png */,
 				E1EF0CB311EEC79F003C4043 /* warning.png */,
 				E1A3CE3B118D7320008964C7 /* Default.png */,
 				E12E449613947F3A008725A4 /* Default@2x.png */,
@@ -1242,9 +1407,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "radikker" */;
 			buildPhases = (
+				A16866912D28A4CFF9BF5990 /* [CP] Check Pods Manifest.lock */,
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+				61A63797CE5F94AC2BE3D01A /* [CP] Embed Pods Frameworks */,
+				05ED39C68C1463CC76441D9B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1261,7 +1429,13 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0410;
+				LastUpgradeCheck = 0800;
+				TargetAttributes = {
+					1D6058900D05DD3D006BFB54 = {
+						DevelopmentTeam = L47JL4W4N2;
+						ProvisioningStyle = Manual;
+					};
+				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "radikker" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1274,6 +1448,7 @@
 				German,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			productRefGroup = 19C28FACFE9D520D11CA2CBB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -1294,6 +1469,7 @@
 				E1719884116B1367009526B6 /* envelope.png in Resources */,
 				E1719886116B1367009526B6 /* headphones.png in Resources */,
 				E1719887116B1367009526B6 /* house.png in Resources */,
+				7F578E1A1DBE08FF008CDEB4 /* icon-120.png in Resources */,
 				E1719889116B1367009526B6 /* magnifying-glass.png in Resources */,
 				E171988B116B1367009526B6 /* chat.png in Resources */,
 				E171988C116B1367009526B6 /* gear.png in Resources */,
@@ -1304,6 +1480,7 @@
 				E1A3CE3C118D7320008964C7 /* Default.png in Resources */,
 				E1A3CE5A118D78AA008964C7 /* atmark.png in Resources */,
 				E1A3CE66118D7B4D008964C7 /* left.png in Resources */,
+				7F578E161DBDF930008CDEB4 /* GoogleService-Info.plist in Resources */,
 				E1A3CE67118D7B4D008964C7 /* right.png in Resources */,
 				E1A3CE78118D957C008964C7 /* list.png in Resources */,
 				E1AA8F2011EC5AEF0086F169 /* icon-alpha.png in Resources */,
@@ -1321,6 +1498,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		05ED39C68C1463CC76441D9B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-radikker/Pods-radikker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		61A63797CE5F94AC2BE3D01A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-radikker/Pods-radikker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A16866912D28A4CFF9BF5990 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1D60588E0D05DD3D006BFB54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1329,16 +1554,23 @@
 				E1935B891160B357003E6BF0 /* main.m in Sources */,
 				E184C0D51161BA4E00176B88 /* AppConfig.m in Sources */,
 				E184C0D61161BA4E00176B88 /* AudioStreamPlayer.m in Sources */,
+				7F578E0D1DBDC438008CDEB4 /* SwiffStaticTextDefinition.m in Sources */,
 				E184C0D71161BA4E00176B88 /* FileSave.m in Sources */,
+				7F578E0E1DBDC438008CDEB4 /* SwiffStaticTextRecord.m in Sources */,
 				E184C0D81161BA4E00176B88 /* FLVConverter.m in Sources */,
 				E184C0D91161BA4E00176B88 /* RadikoPlayer.m in Sources */,
 				E184C0DA1161BA4E00176B88 /* RTMPClient.m in Sources */,
 				E184C0DB1161BA4E00176B88 /* RDIPAppDelegate.m in Sources */,
+				7F578E041DBDC438008CDEB4 /* SwiffScene.m in Sources */,
+				7F578E031DBDC438008CDEB4 /* SwiffRenderer.m in Sources */,
 				E184C0DC1161BA4E00176B88 /* RDIPTunerView.m in Sources */,
 				E184C0DD1161BA4E00176B88 /* RDIPStation.m in Sources */,
+				7F578DFC1DBDC438008CDEB4 /* SwiffLineStyle.m in Sources */,
 				E184C0E91161BC8A00176B88 /* RDIPMainViewController.m in Sources */,
+				7F578DF21DBDC438008CDEB4 /* SwiffBitmapDefinition.m in Sources */,
 				E184C1351161CB8C00176B88 /* SharedImageStore.m in Sources */,
 				E1C36CF01162117A00A363A5 /* RDIPStationClient.m in Sources */,
+				7F578DF51DBDC438008CDEB4 /* SwiffFillStyle.m in Sources */,
 				E16815311162F0720078D8C2 /* RDIPTunerStationView.m in Sources */,
 				E16815781162FFFF0078D8C2 /* RDIPFooterView.m in Sources */,
 				E16817D9116333850078D8C2 /* RDIPMainView.m in Sources */,
@@ -1347,6 +1579,7 @@
 				E16819F1116439CE0078D8C2 /* RDIPSubViewController.m in Sources */,
 				E1681A0A116441530078D8C2 /* RDIPSubView.m in Sources */,
 				E1F0319C11653092002B5FC1 /* RDIPStationInfoViewController.m in Sources */,
+				7F578E111DBDC438008CDEB4 /* SwiffView.m in Sources */,
 				E1F0373511662C62002B5FC1 /* RDIPProgram.m in Sources */,
 				E1F03C7711679124002B5FC1 /* StatusBarAlert.m in Sources */,
 				E1F03D491167A478002B5FC1 /* RDIPProgramClient.m in Sources */,
@@ -1377,59 +1610,84 @@
 				E188080911801C51002FB863 /* RDIPStatusDetailViewCell.m in Sources */,
 				E16390FA118533E900871D28 /* SimpleAlert.m in Sources */,
 				E11475AF1185696500B83E2E /* RDIPWebBrowserController.m in Sources */,
+				7F578E0A1DBDC438008CDEB4 /* SwiffSoundStreamBlock.m in Sources */,
 				E17D5E27118C18D00069A41D /* RDIPStatusProfileViewCell.m in Sources */,
 				E17D5E4C118C22780069A41D /* RDIPProfileImageView.m in Sources */,
 				E17D5E7C118C27BF0069A41D /* RDIPStatusViewController.m in Sources */,
+				7F578DF81DBDC438008CDEB4 /* SwiffFrame.m in Sources */,
 				E17D60BF118C8F480069A41D /* RDIPStatusFooterView.m in Sources */,
 				E17D620D118CBD620069A41D /* RDIPUserTimelineViewController.m in Sources */,
 				E1A3CE7F118D9603008964C7 /* RDIPProgramListViewController.m in Sources */,
 				E135B54B11EB1E5D00B2DBC7 /* RDIPNoServiceViewController.m in Sources */,
+				7F578E001DBDC438008CDEB4 /* SwiffPlacedDynamicText.m in Sources */,
 				E1AA8D3D11EC2E230086F169 /* RDIPReverseGeocoder.m in Sources */,
+				7F578E071DBDC438008CDEB4 /* SwiffSoundDefinition.m in Sources */,
 				E1AA8F0D11EC50380086F169 /* RDIPAboutViewController.m in Sources */,
+				7F578E051DBDC438008CDEB4 /* SwiffSceneAndFrameLabelData.m in Sources */,
 				E1EACA1B11EE2CDE0021F67F /* RDIPMainViewControllerRadikoPlayerDelegate.m in Sources */,
 				E1EACA3F11EE2E830021F67F /* RDIPMainViewControllerTunerViewDelegate.m in Sources */,
 				E1EACA6D11EE310E0021F67F /* RDIPMainViewControllerUpdateStatus.m in Sources */,
 				E1EF0C0B11EEB462003C4043 /* RDIPMainViewControllerToolbar.m in Sources */,
+				7F578E0C1DBDC438008CDEB4 /* SwiffSpriteDefinition.m in Sources */,
 				E1346FF713937BE000AF58CB /* AuthClient.m in Sources */,
 				7F82D7B11608327600F2BA87 /* NSObject+SBJSON.m in Sources */,
+				7F578DFE1DBDC438008CDEB4 /* SwiffParser.m in Sources */,
 				7F82D7B21608327600F2BA87 /* NSString+SBJSON.m in Sources */,
 				7F82D7B31608327600F2BA87 /* SBJSON.m in Sources */,
 				7F82D7B41608327600F2BA87 /* SBJsonBase.m in Sources */,
+				7F578E0F1DBDC438008CDEB4 /* SwiffTypes.m in Sources */,
 				7F82D7B51608327600F2BA87 /* SBJsonParser.m in Sources */,
+				7F578DF41DBDC438008CDEB4 /* SwiffDynamicTextDefinition.m in Sources */,
 				7F82D7B61608327600F2BA87 /* SBJsonWriter.m in Sources */,
 				7F82D7E21608333100F2BA87 /* NSMutableURLRequest+Parameters.m in Sources */,
 				7F82D7E31608333100F2BA87 /* NSString+URLEncoding.m in Sources */,
+				7F578E061DBDC438008CDEB4 /* SwiffShapeDefinition.m in Sources */,
 				7F82D7E41608333100F2BA87 /* NSURL+Base.m in Sources */,
 				7F82D7E51608333100F2BA87 /* Base64Transcoder.c in Sources */,
+				7F578E021DBDC438008CDEB4 /* SwiffPlayhead.m in Sources */,
 				7F82D7E61608333100F2BA87 /* hmac.c in Sources */,
 				7F82D7E71608333100F2BA87 /* sha1.c in Sources */,
 				7F82D7E81608333100F2BA87 /* OACall.m in Sources */,
 				7F82D7E91608333100F2BA87 /* OAConsumer.m in Sources */,
+				7F578DFD1DBDC438008CDEB4 /* SwiffMovie.m in Sources */,
+				7F578DFB1DBDC438008CDEB4 /* SwiffLayer.m in Sources */,
+				7F578E091DBDC438008CDEB4 /* SwiffSoundPlayer.m in Sources */,
+				7F578E101DBDC438008CDEB4 /* SwiffUtils.m in Sources */,
 				7F82D7EA1608333100F2BA87 /* OADataFetcher.m in Sources */,
 				7F82D7EB1608333100F2BA87 /* OAHMAC_SHA1SignatureProvider.m in Sources */,
 				7F82D7EC1608333100F2BA87 /* OAMutableURLRequest.m in Sources */,
 				7F82D7ED1608333100F2BA87 /* OAPlaintextSignatureProvider.m in Sources */,
+				7F578DF61DBDC438008CDEB4 /* SwiffFilter.m in Sources */,
 				7F82D7EE1608333100F2BA87 /* OAProblem.m in Sources */,
+				7F578DF91DBDC438008CDEB4 /* SwiffGradient.m in Sources */,
 				7F82D7EF1608333100F2BA87 /* OARequestParameter.m in Sources */,
+				7F578E081DBDC438008CDEB4 /* SwiffSoundEvent.m in Sources */,
 				7F82D7F01608333100F2BA87 /* OAServiceTicket.m in Sources */,
 				7F82D7F21608333100F2BA87 /* OAToken.m in Sources */,
+				7F578DFA1DBDC438008CDEB4 /* SwiffHTMLToCoreTextConverter.m in Sources */,
 				7F82D7F41608333100F2BA87 /* OATokenManager.m in Sources */,
 				7F82D7FE1608335400F2BA87 /* GDataXMLNode.m in Sources */,
 				7F82D7FF1608335400F2BA87 /* GDataXMLNodeUtil.m in Sources */,
 				7F82D8091608336800F2BA87 /* HttpClient.m in Sources */,
+				7F578DF71DBDC438008CDEB4 /* SwiffFontDefinition.m in Sources */,
 				7F82D80A1608336800F2BA87 /* ImageDownloader.m in Sources */,
 				7F82D80B1608336800F2BA87 /* ImageStore.m in Sources */,
+				7F578E121DBDC438008CDEB4 /* SwiffWriter.m in Sources */,
 				7F82D80C1608336800F2BA87 /* StringHelper.m in Sources */,
+				7F578DFF1DBDC438008CDEB4 /* SwiffPath.m in Sources */,
 				7F82D8241608338000F2BA87 /* RegexKitLite.m in Sources */,
 				7F82D828160833A200F2BA87 /* Reachability.m in Sources */,
 				7F82D83E160833AC00F2BA87 /* ASIAuthenticationDialog.m in Sources */,
 				7F82D83F160833AC00F2BA87 /* ASIDataCompressor.m in Sources */,
 				7F82D840160833AC00F2BA87 /* ASIDataDecompressor.m in Sources */,
+				7F578E011DBDC438008CDEB4 /* SwiffPlacedObject.m in Sources */,
 				7F82D841160833AC00F2BA87 /* ASIDownloadCache.m in Sources */,
 				7F82D842160833AC00F2BA87 /* ASIFormDataRequest.m in Sources */,
 				7F82D843160833AC00F2BA87 /* ASIHTTPRequest.m in Sources */,
+				7F578DF31DBDC438008CDEB4 /* SwiffDynamicTextAttributes.m in Sources */,
 				7F82D844160833AC00F2BA87 /* ASIInputStream.m in Sources */,
 				7F82D845160833AC00F2BA87 /* ASINetworkQueue.m in Sources */,
+				7F578E0B1DBDC438008CDEB4 /* SwiffSparseArray.m in Sources */,
 				7F407A101612F9AE0061FF7F /* NetworkInformation.m in Sources */,
 				7F87CD811637DDC400CC8632 /* StreamURLClient.m in Sources */,
 			);
@@ -1461,83 +1719,99 @@
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4AC5EAADD52DB6D3FFC6533 /* Pods-radikker.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_ENTITLEMENTS = "~/Dropbox/Works/private/iPhone/radikker/Resources/Entitlements.plist";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = L47JL4W4N2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radikker_Prefix.pch;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
 					"${SDK_ROOT}/usr/include/libxml2",
-					"$(SRCROOT)/vendor/ios-librfxswf/include",
-					"$(SRCROOT)/vendor/ios-librtmp/include",
-					"$(SRCROOT)/vendor/ios-openssl/include",
+					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/vendor/ios-openssl/lib\"",
-					"\"$(SRCROOT)/vendor/ios-librtmp/lib\"",
-					"\"$(SRCROOT)/vendor/ios-librfxswf/lib\"",
-				);
-				ONLY_ACTIVE_ARCH = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = net.isidesystem.radikker;
 				PRODUCT_NAME = radikker;
-				PROVISIONING_PROFILE = "";
-				VALID_ARCHS = "armv7 i386";
+				PROVISIONING_PROFILE = "d5acec3e-3629-426a-a926-a4fea60a7d4b";
+				PROVISIONING_PROFILE_SPECIFIER = "radikker-dev";
+				VALID_ARCHS = "armv7 arm64 armv7s";
 			};
 			name = Debug;
 		};
 		1D6058950D05DD3E006BFB54 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 430303B82B79C08F80C27831 /* Pods-radikker.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_ENTITLEMENTS = "~/Dropbox/Works/private/iPhone/radikker/Resources/Entitlements.plist";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = L47JL4W4N2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radikker_Prefix.pch;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
 					"${SDK_ROOT}/usr/include/libxml2",
-					"$(SRCROOT)/vendor/ios-librfxswf/include",
-					"$(SRCROOT)/vendor/ios-librtmp/include",
-					"$(SRCROOT)/vendor/ios-openssl/include",
+					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/vendor/ios-openssl/lib\"",
-					"\"$(SRCROOT)/vendor/ios-librtmp/lib\"",
-					"\"$(SRCROOT)/vendor/ios-librfxswf/lib\"",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = net.isidesystem.radikker;
 				PRODUCT_NAME = radikker;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "2093e9f8-127f-43c9-b678-30cc229d4310";
+				PROVISIONING_PROFILE_SPECIFIER = "radikker-appstore";
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "armv7 i386";
+				VALID_ARCHS = "armv7 arm64 armv7s";
 			};
 			name = Release;
 		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Tomoaki Shibata (MEAG2JJH9D)";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					CRYPTO,
 					DEBUG,
 				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"${SDK_ROOT}/usr/include/libxml2",
@@ -1545,7 +1819,8 @@
 					"$(SRCROOT)/vendor/ios-librtmp/include",
 					"$(SRCROOT)/vendor/ios-openssl/include",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-licucore",
 					"-lz",
@@ -1561,12 +1836,27 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Tomoaki Shibata (MEAG2JJH9D)";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = CRYPTO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"${SDK_ROOT}/usr/include/libxml2",
@@ -1574,7 +1864,7 @@
 					"$(SRCROOT)/vendor/ios-librtmp/include",
 					"$(SRCROOT)/vendor/ios-openssl/include",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (
 					"-licucore",
@@ -1591,12 +1881,27 @@
 		E17D5D021189B1380069A41D /* AdHoc */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Tomoaki Shibata";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = CRYPTO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"${SDK_ROOT}/usr/include/libxml2",
@@ -1604,7 +1909,7 @@
 					"$(SRCROOT)/vendor/ios-librtmp/include",
 					"$(SRCROOT)/vendor/ios-openssl/include",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (
 					"-licucore",
@@ -1620,47 +1925,62 @@
 		};
 		E17D5D031189B1380069A41D /* AdHoc */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB30EF74B2625AEF70896D86 /* Pods-radikker.adhoc.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_ENTITLEMENTS = "~/Dropbox/Works/private/iPhone/radikker/Resources/Entitlements.plist";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = L47JL4W4N2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radikker_Prefix.pch;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
 					"${SDK_ROOT}/usr/include/libxml2",
-					"$(SRCROOT)/vendor/ios-librfxswf/include",
-					"$(SRCROOT)/vendor/ios-librtmp/include",
-					"$(SRCROOT)/vendor/ios-openssl/include",
+					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/vendor/ios-openssl/lib\"",
-					"\"$(SRCROOT)/vendor/ios-librtmp/lib\"",
-					"\"$(SRCROOT)/vendor/ios-librfxswf/lib\"",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = net.isidesystem.radikker;
 				PRODUCT_NAME = radikker;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "2093e9f8-127f-43c9-b678-30cc229d4310";
+				PROVISIONING_PROFILE_SPECIFIER = "radikker-appstore";
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "armv7 i386";
+				VALID_ARCHS = "armv7 arm64 armv7s";
 			};
 			name = AdHoc;
 		};
 		E17D5D041189B13C0069A41D /* AppStore */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Tomoaki Shibata";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = CRYPTO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"${SDK_ROOT}/usr/include/libxml2",
@@ -1668,7 +1988,7 @@
 					"$(SRCROOT)/vendor/ios-librtmp/include",
 					"$(SRCROOT)/vendor/ios-openssl/include",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (
 					"-licucore",
@@ -1684,34 +2004,34 @@
 		};
 		E17D5D051189B13C0069A41D /* AppStore */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23DCB786D5EE976DDA6927D0 /* Pods-radikker.appstore.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_ENTITLEMENTS = "~/Dropbox/Works/private/iPhone/radikker/Resources/Entitlements.plist";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = L47JL4W4N2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radikker_Prefix.pch;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
 					"${SDK_ROOT}/usr/include/libxml2",
-					"$(SRCROOT)/vendor/ios-librfxswf/include",
-					"$(SRCROOT)/vendor/ios-librtmp/include",
-					"$(SRCROOT)/vendor/ios-openssl/include",
+					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/vendor/ios-openssl/lib\"",
-					"\"$(SRCROOT)/vendor/ios-librtmp/lib\"",
-					"\"$(SRCROOT)/vendor/ios-librfxswf/lib\"",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = net.isidesystem.radikker;
 				PRODUCT_NAME = radikker;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "2093e9f8-127f-43c9-b678-30cc229d4310";
+				PROVISIONING_PROFILE_SPECIFIER = "radikker-appstore";
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "armv7 i386";
+				VALID_ARCHS = "armv7 arm64 armv7s";
 			};
 			name = AppStore;
 		};

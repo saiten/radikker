@@ -76,9 +76,9 @@ static void output_aac_header(int ofh, aac_simple_header *aac_header)
 	uint8_t header[7];
 	memset(header, 0, 7);
     
-	uint8_t profile = 5;
+	uint8_t profile = 1;
 	uint8_t private_bit = 0;
-	
+
 	header[0] = 0xff;
 	header[1] = 0xf1;
 	header[2] = ((profile & 0x03) << 6) |
@@ -138,7 +138,7 @@ static int read_aac(int fh, flv_tag_header *tag_header, aac_simple_header *aac_h
 		read_size += read_through(fh, data_size);
 		return read_size;
 	}
-    
+
 	aac_header->frame_length = data_size + 7;
 	output_aac_header(ofh, aac_header);
     

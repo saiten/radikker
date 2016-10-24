@@ -122,7 +122,7 @@
 
 - (void)_saveTemporaryFile
 {
-	NSString *path = [NSHomeDirectory() stringByAppendingString:@"/dump.aac"];
+	NSString *path = [NSHomeDirectory() stringByAppendingString:@"/Documents/dump.aac"];
 	fileSave = [[FileSave alloc] initWithSaveFileAtPath:path];
 	fileSave.inputHandle = [convertToQueuePipe fileHandleForReading];
 	[fileSave save];

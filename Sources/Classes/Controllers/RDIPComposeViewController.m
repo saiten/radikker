@@ -30,6 +30,7 @@
 
 - (void)loadView {
 	[super loadView];
+    self.view.backgroundColor = [UIColor whiteColor];
 
 	closeButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Close", @"compose_view_closebutton")
 												   style:UIBarButtonItemStyleBordered
@@ -45,6 +46,7 @@
 												 target:self 
 												 action:@selector(pressPostButton:)];
 
+    CGRect rect = self.view.bounds;
 	composeView = [[RDIPComposeView alloc] initWithFrame:self.view.bounds];
 	composeView.delegate = self;
     [self.view addSubview:composeView];
@@ -164,8 +166,8 @@
 -(void)keyboardWillShow:(NSNotification*)note
 {
     CGRect keyboardFrame = [[note.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    CGRect rect = self.view.frame;
-    rect.size.height -= self.view.bounds.size.height - keyboardFrame.origin.y + 44.0f + 20.0f;
+    CGRect rect = self.view.bounds;
+    rect.size.height -= keyboardFrame.size.height;
     composeView.frame = rect;
 }
 #pragma mark -

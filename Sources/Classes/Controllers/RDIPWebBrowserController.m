@@ -146,8 +146,12 @@
 
 - (void)openURL:(NSString*)url
 {
-	NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-	[webView loadRequest:req];
+    if(webView) {
+        NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+        [webView loadRequest:req];
+    } else {
+        currentUrl = [url retain];
+    }
 }
 
 - (void)pressBackButton:(id)sender
@@ -172,13 +176,17 @@
 
 - (void)pressJumpButton:(id)sender
 {
-	UIActionSheet *actionSheet = [[[UIActionSheet alloc] initWithTitle:nil 
-															  delegate:self 
-													 cancelButtonTitle:NSLocalizedString(@"Cancel", @"cancel")
-												destructiveButtonTitle:nil
-													 otherButtonTitles:NSLocalizedString(@"Open with Safari", @"open_with_safari"),
-								                                       NSLocalizedString(@"Email this link", @"email_this_link"), nil] autorelease];
-	[actionSheet showInView:self.view.window];
+    NSURL *url = [NSURL URLWithString:currentUrl];
+    UIActivityViewController *activityViewController = [[[UIActivityViewController alloc] initWithActivityItems:@[url] applicationActivities:nil] autorelease];
+    [self presentViewController:activityViewController animated:true completion:nil];
+//    
+//	UIActionSheet *actionSheet = [[[UIActionSheet alloc] initWithTitle:nil 
+//															  delegate:self
+//													 cancelButtonTitle:NSLocalizedString(@"Cancel", @"cancel")
+//												destructiveButtonTitle:nil
+//													 otherButtonTitles:NSLocalizedString(@"Open with Safari", @"open_with_safari"),
+//								                                       NSLocalizedString(@"Email this link", @"email_this_link"), nil] autorelease];
+//	[actionSheet showInView:self.view.window];
 }
 
 #pragma mark -
@@ -201,7 +209,11 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)aWebView
 {
-	[currentUrl release];
+    if(webView.loading) {
+        return;
+    }
+
+    [currentUrl release];
 	currentUrl = [[[webView request] URL] absoluteString];
 	[currentUrl retain];
 	
@@ -215,7 +227,11 @@
 }
 
 - (void)webView:(UIWebView*)aWebView didFailLoadWithError:(NSError*)error {
-	[currentUrl release];
+    if(webView.loading) {
+        return;
+    }
+
+    [currentUrl release];
 	currentUrl = nil;
 	[self webViewDidFinishLoad:aWebView];
 }

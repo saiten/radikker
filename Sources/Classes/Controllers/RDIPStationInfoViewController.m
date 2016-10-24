@@ -40,9 +40,12 @@
     [super viewDidLoad];
 	self.view.backgroundColor = [UIColor clearColor];
 
-	self.tableView.scrollEnabled = NO;
     self.tableView.backgroundView = nil;
     self.tableView.backgroundColor = [UIColor lightGrayColor];
+    
+    UIEdgeInsets inset = self.tableView.contentInset;
+    inset.top -= [UIApplication sharedApplication].statusBarFrame.size.height;
+    self.tableView.contentInset = inset;
     
 	indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
 	CGRect rect = CGRectMake((self.view.frame.size.width - 24)/2, 40, 24, 24);
@@ -95,7 +98,7 @@
 			case 0:
 				return programCellHeight;
 			case 1:
-				return self.tableView.frame.size.height - 18 - programCellHeight;
+				return self.tableView.frame.size.height - 24 - programCellHeight;
 		}
 	}
 	

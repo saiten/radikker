@@ -1,5 +1,5 @@
 /*
- *  twitter_apikey.h
+ *  environment.h
  *  radikker
  *
  *  Created by saiten on 10/07/06.
@@ -11,3 +11,4 @@
 #define CONSUMER_SECRET_KEY @""
 #define CALLBACK_URL_HOST   @""
 
+#define ADMOB_ADUNIT_ID      @""

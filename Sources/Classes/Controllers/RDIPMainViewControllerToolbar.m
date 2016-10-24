@@ -77,6 +77,7 @@
 	RDIPSettingViewController *settingViewController = [[[RDIPSettingViewController alloc] init] autorelease];
 	UINavigationController *nvc = [[[UINavigationController alloc] initWithRootViewController:settingViewController] autorelease];
 	nvc.navigationBar.barStyle = UIBarStyleBlack;
+    nvc.navigationBar.tintColor = [UIColor whiteColor];
 	
 	[self.navigationController statusAlertSafelyPresentModalViewController:nvc 
 																  animated:YES];

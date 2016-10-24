@@ -175,8 +175,7 @@
 - (void)layoutSubviews
 {
 	[super layoutSubviews];
-	CGRect rect = CGRectInset(self.contentView.frame, 0, 4);
-	rect.size.width = 280;
+	CGRect rect = CGRectInset(self.contentView.bounds, 10, 4);
 	webView.frame = rect;
 }
 

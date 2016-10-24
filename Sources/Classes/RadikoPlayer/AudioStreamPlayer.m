@@ -107,17 +107,36 @@ static BOOL active = NO, buffering;
 {
 	OSStatus oStatus = 0;
 	
-	DLog(@"found property '%c%c%c%c'\n",
-		  (inPropertyID>>24)&255,
-		  (inPropertyID>>16)&255,
-		  (inPropertyID>>8)&255,
-		  inPropertyID&255
-		  );
-	
+    DLog(@"Property is %c%c%c%c",
+         ((char *)&inPropertyID)[3],
+         ((char *)&inPropertyID)[2],
+         ((char *)&inPropertyID)[1],
+         ((char *)&inPropertyID)[0]);
+
 	if (kAudioFileStreamProperty_ReadyToProducePackets) {
 		UInt32 dataSize = sizeof(audioBasicDesc);
 		AudioFileStreamGetProperty(inAudioFileStream, kAudioFileStreamProperty_DataFormat, &dataSize, &audioBasicDesc);
-		
+
+		// find HE-AAC
+        UInt32 formatListSize;
+        Boolean writable;
+        AudioFileStreamGetPropertyInfo(inAudioFileStream, kAudioFileStreamProperty_FormatList, &formatListSize, &writable);
+        
+        void *formatListData = calloc(1, formatListSize);
+        AudioFileStreamGetProperty(inAudioFileStream, kAudioFileStreamProperty_FormatList, &formatListSize, formatListData);
+
+        for(int i = 0; i < formatListSize; i += sizeof(AudioFormatListItem)) {
+            AudioStreamBasicDescription *pBasicDesc = formatListData + i;
+            if(pBasicDesc->mFormatID == kAudioFormatMPEG4AAC_HE ||
+               pBasicDesc->mFormatID == kAudioFormatMPEG4AAC_HE_V2) {
+#if !TARGET_IPHONE_SIMULATOR
+                    memcpy(&audioBasicDesc, pBasicDesc, sizeof(audioBasicDesc));
+#endif
+            }
+        }
+        
+        free(formatListData);
+        
 		oStatus = AudioQueueNewOutput(&audioBasicDesc, _audio_queue_output_callback, self,
 									  NULL, NULL, 0, &audioQueue);
 		if(oStatus)
@@ -249,7 +268,7 @@ static BOOL active = NO, buffering;
 	AudioFileStream_PacketsProc packetsProc = _packets_proc;
 	OSStatus oStatus = 0;
 	
-	oStatus = AudioFileStreamOpen(self, listenerProc, packetsProc, kAudioFileAAC_ADTSType, &audioStreamId);
+	oStatus = AudioFileStreamOpen(self, listenerProc, packetsProc, 0, &audioStreamId);
 	if(oStatus)
 		DLog(@"failed AudioFileStreamOpen : %d", oStatus);
 }

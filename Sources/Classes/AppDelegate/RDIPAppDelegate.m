@@ -7,6 +7,7 @@
 //
 
 #import <AVFoundation/AVFoundation.h>
+#import <Firebase/Firebase.h>
 
 #import "RDIPAppDelegate.h"
 #import "StatusBarAlert.h"
@@ -15,6 +16,8 @@
 #import "AppConfig.h"
 #import "AppSetting.h"
 #import "RDIPDefines.h"
+
+#import "environment.h"
 
 #import "RDIPMainViewController.h"
 #import "RDIPComposeViewController.h"
@@ -29,13 +32,19 @@
 - (void)_setupController
 {
 	window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-	
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    
 	mainController = [[RDIPMainViewController alloc] init];
 	composeViewController = [[RDIPComposeViewController alloc] initWithText:@""];
 	
 	navigationController = [[UINavigationController alloc] initWithRootViewController:mainController];
-	[navigationController.navigationBar setTintColor:[UIColor blackColor]];
-	[navigationController.toolbar setTintColor:[UIColor darkGrayColor]];
+	[navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    [navigationController.navigationBar setBarStyle:UIBarStyleBlack];
+
+    [navigationController.toolbar setTintColor:[UIColor darkGrayColor]];
+    [navigationController.toolbar setBarTintColor:[UIColor whiteColor]];
+    [navigationController.toolbar setBarStyle:UIBarStyleDefault];
+    
 	[navigationController setNavigationBarHidden:YES];
 }
 
@@ -85,8 +94,11 @@
 	
 	[self _initSetting];
 	
-	[window addSubview:navigationController.view];
-  [window makeKeyAndVisible];
+    [FIRApp configure];
+    
+    [window addSubview:navigationController.view];
+    window.rootViewController = navigationController;
+    [window makeKeyAndVisible];
 
 	return YES;
 }
@@ -148,6 +160,7 @@
 	
 	UINavigationController *nvc = [[[UINavigationController alloc] initWithRootViewController:appDelegate.composeViewController] autorelease];
 	nvc.navigationBar.barStyle = UIBarStyleBlack;
+    nvc.navigationBar.tintColor = [UIColor whiteColor];
 
 	[appDelegate.navigationController statusAlertSafelyPresentModalViewController:nvc animated:YES];
 }

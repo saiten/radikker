@@ -179,7 +179,15 @@
 {
 	BOOL animated = NO;
 	selectedStationIndex = index;
+    
 	RDIPStation *selectStation = [stations objectAtIndex:index];
+    if ([selectStation isMemberOfClass:[RDIPStation class]]) {
+        RDIPProgram *program = [[RDIPEPG sharedInstance] programForStationAtNow:selectStation.stationId];
+        if(program) {
+            [self updateAdWithURLString:program.url];
+        }
+    }
+
 	UIViewController *newController = [stationViewControllers objectForKey:selectStation.stationId];
 	
 	if(newController && currentViewController != newController) {

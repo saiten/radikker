@@ -68,7 +68,7 @@
 
 @implementation RDIPMainView
 
-@synthesize tunerView, footerView;
+@synthesize tunerView, footerView, bannerView;
 
 - (void)createShadows
 {
@@ -97,12 +97,13 @@
 
 - (void)createViews
 {
-	self.backgroundColor = [UIColor whiteColor];
+	self.backgroundColor = [UIColor blackColor];
 	
 	tunerView = [[RDIPTunerView alloc] initWithFrame:CGRectZero];
 	meterView = [[RDIPMeterView alloc] initWithFrame:CGRectZero];
 	containerView = nil;
 	footerView = [[RDIPFooterView alloc] initWithFrame:CGRectZero];
+    bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait];
 
 	MPVolumeView *volumeView = [[[MPVolumeView alloc] initWithFrame:CGRectMake(0, 0, 260, 24)] autorelease];	
 	UIImageView *iconView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"speaker-white.png"]] autorelease];
@@ -117,6 +118,7 @@
 	[self addSubview:tunerView];
 	//[self addSubview:footerView];
 	[self addSubview:meterView];
+    [self addSubview:bannerView];
 }
 
 - (id)initWithFrame:(CGRect)frame {
@@ -129,16 +131,20 @@
 
 - (void)layoutSubviews
 {
+    CGFloat statusBarHeight = CGRectGetMaxY([UIApplication sharedApplication].statusBarFrame);
 	CGRect rect = CGRectInset(self.frame, 0, 0);
+    rect.origin.y = statusBarHeight;
+    rect.size.height -= statusBarHeight;
 
-	tunerView.frame     = CGRectMake(0, 0, rect.size.width, 72);
-	meterView.frame     = CGRectMake(0, 56, rect.size.width, rect.size.height - 56);
-	containerView.frame = CGRectMake(0, 74, rect.size.width, rect.size.height - 74);
-	footerView.frame    = CGRectMake(0, rect.size.height - 16, rect.size.width, 16);
-	volumeBar.frame     = CGRectMake(0, rect.size.height - 44, rect.size.width, 44);
+    tunerView.frame     = CGRectMake(0, statusBarHeight, rect.size.width, 72);
+	meterView.frame     = CGRectMake(0, statusBarHeight + 56, rect.size.width, rect.size.height - 56);
+	containerView.frame = CGRectMake(0, statusBarHeight + 74, rect.size.width, rect.size.height - 74 - 50);
+    bannerView.frame    = CGRectMake(0, statusBarHeight + rect.size.height - 50, rect.size.width, 50);
+	//footerView.frame    = CGRectMake(0, statusBarHeight + rect.size.height - 16, rect.size.width, 16);
+	volumeBar.frame     = CGRectMake(0, statusBarHeight + rect.size.height - 44, rect.size.width, 44);
 	
-	navigationBarShadowLayer.frame = CGRectMake(0, 0, rect.size.width, 10);
-	footerShadowLayer.frame        = CGRectMake(0, rect.size.height - 10, rect.size.width, 10);
+	navigationBarShadowLayer.frame = CGRectMake(0, statusBarHeight, rect.size.width, 10);
+	footerShadowLayer.frame        = CGRectMake(0, statusBarHeight + rect.size.height - 60, rect.size.width, 10);
 }
 
 - (UIView*)containerView

@@ -208,10 +208,11 @@ enum {
 	switch([indexPath section]) {
 		case SETTINGVIEW_SECTION_TWITTER: {
 			if([indexPath row] == 0) {
-				RDIPOAuthViewController *vc = [[[RDIPOAuthViewController alloc] init] autorelease];
-				UINavigationController *nvc = [[[UINavigationController alloc] initWithRootViewController:vc] autorelease];
-				nvc.navigationBar.barStyle = UIBarStyleBlack;
-				[self statusAlertSafelyPresentModalViewController:nvc animated:YES];
+                RDIPOAuthViewController *vc = [[[RDIPOAuthViewController alloc] init] autorelease];
+                UINavigationController *nvc = [[[UINavigationController alloc] initWithRootViewController:vc] autorelease];
+                nvc.navigationBar.barStyle = UIBarStyleBlack;
+                nvc.navigationBar.tintColor = [UIColor whiteColor];
+                [self statusAlertSafelyPresentModalViewController:nvc animated:YES];
 			} else if([indexPath row] == 1) {
 				UIViewController *vc = [self settingValueSelectViewControllerForName:RDIPSETTING_AUTOREFRESH];
 				[self.navigationController pushViewController:vc animated:YES];

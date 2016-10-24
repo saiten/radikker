@@ -51,7 +51,7 @@ static StatusBarAlert *_instance = nil;
 
 - (void)showStatus:(NSString*)status animated:(BOOL)animated
 {
-	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:animated];
+	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:animated];
 	
 	UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
 
@@ -94,7 +94,7 @@ static StatusBarAlert *_instance = nil;
 
 - (void)hideStatusAnimated:(BOOL)animated
 {
-	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:animated];
+	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:animated];
 	UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
 
 	[statusLayer removeFromSuperlayer];

@@ -151,12 +151,12 @@
 {
 	[super layoutSubviews];
 	
-	CGRect rect = CGRectInset(self.frame, 0, 0);
+	CGRect rect = CGRectInset(self.bounds, 0, 0);
 	
 	if(CGRectEqualToRect(rect, beforeRect))
 		return;
 	
-	beforeRect = self.frame;
+	beforeRect = self.bounds;
 
 	scrollView.frame = rect;
 

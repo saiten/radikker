@@ -10,43 +10,10 @@
 #import "AppConfig.h"
 #import "ASIHTTPRequest.h"
 #import "ASIDownloadCache.h"
-#import "swftools/rfxswf.h"
 #import "RegexKitLite.h"
 #import "RDIPDefines.h"
-
-// extract binary from swf
-void extract_id(const void *data, int len, int extract_id, void **extract_data, int *extract_len)
-{
-    SWF swf;
-    reader_t r;
-    int dx = 6; // offset to binary data
-    
-    reader_init_memreader(&r, data, len);
-    if(swf_ReadSWF2(&r, &swf) < 0) {
-        *extract_data = NULL;
-        *extract_len = -1;
-        return;
-    }
-    
-    TAG *tag = swf.firstTag;
-    while(tag) {
-        if(swf_isDefiningTag(tag)) {
-            int _id = swf_GetDefineID(tag);
-            if(_id == extract_id && tag->id == ST_DEFINEBINARY) {
-                int _len = tag->memsize - dx;
-                void* _p = (void*)malloc(_len);
-                if (_p == NULL)
-                    return;
-                memcpy(_p, tag->data+dx, _len);
-                
-                *extract_data = _p;
-                *extract_len = _len;
-                return;
-            }
-        }
-        tag = tag->next;
-    }
-}
+#import "SwiffParser.h"
+#import "SwiffUtils.h"
 
 @interface AuthClient (private)
 - (void)_getPlayer;
@@ -131,16 +98,43 @@ void extract_id(const void *data, int len, int extract_id, void **extract_data, 
 
 - (BOOL)_extractAuthTokenWithData:(NSData*)swfData keyId:(int)keyId
 {
-    void *data = NULL;
-    int len = 0;
+    SwiffParser *parser = SwiffParserCreate([swfData bytes], swfData.length);
     
-    extract_id([swfData bytes], [swfData length], keyId, &data, &len);
-    if(data == NULL) {
-        return NO;
-    } else {
-        keyData = [[NSData alloc] initWithBytesNoCopy:data length:len freeWhenDone:YES];
-        return YES;
+    SwiffHeader header;
+    SwiffParserReadHeader(parser, &header);
+    if(header.version < 6) {
+        SwiffParserSetStringEncoding(parser, SwiffGetLegacyStringEncoding());
     }
+    
+    BOOL result = NO;
+    
+    while(SwiffParserIsValid(parser)) {
+        SwiffParserAdvanceToNextTag(parser);
+        
+        SwiffTag tag = SwiffParserGetCurrentTag(parser);
+        if(tag == SwiffTagEnd) {
+            break;
+        }
+        
+        if(tag == SwiffTagDefineBinaryData) {
+            UInt16 definitionId;
+            SwiffParserReadUInt16(parser, &definitionId);
+            if(definitionId == keyId) {
+                UInt32 reserved;
+                SwiffParserReadUInt32(parser, &reserved);
+                
+                NSUInteger remainLength = SwiffParserGetBytesRemainingInCurrentTag(parser);
+                NSData *data = nil;
+                SwiffParserReadData(parser, remainLength, &data);
+                keyData = [data retain];
+                result = YES;
+                break;
+            }
+        }
+    }
+    
+    SwiffParserFree(parser);
+    return result;
 }
 
 -(void)_challengeFirstAuthentication
@@ -150,8 +144,8 @@ void extract_id(const void *data, int len, int extract_id, void **extract_data, 
     NSURL *url = [NSURL URLWithString:[dic objectForKey:@"Auth1Url"]];
     
     NSMutableDictionary *headers = [NSMutableDictionary dictionary];
-    [headers setValue:@"pc_1"        forKey:@"X-Radiko-App"];
-    [headers setValue:@"2.0.1"       forKey:@"X-Radiko-App-Version"];
+    [headers setValue:@"pc_ts"       forKey:@"X-Radiko-App"];
+    [headers setValue:@"4.0.0"       forKey:@"X-Radiko-App-Version"];
     [headers setValue:@"test-stream" forKey:@"X-Radiko-User"];
     [headers setValue:@"pc"          forKey:@"X-Radiko-Device"];
     
@@ -193,12 +187,12 @@ void extract_id(const void *data, int len, int extract_id, void **extract_data, 
     NSURL *url = [NSURL URLWithString:[dic objectForKey:@"Auth2Url"]];
     
     NSMutableDictionary *headers = [NSMutableDictionary dictionary];
-    [headers setValue:@"pc_1"        forKey:@"X-Radiko-App"];
-    [headers setValue:@"2.0.1"       forKey:@"X-Radiko-App-Version"];
+    [headers setValue:@"pc_ts"       forKey:@"X-Radiko-App"];
+    [headers setValue:@"4.0.0"       forKey:@"X-Radiko-App-Version"];
     [headers setValue:@"test-stream" forKey:@"X-Radiko-User"];
     [headers setValue:@"pc"          forKey:@"X-Radiko-Device"];
-    [headers setValue:authToken      forKey:@"X-Radiko-Authtoken"];
-    [headers setValue:partialKey     forKey:@"X-Radiko-Partialkey"];
+    [headers setValue:authToken      forKey:@"X-Radiko-AuthToken"];
+    [headers setValue:partialKey     forKey:@"X-Radiko-PartialKey"];
     
     __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     [request setRequestMethod:@"POST"];

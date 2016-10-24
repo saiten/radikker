@@ -120,9 +120,9 @@
 		<key>Port</key>
 		<integer>1935</integer>
 		<key>SwfUrl</key>
-		<string>http://radiko.jp/player/swf/player_3.0.0.01.swf</string>
+		<string>http://radiko.jp/apps/js/flash/myplayer-release.swf</string>
 		<key>ExtractKeyId</key>
-		<integer>14</integer>
+		<integer>12</integer>
 	</dict>
 	<key>RadiruPlayer_R1</key>
 	<dict>
