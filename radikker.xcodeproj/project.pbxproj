@@ -90,6 +90,8 @@
 		7F82D845160833AC00F2BA87 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F82D83C160833AC00F2BA87 /* ASINetworkQueue.m */; };
 		7F87CD811637DDC400CC8632 /* StreamURLClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F87CD801637DDC400CC8632 /* StreamURLClient.m */; };
 		7F918A381601BE36002650F9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F918A371601BE36002650F9 /* Default-568h@2x.png */; };
+		7FEDAE501DC0A303005221DE /* ImobileSdkAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FEDAE4E1DC0A303005221DE /* ImobileSdkAds.framework */; };
+		7FEDAE511DC0A303005221DE /* libAdapterIMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FEDAE4F1DC0A303005221DE /* libAdapterIMobile.a */; };
 		9B84CC15728C8B073F45036A /* libPods-radikker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AD279A59574666F4A9693D /* libPods-radikker.a */; };
 		E11475AF1185696500B83E2E /* RDIPWebBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = E11475AE1185696500B83E2E /* RDIPWebBrowserController.m */; };
 		E11CFEB8117AF6480042D65B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11CFEB7117AF6480042D65B /* AVFoundation.framework */; };
@@ -373,6 +375,8 @@
 		7F87CD7F1637DDC400CC8632 /* StreamURLClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamURLClient.h; sourceTree = "<group>"; };
 		7F87CD801637DDC400CC8632 /* StreamURLClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamURLClient.m; sourceTree = "<group>"; };
 		7F918A371601BE36002650F9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		7FEDAE4E1DC0A303005221DE /* ImobileSdkAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ImobileSdkAds.framework; sourceTree = "<group>"; };
+		7FEDAE4F1DC0A303005221DE /* libAdapterIMobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdapterIMobile.a; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		A7AD279A59574666F4A9693D /* libPods-radikker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-radikker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4AC5EAADD52DB6D3FFC6533 /* Pods-radikker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-radikker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-radikker/Pods-radikker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -560,6 +564,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F578E141DBDC59A008CDEB4 /* CoreText.framework in Frameworks */,
+				7FEDAE511DC0A303005221DE /* libAdapterIMobile.a in Frameworks */,
 				E18E1CCB1446F163007A85E2 /* libz.1.2.5.dylib in Frameworks */,
 				E134701913937C7100AF58CB /* CFNetwork.framework in Frameworks */,
 				E134701A13937C7100AF58CB /* MobileCoreServices.framework in Frameworks */,
@@ -568,6 +573,7 @@
 				E17D6371118EBBAD0069A41D /* SystemConfiguration.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				7FEDAE501DC0A303005221DE /* ImobileSdkAds.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				E1C77C3E11604605006DC915 /* AudioToolbox.framework in Frameworks */,
 				E184C10B1161C84300176B88 /* libxml2.2.dylib in Frameworks */,
@@ -895,6 +901,16 @@
 			path = Libraries/ASIHttpRequest;
 			sourceTree = SOURCE_ROOT;
 		};
+		7FEDAE4D1DC0A303005221DE /* imobile_sdk */ = {
+			isa = PBXGroup;
+			children = (
+				7FEDAE4E1DC0A303005221DE /* ImobileSdkAds.framework */,
+				7FEDAE4F1DC0A303005221DE /* libAdapterIMobile.a */,
+			);
+			name = imobile_sdk;
+			path = Libraries/imobile_sdk;
+			sourceTree = SOURCE_ROOT;
+		};
 		C2869E56AA47BCDB9EA65129 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -968,6 +984,7 @@
 		E156A189115B3B4B0054C989 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				7FEDAE4D1DC0A303005221DE /* imobile_sdk */,
 				7F578DAC1DBDC42E008CDEB4 /* SwiffCore */,
 				7F407A0D1612F9AE0061FF7F /* NetworkInformation */,
 				7F82D829160833AC00F2BA87 /* ASIHttpRequest */,
@@ -1729,6 +1746,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Libraries/imobile_sdk",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1741,7 +1759,10 @@
 				);
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Libraries/imobile_sdk",
+				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = net.isidesystem.radikker;
 				PRODUCT_NAME = radikker;
@@ -1763,6 +1784,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Libraries/imobile_sdk",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radikker_Prefix.pch;
@@ -1773,7 +1795,10 @@
 				);
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Libraries/imobile_sdk",
+				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = net.isidesystem.radikker;
 				PRODUCT_NAME = radikker;
@@ -1935,6 +1960,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Libraries/imobile_sdk",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radikker_Prefix.pch;
@@ -1945,7 +1971,10 @@
 				);
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Libraries/imobile_sdk",
+				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = net.isidesystem.radikker;
 				PRODUCT_NAME = radikker;
@@ -2014,6 +2043,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Libraries/imobile_sdk",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radikker_Prefix.pch;
@@ -2024,7 +2054,10 @@
 				);
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Libraries/imobile_sdk",
+				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = net.isidesystem.radikker;
 				PRODUCT_NAME = radikker;

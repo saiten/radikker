@@ -103,7 +103,7 @@
 	meterView = [[RDIPMeterView alloc] initWithFrame:CGRectZero];
 	containerView = nil;
 	footerView = [[RDIPFooterView alloc] initWithFrame:CGRectZero];
-    bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait];
+    bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
 
 	MPVolumeView *volumeView = [[[MPVolumeView alloc] initWithFrame:CGRectMake(0, 0, 260, 24)] autorelease];	
 	UIImageView *iconView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"speaker-white.png"]] autorelease];
