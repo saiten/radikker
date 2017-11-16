@@ -18,7 +18,8 @@
 {
 	self.backgroundColor = [UIColor clearColor];
 	
-	logoImageView = [[UIImageView alloc] initWithFrame:CGRectZero];	
+	logoImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+    logoImageView.contentMode = UIViewContentModeScaleAspectFit;
 	indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
 	indicatorView.hidesWhenStopped = YES;
 	
@@ -59,20 +60,25 @@
 
 - (void)layoutSubviews
 {
-	CGRect rect = CGRectInset(self.frame, 0, 0);
-
-  CGSize imageSize;
-	if (logoImageView.image)
-    imageSize = logoImageView.image.size;
-  else
-    imageSize = CGSizeMake(0, 0);
-  
-	logoImageView.frame = CGRectMake((rect.size.width - imageSize.width)/2, 
-									 (rect.size.height - imageSize.height)/2, 
-									 imageSize.width, imageSize.height);
-	indicatorView.frame = CGRectMake((rect.size.width - 24)/2, 
-									 (rect.size.height - 24)/2, 
-									 24, 24);
+    [super layoutSubviews];
+    CGRect rect = CGRectInset(self.frame, 0, 0);
+    
+    CGSize imageSize;
+    if (logoImageView.image) {
+        imageSize = logoImageView.image.size;
+        if (imageSize.width > self.bounds.size.width) {
+            imageSize = self.bounds.size;
+        }
+    } else {
+        imageSize = CGSizeMake(0, 0);
+    }
+    
+    logoImageView.frame = CGRectMake((rect.size.width - imageSize.width)/2,
+                                     (rect.size.height - imageSize.height)/2,
+                                     imageSize.width, imageSize.height);
+    indicatorView.frame = CGRectMake((rect.size.width - 24)/2,
+                                     (rect.size.height - 24)/2,
+                                     24, 24);
 }
 
 - (void)SharedImageStoreGetNewImageNotification:(NSNotification*)notifiation

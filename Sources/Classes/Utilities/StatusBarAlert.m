@@ -9,6 +9,8 @@
 #import "StatusBarAlert.h"
 #import <QuartzCore/QuartzCore.h>
 
+#define MESSAGE_HEIGHT 20
+
 static StatusBarAlert *_instance = nil;
 
 @implementation StatusBarAlert
@@ -26,7 +28,8 @@ static StatusBarAlert *_instance = nil;
 	if(self = [super init]) {
 		statusLayer = [[CALayer layer] retain];
 		statusLayer.delegate = self;
-		statusLayer.bounds = CGRectMake(0, 0, 320, 40);
+        CGRect statusBarFrame = [UIApplication sharedApplication].statusBarFrame;
+		statusLayer.bounds = CGRectMake(0, 0, statusBarFrame.size.width, statusBarFrame.size.height + MESSAGE_HEIGHT);
 		statusLayer.backgroundColor = [UIColor colorWithRed:0.1 green:1.0 blue:0.0 alpha:1.0].CGColor;
 		message = @"('A`) ...";
 	}
@@ -70,7 +73,7 @@ static StatusBarAlert *_instance = nil;
 	}
 
 	CGRect frame = keyWindow.frame;
-	frame.origin.y = 20;
+	frame.origin.y = MESSAGE_HEIGHT;
 	keyWindow.frame = frame;
 
 	if(animated) {
@@ -87,7 +90,10 @@ static StatusBarAlert *_instance = nil;
 		[statusLayer addAnimation:anim forKey:@"RDIPStatusBar Animation"];
 	}
 
-	statusLayer.frame = CGRectMake(0, -20, 320, 40);
+    CGRect statusBarFrame = [UIApplication sharedApplication].statusBarFrame;
+    statusBarFrame.origin.y = -MESSAGE_HEIGHT;
+    statusBarFrame.size.height = statusBarFrame.size.height + MESSAGE_HEIGHT;
+	statusLayer.frame = statusBarFrame;
 
 	[keyWindow.layer addSublayer:statusLayer];
 }
@@ -126,8 +132,12 @@ static StatusBarAlert *_instance = nil;
 	
 	CGContextSetShadow(context, CGSizeMake(0, 1), 1.0);
 	
+    CGRect rect = [UIApplication sharedApplication].statusBarFrame;
+    rect.origin.y = rect.size.height;
+    rect.size.height = MESSAGE_HEIGHT;
+    
 	[[UIColor whiteColor] set];
-	[message drawInRect:CGRectMake(0, 20, 320, 20) 
+	[message drawInRect:rect
 			   withFont:[UIFont boldSystemFontOfSize:14]
 		  lineBreakMode:UILineBreakModeTailTruncation
 			  alignment:UITextAlignmentCenter];

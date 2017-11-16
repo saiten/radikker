@@ -26,7 +26,7 @@
 
 - (id)initWithStation:(RDIPStation*)s
 {
-    if ((self = [super initWithStyle:UITableViewStyleGrouped])) {
+    if ((self = [super initWithStyle:UITableViewStylePlain])) {
 		station = [s retain];
     }
     return self;
@@ -39,13 +39,16 @@
 {
     [super viewDidLoad];
 	self.view.backgroundColor = [UIColor clearColor];
-
+    
     self.tableView.backgroundView = nil;
     self.tableView.backgroundColor = [UIColor lightGrayColor];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.scrollEnabled = NO;
+    self.tableView.showsHorizontalScrollIndicator = NO;
+    self.tableView.showsVerticalScrollIndicator = NO;
     
-    UIEdgeInsets inset = self.tableView.contentInset;
-    inset.top -= [UIApplication sharedApplication].statusBarFrame.size.height;
-    self.tableView.contentInset = inset;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
 	indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
 	CGRect rect = CGRectMake((self.view.frame.size.width - 24)/2, 40, 24, 24);
@@ -98,7 +101,7 @@
 			case 0:
 				return programCellHeight;
 			case 1:
-				return self.tableView.frame.size.height - 24 - programCellHeight;
+				return self.tableView.frame.size.height - programCellHeight;
 		}
 	}
 	
@@ -124,51 +127,50 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 {
     static NSString *ProgramCellIdentifier = @"ProgramViewCell";
-	static NSString *DescriptionCellIdentifier = @"DescriptionViewCell";
-
+    static NSString *DescriptionCellIdentifier = @"DescriptionViewCell";
+    
     if([indexPath section] == 0) {
-		if([indexPath row] == 0) {
-			RDIPProgramViewCell *cell = 
-			(RDIPProgramViewCell*)[tableView dequeueReusableCellWithIdentifier:ProgramCellIdentifier];
-			if (cell == nil) {
-				cell = [[[RDIPProgramViewCell alloc] initWithStyle:UITableViewCellStyleDefault 
-												   reuseIdentifier:ProgramCellIdentifier] autorelease];
-			}
-			if(program.title) {
-				[cell setProgram:program];
-        
-        if(program.url && program.url.length > 0) {
-          cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-          cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-        } else {
-          cell.accessoryType = UITableViewCellAccessoryNone;
-          cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        if([indexPath row] == 0) {
+            RDIPProgramViewCell *cell =
+            (RDIPProgramViewCell*)[tableView dequeueReusableCellWithIdentifier:ProgramCellIdentifier];
+            if (cell == nil) {
+                cell = [[[RDIPProgramViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                                   reuseIdentifier:ProgramCellIdentifier] autorelease];
+            }
+            if(program.title) {
+                [cell setProgram:program];
+                
+                if(program.url && program.url.length > 0) {
+                    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+                } else {
+                    cell.accessoryType = UITableViewCellAccessoryNone;
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                }
+            } else {
+                [cell setStation:station];
+            }
+            
+            return cell;
+        } else if([indexPath row] == 1) {
+            RDIPProgramDescriptionViewCell *cell =
+            (RDIPProgramDescriptionViewCell*)[tableView dequeueReusableCellWithIdentifier:DescriptionCellIdentifier];
+            
+            if (cell == nil) {
+                cell = [[[RDIPProgramDescriptionViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                                              reuseIdentifier:DescriptionCellIdentifier] autorelease];
+                cell.delegate = self;
+            }
+            
+            if(program)
+                [cell setHTML:program.description];
+            
+            cell.accessoryType = UITableViewCellAccessoryNone;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            return cell;
         }
-      } else {
-        [cell setStation:station];        
-      }
-
-
-			return cell;
-		} else if([indexPath row] == 1) {
-			RDIPProgramDescriptionViewCell *cell =
-			(RDIPProgramDescriptionViewCell*)[tableView dequeueReusableCellWithIdentifier:DescriptionCellIdentifier];
-			
-			if (cell == nil) {
-				cell = [[[RDIPProgramDescriptionViewCell alloc] initWithStyle:UITableViewCellStyleDefault 
-															  reuseIdentifier:DescriptionCellIdentifier] autorelease];
-				cell.delegate = self;
-			}
-
-			if(program)
-				[cell setHTML:program.description];
-			
-			cell.accessoryType = UITableViewCellAccessoryNone;
-			cell.selectionStyle = UITableViewCellSelectionStyleNone;
-			return cell;
-		}
-	}
-
+    }
+    
     return nil;
 }
 

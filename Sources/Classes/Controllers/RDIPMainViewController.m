@@ -242,7 +242,7 @@
 	stationClient = nil;
 
 	selectedStationIndex = tunedStationIndex = 0;
-    [self setRadiruStation];
+    //[self setRadiruStation];
 	[self reloadTuner];
     refreshButton.enabled = YES;
 }

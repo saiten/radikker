@@ -132,7 +132,9 @@
 
 	CGFloat halfWidth = rect.size.width/2;
 
-	CGSize stationSize = CGSizeMake(120, 64);
+    CGFloat width = self.bounds.size.width / 3;
+	CGSize stationSize = CGSizeMake(width, width / 2);
+    
 	CGFloat vMargin = (rect.size.height - stationSize.height) / 2;
 	
 	for(int index=0; index<stationViews.count; index++) {

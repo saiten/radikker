@@ -153,7 +153,12 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
 	if(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-		webView = [[UIWebView alloc] initWithFrame:CGRectMake(10, 2, 280, 156)];
+        UIView *separator = [[[UIView alloc] initWithFrame:CGRectMake(32, 4, 256, 1)] autorelease];
+        separator.backgroundColor = [UIColor lightGrayColor];
+        separator.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        [self.contentView addSubview:separator];
+        
+		webView = [[UIWebView alloc] initWithFrame:CGRectMake(10, 8, 280, 150)];
 		webView.delegate = self;
 		webView.backgroundColor = [UIColor clearColor];
         webView.opaque = NO;

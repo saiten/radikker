@@ -20,7 +20,7 @@
 	RDIPFooterView *footerView;
     GADBannerView *bannerView;
 	
-	UIToolbar *volumeBar;
+	UIView *volumeBar;
 	
 	CAGradientLayer *navigationBarShadowLayer;
 	CAGradientLayer *footerShadowLayer;

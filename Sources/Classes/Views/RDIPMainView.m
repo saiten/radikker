@@ -95,6 +95,24 @@
 	[self.layer addSublayer:footerShadowLayer];
 }
 
+- (UIView *)createVolumeBar
+{
+    UIView *volumeBar = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)] autorelease];
+    volumeBar.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+    
+    MPVolumeView *volume = [[[MPVolumeView alloc] initWithFrame:CGRectMake(44, 12, 260, 20)] autorelease];
+    volume.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
+    
+    UIImageView *icon = [[[UIImageView alloc] initWithFrame:CGRectMake(12, 12, 20, 20)] autorelease];
+    icon.image = [UIImage imageNamed:@"speaker-white.png"];
+    icon.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
+    
+    [volumeBar addSubview:icon];
+    [volumeBar addSubview:volume];
+    
+    return volumeBar;
+}
+
 - (void)createViews
 {
 	self.backgroundColor = [UIColor blackColor];
@@ -105,14 +123,7 @@
 	footerView = [[RDIPFooterView alloc] initWithFrame:CGRectZero];
     bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
 
-	MPVolumeView *volumeView = [[[MPVolumeView alloc] initWithFrame:CGRectMake(0, 0, 260, 24)] autorelease];	
-	UIImageView *iconView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"speaker-white.png"]] autorelease];
-	UIBarButtonItem *iconItem = [[[UIBarButtonItem alloc] initWithCustomView:iconView] autorelease];															
-	UIBarButtonItem *volumeItem = [[[UIBarButtonItem alloc] initWithCustomView:volumeView] autorelease];	
-
-	volumeBar = [[UIToolbar alloc] initWithFrame:CGRectZero];
-	volumeBar.barStyle = UIBarStyleBlackTranslucent;
-	volumeBar.items = [NSArray arrayWithObjects:iconItem, volumeItem, nil];
+    volumeBar = [[self createVolumeBar] retain];
 	[self hideVolumebar];
 	
 	[self addSubview:tunerView];
@@ -129,6 +140,10 @@
     return self;
 }
 
+#define TUNER_HEIGHT ([UIScreen mainScreen].bounds.size.height * 0.2)
+#define METER_HEIGHT 16
+#define BANNER_HEIGHT 50
+
 - (void)layoutSubviews
 {
     CGFloat statusBarHeight = CGRectGetMaxY([UIApplication sharedApplication].statusBarFrame);
@@ -136,10 +151,12 @@
     rect.origin.y = statusBarHeight;
     rect.size.height -= statusBarHeight;
 
-    tunerView.frame     = CGRectMake(0, statusBarHeight, rect.size.width, 72);
-	meterView.frame     = CGRectMake(0, statusBarHeight + 56, rect.size.width, rect.size.height - 56);
-	containerView.frame = CGRectMake(0, statusBarHeight + 74, rect.size.width, rect.size.height - 74 - 50);
-    bannerView.frame    = CGRectMake(0, statusBarHeight + rect.size.height - 50, rect.size.width, 50);
+    tunerView.frame     = CGRectMake(0, statusBarHeight, rect.size.width, TUNER_HEIGHT);
+	meterView.frame     = CGRectMake(0, statusBarHeight + TUNER_HEIGHT - METER_HEIGHT,
+                                     rect.size.width, rect.size.height - TUNER_HEIGHT + METER_HEIGHT);
+	containerView.frame = CGRectMake(0, statusBarHeight + TUNER_HEIGHT + 2,
+                                     rect.size.width, rect.size.height - (TUNER_HEIGHT + 2) - BANNER_HEIGHT);
+    bannerView.frame    = CGRectMake(0, statusBarHeight + rect.size.height - BANNER_HEIGHT, rect.size.width, BANNER_HEIGHT);
 	//footerView.frame    = CGRectMake(0, statusBarHeight + rect.size.height - 16, rect.size.width, 16);
 	volumeBar.frame     = CGRectMake(0, statusBarHeight + rect.size.height - 44, rect.size.width, 44);
 	
@@ -194,18 +211,20 @@
 
 - (void)showVolumebar
 {
-	[UIView beginAnimations:nil context:NULL];
-	volumeBar.alpha = 1.0f;
-	[self addSubview:volumeBar];
-	[UIView commitAnimations];
+    volumeBar.alpha = 0.0f;
+    if (volumeBar.superview == nil) {
+        [self addSubview:volumeBar];
+    }
+    [UIView animateWithDuration:0.2 animations:^{
+        volumeBar.alpha = 1.0f;
+    }];
 }
 
 - (void)hideVolumebar
 {
-	[UIView beginAnimations:nil context:NULL];
-	[UIView setAnimationDelegate:self];
-	volumeBar.alpha = 0.0f;
-	[UIView commitAnimations];
+    [UIView animateWithDuration:0.2 animations:^{
+        volumeBar.alpha = 0.0f;
+    }];
 }
 
 - (void)animationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context
