@@ -18,10 +18,10 @@
 
 #import "RDIPEPG.h"
 #import "StatusBarAlert.h"
-
+#import "SharedImageStore.h"
 #import "environment.h"
 
-@interface RDIPMainViewController(private) <GADBannerViewDelegate>
+@interface RDIPMainViewController(private) <GADBannerViewDelegate, MPPlayableContentDataSource, MPPlayableContentDelegate>
 @end
 
 @implementation RDIPMainViewController
@@ -77,7 +77,21 @@
 											 selector:@selector(reachabilityChanged:)
 												 name:kReachabilityChangedNotification
 											   object:nil];
-	[self updateStatus];	
+    
+    [MPPlayableContentManager sharedContentManager].dataSource = self;
+    [MPPlayableContentManager sharedContentManager].delegate = self;
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(RDIPEpgGetProgramNotification:)
+                                                 name:RDIPEPG_GETPROGRAM_NOTIFICATION
+                                               object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(SharedImageStoreGetNewImageNotification:)
+                                                 name:SHAREDIMAGESTORE_GETNEWIMAGE_NOTIFICATION
+                                               object:nil];
+    
+	[self updateStatus];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
@@ -99,9 +113,15 @@
 {
   [super viewDidUnload];
 
-  [[NSNotificationCenter defaultCenter] removeObserver:self 
-                                                  name:kReachabilityChangedNotification
-                                                object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kReachabilityChangedNotification
+                                                  object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:SHAREDIMAGESTORE_GETNEWIMAGE_NOTIFICATION
+                                                  object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:RDIPEPG_GETPROGRAM_NOTIFICATION
+                                                  object:nil];
 	[reachability stopNotifier];
 	[reachability release];
 	reachability = nil;
@@ -323,6 +343,100 @@
 {
     NSLog(@"admob error : %@", error);
 }
+
+#pragma mark - MPPlayableContentDataSource
+
+- (MPContentItem *)contentItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger index = [indexPath indexAtPosition:0];
+    RDIPStation *station = [stations objectAtIndex:index];
+    RDIPProgram *program = [[RDIPEPG sharedInstance] programForStationAtNow:station.stationId];
+    
+    MPContentItem *item = [[[MPContentItem alloc] initWithIdentifier:station.stationId] autorelease];
+    item.title = station.stationName;
+    UIImage *image = [[SharedImageStore sharedInstance] getImage:station.logoUrl];
+    if(image) {
+        item.artwork = [[[MPMediaItemArtwork alloc] initWithImage:image] autorelease];
+    }
+    item.subtitle = program.title;
+    item.container = NO;
+    if([item respondsToSelector:@selector(setExplicitContent:)]) {
+        item.explicitContent = YES;
+    }
+    if([item respondsToSelector:@selector(setStreamingContent:)]) {
+        item.streamingContent = YES;
+    }
+    item.playable = station.tuning;
+    item.playbackProgress = nowOnAir == program ? -1.0 : 0.0;
+    
+    return item;
+}
+
+- (NSInteger)numberOfChildItemsAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger count = 0;
+    for(RDIPStation *station in stations) {
+        if(station.tuning) count++;
+    }
+    return count;
+}
+
+#pragma mark - MPPlayableContentDelegate
+
+- (BOOL)childItemsDisplayPlaybackProgressAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (void)playableContentManager:(MPPlayableContentManager *)contentManager initiatePlaybackOfContentItemAtIndexPath:(NSIndexPath *)indexPath
+             completionHandler:(void (^)(NSError * _Nullable))completionHandler
+{
+    NSInteger index = [indexPath indexAtPosition:0];
+
+    if(index >= 0 && index < stations.count) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            tunedStationIndex = index;
+            mainView.tunerView.tunedIndex = tunedStationIndex;
+            [self playRadiko];
+            completionHandler(nil);
+        });
+    } else {
+        completionHandler(nil);
+    }
+}
+
+- (void)playableContentManager:(MPPlayableContentManager *)contentManager didUpdateContext:(MPPlayableContentManagerContext *)context
+{
+}
+
+#pragma mark - notifications
+
+- (void)RDIPEpgGetProgramNotification:(NSNotification*)notification
+{
+    NSError *err = [[notification userInfo] objectForKey:RDIPEPG_KEY_ERROR];
+    if(err) {
+        // TODO
+    } else {
+        [[MPPlayableContentManager sharedContentManager] reloadData];
+    }
+}
+
+- (void)SharedImageStoreGetNewImageNotification:(NSNotification*)notifiation
+{
+    NSString *requestUrl = [[notifiation userInfo] objectForKey:SHAREDIMAGESTORE_KEY_REQUESTURL];
+    
+    BOOL shouldReload = NO;
+    for(RDIPStation *station in stations) {
+        if([requestUrl isEqualToString:station.logoUrl]) {
+            shouldReload = YES;
+        }
+    }
+    
+    if(shouldReload) {
+        [[MPPlayableContentManager sharedContentManager] reloadData];
+    }
+}
+
 
 @end
 

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 #import "Reachability.h"
 

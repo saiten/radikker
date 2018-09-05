@@ -9,6 +9,7 @@
 #import "RDIPMainViewController.h"
 #import "StatusBarAlert.h"
 #import "RDIPStationViewController.h"
+#import "SharedImageStore.h"
 #import <MediaPlayer/MediaPlayer.h>
 
 @implementation RDIPMainViewController(RadikoPlayerDelegate)
@@ -149,21 +150,42 @@
 
 - (void)checkNowOnAir
 {
-  RDIPProgram *program = [[RDIPEPG sharedInstance] programForStationAtNow:radikoPlayer.channel];
-  if(nowOnAir != program) {
-    [nowOnAir release];
-    nowOnAir = [program retain];
-      
+    RDIPProgram *program = [[RDIPEPG sharedInstance] programForStationAtNow:radikoPlayer.channel];
+    if(nowOnAir != program) {
+        [nowOnAir release];
+        nowOnAir = [program retain];
+    }
+    
+    RDIPStation *station = nil;
+    for(RDIPStation *s in stations) {
+        if([s.stationId isEqualToString:radikoPlayer.channel]) {
+            station = s;
+            break;
+        }
+    }
+    
     Class playingInfoCenter = NSClassFromString(@"MPNowPlayingInfoCenter");
     if(playingInfoCenter) {
-      MPNowPlayingInfoCenter *center = [MPNowPlayingInfoCenter defaultCenter];
-      NSDictionary *playingInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                                   radikoPlayer.channel, MPMediaItemPropertyAlbumTitle,
-                                   program.title, MPMediaItemPropertyTitle,
-                                   program.performer, MPMediaItemPropertyArtist, nil];
-      center.nowPlayingInfo = playingInfo;
+        MPNowPlayingInfoCenter *center = [MPNowPlayingInfoCenter defaultCenter];
+        UIImage *image = [[SharedImageStore sharedInstance] getImage:station.logoUrl];
+        MPMediaItemArtwork *artwork = nil;
+        if(image) {
+            artwork = [[[MPMediaItemArtwork alloc] initWithImage:image] autorelease];
+        }
+        
+        NSDictionary *playingInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                                     station.stationName, MPMediaItemPropertyAlbumTitle,
+                                     program.title, MPMediaItemPropertyTitle,
+                                     program.performer, MPMediaItemPropertyArtist,
+                                     radikoPlayer.isStop ? @0 : @1, MPNowPlayingInfoPropertyPlaybackRate,
+                                     artwork ?: [NSNull null], MPMediaItemPropertyArtwork,
+                                     @YES, MPNowPlayingInfoPropertyIsLiveStream,
+                                     nil];
+        
+        center.nowPlayingInfo = playingInfo;
+        
+        MPPlayableContentManager *manager = [MPPlayableContentManager sharedContentManager];
     }
-  }
 }
 
 @end

@@ -47,6 +47,18 @@
       "idiom" : "ios-marketing",
       "filename" : "appstore.png",
       "scale" : "1x"
+    },
+    {
+      "size" : "60x60",
+      "idiom" : "car",
+      "filename" : "icon-121.png",
+      "scale" : "2x"
+    },
+    {
+      "size" : "60x60",
+      "idiom" : "car",
+      "filename" : "icon_180-1.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

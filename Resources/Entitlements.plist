@@ -4,6 +4,8 @@
 <dict>
 	<key>application-identifier</key>
 	<string>$(AppIdentifierPrefix)$(CFBundleIdentifier)</string>
+	<key>com.apple.developer.playable-content</key>
+	<true/>
 	<key>keychain-access-groups</key>
 	<array>
 		<string>$(AppIdentifierPrefix)$(CFBundleIdentifier)</string>
