@@ -11,7 +11,6 @@
 #import "RDIPDefines.h"
 #import "RadikoPlayer.h"
 #import "AuthClient.h"
-#import "NetworkInformation.h"
 
 @implementation RadikoPlayer
 

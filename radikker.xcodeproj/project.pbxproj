@@ -10,7 +10,6 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
-		7F407A101612F9AE0061FF7F /* NetworkInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F407A0F1612F9AE0061FF7F /* NetworkInformation.m */; };
 		7F578DAA1DBDC3F5008CDEB4 /* librtmp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F578DA81DBDC3F5008CDEB4 /* librtmp.framework */; };
 		7F578DAB1DBDC3F5008CDEB4 /* openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F578DA91DBDC3F5008CDEB4 /* openssl.framework */; };
 		7F578DF21DBDC438008CDEB4 /* SwiffBitmapDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DAE1DBDC438008CDEB4 /* SwiffBitmapDefinition.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -205,8 +204,6 @@
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* radikker_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = radikker_Prefix.pch; path = ../radikker_Prefix.pch; sourceTree = "<group>"; };
 		430303B82B79C08F80C27831 /* Pods-radikker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-radikker.release.xcconfig"; path = "Pods/Target Support Files/Pods-radikker/Pods-radikker.release.xcconfig"; sourceTree = "<group>"; };
-		7F407A0E1612F9AE0061FF7F /* NetworkInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInformation.h; sourceTree = "<group>"; };
-		7F407A0F1612F9AE0061FF7F /* NetworkInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkInformation.m; sourceTree = "<group>"; };
 		7F578DA81DBDC3F5008CDEB4 /* librtmp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = librtmp.framework; path = Frameworks/librtmp.framework; sourceTree = "<group>"; };
 		7F578DA91DBDC3F5008CDEB4 /* openssl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = openssl.framework; path = Frameworks/openssl.framework; sourceTree = "<group>"; };
 		7F578DAD1DBDC438008CDEB4 /* SwiffBitmapDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffBitmapDefinition.h; path = Libraries/SwiffCore/Source/SwiffBitmapDefinition.h; sourceTree = SOURCE_ROOT; };
@@ -663,16 +660,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		7F407A0D1612F9AE0061FF7F /* NetworkInformation */ = {
-			isa = PBXGroup;
-			children = (
-				7F407A0E1612F9AE0061FF7F /* NetworkInformation.h */,
-				7F407A0F1612F9AE0061FF7F /* NetworkInformation.m */,
-			);
-			name = NetworkInformation;
-			path = Libraries/NetworkInformation;
-			sourceTree = SOURCE_ROOT;
-		};
 		7F578DAC1DBDC42E008CDEB4 /* SwiffCore */ = {
 			isa = PBXGroup;
 			children = (
@@ -980,7 +967,6 @@
 			children = (
 				7FEDAE4D1DC0A303005221DE /* imobile_sdk */,
 				7F578DAC1DBDC42E008CDEB4 /* SwiffCore */,
-				7F407A0D1612F9AE0061FF7F /* NetworkInformation */,
 				7F82D829160833AC00F2BA87 /* ASIHttpRequest */,
 				7F82D825160833A200F2BA87 /* Reachability */,
 				7F82D80D1608337F00F2BA87 /* RegexKitLite */,
@@ -1689,7 +1675,6 @@
 				7F82D844160833AC00F2BA87 /* ASIInputStream.m in Sources */,
 				7F82D845160833AC00F2BA87 /* ASINetworkQueue.m in Sources */,
 				7F578E0B1DBDC438008CDEB4 /* SwiffSparseArray.m in Sources */,
-				7F407A101612F9AE0061FF7F /* NetworkInformation.m in Sources */,
 				7F87CD811637DDC400CC8632 /* StreamURLClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1751,7 +1736,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = net.isidesystem.radikker;
 				PRODUCT_NAME = radikker;
-				PROVISIONING_PROFILE = "d5acec3e-3629-426a-a926-a4fea60a7d4b";
+				PROVISIONING_PROFILE = "ccd2d24f-68d3-435a-9381-91acf0643a0e";
 				PROVISIONING_PROFILE_SPECIFIER = "radikker-dev";
 				VALID_ARCHS = "armv7 arm64 armv7s";
 			};
