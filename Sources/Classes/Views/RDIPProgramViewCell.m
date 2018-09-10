@@ -61,6 +61,7 @@
 {
 	NSDateFormatter *fmt = [[[NSDateFormatter alloc] init] autorelease];
 	[fmt setLocale:[[[NSLocale alloc] initWithLocaleIdentifier:@"US"] autorelease]];
+    [fmt setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"JST"]];
 	[fmt setDateFormat:@"HH:mm"];
 
   if(program.fromTime && program.toTime) {

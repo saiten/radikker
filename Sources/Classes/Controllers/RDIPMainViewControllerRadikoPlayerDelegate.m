@@ -173,18 +173,17 @@
             artwork = [[[MPMediaItemArtwork alloc] initWithImage:image] autorelease];
         }
         
-        NSDictionary *playingInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                                     station.stationName, MPMediaItemPropertyAlbumTitle,
-                                     program.title, MPMediaItemPropertyTitle,
-                                     program.performer, MPMediaItemPropertyArtist,
-                                     radikoPlayer.isStop ? @0 : @1, MPNowPlayingInfoPropertyPlaybackRate,
-                                     artwork ?: [NSNull null], MPMediaItemPropertyArtwork,
-                                     @YES, MPNowPlayingInfoPropertyIsLiveStream,
-                                     nil];
+        NSMutableDictionary *playingInfo = [@{MPMediaItemPropertyAlbumTitle: station.stationName ?: [NSNull null],
+                                              MPMediaItemPropertyTitle: program.title ?: @"radikker",
+                                              MPMediaItemPropertyArtist: program.performer ?: [NSNull null],
+                                              MPNowPlayingInfoPropertyPlaybackRate: radikoPlayer.isStop ? @0 : @1,
+                                              MPMediaItemPropertyArtwork: artwork ?: [NSNull null]
+                                              } mutableCopy];
+        if (@available(iOS 10, *)) {
+            playingInfo[MPNowPlayingInfoPropertyIsLiveStream] = @YES;
+        }
         
         center.nowPlayingInfo = playingInfo;
-        
-        MPPlayableContentManager *manager = [MPPlayableContentManager sharedContentManager];
     }
 }
 

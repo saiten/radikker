@@ -222,10 +222,12 @@
 			programs = [ps retain];
 		
 			[self.tableView reloadData];
-      NSInteger index = [[RDIPEPG sharedInstance] indexAtProgram:p forStation:station.stationId];
-      [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] 
-                            atScrollPosition:UITableViewScrollPositionTop 
-                                    animated:YES];
+            NSInteger index = [[RDIPEPG sharedInstance] indexAtProgram:p forStation:station.stationId];
+            if (index >= 0) {
+                [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]
+                                      atScrollPosition:UITableViewScrollPositionTop
+                                              animated:YES];
+            }
 		}
 				
 		return;

@@ -24,6 +24,7 @@
 	if(self = [super init]) {
 		NSDateFormatter *fmt = [[[NSDateFormatter alloc] init] autorelease];
 		[fmt setLocale:[[[NSLocale alloc] initWithLocaleIdentifier:@"US"] autorelease]];
+        [fmt setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"JST"]];
 		[fmt setDateFormat:@"yyyyMMddHHmmss"];
 		
 		for(GDataXMLNode *attr in [(GDataXMLElement*)programNode attributes]) {
