@@ -135,9 +135,9 @@
 	audioStreamPlayer.inputHandle = [convertToQueuePipe fileHandleForReading];
     
     if(service == RADIKOPLAYER_SERVICE_RADIKO)
-        audioStreamPlayer.volume = 0.5;
+        audioStreamPlayer.volume = 1.0;
     else
-        audioStreamPlayer.volume = 0.5;
+        audioStreamPlayer.volume = 1.0;
 	
 	[audioStreamPlayer play];
 }

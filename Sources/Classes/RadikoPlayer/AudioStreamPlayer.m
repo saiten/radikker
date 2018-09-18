@@ -113,46 +113,53 @@ static BOOL active = NO, buffering;
          ((char *)&inPropertyID)[1],
          ((char *)&inPropertyID)[0]);
 
-	if (kAudioFileStreamProperty_ReadyToProducePackets) {
-		UInt32 dataSize = sizeof(audioBasicDesc);
-		AudioFileStreamGetProperty(inAudioFileStream, kAudioFileStreamProperty_DataFormat, &dataSize, &audioBasicDesc);
-
-		// find HE-AAC
+    if (inPropertyID == kAudioFileStreamProperty_FormatList) {
+        // find HE-AAC
         UInt32 formatListSize;
         Boolean writable;
         AudioFileStreamGetPropertyInfo(inAudioFileStream, kAudioFileStreamProperty_FormatList, &formatListSize, &writable);
         
-        void *formatListData = calloc(1, formatListSize);
+        AudioFormatListItem *formatListData = malloc(formatListSize);
         AudioFileStreamGetProperty(inAudioFileStream, kAudioFileStreamProperty_FormatList, &formatListSize, formatListData);
-
-        for(int i = 0; i < formatListSize; i += sizeof(AudioFormatListItem)) {
-            AudioStreamBasicDescription *pBasicDesc = formatListData + i;
-            if(pBasicDesc->mFormatID == kAudioFormatMPEG4AAC_HE ||
-               pBasicDesc->mFormatID == kAudioFormatMPEG4AAC_HE_V2) {
+        
+        for (int i = 0; i * sizeof(AudioFormatListItem) < formatListSize; i += sizeof(AudioFormatListItem)) {
+            AudioStreamBasicDescription pBasicDesc = formatListData[i].mASBD;
+            if(pBasicDesc.mFormatID == kAudioFormatMPEG4AAC_HE_V2) {
+                NSLog(@"HE-AACv2 found !");
 #if !TARGET_IPHONE_SIMULATOR
-                    memcpy(&audioBasicDesc, pBasicDesc, sizeof(audioBasicDesc));
+                audioBasicDesc = pBasicDesc;
 #endif
+                break;
+            } else if(pBasicDesc.mFormatID == kAudioFormatMPEG4AAC_HE) {
+#if !TARGET_IPHONE_SIMULATOR
+                audioBasicDesc = pBasicDesc;
+#endif
+                break;
             }
         }
-        
         free(formatListData);
+    } else if (inPropertyID == kAudioFileStreamProperty_DataFormat) {
+        if(audioBasicDesc.mSampleRate == 0) {
+            UInt32 dataSize = sizeof(audioBasicDesc);
+            AudioFileStreamGetProperty(inAudioFileStream, kAudioFileStreamProperty_DataFormat, &dataSize, &audioBasicDesc);
+        }
+    } else if (inPropertyID == kAudioFileStreamProperty_ReadyToProducePackets) {
+        oStatus = AudioQueueNewOutput(&audioBasicDesc, _audio_queue_output_callback, self,
+                                      NULL, NULL, 0, &audioQueue);
+        if(oStatus)
+            DLog(@"failed AudioQueueNewOutput : %d", oStatus);
         
-		oStatus = AudioQueueNewOutput(&audioBasicDesc, _audio_queue_output_callback, self,
-									  NULL, NULL, 0, &audioQueue);
-		if(oStatus)
-			DLog(@"failed AudioQueueNewOutput : %d", oStatus);
-		
-		//bufferSize = AUDIOBUFFER_SIZE;
-		targetBufferIndex = 0;
-		fillBufferSize = 0;
-		fillPacketDescIndex = 0;
-		fillQueueBufferCount = 0;
-		
-		for(int i = 0; i < bufferCount; i++) {
-			oStatus = AudioQueueAllocateBuffer(audioQueue, bufferSize, &audioBuffers[i]);
-			useBuffer[i] = NO;
-		}
-	}
+        //bufferSize = AUDIOBUFFER_SIZE;
+        targetBufferIndex = 0;
+        fillBufferSize = 0;
+        fillPacketDescIndex = 0;
+        fillQueueBufferCount = 0;
+        
+        for(int i = 0; i < bufferCount; i++) {
+            oStatus = AudioQueueAllocateBuffer(audioQueue, bufferSize, &audioBuffers[i]);
+            useBuffer[i] = NO;
+        }
+    }
 }
 
 - (void)_packetsCallback:(UInt32)inNumberBytes numberPackets:(UInt32)inNumberPackets
