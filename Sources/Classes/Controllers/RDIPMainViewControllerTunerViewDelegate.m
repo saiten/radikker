@@ -185,6 +185,8 @@
         RDIPProgram *program = [[RDIPEPG sharedInstance] programForStationAtNow:selectStation.stationId];
         if(program) {
             [self updateAdWithURLString:program.url];
+        } else {
+            [self updateAdWithURLString:@"https://radiko.jp/"];
         }
     }
 

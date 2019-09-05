@@ -64,7 +64,7 @@
     mainView.bannerView.adUnitID = ADMOB_ADUNIT_ID;
     mainView.bannerView.rootViewController = self;
     mainView.bannerView.delegate = self;
-    [self updateAdWithURLString:@"http://radiko.jp/"];
+    [mainView.bannerView setHidden:true];
     
     // enable remote control
 	UIApplication *app = [UIApplication sharedApplication];
@@ -337,11 +337,16 @@
 - (void)adViewDidReceiveAd:(GADBannerView *)bannerView
 {
     NSLog(@"admob success");
+    [mainView.bannerView setHidden:false];
+    [mainView layoutIfNeeded];
+    
 }
 
 - (void)adView:(GADBannerView *)bannerView didFailToReceiveAdWithError:(GADRequestError *)error
 {
     NSLog(@"admob error : %@", error);
+    [mainView.bannerView setHidden:true];
+    [mainView layoutIfNeeded];
 }
 
 #pragma mark - MPPlayableContentDataSource
