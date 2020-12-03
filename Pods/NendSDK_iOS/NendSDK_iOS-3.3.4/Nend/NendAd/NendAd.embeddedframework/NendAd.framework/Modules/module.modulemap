@@ -1,0 +1,6 @@
+framework module NendAd {
+  umbrella header "NendAd.h"
+
+  export *
+  module * { export * }
+}

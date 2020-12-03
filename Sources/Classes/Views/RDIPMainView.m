@@ -150,18 +150,21 @@
 	CGRect rect = CGRectInset(self.frame, 0, 0);
     rect.origin.y = statusBarHeight;
     rect.size.height -= statusBarHeight;
+    
+    CGFloat bannerOffset = bannerView.isHidden ? 0 : BANNER_HEIGHT;
 
     tunerView.frame     = CGRectMake(0, statusBarHeight, rect.size.width, TUNER_HEIGHT);
 	meterView.frame     = CGRectMake(0, statusBarHeight + TUNER_HEIGHT - METER_HEIGHT,
                                      rect.size.width, rect.size.height - TUNER_HEIGHT + METER_HEIGHT);
 	containerView.frame = CGRectMake(0, statusBarHeight + TUNER_HEIGHT + 2,
-                                     rect.size.width, rect.size.height - (TUNER_HEIGHT + 2) - BANNER_HEIGHT);
-    bannerView.frame    = CGRectMake(0, statusBarHeight + rect.size.height - BANNER_HEIGHT, rect.size.width, BANNER_HEIGHT);
+                                     rect.size.width, rect.size.height - (TUNER_HEIGHT + 2) - bannerOffset);
+    bannerView.frame    = CGRectMake(0, statusBarHeight + rect.size.height - bannerOffset, rect.size.width, BANNER_HEIGHT);
 	//footerView.frame    = CGRectMake(0, statusBarHeight + rect.size.height - 16, rect.size.width, 16);
 	volumeBar.frame     = CGRectMake(0, statusBarHeight + rect.size.height - 44, rect.size.width, 44);
 	
 	navigationBarShadowLayer.frame = CGRectMake(0, statusBarHeight, rect.size.width, 10);
-	footerShadowLayer.frame        = CGRectMake(0, statusBarHeight + rect.size.height - 60, rect.size.width, 10);
+	footerShadowLayer.frame        = CGRectMake(0, statusBarHeight + rect.size.height - bannerOffset - 10,
+                                                rect.size.width, 10);
 }
 
 - (UIView*)containerView

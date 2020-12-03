@@ -1491,7 +1491,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-radikker/Pods-radikker-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-radikker/Pods-radikker-resources.sh",
 				"${PODS_ROOT}/NendSDK_iOS/NendSDK_iOS-3.3.4/Nend/NendAd/NendAd.embeddedframework/NendAd.framework/Resources/NendAdResource.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -1500,7 +1500,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-radikker/Pods-radikker-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-radikker/Pods-radikker-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A16866912D28A4CFF9BF5990 /* [CP] Check Pods Manifest.lock */ = {
