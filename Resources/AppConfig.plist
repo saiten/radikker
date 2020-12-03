@@ -109,12 +109,14 @@
 	<string>http://radiko.jp/v2/api/program</string>
 	<key>RadikoPlayer</key>
 	<dict>
+		<key>AuthKey</key>
+		<string>bcd151073c03b352e1ef2fd66c32209da9ca0afa</string>
 		<key>StreamListUrl</key>
 		<string>http://radiko.jp/v2/station/stream/%@.xml</string>
 		<key>Auth1Url</key>
-		<string>https://radiko.jp/v2/api/auth1_fms</string>
+		<string>https://radiko.jp/v2/api/auth1</string>
 		<key>Auth2Url</key>
-		<string>https://radiko.jp/v2/api/auth2_fms</string>
+		<string>https://radiko.jp/v2/api/auth2</string>
 		<key>FlashVersion</key>
 		<string>WIN 10,1,53,64</string>
 		<key>Port</key>

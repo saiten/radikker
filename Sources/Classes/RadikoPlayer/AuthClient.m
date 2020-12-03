@@ -55,7 +55,11 @@
     
     lastAuthDate = [[NSDate date] retain];
     
-    [self _getPlayer];
+    NSDictionary *dic = [[AppConfig sharedInstance] objectForKey:@"RadikoPlayer"];
+    keyData = [[dic objectForKey:@"AuthKey"] retain];
+    
+    [self _challengeFirstAuthentication];
+    //[self _getPlayer];
 }
 
 - (void)cancel
@@ -144,16 +148,15 @@
     NSURL *url = [NSURL URLWithString:[dic objectForKey:@"Auth1Url"]];
     
     NSMutableDictionary *headers = [NSMutableDictionary dictionary];
-    [headers setValue:@"pc_ts"       forKey:@"X-Radiko-App"];
-    [headers setValue:@"4.0.0"       forKey:@"X-Radiko-App-Version"];
+    [headers setValue:@"pc_html5"    forKey:@"X-Radiko-App"];
+    [headers setValue:@"2.0.1"       forKey:@"X-Radiko-App-Version"];
     [headers setValue:@"test-stream" forKey:@"X-Radiko-User"];
-    [headers setValue:@"pc"          forKey:@"X-Radiko-Device"];
+    [headers setValue:@"pc_1"          forKey:@"X-Radiko-Device"];
     
     __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-    [request setRequestMethod:@"POST"];
+    [request setRequestMethod:@"GET"];
     [request setRequestHeaders:headers];
     [request setValidatesSecureCertificate:NO];
-    [request appendPostData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
     
     [request setCompletionBlock:^{
         NSDictionary *responseHeaders = [request responseHeaders];
@@ -162,8 +165,7 @@
         length = [[responseHeaders objectForKey:@"X-Radiko-Keylength"] intValue];
         
         NSRange range = NSMakeRange(offset, length);
-        NSData *partialData = [keyData subdataWithRange:range];
-        partialKey = [[ASIHTTPRequest base64forData:partialData] retain];
+        partialKey = [[ASIHTTPRequest base64forData:[[keyData substringWithRange:range] dataUsingEncoding:NSUTF8StringEncoding]] retain];
         
         if(authToken && partialKey)
             [self _challengeSecondAuthentication];
@@ -187,23 +189,20 @@
     NSURL *url = [NSURL URLWithString:[dic objectForKey:@"Auth2Url"]];
     
     NSMutableDictionary *headers = [NSMutableDictionary dictionary];
-    [headers setValue:@"pc_ts"       forKey:@"X-Radiko-App"];
-    [headers setValue:@"4.0.0"       forKey:@"X-Radiko-App-Version"];
     [headers setValue:@"test-stream" forKey:@"X-Radiko-User"];
     [headers setValue:@"pc"          forKey:@"X-Radiko-Device"];
     [headers setValue:authToken      forKey:@"X-Radiko-AuthToken"];
     [headers setValue:partialKey     forKey:@"X-Radiko-PartialKey"];
     
     __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-    [request setRequestMethod:@"POST"];
+    [request setRequestMethod:@"GET"];
     [request setRequestHeaders:headers];
     [request setValidatesSecureCertificate:NO];
-    [request appendPostData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
     [request setCompletionBlock:^{
         state = AuthClientStateSuccess;
         
         NSString *body = [request responseString];
-        areaCode = [[body stringByMatching:@"\\n(JP\\d+)," capture:1L] retain];
+        areaCode = [[body stringByMatching:@"(JP\\d+)," capture:1L] retain];
         
         if(delegate && [delegate respondsToSelector:@selector(authClient:didChangeState:)])
             [delegate authClient:self didChangeState:state];

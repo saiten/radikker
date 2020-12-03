@@ -25,7 +25,7 @@ typedef enum {
   int offset;
   int length;
   NSString* partialKey;
-  NSData *keyData;
+  NSString *keyData;
   
   id delegate;
   NSDate *lastAuthDate;

@@ -10,6 +10,7 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		7F2560C92578FB1800566A5F /* AppConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F2560C82578FB1800566A5F /* AppConfig.plist */; };
 		7F578DAA1DBDC3F5008CDEB4 /* librtmp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F578DA81DBDC3F5008CDEB4 /* librtmp.framework */; };
 		7F578DAB1DBDC3F5008CDEB4 /* openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F578DA91DBDC3F5008CDEB4 /* openssl.framework */; };
 		7F578DF21DBDC438008CDEB4 /* SwiffBitmapDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F578DAE1DBDC438008CDEB4 /* SwiffBitmapDefinition.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -182,7 +183,6 @@
 		E1EACA6D11EE310E0021F67F /* RDIPMainViewControllerUpdateStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EACA6C11EE310E0021F67F /* RDIPMainViewControllerUpdateStatus.m */; };
 		E1EF0C0B11EEB462003C4043 /* RDIPMainViewControllerToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EF0C0A11EEB462003C4043 /* RDIPMainViewControllerToolbar.m */; };
 		E1EF0C3511EEBDD2003C4043 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E1EF0C3411EEBDD2003C4043 /* Localizable.strings */; };
-		E1EF0C5511EEC1D3003C4043 /* AppConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1EF0C5411EEC1D3003C4043 /* AppConfig.plist */; };
 		E1EF0CB411EEC79F003C4043 /* warning.png in Resources */ = {isa = PBXBuildFile; fileRef = E1EF0CB311EEC79F003C4043 /* warning.png */; };
 		E1F0319C11653092002B5FC1 /* RDIPStationInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F0319B11653092002B5FC1 /* RDIPStationInfoViewController.m */; };
 		E1F0373511662C62002B5FC1 /* RDIPProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F0373411662C62002B5FC1 /* RDIPProgram.m */; };
@@ -204,6 +204,7 @@
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* radikker_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = radikker_Prefix.pch; path = ../radikker_Prefix.pch; sourceTree = "<group>"; };
 		430303B82B79C08F80C27831 /* Pods-radikker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-radikker.release.xcconfig"; path = "Pods/Target Support Files/Pods-radikker/Pods-radikker.release.xcconfig"; sourceTree = "<group>"; };
+		7F2560C82578FB1800566A5F /* AppConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppConfig.plist; sourceTree = "<group>"; };
 		7F578DA81DBDC3F5008CDEB4 /* librtmp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = librtmp.framework; path = Frameworks/librtmp.framework; sourceTree = "<group>"; };
 		7F578DA91DBDC3F5008CDEB4 /* openssl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = openssl.framework; path = Frameworks/openssl.framework; sourceTree = "<group>"; };
 		7F578DAD1DBDC438008CDEB4 /* SwiffBitmapDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiffBitmapDefinition.h; path = Libraries/SwiffCore/Source/SwiffBitmapDefinition.h; sourceTree = SOURCE_ROOT; };
@@ -476,7 +477,6 @@
 		E188080711801C51002FB863 /* RDIPStatusDetailViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDIPStatusDetailViewCell.h; sourceTree = "<group>"; };
 		E188080811801C51002FB863 /* RDIPStatusDetailViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDIPStatusDetailViewCell.m; sourceTree = "<group>"; };
 		E18E1CCA1446F163007A85E2 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
-		E19357CA115F50EC003E6BF0 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = English; path = English.lproj/AppConfig.plist; sourceTree = "<group>"; };
 		E1935B881160B357003E6BF0 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; tabWidth = 5; };
 		E197AFD4116F190600A8969E /* AppSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSetting.h; sourceTree = "<group>"; };
 		E197AFD5116F190600A8969E /* AppSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSetting.m; sourceTree = "<group>"; };
@@ -525,7 +525,6 @@
 		E1EF0C0A11EEB462003C4043 /* RDIPMainViewControllerToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDIPMainViewControllerToolbar.m; sourceTree = "<group>"; };
 		E1EF0C3111EEBDB8003C4043 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E1EF0C3611EEBDDD003C4043 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/Localizable.strings; sourceTree = "<group>"; };
-		E1EF0C5611EEC1D8003C4043 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Japanese; path = Japanese.lproj/AppConfig.plist; sourceTree = "<group>"; };
 		E1EF0CB311EEC79F003C4043 /* warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warning.png; sourceTree = "<group>"; };
 		E1EF0D3E11EEE6D0003C4043 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		E1F0319A11653092002B5FC1 /* RDIPStationInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDIPStationInfoViewController.h; sourceTree = "<group>"; };
@@ -592,10 +591,10 @@
 			isa = PBXGroup;
 			children = (
 				7FB1ECC41FBD957600FB74CF /* Images.xcassets */,
+				7F2560C82578FB1800566A5F /* AppConfig.plist */,
 				7F578E151DBDF930008CDEB4 /* GoogleService-Info.plist */,
 				E15DDA3C11640463007A7A63 /* Images */,
 				8D1107310486CEB800E47090 /* Info.plist */,
-				E1EF0C5411EEC1D3003C4043 /* AppConfig.plist */,
 				E1EF0C3411EEBDD2003C4043 /* Localizable.strings */,
 				E1AA8F2111EC5B050086F169 /* about.html */,
 				E1EF0D3E11EEE6D0003C4043 /* Entitlements.plist */,
@@ -1452,7 +1451,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1EF0C5511EEC1D3003C4043 /* AppConfig.plist in Resources */,
 				E15DDA3E11640463007A7A63 /* twitter.png in Resources */,
 				E1719880116B1367009526B6 /* bird.png in Resources */,
 				7FB1ECC71FBDAAC400FB74CF /* Launch Screen.storyboard in Resources */,
@@ -1471,6 +1469,7 @@
 				E1A3CE66118D7B4D008964C7 /* left.png in Resources */,
 				7F578E161DBDF930008CDEB4 /* GoogleService-Info.plist in Resources */,
 				E1A3CE67118D7B4D008964C7 /* right.png in Resources */,
+				7F2560C92578FB1800566A5F /* AppConfig.plist in Resources */,
 				E1A3CE78118D957C008964C7 /* list.png in Resources */,
 				E1AA8F2011EC5AEF0086F169 /* icon-alpha.png in Resources */,
 				E1AA8F2211EC5B050086F169 /* about.html in Resources */,
@@ -1681,15 +1680,6 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
-		E1EF0C5411EEC1D3003C4043 /* AppConfig.plist */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E19357CA115F50EC003E6BF0 /* English */,
-				E1EF0C5611EEC1D8003C4043 /* Japanese */,
-			);
-			name = AppConfig.plist;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -1702,6 +1692,7 @@
 				CODE_SIGN_ENTITLEMENTS = "${SRCROOT}/Resources/Entitlements.plist";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1.26;
 				DEVELOPMENT_TEAM = L47JL4W4N2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1723,6 +1714,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Libraries/imobile_sdk",
 				);
+				MARKETING_VERSION = 1.26;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = net.isidesystem.radikker;
 				PRODUCT_NAME = radikker;
@@ -1739,8 +1731,9 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "${SRCROOT}/Resources/Entitlements.plist";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1.26;
 				DEVELOPMENT_TEAM = L47JL4W4N2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1760,11 +1753,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Libraries/imobile_sdk",
 				);
+				MARKETING_VERSION = 1.26;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = net.isidesystem.radikker;
 				PRODUCT_NAME = radikker;
 				PROVISIONING_PROFILE = "2093e9f8-127f-43c9-b678-30cc229d4310";
-				PROVISIONING_PROFILE_SPECIFIER = "radikker-appstore";
+				PROVISIONING_PROFILE_SPECIFIER = "radikker-dev";
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv7 arm64 armv7s";
 			};
@@ -1920,8 +1914,9 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "${SRCROOT}/Resources/Entitlements.plist";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1.26;
 				DEVELOPMENT_TEAM = L47JL4W4N2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1941,11 +1936,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Libraries/imobile_sdk",
 				);
+				MARKETING_VERSION = 1.26;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = net.isidesystem.radikker;
 				PRODUCT_NAME = radikker;
 				PROVISIONING_PROFILE = "2093e9f8-127f-43c9-b678-30cc229d4310";
-				PROVISIONING_PROFILE_SPECIFIER = "radikker-appstore";
+				PROVISIONING_PROFILE_SPECIFIER = "radikker-dev";
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv7 arm64 armv7s";
 			};
@@ -2005,8 +2001,9 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "${SRCROOT}/Resources/Entitlements.plist";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1.26;
 				DEVELOPMENT_TEAM = L47JL4W4N2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2026,11 +2023,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Libraries/imobile_sdk",
 				);
+				MARKETING_VERSION = 1.26;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = net.isidesystem.radikker;
 				PRODUCT_NAME = radikker;
 				PROVISIONING_PROFILE = "2093e9f8-127f-43c9-b678-30cc229d4310";
-				PROVISIONING_PROFILE_SPECIFIER = "radikker-appstore";
+				PROVISIONING_PROFILE_SPECIFIER = "radikker-dev";
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv7 arm64 armv7s";
 			};
